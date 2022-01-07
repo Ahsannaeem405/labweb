@@ -1,0 +1,102 @@
+<?php
+
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\CustomerController;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
+
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider within a group which
+| contains the "web" middleware group. Now create something great!
+|
+*/
+
+Route::get('/', function () {
+    return view('auth.login');
+});
+
+
+Route:: prefix('/admin')->middleware(['auth', 'admin'])->group(function () {
+
+
+    Route::get  ('/', [AdminController::class, 'index']);
+
+
+
+    Route::get('/add/operator', function () {
+        return view('admin.AddAdmin');
+    });
+    Route::get('/add/customer', function () {
+        return view('customer.addcustomer');
+    });
+
+    Route::get('/view/operator', function () {
+        return view('admin.viewAdmin');
+    });
+
+
+    Route::get('/edit_profile', function () {
+        return view('admin.edit_profile');
+    });
+
+
+    Route::Post('/saveAdmin', [AdminController::class, 'create'])->name('saveAdmin');
+    Route::get('/delete/{id}', [AdminController::class, 'destroy'])->name('delete');
+
+    Route::get('/edit/{id}', [AdminController::class, 'edit'])->name('edit');
+    Route::post('/update', [AdminController::class, 'update'])->name('update');
+
+    Route::post('/add_customer', [CustomerController::class, 'create'])->name('customer');
+
+    Route::get('/view/customer', [CustomerController::class, 'index']);
+
+    Route::get('/customers', [CustomerController::class, 'view']);
+
+
+
+
+
+});
+
+
+Route:: prefix('/operator')->middleware(['auth', 'operator'])->group(function () {
+
+    Route::get  ('/', [AdminController::class, 'index']);
+
+    Route::get('/add/customer', function () {
+        return view('customer.addcustomer');
+    });
+    Route::get('/edit_profile', function () {
+        return view('admin.edit_profile');
+    });
+
+    Route::post('/add_customer', [CustomerController::class, 'create'])->name('customer');
+
+    Route::get('/view/customer', [CustomerController::class, 'index']);
+
+    Route::get('/customers', [CustomerController::class, 'view']);
+
+
+
+});
+
+
+
+Route::get('/edit/customer/{id}', [CustomerController::class, 'edit']);
+Route::Post('customer/update', [CustomerController::class, 'update']);
+
+
+
+
+
+
+// operator
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
