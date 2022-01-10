@@ -10,6 +10,11 @@ use Illuminate\Support\Facades\Mail;
 
 class orderController extends Controller
 {
+
+    public function report($id)
+    {
+return view('report.report');
+    }
     public function order(Request $request,$id)
     {
         $customer=Customer::find($id);
@@ -66,7 +71,8 @@ class orderController extends Controller
     {
         $customer=Customer::find($id);
         $email=$customer->email;
-        $pdf = \PDF::loadView('pdf.report');
+        $host='https://'.\request()->getHost()."/report/$id";
+        $pdf = \PDF::loadView('pdf.report',compact('host'));
 
 
         $rand= rand(0, 99999999999999);
@@ -83,10 +89,17 @@ class orderController extends Controller
 
         Mail::to($email)->send(new result($rand));
 
-        $customer->step=4;
+        $customer->step=5;
         $customer->date=Carbon::now();
         $customer->update();
         return back()->with('success','Release send successfully');
+
+    }
+
+    public function released()
+    {
+        $customer = Customer::where('step',5)->get();
+        return view('orders.Released', compact('customer'));
 
     }
 

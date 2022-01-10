@@ -2,6 +2,7 @@
 <html>
 <head>
     <title>Hi</title>
+    <link href="https://chart.googleapis.com/chart?chs=186x189&cht=qr&chl=http%3A%2F%2Fwww.google.com%2F&choe=UTF-8">
 </head>
 <body>
 
@@ -11,8 +12,7 @@
         <thead>
           <tr>
             <th style="text-align: right;padding-right: 100px;">
-                <img src="data:image/png;base64, {!! base64_encode(QrCode::format('png')->size(100)->generate('QrCode as PNG image!')) !!}" />
-
+                <img class="text-center" src="https://chart.googleapis.com/chart?chs=186x189&cht=qr&chl={{$host}}&choe=UTF-8" title="ACD Deposit Address" />
 
 
           </tr>

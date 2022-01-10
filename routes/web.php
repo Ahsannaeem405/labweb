@@ -17,12 +17,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('auth.login');
+    return view('welcome');
 });
 
 
-Route:: prefix('/admin')->middleware(['auth', 'admin'])->group(function () {
 
+Route:: prefix('/admin')->middleware(['auth', 'admin'])->group(function () {
 
     Route::get  ('/', [AdminController::class, 'index']);
 
@@ -57,11 +57,35 @@ Route:: prefix('/admin')->middleware(['auth', 'admin'])->group(function () {
 
     Route::get('/customers', [CustomerController::class, 'view']);
 
+    Route::get('/edit/customer/{id}', [CustomerController::class, 'edit']);
+    Route::Post('customer/update', [CustomerController::class, 'update']);
+    Route::Post('place/order/{id}', [\App\Http\Controllers\orderController::class, 'order']);
+
+    //invoice
+    Route::get('pending/invoice', [\App\Http\Controllers\orderController::class, 'invoice_pending']);
+    Route::post('pay/invoice/{id}', [\App\Http\Controllers\orderController::class, 'invoice_pay']);
+
+    //results
+    Route::get('pending/results', [\App\Http\Controllers\orderController::class, 'result_pending']);
+    Route::post('add/results/{id}', [\App\Http\Controllers\orderController::class, 'result_add']);
+
+    //pending release
+
+
+    Route::get('pending/release', [\App\Http\Controllers\orderController::class, 'pending_release']);
+    Route::get('/release/send/{id}', [\App\Http\Controllers\orderController::class, 'release_send']);
+
+    //released
+
+
+    Route::get('released', [\App\Http\Controllers\orderController::class, 'released']);
 
 
 
 
 });
+
+
 
 
 Route:: prefix('/operator')->middleware(['auth', 'operator'])->group(function () {
@@ -117,6 +141,11 @@ Route:: prefix('/operator')->middleware(['auth', 'operator'])->group(function ()
         Route::get('pending/release', [\App\Http\Controllers\orderController::class, 'pending_release']);
         Route::get('/release/send/{id}', [\App\Http\Controllers\orderController::class, 'release_send']);
 
+        //released
+
+
+        Route::get('released', [\App\Http\Controllers\orderController::class, 'released']);
+
 
 });
 
@@ -134,3 +163,5 @@ Route:: prefix('/operator')->middleware(['auth', 'operator'])->group(function ()
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('report/{id}',[\App\Http\Controllers\orderController::class,'report']);

@@ -75,6 +75,12 @@
                     <span class="menu-item-label"> Pending Release</span>
                 </div><!-- menu-item -->
             </a>
+            <a href="{{ url("/$role/released") }}" class="br-menu-link">
+                <div class="br-menu-item">
+                    <i class="fa fa-users" aria-hidden="true"></i>
+                    <span class="menu-item-label"> Released</span>
+                </div><!-- menu-item -->
+            </a>
 
 
 

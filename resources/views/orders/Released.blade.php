@@ -29,6 +29,35 @@
         }
 
 
+
+
+
+        body input[type=radio] {
+            display: none;
+        }
+
+
+
+
+        body input + div + div label:first-child {
+            float: left;
+            box-shadow: inset 0 0 0 4px #1597ff, 0 15px 15px -10px rgba(0, 125, 225, 0.375);
+        }
+        body input + div + div label:last-child {
+            float: right;
+        }
+        body input#fat:checked ~ div + div label:first-child {
+            box-shadow: inset 0 0 0 4px #1597ff, 0 15px 15px -10px rgba(0, 125, 225, 0.375);
+        }
+        body input#fat:checked ~ div + div label:last-child {
+            box-shadow: inset 0 0 0 0px #1597ff, 0 10px 15px -20px rgba(21, 151, 255, 0);
+        }
+        body input#fit:checked ~ div + div label:first-child {
+            box-shadow: inset 0 0 0 0px #1597ff, 0 10px 15px -20px rgba(21, 151, 255, 0);
+        }
+        body input#fit:checked ~ div + div label:last-child {
+            box-shadow: inset 0 0 0 4px #1597ff, 0 15px 15px -10px rgba(0, 125, 225, 0.375);
+        }
     </style>
     <!-- ########## START: LEFT PANEL ########## -->
 
@@ -46,7 +75,7 @@
         <div class="br-pagebody">
             @include('partials.component')
             <div class="br-section-wrapper table-responsive">
-                <h6 class="tx-gray-800 tx-uppercase tx-bold tx-14 mg-b-10">View Pending Release</h6>
+                <h6 class="tx-gray-800 tx-uppercase tx-bold tx-14 mg-b-10">View Released </h6>
 
                 <div class="" style="width: 100%;
                         overflow: auto;    overflow-y: hidden!important;">
@@ -59,8 +88,8 @@
                             <th class="">E-mail</th>
                             <th class="">Test</th>
                             <th class="">Amount</th>
+                            <th class="">Status</th>
                             <th class="">Result</th>
-                            <th class="">Action</th>
 
 
                         </tr>
@@ -71,7 +100,6 @@
                         $i = 1;
 
                         ?>
-
                         @php $role=\Illuminate\Support\Facades\Auth::user()->role; @endphp
 
                         @foreach ($customer as $views)
@@ -84,28 +112,17 @@
                                 <td>{{ $views->email }}</td>
 
 
-                                <td>{{ $views->test_type }}</td>
                                 <td>{{ $views->payment_amount }}$</td>
+                                <td>{{ $views->test_type }}</td>
+                                <td><span class="p-2" style="background-color: #adeaa8;color: white;border-radius: 5px">Released</span></td>
 
 
                                 <td><span class="p-2"
                                           style="@if($views->display_status=='negative')  background-color: #da5920;  @else  background-color: #adeaa8; @endif color: white;border-radius: 5px">{{ $views->display_status }}</span>
                                 </td>
 
-
-                                <td>
-
-
-
-                                    <a href="{{url("$role/release/send/$views->id")}}">   <button
-                                        class="btn btn-primary">
-                                        Notify him
-                                    </button></a>
-
-
-                                </td>
-
                             </tr>
+
 
 
                         @endforeach
