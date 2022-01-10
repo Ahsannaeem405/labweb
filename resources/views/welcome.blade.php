@@ -607,9 +607,9 @@
             </div>
             <div class="col-12 pt-3">
                 <p>Fever</p>
-                <input type="radio" name="" value="">
+                <input type="radio" name="fever" value="">
                 <label for="html">Yes</label><br>
-                <input type="radio" name="" value="">
+                <input type="radio" name="fever" value="">
                 <label for="html">No</label><br>
             </div>
             <div class="col-12 pt-3">
@@ -923,6 +923,9 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
     $(".adult_btn").click(function () {
+
+
+
         $('.adult').css('display', 'block');
         $('.maindata').css('display', 'none');
 
@@ -997,9 +1000,22 @@
             var some_var = $(this).attr('att');
             for (let index = 1; index <= some_var; index++) {
 
+                var main=index;
+               var id='#minordata'+index+'';
+                var html='<div id="minordata'+index+'">';
+                 html+= $('.minorform').html();
+                 html+= '</div>';
 
-                var html= $('.minorform').html();
+
                 $('.finalResult').append(html);
+
+                $(id).find('input').each(function(index, value) {
+                    var val=$(this).attr('name');
+                    val=$(this).attr('name',val+'_'+main);
+
+                });
+
+
             }
         });
 
@@ -1013,9 +1029,20 @@
         var some_var = $(this).attr('att');
         for (let index = 1; index <= some_var; index++) {
 
+            var main=index;
+            var id='#minordata'+index+'';
+            var html='<div id="minordata'+index+'">';
+            html+= $('.minorform').html();
+            html+= '</div>';
 
-            var html= $('.minorform').html();
+
             $('.finalResult').append(html);
+
+            $(id).find('input').each(function(index, value) {
+                var val=$(this).attr('name');
+                val=$(this).attr('name',val+'_'+main);
+
+            });
         }
     });
 
