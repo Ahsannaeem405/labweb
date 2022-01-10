@@ -93,7 +93,9 @@
 
 
                                 <td>
-
+                                    {!! QrCode::size(100)
+            ->format('png')
+            ->generate('ItSolutionStuff.com') !!}
 
 
                                     <a href="{{url("$role/release/send/$views->id")}}">   <button
