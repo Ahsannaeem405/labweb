@@ -39,18 +39,14 @@ td.sorting_1
 
     @include('admin.layouts.header')
 
-    <?php
 
-    $view = App\Models\User::where('role', 'user')->get();
-
-    ?>
 
     <div class="br-mainpanel">
 
 
         <div class="br-pagebody">
             <div class="br-section-wrapper table-responsive">
-                <h6 class="tx-gray-800 tx-uppercase tx-bold tx-14 mg-b-10">View Users</h6>
+                <h6 class="tx-gray-800 tx-uppercase tx-bold tx-14 mg-b-10">View customer</h6>
 
                 <div class="" style="width: 100%;
                         overflow: auto;    overflow-y: hidden!important;">
@@ -62,7 +58,7 @@ td.sorting_1
                                 <th class="">E-mail</th>
                                 <th class="">Address</th>
                                 <th class="">Date of Birth</th>
-                                <th class="">Passport</th>
+
                                 <th class="">Gender</th>
 
                                 <th class="">Status</th>
@@ -88,7 +84,7 @@ td.sorting_1
                                     <td>{{ $views->email }}</td>
                                     <td>{{ $views->address }}</td>
                                     <td>{{ $views->dob }}</td>
-                                    <td>{{ $views->passport }}</td>
+
                                     <td>{{ $views->gender }}</td>
 
                                     <td>
@@ -101,9 +97,11 @@ td.sorting_1
                                     </td>
 
                                     <td>
-                                        <a href="{{url('edit/customer/'.$views->id)}}" class="btn btn-primary"> Edit </a>
+                                        @php $role=\Illuminate\Support\Facades\Auth::user()->role; @endphp
 
-                                        <a href="{{url('delete/customer/'.$views->id)}}" class="btn   " style="     color: white;   background: #00b297;border-color: #00b297;"> Delete </a>
+                                        <a href="{{url(''.$role.'/edit/customer/'.$views->id)}}" > <i class="fa fa-edit"></i> </a>
+
+                                        <a href="{{url(''.$role.'delete/customer/'.$views->id)}}" style="color: red"> <i class="fa fa-trash"></i> </a>
                                     </td>
 
                                 </tr>

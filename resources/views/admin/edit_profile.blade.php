@@ -27,8 +27,9 @@ $user = App\Models\User::find(Auth::user()->id);
           <h6 class="tx-gray-800 tx-uppercase tx-bold tx-14 mg-b-10">Edit Profile</h6>
 
           <div class="form-layout form-layout-1">
+              @php $role=\Illuminate\Support\Facades\Auth::user()->role; @endphp
 
-            <form method="POST" action="{{url('admin/update')}}" >
+            <form method="POST" action="{{url('/'.$role.'/update')}}" >
                 @csrf              @if(session()->has('success'))
                 <div class="alert alert-success">
                     {{ session()->get('success') }}

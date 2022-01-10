@@ -15,17 +15,15 @@
           </a>
           <div class="dropdown-menu dropdown-menu-header wd-200">
             <ul class="list-unstyled user-profile-nav">
-                @if(Auth::user()->role == 'user')
-                <li><a href="{{url('/user/edit_profile')}}"><i class="icon ion-ios-person"></i> Edit Profile</a></li>
 
-                @else
-              <li><a href="{{url('/admin/edit_profile')}}"><i class="icon ion-ios-person"></i> Edit Profile</a></li>
-@endif
+                @php $role=\Illuminate\Support\Facades\Auth::user()->role; @endphp
+              <li><a href="{{url('/'.$role.'/edit_profile')}}"><i class="icon ion-ios-person"></i> Edit Profile</a></li>
+
               <li>
                 <a class="dropdown-item" href="{{ route('logout') }}"
                 onclick="event.preventDefault();
                               document.getElementById('logout-form').submit();">
-              <i class="icon ion-power"></i>   {{ __('Sign Out  ') }}
+              <i class="icon ion-power"></i>   {{ __('Sign Out') }}
              </a>
 
              <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">

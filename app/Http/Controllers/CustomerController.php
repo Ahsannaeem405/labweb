@@ -15,7 +15,7 @@ class CustomerController extends Controller
      */
     public function index()
     {
-        $customer = Customer::all();
+        $customer = Customer::where('step',1)->get();
         return view('customer.view_customer', compact('customer'));
 
     }
@@ -66,7 +66,7 @@ class CustomerController extends Controller
      */
     public function view(Customer $customer)
     {
-        $customer = Customer::all();
+        $customer = Customer::where('step',1)->get();
         return view('customer.view_customer2', compact('customer'));
 
     }
@@ -110,7 +110,7 @@ class CustomerController extends Controller
         $cus->passport =$request->passport;
 
         $cus->save();
-        return back()->with('success', 'Added Successfully');
+        return back()->with('success', 'updated Successfully');
 
     }
 

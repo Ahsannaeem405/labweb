@@ -1,23 +1,23 @@
-@if (Auth::user()->role != 'opereator')
+
     <div class="br-logo"><a href=""><span>[</span>{{ Auth::user()->name }}<span>]</span></a></div>
 
-@else
-    <div class="br-logo"><a href=""><span>[</span>{{ Auth::user()->name }}<span>]</span></a></div>
 
-@endif
+
+
 
 <div class="br-sideleft overflow-y-auto">
 
-    @if (Auth::user()->role != 'operator')
+
+    @php $role=\Illuminate\Support\Facades\Auth::user()->role; @endphp
 
         <div class="br-sideleft-menu" style="    margin-top: 15px;">
-            <a href="{{ url('/admin') }}" class="br-menu-link active">
+            <a href="{{ url("$role") }}" class="br-menu-link active">
                 <div class="br-menu-item">
                     <i class="fa fa-dashboard"></i>
                     <span class="menu-item-label">Dashboard</span>
                 </div><!-- menu-item -->
             </a><!-- br-menu-link -->
-
+@if($role=='admin')
             <a href="{{ url('/admin/add/operator') }}" class="br-menu-link">
                 <div class="br-menu-item">
                     <i class="fa fa-plus" aria-hidden="true"></i>
@@ -30,14 +30,14 @@
                     <span class="menu-item-label">View Operator</span>
                 </div><!-- menu-item -->
             </a><!-- br-menu-link -->
-
-            <a href="{{ url('/admin/view/customer') }}" class="br-menu-link">
+@endif
+            <a href="{{ url("/$role/view/customer") }}" class="br-menu-link">
                 <div class="br-menu-item">
                     <i class="fa fa-search" aria-hidden="true"></i>
                     <span class="menu-item-label"> Customer Lookup</span>
                 </div><!-- menu-item -->
             </a><!-- br-menu-link -->
-            <a href="{{ url('/admin/add/customer') }}" class="br-menu-link">
+            <a href="{{ url("/$role/add/customer") }}" class="br-menu-link">
                 <div class="br-menu-item">
                     <i class="fa fa-plus" aria-hidden="true"></i>
                     {{-- <i class="menu-item-icon icon ion-ios-email-outline tx-24"></i> --}}
@@ -48,12 +48,34 @@
 
 
 
-            <a href="{{ url('/admin/customers') }}" class="br-menu-link">
+            <a href="{{ url("/$role/customers") }}" class="br-menu-link">
                 <div class="br-menu-item">
                     <i class="fa fa-users" aria-hidden="true"></i>
                     <span class="menu-item-label"> Customer</span>
                 </div><!-- menu-item -->
             </a><!-- br-menu-link -->
+
+            <p>Orders</p>
+
+            <a href="{{ url("/$role/pending/invoice") }}" class="br-menu-link">
+                <div class="br-menu-item">
+                    <i class="fa fa-users" aria-hidden="true"></i>
+                    <span class="menu-item-label"> Pending to invoice</span>
+                </div><!-- menu-item -->
+            </a>
+            <a href="{{ url("/$role/pending/results") }}" class="br-menu-link">
+                <div class="br-menu-item">
+                    <i class="fa fa-users" aria-hidden="true"></i>
+                    <span class="menu-item-label"> Pending Results</span>
+                </div><!-- menu-item -->
+            </a>
+            <a href="{{ url("/$role/pending/release") }}" class="br-menu-link">
+                <div class="br-menu-item">
+                    <i class="fa fa-users" aria-hidden="true"></i>
+                    <span class="menu-item-label"> Pending Release</span>
+                </div><!-- menu-item -->
+            </a>
+
 
 
 
@@ -61,45 +83,7 @@
         </div><!-- br-sideleft -->
         <br>
 
-    @else
-
-    <div class="br-sideleft-menu" style="    margin-top: 15px;">
-        <a href="{{ url('/operator') }}" class="br-menu-link active">
-            <div class="br-menu-item">
-                <i class="fa fa-dashboard"></i>
-                <span class="menu-item-label">Dashboard</span>
-            </div><!-- menu-item -->
-        </a><!-- br-menu-link -->
-
-        <a href="{{ url('/operator/view/customer') }}" class="br-menu-link">
-            <div class="br-menu-item">
-                <i class="fa fa-search" aria-hidden="true"></i>
-                <span class="menu-item-label"> Customer Lookup</span>
-            </div><!-- menu-item -->
-        </a><!-- br-menu-link -->
-        <a href="{{ url('/operator/add/customer') }}" class="br-menu-link">
-            <div class="br-menu-item">
-                <i class="fa fa-plus" aria-hidden="true"></i>
-                {{-- <i class="menu-item-icon icon ion-ios-email-outline tx-24"></i> --}}
-                <span class="menu-item-label">New Customer</span>
-            </div><!-- menu-item -->
-        </a><!-- br-menu-link -->
 
 
 
-
-        <a href="{{ url('/operator/customers') }}" class="br-menu-link">
-            <div class="br-menu-item">
-                <i class="fa fa-users" aria-hidden="true"></i>
-                <span class="menu-item-label"> Customer</span>
-            </div><!-- menu-item -->
-        </a><!-- br-menu-link -->
-
-
-        <br>
-    </div>
-    <br>
-
-
-    @endif
 </div><!-- br-sideleft -->

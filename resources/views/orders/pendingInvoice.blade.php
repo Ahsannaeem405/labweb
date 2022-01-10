@@ -46,7 +46,7 @@
         <div class="br-pagebody">
             @include('partials.component')
             <div class="br-section-wrapper table-responsive">
-                <h6 class="tx-gray-800 tx-uppercase tx-bold tx-14 mg-b-10">View Customers</h6>
+                <h6 class="tx-gray-800 tx-uppercase tx-bold tx-14 mg-b-10">View Pending Invoices</h6>
 
                 <div class="" style="width: 100%;
                         overflow: auto;    overflow-y: hidden!important;">
@@ -54,13 +54,12 @@
                         <thead>
                         <tr>
                             <th class="">Id</th>
+                            <th class="">Date</th>
                             <th class=""> Name</th>
                             <th class="">E-mail</th>
-                            <th class="">Address</th>
-                            <th class="">Date of Birth</th>
-                            <th class="">Passport</th>
-                            <th class="">Gender</th>
-                            <th class="">Status</th>
+
+                            <th class="">Test</th>
+
                             <th class="">Action</th>
 
 
@@ -78,26 +77,20 @@
 
                             <tr>
                                 <td>{{ $i++ }}</td>
+                                <td>{{ $views->date }}</td>
                                 <td>{{ $views->name }}</td>
 
                                 <td>{{ $views->email }}</td>
-                                <td>{{ $views->address }}</td>
-                                <td>{{ $views->dob }}</td>
-                                <td>{{ $views->passport }}</td>
-                                <td>{{ $views->gender }}</td>
-                                <td>
-                                    @if($views->status == 'Verified')
-                                        <Button class="btn btn-success">{{ $views->status }}</Button>
-                                    @else
-                                        <Button class="btn btn-danger">{{'Unverified' }}</Button>
 
-                                    @endif
-                                </td>
+
+                                <td>{{ $views->test_type }}</td>
+
+
                                 <td>
 
                                     <button data-toggle="modal" data-target="#exampleModal{{$views->id}}"
-                                            @if($views->status!='Verified') disabled @endif class="btn btn-primary">
-                                        Order Now
+                                            class="btn btn-primary">
+                                        Pay Now
                                     </button>
 
 
@@ -108,24 +101,29 @@
                             <div class="modal fade" id="exampleModal{{$views->id}}" tabindex="-1" role="dialog"
                                  aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog" role="document">
-                                    <div class="modal-content" style="width: 20rem">
+                                    <div class="modal-content" style="width: 30rem">
                                         <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLabel"> order now</h5>
+                                            <h5 class="modal-title" id="exampleModalLabel"> Pay now</h5>
                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                 <span aria-hidden="true">&times;</span>
                                             </button>
                                         </div>
                                         <div class="modal-body">
-                                            <form method="post" action="{{url("$role/place/order/$views->id")}}">
+                                            <form method="post" action="{{url("$role/pay/invoice/$views->id")}}">
                                                 @csrf
-                                                <label>Please select test category</label>
-                                                <select class="form-control" name="test_type" required>
+                                                <label>Please select Payment Method</label>
+                                                <select class="form-control" name="payment_method" required>
                                                     <option selected value="">Please select</option>
-                                                    <option value="test1">test1</option>
-                                                    <option value="test1">test2</option>
-                                                    <option value="test3">test3</option>
+                                                    <option value="card">card</option>
+                                                    <option value="cash">cash</option>
+                                                    <option value="others">others</option>
                                                 </select>
+                                                <lable>Please enter Amount</lable>
+                                                <input type="number" name="payment_amount" value="0" required min="1" class="form-control" placeholder="Please enter amount">
 
+                                                <lable>Payment detail</lable>
+
+                                                <textarea class="form-control" name="payment_detail" id="" cols="10" rows="5" placeholder="payment detail"></textarea>
 
                                         </div>
                                         <div class="modal-footer">

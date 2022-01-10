@@ -68,12 +68,30 @@ Route:: prefix('/operator')->middleware(['auth', 'operator'])->group(function ()
 
     Route::get  ('/', [AdminController::class, 'index']);
 
+
+
+    Route::get('/add/operator', function () {
+        return view('admin.AddAdmin');
+    });
     Route::get('/add/customer', function () {
         return view('customer.addcustomer');
     });
+
+    Route::get('/view/operator', function () {
+        return view('admin.viewAdmin');
+    });
+
+
     Route::get('/edit_profile', function () {
         return view('admin.edit_profile');
     });
+
+
+    Route::Post('/saveAdmin', [AdminController::class, 'create'])->name('saveAdmin');
+    Route::get('/delete/{id}', [AdminController::class, 'destroy'])->name('delete');
+
+    Route::get('/edit/{id}', [AdminController::class, 'edit'])->name('edit');
+    Route::post('/update', [AdminController::class, 'update'])->name('update');
 
     Route::post('/add_customer', [CustomerController::class, 'create'])->name('customer');
 
@@ -81,14 +99,30 @@ Route:: prefix('/operator')->middleware(['auth', 'operator'])->group(function ()
 
     Route::get('/customers', [CustomerController::class, 'view']);
 
+    Route::get('/edit/customer/{id}', [CustomerController::class, 'edit']);
+    Route::Post('customer/update', [CustomerController::class, 'update']);
+    Route::Post('place/order/{id}', [\App\Http\Controllers\orderController::class, 'order']);
+
+    //invoice
+    Route::get('pending/invoice', [\App\Http\Controllers\orderController::class, 'invoice_pending']);
+    Route::post('pay/invoice/{id}', [\App\Http\Controllers\orderController::class, 'invoice_pay']);
+
+    //results
+    Route::get('pending/results', [\App\Http\Controllers\orderController::class, 'result_pending']);
+    Route::post('add/results/{id}', [\App\Http\Controllers\orderController::class, 'result_add']);
+
+    //pending release
+
+
+        Route::get('pending/release', [\App\Http\Controllers\orderController::class, 'pending_release']);
+        Route::get('/release/send/{id}', [\App\Http\Controllers\orderController::class, 'release_send']);
 
 
 });
 
 
 
-Route::get('/edit/customer/{id}', [CustomerController::class, 'edit']);
-Route::Post('customer/update', [CustomerController::class, 'update']);
+
 
 
 

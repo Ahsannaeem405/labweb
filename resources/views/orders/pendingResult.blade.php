@@ -29,6 +29,35 @@
         }
 
 
+
+
+
+        body input[type=radio] {
+            display: none;
+        }
+
+
+
+
+        body input + div + div label:first-child {
+            float: left;
+            box-shadow: inset 0 0 0 4px #1597ff, 0 15px 15px -10px rgba(0, 125, 225, 0.375);
+        }
+        body input + div + div label:last-child {
+            float: right;
+        }
+        body input#fat:checked ~ div + div label:first-child {
+            box-shadow: inset 0 0 0 4px #1597ff, 0 15px 15px -10px rgba(0, 125, 225, 0.375);
+        }
+        body input#fat:checked ~ div + div label:last-child {
+            box-shadow: inset 0 0 0 0px #1597ff, 0 10px 15px -20px rgba(21, 151, 255, 0);
+        }
+        body input#fit:checked ~ div + div label:first-child {
+            box-shadow: inset 0 0 0 0px #1597ff, 0 10px 15px -20px rgba(21, 151, 255, 0);
+        }
+        body input#fit:checked ~ div + div label:last-child {
+            box-shadow: inset 0 0 0 4px #1597ff, 0 15px 15px -10px rgba(0, 125, 225, 0.375);
+        }
     </style>
     <!-- ########## START: LEFT PANEL ########## -->
 
@@ -46,7 +75,7 @@
         <div class="br-pagebody">
             @include('partials.component')
             <div class="br-section-wrapper table-responsive">
-                <h6 class="tx-gray-800 tx-uppercase tx-bold tx-14 mg-b-10">View Customers</h6>
+                <h6 class="tx-gray-800 tx-uppercase tx-bold tx-14 mg-b-10">View Pending Results</h6>
 
                 <div class="" style="width: 100%;
                         overflow: auto;    overflow-y: hidden!important;">
@@ -54,12 +83,11 @@
                         <thead>
                         <tr>
                             <th class="">Id</th>
+                            <th class="">Date</th>
                             <th class=""> Name</th>
                             <th class="">E-mail</th>
-                            <th class="">Address</th>
-                            <th class="">Date of Birth</th>
-                            <th class="">Passport</th>
-                            <th class="">Gender</th>
+                            <th class="">Test</th>
+                            <th class="">Amount</th>
                             <th class="">Status</th>
                             <th class="">Action</th>
 
@@ -78,26 +106,22 @@
 
                             <tr>
                                 <td>{{ $i++ }}</td>
+                                <td>{{ $views->date }}</td>
                                 <td>{{ $views->name }}</td>
 
                                 <td>{{ $views->email }}</td>
-                                <td>{{ $views->address }}</td>
-                                <td>{{ $views->dob }}</td>
-                                <td>{{ $views->passport }}</td>
-                                <td>{{ $views->gender }}</td>
-                                <td>
-                                    @if($views->status == 'Verified')
-                                        <Button class="btn btn-success">{{ $views->status }}</Button>
-                                    @else
-                                        <Button class="btn btn-danger">{{'Unverified' }}</Button>
 
-                                    @endif
-                                </td>
+
+                                <td>{{ $views->payment_amount }}$</td>
+                                <td>{{ $views->test_type }}</td>
+                                <td><span class="p-2" style="background-color: #adeaa8;color: white;border-radius: 5px">paid</span></td>
+
+
                                 <td>
 
                                     <button data-toggle="modal" data-target="#exampleModal{{$views->id}}"
-                                            @if($views->status!='Verified') disabled @endif class="btn btn-primary">
-                                        Order Now
+                                            class="btn btn-primary">
+                                        Set Result
                                     </button>
 
 
@@ -108,24 +132,27 @@
                             <div class="modal fade" id="exampleModal{{$views->id}}" tabindex="-1" role="dialog"
                                  aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog" role="document">
-                                    <div class="modal-content" style="width: 20rem">
+                                    <div class="modal-content" style="width: 30rem">
                                         <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLabel"> order now</h5>
+                                            <h5 class="modal-title" id="exampleModalLabel">  Set Test Result</h5>
                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                 <span aria-hidden="true">&times;</span>
                                             </button>
                                         </div>
                                         <div class="modal-body">
-                                            <form method="post" action="{{url("$role/place/order/$views->id")}}">
+                                            <form method="post" action="{{url("$role/add/results/$views->id")}}">
                                                 @csrf
-                                                <label>Please select test category</label>
-                                                <select class="form-control" name="test_type" required>
-                                                    <option selected value="">Please select</option>
-                                                    <option value="test1">test1</option>
-                                                    <option value="test1">test2</option>
-                                                    <option value="test3">test3</option>
-                                                </select>
+                                                <input type="radio" checked value="negative" id="fat" name="result">
+                                                <input type="radio" value="positive" id="fit" name="result">
+                                                <div>
 
+                                                </div>
+                                                <div>
+                                                    <label style="width: 50%;
+    text-align: center;" for="fat"><p class="p-3" style="font-size: 20px;color: green">Negative</p></label>
+                                                    <label style="width: 50%;
+    text-align: center;" for="fit"><p class="p-3" style="font-size: 20px;color: red">Positive</p></label>
+                                                </div>
 
                                         </div>
                                         <div class="modal-footer">

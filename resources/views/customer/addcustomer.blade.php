@@ -36,7 +36,8 @@
                 <h6 class="tx-gray-800 tx-uppercase tx-bold tx-14 mg-b-10">Add Customer</h6>
 
                 <div class="form-layout form-layout-1">
-                    <form method="POST" action="{{ url('admin/add_customer') }}">
+                    @php $role=\Illuminate\Support\Facades\Auth::user()->role; @endphp
+                    <form method="POST" action="{{ url("$role/add_customer") }}">
                         @csrf @if (session()->has('success'))
                             <div class="alert alert-success">
                                 {{ session()->get('success') }}
