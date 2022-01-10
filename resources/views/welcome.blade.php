@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="en">
 
@@ -25,15 +24,18 @@
     .heading h4 {
         color: #33446F !important;
     }
-    .Minor_form2{
+
+    .Minor_form2 {
         display: none;
     }
+
     .row {
         border-radius: 8px;
         box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
         margin-top: 4rem;
     }
-    .btn-dark{
+
+    .btn-dark {
         min-width: 80% !important;
     }
 
@@ -56,6 +58,7 @@
     .minors {
         display: none;
     }
+
     .minors1 {
         display: none;
     }
@@ -65,11 +68,10 @@
     }
 
 
-
-
     .Minor_div {
         display: none;
     }
+
     .minors51 {
         display: none;
     }
@@ -164,65 +166,39 @@
         </div>
 
         <div class="col-lg-4  col-12 pt-2 p-0  text-center">
-            <button class="btn btn-dark  minor_button">Adulto y menores </button>
+            <button class="btn btn-dark  minor_button">Adulto y menores</button>
         </div>
-        <!-- <div class="col-lg-4  col-12 pt-2 p-0  text-center">
-            <button class="btn btn-dark  adultorminor_btn ">Adulto
-                y
-                menores</button>
-        </div> -->
 
-
-        <!-- <div class="col-12 pt-4" style="padding-left: 20rem;">
-            <div class="d-flex">
-                <button class="btn btn-dark adult_btn">Adulto</button> <button
-                    class="btn btn-dark ml-4 minor_button">Menores</button> <button class="btn btn-dark ml-4 adultorminor_btn">Adulto
-                    y
-                    menores</button>
-            </div>
-
-        </div> -->
-
-        <!-- <div class="col-12 pt-4 minors" style="padding-left: 13rem;">
-            <div class="d-flex">
-                <button class="btn btn-dark minor_btn minor_btn1" att="1">1 Minor</button> <button
-                    class="btn btn-dark ml-4 minor_btn minor_btn2" att="2">2 Minors</button> <button
-                    class="btn btn-dark ml-4 minor_btn minor_btn3" att="3">3 Minors</button><button
-                    class="btn btn-dark ml-4 minor_btn minor_btn4" att="4">4 Minors</button><button
-                    class="btn btn-dark ml-4 minor_btn minor_btn5" att="5">5 Minors</button>
-            </div>
-
-        </div> -->
-
+{{--adults buttons--}}
         <div class="col-lg-2 offset-lg-1 col-12 minors  pt-2 text-center">
-            <button class="btn btn-dark minor_btn minors2  minor_btn1" att="1">1 Minor</button>
+            <button class="btn btn-dark  minors2  minor_btn" att="1">1 Minor</button>
         </div>
         <div class="col-lg-2  col-12 pt-2 minors  text-center">
-            <button class="btn btn-dark  minor_btn minors2 minor_btn2" att="2">2 Minors</button>
+            <button class="btn btn-dark   minors2 minor_btn" att="2">2 Minors</button>
         </div>
         <div class="col-lg-2  col-12 pt-2 minors  text-center">
-            <button class="btn btn-dark  minor_btn minors2 minor_btn3" att="3">3 Minors</button>
+            <button class="btn btn-dark   minors2 minor_btn" att="3">3 Minors</button>
         </div>
         <div class="col-lg-2  col-12 pt-2 minors  text-center">
-            <button class="btn btn-dark  minor_btn minors2 minor_btn4" att="4">4 Minors</button>
+            <button class="btn btn-dark   minors2 minor_btn" att="4">4 Minors</button>
         </div>
         <div class="col-lg-2  col-12 pt-2 minors  text-center">
-            <button class="btn btn-dark  minor_btn minors2 minor_btn5" att="5">5 Minors</button>
+            <button class="btn btn-dark   minors2 minor_btn" att="5">5 Minors</button>
         </div>
         <div class="col-lg-2 offset-lg-1 col-12 minors  pt-2 text-center">
-            <button class="btn btn-dark minor_btn minors2 minors22 minor_btn6" att="6">6 Minors</button>
+            <button class="btn btn-dark  minors2 minors22 minor_btn" att="6">6 Minors</button>
         </div>
         <div class="col-lg-2  col-12 pt-2 minors  text-center">
-            <button class="btn btn-dark  minor_btn minors2 minors22 minor_btn7" att="7">7 Minors</button>
+            <button class="btn btn-dark   minors2 minors22 minor_btn" att="7">7 Minors</button>
         </div>
         <div class="col-lg-2  col-12 pt-2 minors  text-center">
-            <button class="btn btn-dark  minor_btn minors2 minors22 minor_btn8" att="8">8 Minors</button>
+            <button class="btn btn-dark   minors2 minors22 minor_btn" att="8">8 Minors</button>
         </div>
         <div class="col-lg-2  col-12 pt-2 minors  text-center">
-            <button class="btn btn-dark  minor_btn minors2 minors22 minor_btn9" att="9">9 Minors</button>
+            <button class="btn btn-dark   minors2 minors22 minor_btn" att="9">9 Minors</button>
         </div>
         <div class="col-lg-2  col-12 pt-2 minors  text-center">
-            <button class="btn btn-dark  minor_btn minors2 minors22 minor_btn10" att="10">10 Minors</button>
+            <button class="btn btn-dark   minors2 minors22 minor_btn" att="10">10 Minors</button>
         </div>
 
         <div class="col-lg-12  col-12  minors  text-center">
@@ -236,43 +212,44 @@
 
         </div>
 
+{{--        minoor buttons--}}
+
         <div class="col-lg-2 offset-lg-1 col-12 minors1 pt-2 text-center">
-            <button class="btn btn-dark  minors5  minororad_btn1" att="1">1 Minor</button>
+            <button class="btn btn-dark  minors5  minororad_btn" att="1">1 Minor</button>
         </div>
         <div class="col-lg-2  col-12 pt-2 minors1 text-center">
-            <button class="btn btn-dark  minors5 minor_btn minororad_btn2" att="2">2 Minors</button>
+            <button class="btn btn-dark  minors5  minororad_btn" att="2">2 Minors</button>
         </div>
         <div class="col-lg-2  col-12 pt-2 minors1 text-center">
-            <button class="btn btn-dark minors5 minor_btn  minororad_btn3" att="3">3 Minors</button>
+            <button class="btn btn-dark minors5   minororad_btn" att="3">3 Minors</button>
         </div>
         <div class="col-lg-2  col-12 pt-2 minors1 text-center">
-            <button class="btn btn-dark minors5 minor_btn minororad_btn4" att="4">4 Minors</button>
+            <button class="btn btn-dark minors5  minororad_btn" att="4">4 Minors</button>
         </div>
         <div class="col-lg-2  col-12 pt-2 minors1 text-center">
-            <button class="btn btn-dark  minors5 minor_btn minororad_btn5" att="5">5 Minors</button>
+            <button class="btn btn-dark  minors5  minororad_btn" att="5">5 Minors</button>
         </div>
         <div class="col-lg-2  col-12 offset-lg-1 pt-2 minors1 text-center">
-            <button class="btn btn-dark  minors51 minor_btn minororad_btn2" att="6">6  Minors</button>
+            <button class="btn btn-dark  minors51  minororad_btn" att="6">6 Minors</button>
         </div>
         <div class="col-lg-2  col-12 pt-2 minors1 text-center">
-            <button class="btn btn-dark minors51 minor_btn  minororad_btn3" att="7">7 Minors</button>
+            <button class="btn btn-dark minors51   minororad_btn" att="7">7 Minors</button>
         </div>
         <div class="col-lg-2  col-12 pt-2 minors1 text-center">
-            <button class="btn btn-dark minors51 minor_btn minororad_btn4" att="8">8 Minors</button>
+            <button class="btn btn-dark minors51  minororad_btn" att="8">8 Minors</button>
         </div>
         <div class="col-lg-2  col-12 pt-2 minors1 text-center">
-            <button class="btn btn-dark  minors51 minor_btn minororad_btn5" att="9">9 Minors</button>
+            <button class="btn btn-dark  minors51  minororad_btn" att="9">9 Minors</button>
         </div>
         <div class="col-lg-2  col-12 pt-2 minors1 text-center">
-            <button class="btn btn-dark  minors51 minor_btn minororad_btn5" att="10">10 Minors</button>
+            <button class="btn btn-dark  minors51  minororad_btn" att="10">10 Minors</button>
         </div>
-
 
 
         <div class="col-lg-12  col-12  minors1 text-center">
             <div class="row" style="box-shadow: none;">
                 <div class="col-lg-2 offset-lg-5">
-                    <button class="btn btn-dark minor_btn minors5 minorsb">More Minors</button>
+                    <button class="btn btn-dark  minors5 minorsb">More Minors</button>
 
                 </div>
             </div>
@@ -377,11 +354,6 @@
             </div>
 
 
-
-
-
-
-
             <div class="col-12 pt-3">
                 <p>Náuseas *</p>
                 <input type="radio" name="" value="">
@@ -422,11 +394,6 @@
                 <input type="radio" name="" value="">
                 <label for="html">No</label><br>
             </div>
-
-
-
-
-
 
 
             <div class="col-12 pt-3">
@@ -526,12 +493,7 @@
                 <input type="radio" name="" value="">
                 <label for="html">RT-PCR 24hrs</label><br>
             </div>
-            <div class="col-12 pt-5">
-                <h5>
 
-                    Firma del cliente</h5>
-                <button class="ml-3 mt-2 btn btn-dark">Click to Sign</button>
-            </div>
 
         </div>
         <div class="row p-5 mt-5">
@@ -591,658 +553,10 @@
                 <input type="radio" name="gender" value="male"> Other<br>
             </div>
         </div>
-        <div class="row p-5 mt-5">
-            <div class="col-12">
-                <h1>Electronic signature acceptance</h1><br>
-                <input type="radio" name="gender" value="male"> By checking ts box, you agree that your electronic
-                signature will be used in place of your handwritten signature. If this is not what you want, you
-                have the right to ask to sign a paper copy instead. By checking this box, you warve this right Upon
-                acceptance, you may request in writing that we send you a paper copy of the electronic record. You
-                will not have to pay anything for such a copy, and you do not need any special software or hardware
-                to view it. Your acceptance of electronic signature for any document will remain in effect until
-                such time as you notify us in veriting that you no longer wish to use electronic signature. The
-                revocation of your acceptance will not entall any penalty for you
-            </div>
-        </div>
-        <center class="mt-5"><Button class="btn btn-dark">Accept Document</Button></center>
+
     </div>
 
-    <div class="Minor_form2">
-        <div class="append_minor">
-
-        </div>
-
-        <div class="row p-5 mt-5">
-            <div class="col-12">
-                <h1>Electronic signature acceptance</h1><br>
-                <input type="radio" name="gender" value="male"> By checking ts box, you agree that your electronic
-                signature will be used in place of your handwritten signature. If this is not what you want, you
-                have the right to ask to sign a paper copy instead. By checking this box, you warve this right Upon
-                acceptance, you may request in writing that we send you a paper copy of the electronic record. You
-                will not have to pay anything for such a copy, and you do not need any special software or hardware
-                to view it. Your acceptance of electronic signature for any document will remain in effect until
-                such time as you notify us in veriting that you no longer wish to use electronic signature. The
-                revocation of your acceptance will not entall any penalty for you
-            </div>
-        </div>
-        <center class="mt-5"><Button class="btn btn-dark">Accept Document</Button></center>
-    </div>
-
-    <div class="Minor_form">
-        <div class="row p-5">
-            <div class="col-12 ">
-                <h1>Nombre del cliente</h1>
-            </div>
-            <div class="col-lg-4 col-12 pt-2">
-                <input type="text" placeholder="Nombre" name="name" class="form-control">
-                <label for="">Nombre</label>
-
-            </div>
-            <div class="col-lg-4  col-12 pt-2">
-                <input type="text" placeholder="Segundo Nombre" name="secondname" class="form-control">
-                <label for="">Segundo Nombre</label>
-
-            </div>
-            <div class="col-lg-4  col-12 pt-2">
-                <input type="text" placeholder="Apellido" name="surname" class="form-control">
-                <label for="">Apellido</label>
-            </div>
-            <div class="col-lg-4  col-12 pt-3">
-                <input type="text" placeholder="Teléfono" name="phone" class="form-control">
-                <label for="">Teléfono</label>
-            </div>
-            <div class="col-12 pt-3">
-                <h1>Fecha de nacimiento del cliente</h1>
-            </div>
-            <div class="col-6 pt-3">
-                <input type="date" value="date" class="form-control">
-            </div>
-            <div class="col-12 pt-5">
-                <h1>Información adicional del cliente</h1>
-            </div>
-            <div class="col-6 pt-3">
-                <input type="text" name="passport#" placeholder="Pasaporte#" class="form-control">
-                <label for="">Pasaporte#</label>
-            </div>
-            <div class="col-12 pt-3">
-                <b>¿Ha tenido alguno de los siguientes síntomas en los últimos 14 días?</b>
-            </div>
-            <div class="col-12 pt-3">
-                <p>Fiebre</p>
-                <input type="radio" name="" value="">
-                <label for="html">Sí</label><br>
-                <input type="radio" name="" value="">
-                <label for="html">No</label><br>
-            </div>
-            <div class="col-12 pt-3">
-                <p>
-                    Tos (nueva aparición o empeoramiento de la tos crónica) *</p>
-                <input type="radio" name="" value="">
-                <label for="html">Sí</label><br>
-                <input type="radio" name="" value="">
-                <label for="html">No</label><br>
-            </div>
-
-            <div class="col-12 pt-3">
-                <p>
-                    Dolor de garganta</p>
-                <input type="radio" name="" value="">
-                <label for="html">Sí</label><br>
-                <input type="radio" name="" value="">
-                <label for="html">No</label><br>
-            </div>
-            <div class="col-12 pt-3">
-                <p>
-                    Dificultad para respirar (disnea)</p>
-                <input type="radio" name="" value="">
-                <label for="html">Sí</label><br>
-                <input type="radio" name="" value="">
-                <label for="html">No</label><br>
-            </div>
-
-
-
-
-
-
-
-            <div class="col-12 pt-3">
-                <p>Náuseas *</p>
-                <input type="radio" name="" value="">
-                <label for="html">Sí</label><br>
-                <input type="radio" name="" value="">
-                <label for="html">No</label><br>
-            </div>
-            <div class="col-12 pt-3">
-                <p>
-                    Abdominal pain *</p>
-                <input type="radio" name="" value="">
-                <label for="html">Sí</label><br>
-                <input type="radio" name="" value="">
-                <label for="html">No</label><br>
-            </div>
-            <div class="col-12 pt-3">
-                <p>
-                    Chills*</p>
-                <input type="radio" name="" value="">
-                <label for="html">Sí</label><br>
-                <input type="radio" name="" value="">
-                <label for="html">No</label><br>
-            </div>
-            <div class="col-12 pt-3">
-                <p>
-                    Dolor de cabeza</p>
-                <input type="radio" name="" value="">
-                <label for="html">Sí</label><br>
-                <input type="radio" name="" value="">
-                <label for="html">No</label><br>
-            </div>
-            <div class="col-12 pt-3">
-                <p>
-
-                    Dolores musculares (mialgia)</p>
-                <input type="radio" name="" value="">
-                <label for="html">Sí</label><br>
-                <input type="radio" name="" value="">
-                <label for="html">No</label><br>
-            </div>
-
-
-
-
-
-
-
-            <div class="col-12 pt-3">
-                <p>
-
-
-                    Fatiga *</p>
-                <input type="radio" name="" value="">
-                <label for="html">Sí</label><br>
-                <input type="radio" name="" value="">
-                <label for="html">No</label><br>
-            </div>
-            <div class="col-12 pt-3">
-                <p>
-
-
-                    Secreción nasal (rinorrea) *</p>
-                <input type="radio" name="" value="">
-                <label for="html">Sí</label><br>
-                <input type="radio" name="" value="">
-                <label for="html">No</label><br>
-            </div>
-            <div class="col-12 pt-3">
-                <p>
-
-                    Vómitos</p>
-                <input type="radio" name="" value="">
-                <label for="html">Sí</label><br>
-                <input type="radio" name="" value="">
-                <label for="html">No</label><br>
-            </div>
-
-            <div class="col-12 pt-3">
-                <p>
-
-                    Diarrea (3 deposiciones blandas / día) *</p>
-                <input type="radio" name="" value="">
-                <label for="html">Sí</label><br>
-                <input type="radio" name="" value="">
-                <label for="html">No</label><br>
-            </div>
-
-
-            <div class="col-12 pt-3">
-                <p>
-
-
-                    Pérdida del olfato *</p>
-                <input type="radio" name="" value="">
-                <label for="html">Sí</label><br>
-                <input type="radio" name="" value="">
-                <label for="html">No</label><br>
-            </div>
-
-            <div class="col-12 pt-3">
-                <p>
-
-                    Pérdida del gusto</p>
-                <input type="radio" name="" value="">
-                <label for="html">Sí</label><br>
-                <input type="radio" name="" value="">
-                <label for="html">No</label><br>
-            </div>
-            <div class="col-12 pt-3">
-                <input type="text" placeholder="Otra especificar" name="specify" class="form-control">
-                <label for="">Otra especificar</label>
-            </div>
-            <div class="col-12 pt-3">
-                <input type="text" placeholder="Fecha de inicio de los primeros síntomas" name="specify"
-                       class="form-control">
-                <label for="">Fecha de inicio de los primeros síntomas</label>
-            </div>
-            <div class="col-12 pt-5">
-                <h5>
-                    Prueba de laboratorio</h5>
-            </div>
-            <div class="col-12 pt-5">
-                <b>
-
-                    Tipo de prueba: hisopo nasal (PCR) / antígeno / SARS-COV-2</b>
-            </div>
-
-            <div class="col-12 pt-3">
-                <p>
-
-                    Seleccione la prueba</p>
-                <input type="radio" name="" value="">
-                <label for="html">
-                    ANTÍGENO</label><br>
-                <input type="radio" name="" value="">
-                <label for="html">PCR</label><br>
-                <input type="radio" name="" value="">
-                <label for="html">RT-PCR
-                </label><br>
-                <input type="radio" name="" value="">
-                <label for="html">PCR-24hm</label><br>
-                <input type="radio" name="" value="">
-                <label for="html">RT-PCR 24hrs</label><br>
-            </div>
-            <div class="col-12 pt-5">
-                <h5>
-
-                    Firma del cliente</h5>
-                <button class="ml-3 mt-2 btn btn-dark">Click to Sign</button>
-            </div>
-
-        </div>
-        <div class="row p-5 mt-5">
-            <div class="col-12 pt-2">
-                <h1>Customer Address</h1>
-
-            </div>
-            <div class="col-lg-6  col-12 pt-2">
-                <input type="text" placeholder="Address" name="address" class="form-control">
-            </div>
-            <div class="col-lg-6  col-12 pt-2">
-                <input type="text" placeholder="Address2" name="address" class="form-control">
-            </div>
-            <div class="col-lg-6  col-12 pt-2">
-                <input type="text" placeholder="Town" name="town" class="form-control">
-            </div>
-            <div class="col-lg-6  col-12 pt-2">
-                <input type="text" placeholder="Zip Code" name="zip" class="form-control">
-            </div>
-            <div class="col-lg-6  col-12 pt-2">
-                <label>State/Province</label>
-                <select class="form-control">
-                    <option>UK</option>
-                    <option>US</option>
-
-                </select>
-            </div>
-            <div class="col-lg-6  col-12 pt-2">
-                <label>Country</label>
-                <select class="form-control">
-                    <option>America</option>
-
-
-                </select>
-            </div>
-        </div>
-        <div class="row p-5 mt-5">
-            <div class="col-12">
-                <h1>Email Address</h1>
-
-            </div>
-            <div class="col-lg-6 col-6 pt-3">
-                <input type="text" placeholder="Email" class="form-control">
-            </div>
-        </div>
-
-        <div class="row p-5 mt-5">
-            <div class="col-12">
-                <h1>How did you hear about us?</h1>
-            </div>
-            <div class="col-lg-12 col-12 pt-2">
-                <p>Option</p>
-                <input type="radio" name="gender" value="male"> Friends<br>
-                <input type="radio" name="gender" value="male"> Airline Staff<br>
-                <input type="radio" name="gender" value="male"> Airport Advertisement<br>
-                <input type="radio" name="gender" value="male"> Google<br>
-                <input type="radio" name="gender" value="male"> Other<br>
-            </div>
-        </div>
-        <div class="append_minor">
-
-        </div>
-
-        <div class="row p-5 mt-5">
-            <div class="col-12">
-                <h1>Electronic signature acceptance</h1><br>
-                <input type="radio" name="gender" value="male"> By checking ts box, you agree that your electronic
-                signature will be used in place of your handwritten signature. If this is not what you want, you
-                have the right to ask to sign a paper copy instead. By checking this box, you warve this right Upon
-                acceptance, you may request in writing that we send you a paper copy of the electronic record. You
-                will not have to pay anything for such a copy, and you do not need any special software or hardware
-                to view it. Your acceptance of electronic signature for any document will remain in effect until
-                such time as you notify us in veriting that you no longer wish to use electronic signature. The
-                revocation of your acceptance will not entall any penalty for you
-            </div>
-        </div>
-        <center class="mt-5"><Button class="btn btn-dark">Accept Document</Button></center>
-    </div>
-
-</div>
-
-
-<div class="container p-5">
-    <div class="adultorminor">
-        <div class="row p-5">
-            <div class="col-12 ">
-                <h1>Nombre del cliente</h1>
-            </div>
-            <div class="col-lg-4  col-12 pt-2">
-                <input type="text" placeholder="Nombre" name="name" class="form-control">
-                <label for="">Nombre</label>
-
-            </div>
-            <div class="col-lg-4  col-12 pt-2">
-                <input type="text" placeholder="Segundo Nombre" name="secondname" class="form-control">
-                <label for="">Segundo Nombre</label>
-
-            </div>
-            <div class="col-lg-4  col-12 pt-2">
-                <input type="text" placeholder="Apellido" name="surname" class="form-control">
-                <label for="">Apellido</label>
-            </div>
-            <div class="col-lg-4  col-12 pt-3">
-                <input type="text" placeholder="Teléfono" name="phone" class="form-control">
-                <label for="">Teléfono</label>
-            </div>
-            <div class="col-12 pt-3">
-                <h1>Fecha de nacimiento del cliente</h1>
-            </div>
-            <div class="col-6 pt-3">
-                <input type="date" value="date" class="form-control">
-            </div>
-            <div class="col-12 pt-5">
-                <h1>Información adicional del cliente</h1>
-            </div>
-            <div class="col-6 pt-3">
-                <input type="text" name="passport#" placeholder="Pasaporte#" class="form-control">
-                <label for="">Pasaporte#</label>
-            </div>
-            <div class="col-12 pt-3">
-                <b>¿Ha tenido alguno de los siguientes síntomas en los últimos 14 días?</b>
-            </div>
-            <div class="col-12 pt-3">
-                <p>Fiebre</p>
-                <input type="radio" name="" value="">
-                <label for="html">Sí</label><br>
-                <input type="radio" name="" value="">
-                <label for="html">No</label><br>
-            </div>
-            <div class="col-12 pt-3">
-                <p>
-                    Tos (nueva aparición o empeoramiento de la tos crónica) *</p>
-                <input type="radio" name="" value="">
-                <label for="html">Sí</label><br>
-                <input type="radio" name="" value="">
-                <label for="html">No</label><br>
-            </div>
-
-            <div class="col-12 pt-3">
-                <p>
-                    Dolor de garganta</p>
-                <input type="radio" name="" value="">
-                <label for="html">Sí</label><br>
-                <input type="radio" name="" value="">
-                <label for="html">No</label><br>
-            </div>
-            <div class="col-12 pt-3">
-                <p>
-                    Dificultad para respirar (disnea)</p>
-                <input type="radio" name="" value="">
-                <label for="html">Sí</label><br>
-                <input type="radio" name="" value="">
-                <label for="html">No</label><br>
-            </div>
-
-
-
-
-
-
-
-            <div class="col-12 pt-3">
-                <p>Náuseas *</p>
-                <input type="radio" name="" value="">
-                <label for="html">Sí</label><br>
-                <input type="radio" name="" value="">
-                <label for="html">No</label><br>
-            </div>
-            <div class="col-12 pt-3">
-                <p>
-                    Abdominal pain *</p>
-                <input type="radio" name="" value="">
-                <label for="html">Sí</label><br>
-                <input type="radio" name="" value="">
-                <label for="html">No</label><br>
-            </div>
-            <div class="col-12 pt-3">
-                <p>
-                    Chills*</p>
-                <input type="radio" name="" value="">
-                <label for="html">Sí</label><br>
-                <input type="radio" name="" value="">
-                <label for="html">No</label><br>
-            </div>
-            <div class="col-12 pt-3">
-                <p>
-                    Dolor de cabeza</p>
-                <input type="radio" name="" value="">
-                <label for="html">Sí</label><br>
-                <input type="radio" name="" value="">
-                <label for="html">No</label><br>
-            </div>
-            <div class="col-12 pt-3">
-                <p>
-
-                    Dolores musculares (mialgia)</p>
-                <input type="radio" name="" value="">
-                <label for="html">Sí</label><br>
-                <input type="radio" name="" value="">
-                <label for="html">No</label><br>
-            </div>
-
-
-
-
-
-
-
-            <div class="col-12 pt-3">
-                <p>
-
-
-                    Fatiga *</p>
-                <input type="radio" name="" value="">
-                <label for="html">Sí</label><br>
-                <input type="radio" name="" value="">
-                <label for="html">No</label><br>
-            </div>
-            <div class="col-12 pt-3">
-                <p>
-
-
-                    Secreción nasal (rinorrea) *</p>
-                <input type="radio" name="" value="">
-                <label for="html">Sí</label><br>
-                <input type="radio" name="" value="">
-                <label for="html">No</label><br>
-            </div>
-            <div class="col-12 pt-3">
-                <p>
-
-                    Vómitos</p>
-                <input type="radio" name="" value="">
-                <label for="html">Sí</label><br>
-                <input type="radio" name="" value="">
-                <label for="html">No</label><br>
-            </div>
-
-            <div class="col-12 pt-3">
-                <p>
-
-                    Diarrea (3 deposiciones blandas / día) *</p>
-                <input type="radio" name="" value="">
-                <label for="html">Sí</label><br>
-                <input type="radio" name="" value="">
-                <label for="html">No</label><br>
-            </div>
-
-
-            <div class="col-12 pt-3">
-                <p>
-
-
-                    Pérdida del olfato *</p>
-                <input type="radio" name="" value="">
-                <label for="html">Sí</label><br>
-                <input type="radio" name="" value="">
-                <label for="html">No</label><br>
-            </div>
-
-            <div class="col-12 pt-3">
-                <p>
-
-                    Pérdida del gusto</p>
-                <input type="radio" name="" value="">
-                <label for="html">Sí</label><br>
-                <input type="radio" name="" value="">
-                <label for="html">No</label><br>
-            </div>
-            <div class="col-12 pt-3">
-                <input type="text" placeholder="Otra especificar" name="specify" class="form-control">
-                <label for="">Otra especificar</label>
-            </div>
-            <div class="col-12 pt-3">
-                <input type="text" placeholder="Fecha de inicio de los primeros síntomas" name="specify"
-                       class="form-control">
-                <label for="">Fecha de inicio de los primeros síntomas</label>
-            </div>
-            <div class="col-12 pt-5">
-                <h5>
-                    Prueba de laboratorio</h5>
-            </div>
-            <div class="col-12 pt-5">
-                <b>
-
-                    Tipo de prueba: hisopo nasal (PCR) / antígeno / SARS-COV-2</b>
-            </div>
-
-            <div class="col-12 pt-3">
-                <p>
-
-                    Seleccione la prueba</p>
-                <input type="radio" name="" value="">
-                <label for="html">
-                    ANTÍGENO</label><br>
-                <input type="radio" name="" value="">
-                <label for="html">PCR</label><br>
-                <input type="radio" name="" value="">
-                <label for="html">RT-PCR
-                </label><br>
-                <input type="radio" name="" value="">
-                <label for="html">PCR-24hm</label><br>
-                <input type="radio" name="" value="">
-                <label for="html">RT-PCR 24hrs</label><br>
-            </div>
-            <div class="col-12 pt-5">
-                <h5>
-
-                    Firma del cliente</h5>
-                <button class="ml-3 mt-2 btn btn-dark">Click to Sign</button>
-            </div>
-
-        </div>
-        <div class="row p-5 mt-5">
-            <div class="col-12 pt-2">
-                <h1>Customer Address</h1>
-
-            </div>
-            <div class="col-lg-6  col-12 pt-2">
-                <input type="text" placeholder="Address" name="address" class="form-control">
-            </div>
-            <div class="col-lg-6  col-12 pt-2">
-                <input type="text" placeholder="Address2" name="address" class="form-control">
-            </div>
-            <div class="col-lg-6  col-12 pt-2">
-                <input type="text" placeholder="Town" name="town" class="form-control">
-            </div>
-            <div class="col-lg-6  col-12 pt-2">
-                <input type="text" placeholder="Zip Code" name="zip" class="form-control">
-            </div>
-            <div class="col-lg-6  col-12 pt-2">
-                <label>State/Province</label>
-                <select class="form-control">
-                    <option>UK</option>
-                    <option>US</option>
-
-                </select>
-            </div>
-            <div class="col-lg-6  col-12 pt-2">
-                <label>Country</label>
-                <select class="form-control">
-                    <option>America</option>
-
-
-                </select>
-            </div>
-        </div>
-        <div class="row p-5 mt-5">
-            <div class="col-12">
-                <h1>Email Address</h1>
-
-            </div>
-            <div class="col-lg-6 col-6 pt-3">
-                <input type="text" placeholder="Email" class="form-control">
-            </div>
-        </div>
-
-        <div class="row p-5 mt-5">
-            <div class="col-12">
-                <h1>How did you hear about us?</h1>
-            </div>
-            <div class="col-lg-12 col-12 pt-2">
-                <p>Option</p>
-                <input type="radio" name="gender" value="male"> Friends<br>
-                <input type="radio" name="gender" value="male"> Airline Staff<br>
-                <input type="radio" name="gender" value="male"> Airport Advertisement<br>
-                <input type="radio" name="gender" value="male"> Google<br>
-                <input type="radio" name="gender" value="male"> Other<br>
-            </div>
-        </div>
-        <div class="row p-5 mt-5">
-            <div class="col-12">
-                <h1>Electronic signature acceptance</h1><br>
-                <input type="radio" name="gender" value="male"> By checking ts box, you agree that your electronic
-                signature will be used in place of your handwritten signature. If this is not what you want, you
-                have the right to ask to sign a paper copy instead. By checking this box, you warve this right Upon
-                acceptance, you may request in writing that we send you a paper copy of the electronic record. You
-                will not have to pay anything for such a copy, and you do not need any special software or hardware
-                to view it. Your acceptance of electronic signature for any document will remain in effect until
-                such time as you notify us in veriting that you no longer wish to use electronic signature. The
-                revocation of your acceptance will not entall any penalty for you
-            </div>
-        </div>
-        <center class="mt-5"><Button class="btn btn-dark">Accept Document</Button></center>
-    </div>
-
-    <div class="adultorminor">
+    <div class="minorform" style="display: none">
         <div class="row p-5">
             <div class="col-12 ">
                 <h1>Name Of First Minor</h1>
@@ -1325,11 +639,6 @@
             </div>
 
 
-
-
-
-
-
             <div class="col-12 pt-3">
                 <p>Nausea *</p>
                 <input type="radio" name="" value="">
@@ -1370,11 +679,6 @@
                 <input type="radio" name="" value="">
                 <label for="html">No</label><br>
             </div>
-
-
-
-
-
 
 
             <div class="col-12 pt-3">
@@ -1564,126 +868,155 @@
                 <label for="">Date Birth Of Gaurdian</label>
 
             </div>
-            <div class="col-lg-6  col-12 pt-3">
-                <h5>
 
-                    Parent/Gaurdian Signature</h5>
-                <button class="ml-3 mt-2 btn btn-dark">Click to Sign</button>
-            </div>
 
         </div>
-        <div class="row p-5 mt-5">
-            <div class="col-12">
-                <h1>Electronic signature acceptance</h1><br>
-                <input type="radio" name="gender" value="male"> By checking ts box, you agree that your electronic
-                signature will be used in place of your handwritten signature. If this is not what you want, you
-                have the right to ask to sign a paper copy instead. By checking this box, you warve this right Upon
-                acceptance, you may request in writing that we send you a paper copy of the electronic record. You
-                will not have to pay anything for such a copy, and you do not need any special software or hardware
-                to view it. Your acceptance of electronic signature for any document will remain in effect until
-                such time as you notify us in veriting that you no longer wish to use electronic signature. The
-                revocation of your acceptance will not entall any penalty for you
-            </div>
-        </div>
-        <center class="mt-5"><Button class="btn btn-dark">Accept Document</Button></center>
+
     </div>
 
+
+
 </div>
-</div>
+
+
+
+
+
+
+
+
+<section>
+
+    <div class="container mb-5">
+
+      <div class="maindata" style="display: none">
+          <div class="finalResult">
+
+          </div>
+
+          <div class="static">
+              <div class="row p-5 mt-5">
+                  <div class="col-12">
+                      <h1>Electronic signature acceptance</h1><br>
+                      <input type="checkbox" name="gender" value="male"> By checking ts box, you agree that your electronic
+                      signature will be used in place of your handwritten signature. If this is not what you want, you
+                      have the right to ask to sign a paper copy instead. By checking this box, you warve this right Upon
+                      acceptance, you may request in writing that we send you a paper copy of the electronic record. You
+                      will not have to pay anything for such a copy, and you do not need any special software or hardware
+                      to view it. Your acceptance of electronic signature for any document will remain in effect until
+                      such time as you notify us in veriting that you no longer wish to use electronic signature. The
+                      revocation of your acceptance will not entall any penalty for you
+                  </div>
+              </div>
+              <center class="mt-5">
+                  <Button class="btn btn-dark">Accept Document</Button>
+              </center>
+          </div>
+      </div>
+
+
+
+    </div>
+</section>
 
 <!-- Optional JavaScript -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
     $(".adult_btn").click(function () {
         $('.adult').css('display', 'block');
+        $('.maindata').css('display', 'none');
+
+
+        $('.minors1').css('display', 'none');
+        $('.minors51').css('display', 'none');
+        $('.minors').css('display', 'none');
+        $('.minors22').css('display', 'none');
     });
     $(".continue").click(function () {
-        $('.adultform').css('display', 'block');
+        $(this).css('display', 'none');
+        $('.maindata').css('display', 'block');
+
+
+        var html= $('.adultform').html();
+        $('.finalResult').empty().append(html);
     });
-    $(".minor_button").click(function () {
 
 
-        $('.minors').css('display', 'block');
-        $('.minors1').css('display', 'none');
+//minor
+    $(".minor_button1").click(function () {
+        $('.maindata').css('display', 'none');
+
+
+
+        $('.adult').css('display', 'none');
+
+        $('.minors51').css('display', 'none');
+        $('.minors').css('display', 'none');
+        $('.minors22').css('display', 'none');
+
+        $('.minors1').css('display', 'block');
+        //$('.minors').css('display', 'none');
     });
     $(".minorsb").click(function () {
+        $(this).css('display', 'none');
 
         $('.minors51').css('display', 'block');
     });
+
+    //adult
+
+    $(".minor_button").click(function () {
+
+        $('.maindata').css('display', 'none');
+        $('.adult').css('display', 'none');
+
+        $('.minors1').css('display', 'none');
+        $('.minors51').css('display', 'none');
+        $('.minors22').css('display', 'none');
+
+        $('.minors').css('display', 'block');
+        //$('.minors').css('display', 'none');
+    });
+
+
+
     $(".minors222").click(function () {
+        $(this).css('display', 'none');
+
         $('.minors22').css('display', 'block');
     });
 
 
-    $(".minor_button1").click(function () {
-
-        $('.minors1').css('display', 'block');
-        $('.minors').css('display', 'none');
 
 
+        $(".minororad_btn").click(function () {
+
+            $('.maindata').css('display', 'block');
+            $('.finalResult').empty();
+
+            var some_var = $(this).attr('att');
+            for (let index = 1; index <= some_var; index++) {
 
 
+                var html= $('.minorform').html();
+                $('.finalResult').append(html);
+            }
+        });
 
 
-
-    });
     $(".minor_btn").click(function () {
 
-        // $('.Minor_div').css('display', 'block');
-    });
-
-    for (let i = 1; i < 11; i++) {
-
-        $(".minor_btn"+i).click(function () {
-            $('.append_minor').empty();
-            $('.Minor_form').css('display', 'block');
-            $('.Minor_form2').css('display', 'none');
-            var some_var = $(".minor_btn"+i).attr('att');
-
-            for (let index = 1; index <= some_var; index++) {
-
-                $('.append_minor').append('  <div class="row p-5"><div class="col-12 "><h1>Name Of First Minor</h1></div><div class="col-lg-4 col-md-6 col-12 pt-2"><input type="text" placeholder="Name" name="name" class="form-control"><label for="">Name</label></div><div class="col-lg-4 col-md-6 col-12 pt-2"> <input type="text" placeholder="Second Name" name="secondname" class="form-control"><label for="">Second Name</label></div><div class="col-lg-4 col-md-6 col-12 pt-2"> <input type="text" placeholder="Surnames" name="surname" class="form-control"> <label for="">Surnames</label></div><div class="col-lg-6 col-md-6 col-12 pt-3"><input type="text" placeholder="Telephone" name="phone" class="form-control"> <label for="">Telephone</label> </div><div class="col-lg-6 col-md-6 col-12 pt-3"><select name="gender" class="form-control"><option value="male">Male</option><option value="female">Female</option> </select><label>Gender:</label></div><div class="col-12 pt-3"> <h1>First Birth Date of Minor</h1></div><div class="col-6 pt-3"> <input type="date" value="date" class="form-control"></div><div class="col-12 pt-5"> <h1>Additional Information of first of the Minor</h1></div> <div class="col-6 pt-3"> <input type="text" name="passport#" placeholder="Pasaporte#" class="form-control"> <label for="">Pasaporte#</label> </div><div class="col-12 pt-3"> <b>Have you had any of the following symptoms in the last 14 days?</b> </div> <div class="col-12 pt-3"><p>Fever</p><input type="radio" name="" value=""><label for="html">Yes</label><br><input type="radio" name="" value=""><label for="html">No</label><br></div><div class="col-12 pt-3"> <p>Cough (new onset or worsening of chronic cough) *</p><input type="radio" name="" value=""> <label for="html">Yes</label><br><input type="radio" name="" value=""> <label for="html">No</label><br></div> <div class="col-12 pt-3"> <p>Sore Throat</p> <input type="radio" name="" value=""> <label for="html">Yes</label><br><input type="radio" name="" value=""><label for="html">No</label><br></div> <div class="col-12 pt-3"> <p>Difficulty breathing (dyspnea)</p><input type="radio" name="" value=""><label for="html">Yes</label><br><input type="radio" name="" value=""><label for="html">No</label><br></div><div class="col-12 pt-3"><p>Nausea *</p><input type="radio" name="" value=""> <label for="html">Yes</label><br><input type="radio" name="" value=""> <label for="html">No</label><br></div><div class="col-12 pt-3"> <p> Abdominal pain *</p><input type="radio" name="" value="">   <label for="html">Yes</label><br><input type="radio" name="" value="">   <label for="html">No</label><br></div><div class="col-12 pt-3"> <p> Chills *</p><input type="radio" name="" value="">   <label for="html">Yes</label><br><input type="radio" name="" value="">   <label for="html">No</label><br></div><div class="col-12 pt-3"> <p> Headache</p><input type="radio" name="" value="">   <label for="html">Yes</label><br><input type="radio" name="" value="">   <label for="html">No</label><br></div><div class="col-12 pt-3"> <p> Muscle aches (myalgia)</p><input type="radio" name="" value="">   <label for="html">Yes</label><br><input type="radio" name="" value="">   <label for="html">No</label><br></div><div class="col-12 pt-3"> <p> Fatigue *</p><input type="radio" name="" value="">   <label for="html">Yes</label><br><input type="radio" name="" value="">   <label for="html">No</label><br></div><div class="col-12 pt-3"> <p> Runny nose (rhinorrhea) *</p><input type="radio" name="" value="">   <label for="html">Yes</label><br><input type="radio" name="" value="">   <label for="html">No</label><br></div><div class="col-12 pt-3"> <p> Vomiting</p><input type="radio" name="" value="">   <label for="html">Yes</label><br><input type="radio" name="" value="">   <label for="html">No</label><br></div><div class="col-12 pt-3"> <p> Diarrhea (3 loose stools / day) *</p><input type="radio" name="" value="">   <label for="html">Yes</label><br><input type="radio" name="" value="">   <label for="html">No</label><br></div><div class="col-12 pt-3"> <p> Loss of smell *</p><input type="radio" name="" value="">   <label for="html">Yes</label><br><input type="radio" name="" value="">   <label for="html">No</label><br></div><div class="col-12 pt-3"> <p> Loss of taste</p><input type="radio" name="" value="">   <label for="html">Yes</label><br><input type="radio" name="" value="">   <label for="html">No</label><br></div><div class="col-12 pt-3"> <input type="text" placeholder="Other specify" name="specify" class="form-control"> <label for="">Other specify</label> </div><div class="col-12 pt-3"> <input type="text" placeholder="" name="specify" class="form-control"> <label for="">Earliest Symptoms onset Date</label> </div><div class="col-12 pt-5"> <h5> Lab test</h5> </div><div class="col-12 pt-5"> <b> Test type: nasal swab (PCR) / antigen / SARS-COV-2</b> </div><div class="col-12 pt-3"> <p> Select the test</p><input type="radio" name="" value="">   <label for="html"> ANTIGEN</label><br><input type="radio" name="" value="">   <label for="html">PCR</label><br><input type="radio" name="" value="">   <label for="html">RT-PCR </label><br><input type="radio" name="" value="">   <label for="html">PCR-24hm</label><br><input type="radio" name="" value="">   <label for="html">RT-PCR 24hrs</label><br></div></div><div class="row p-5 mt-5"> <div class="col-12 pt-2"> <h1>Address of the Minor</h1> </div><div class="col-lg-6 col-md-6 col-12 pt-2"> <input type="text" placeholder="Address" name="address" class="form-control"> </div><div class="col-lg-6 col-md-6 col-12 pt-2"> <input type="text" placeholder="Address2" name="address" class="form-control"> </div><div class="col-lg-6 col-md-6 col-12 pt-2"> <input type="text" placeholder="Town" name="town" class="form-control"> </div><div class="col-lg-6 col-md-6 col-12 pt-2"> <input type="text" placeholder="Zip Code" name="zip" class="form-control"> </div><div class="col-lg-6 col-md-6 col-12 pt-2"> <label>State/Province</label> <select class="form-control"> <option>UK</option> <option>US</option> </select> </div><div class="col-lg-6 col-md-6 col-12 pt-2"> <label>Country</label> <select class="form-control"> <option>America</option> </select> </div></div><div class="row p-5 mt-5"> <div class="col-12"> <h1>Email Address</h1> </div><div class="col-lg-6 col-6 pt-3"> <input type="text" placeholder="Email" class="form-control"> </div></div><div class="row p-5 mt-5"> <div class="col-12"> <h1>How did you hear about us?</h1> </div><div class="col-lg-12 col-12 pt-2"> <p>Option</p><input type="radio" name="gender" value="male"> Friends<br><input type="radio" name="gender" value="male"> Airline Staff<br><input type="radio" name="gender" value="male"> Airport Advertisement<br><input type="radio" name="gender" value="male"> Google<br><input type="radio" name="gender" value="male"> Other<br></div><div class="col-lg-6 col-12 pt-2"> <input type="text" class="form-control" placeholder="Other Specify"> <label for="">Other Specify</label> </div></div><div class="row p-5 mt-5"> <div class="col-12 "> <h1>Parent Or Guardian Name</h1> </div><div class="col-lg-4 col-md-6 col-12 pt-2"> <input type="text" placeholder="Name" name="name" class="form-control"> <label for="">Name</label> </div><div class="col-lg-4 col-md-6 col-12 pt-2"> <input type="text" placeholder="Second Name" name="secondname" class="form-control"> <label for="">Second Name</label> </div><div class="col-lg-4 col-md-6 col-12 pt-2"> <input type="text" placeholder="Surnames" name="surname" class="form-control"> <label for="">Surnames</label> </div><div class="col-lg-6 col-md-6 col-12 pt-3"> <input type="text" placeholder="Telephone" name="phone" class="form-control"> <label for="">Telephone</label> </div><div class="col-lg-6 col-md-6 col-12 pt-3"> <input type="date" placeholder="DOB" name="dob" class="form-control"> <label for="">Date Birth Of Gaurdian</label> </div><div class="col-lg-6 col-md-6 col-12 pt-3"> <h5> Parent/Gaurdian Signature</h5> <button class="ml-3 mt-2 btn btn-dark">Click to Sign</button> </div></div>');
-
-            }
-
-        });
-    }
+        $('.maindata').css('display', 'block');
+        $('.finalResult').empty();
+        var html2= $('.adultform').html();
+        $('.finalResult').append(html2);
+        var some_var = $(this).attr('att');
+        for (let index = 1; index <= some_var; index++) {
 
 
-    for (let i = 0; i < 11; i++) {
-
-        $(".minororad_btn"+i).click(function () {
-            $('.append_minor').empty();
-
-            $('.Minor_form2').css('display', 'block');
-            var some_var = $(".minororad_btn"+i).attr('att');
-            for (let index = 1; index <= some_var; index++) {
-                $('.append_minor').append('  <div class="row p-5"><div class="col-12 "><h1>Name Of First Minor</h1></div><div class="col-lg-4 col-md-6 col-12 pt-2"><input type="text" placeholder="Name" name="name" class="form-control"><label for="">Name</label></div><div class="col-lg-4 col-md-6 col-12 pt-2"> <input type="text" placeholder="Second Name" name="secondname" class="form-control"><label for="">Second Name</label></div><div class="col-lg-4 col-md-6 col-12 pt-2"> <input type="text" placeholder="Surnames" name="surname" class="form-control"> <label for="">Surnames</label></div><div class="col-lg-6 col-md-6 col-12 pt-3"><input type="text" placeholder="Telephone" name="phone" class="form-control"> <label for="">Telephone</label> </div><div class="col-lg-6 col-md-6 col-12 pt-3"><select name="gender" class="form-control"><option value="male">Male</option><option value="female">Female</option> </select><label>Gender:</label></div><div class="col-12 pt-3"> <h1>First Birth Date of Minor</h1></div><div class="col-6 pt-3"> <input type="date" value="date" class="form-control"></div><div class="col-12 pt-5"> <h1>Additional Information of first of the Minor</h1></div> <div class="col-6 pt-3"> <input type="text" name="passport#" placeholder="Pasaporte#" class="form-control"> <label for="">Pasaporte#</label> </div><div class="col-12 pt-3"> <b>Have you had any of the following symptoms in the last 14 days?</b> </div> <div class="col-12 pt-3"><p>Fever</p><input type="radio" name="" value=""><label for="html">Yes</label><br><input type="radio" name="" value=""><label for="html">No</label><br></div><div class="col-12 pt-3"> <p>Cough (new onset or worsening of chronic cough) *</p><input type="radio" name="" value=""> <label for="html">Yes</label><br><input type="radio" name="" value=""> <label for="html">No</label><br></div> <div class="col-12 pt-3"> <p>Sore Throat</p> <input type="radio" name="" value=""> <label for="html">Yes</label><br><input type="radio" name="" value=""><label for="html">No</label><br></div> <div class="col-12 pt-3"> <p>Difficulty breathing (dyspnea)</p><input type="radio" name="" value=""><label for="html">Yes</label><br><input type="radio" name="" value=""><label for="html">No</label><br></div><div class="col-12 pt-3"><p>Nausea *</p><input type="radio" name="" value=""> <label for="html">Yes</label><br><input type="radio" name="" value=""> <label for="html">No</label><br></div><div class="col-12 pt-3"> <p> Abdominal pain *</p><input type="radio" name="" value="">   <label for="html">Yes</label><br><input type="radio" name="" value="">   <label for="html">No</label><br></div><div class="col-12 pt-3"> <p> Chills *</p><input type="radio" name="" value="">   <label for="html">Yes</label><br><input type="radio" name="" value="">   <label for="html">No</label><br></div><div class="col-12 pt-3"> <p> Headache</p><input type="radio" name="" value="">   <label for="html">Yes</label><br><input type="radio" name="" value="">   <label for="html">No</label><br></div><div class="col-12 pt-3"> <p> Muscle aches (myalgia)</p><input type="radio" name="" value="">   <label for="html">Yes</label><br><input type="radio" name="" value="">   <label for="html">No</label><br></div><div class="col-12 pt-3"> <p> Fatigue *</p><input type="radio" name="" value="">   <label for="html">Yes</label><br><input type="radio" name="" value="">   <label for="html">No</label><br></div><div class="col-12 pt-3"> <p> Runny nose (rhinorrhea) *</p><input type="radio" name="" value="">   <label for="html">Yes</label><br><input type="radio" name="" value="">   <label for="html">No</label><br></div><div class="col-12 pt-3"> <p> Vomiting</p><input type="radio" name="" value="">   <label for="html">Yes</label><br><input type="radio" name="" value="">   <label for="html">No</label><br></div><div class="col-12 pt-3"> <p> Diarrhea (3 loose stools / day) *</p><input type="radio" name="" value="">   <label for="html">Yes</label><br><input type="radio" name="" value="">   <label for="html">No</label><br></div><div class="col-12 pt-3"> <p> Loss of smell *</p><input type="radio" name="" value="">   <label for="html">Yes</label><br><input type="radio" name="" value="">   <label for="html">No</label><br></div><div class="col-12 pt-3"> <p> Loss of taste</p><input type="radio" name="" value="">   <label for="html">Yes</label><br><input type="radio" name="" value="">   <label for="html">No</label><br></div><div class="col-12 pt-3"> <input type="text" placeholder="Other specify" name="specify" class="form-control"> <label for="">Other specify</label> </div><div class="col-12 pt-3"> <input type="text" placeholder="" name="specify" class="form-control"> <label for="">Earliest Symptoms onset Date</label> </div><div class="col-12 pt-5"> <h5> Lab test</h5> </div><div class="col-12 pt-5"> <b> Test type: nasal swab (PCR) / antigen / SARS-COV-2</b> </div><div class="col-12 pt-3"> <p> Select the test</p><input type="radio" name="" value="">   <label for="html"> ANTIGEN</label><br><input type="radio" name="" value="">   <label for="html">PCR</label><br><input type="radio" name="" value="">   <label for="html">RT-PCR </label><br><input type="radio" name="" value="">   <label for="html">PCR-24hm</label><br><input type="radio" name="" value="">   <label for="html">RT-PCR 24hrs</label><br></div></div><div class="row p-5 mt-5"> <div class="col-12 pt-2"> <h1>Address of the Minor</h1> </div><div class="col-lg-6 col-md-6 col-12 pt-2"> <input type="text" placeholder="Address" name="address" class="form-control"> </div><div class="col-lg-6 col-md-6 col-12 pt-2"> <input type="text" placeholder="Address2" name="address" class="form-control"> </div><div class="col-lg-6 col-md-6 col-12 pt-2"> <input type="text" placeholder="Town" name="town" class="form-control"> </div><div class="col-lg-6 col-md-6 col-12 pt-2"> <input type="text" placeholder="Zip Code" name="zip" class="form-control"> </div><div class="col-lg-6 col-md-6 col-12 pt-2"> <label>State/Province</label> <select class="form-control"> <option>UK</option> <option>US</option> </select> </div><div class="col-lg-6 col-md-6 col-12 pt-2"> <label>Country</label> <select class="form-control"> <option>America</option> </select> </div></div><div class="row p-5 mt-5"> <div class="col-12"> <h1>Email Address</h1> </div><div class="col-lg-6 col-6 pt-3"> <input type="text" placeholder="Email" class="form-control"> </div></div><div class="row p-5 mt-5"> <div class="col-12"> <h1>How did you hear about us?</h1> </div><div class="col-lg-12 col-12 pt-2"> <p>Option</p><input type="radio" name="gender" value="male"> Friends<br><input type="radio" name="gender" value="male"> Airline Staff<br><input type="radio" name="gender" value="male"> Airport Advertisement<br><input type="radio" name="gender" value="male"> Google<br><input type="radio" name="gender" value="male"> Other<br></div><div class="col-lg-6 col-12 pt-2"> <input type="text" class="form-control" placeholder="Other Specify"> <label for="">Other Specify</label> </div></div><div class="row p-5 mt-5"> <div class="col-12 "> <h1>Parent Or Guardian Name</h1> </div><div class="col-lg-4 col-md-6 col-12 pt-2"> <input type="text" placeholder="Name" name="name" class="form-control"> <label for="">Name</label> </div><div class="col-lg-4 col-md-6 col-12 pt-2"> <input type="text" placeholder="Second Name" name="secondname" class="form-control"> <label for="">Second Name</label> </div><div class="col-lg-4 col-md-6 col-12 pt-2"> <input type="text" placeholder="Surnames" name="surname" class="form-control"> <label for="">Surnames</label> </div><div class="col-lg-6 col-md-6 col-12 pt-3"> <input type="text" placeholder="Telephone" name="phone" class="form-control"> <label for="">Telephone</label> </div><div class="col-lg-6 col-md-6 col-12 pt-3"> <input type="date" placeholder="DOB" name="dob" class="form-control"> <label for="">Date Birth Of Gaurdian</label> </div><div class="col-lg-6 col-md-6 col-12 pt-3"> <h5> Parent/Gaurdian Signature</h5> <button class="ml-3 mt-2 btn btn-dark">Click to Sign</button> </div></div>');
-
-            }
-        });
-
-    }
-
-
-
-
-
-
-
-    // $(".Minor_continue").click(function () {
-    //     $('.Minor_form').css('display', 'block');
-    // });
-    $(".adultorminor_btn").click(function () {
-        alert('Helloo');
-        $('.minorsandadult1').css('display', 'block');
-    });
-    $(".ma_btn").click(function () {
-        $('.ma_div').css('display', 'block');
-
-    });
-    $(".MinoraAdult_continue").click(function () {
-        $('.adultorminor').css('display', 'block');
+            var html= $('.minorform').html();
+            $('.finalResult').append(html);
+        }
     });
 
 
