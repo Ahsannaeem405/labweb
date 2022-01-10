@@ -71,6 +71,9 @@
                         $i = 1;
 
                         ?>
+                        {!! QrCode::size(100)
+          ->format('png')
+          ->generate('ItSolutionStuff.com') !!}
                         @php $role=\Illuminate\Support\Facades\Auth::user()->role; @endphp
 
                         @foreach ($customer as $views)
@@ -93,9 +96,7 @@
 
 
                                 <td>
-                                    {!! QrCode::size(100)
-            ->format('png')
-            ->generate('ItSolutionStuff.com') !!}
+
 
 
                                     <a href="{{url("$role/release/send/$views->id")}}">   <button
