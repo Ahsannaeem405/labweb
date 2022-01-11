@@ -1019,6 +1019,7 @@
 
         $('.maindata').css('display', 'block');
         $('.finalResult').empty();
+    });
 
         $(".minororad_btn").click(function() {
 
@@ -1090,7 +1091,7 @@
                 });
             }
         });
-        });
+
 
     </script>
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
