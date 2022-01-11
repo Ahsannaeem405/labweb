@@ -60,8 +60,7 @@ Route:: prefix('/admin')->middleware(['auth', 'admin'])->group(function () {
 
     Route::get('/edit/customer/{id}', [CustomerController::class, 'edit']);
     Route::Post('customer/update', [CustomerController::class, 'update']);
-    Route::post('/customer/update_adult',[CustomerController::class,'update_adult']);
-    Route::post('/customer/update_minor',[CustomerController::class,'update_minor']);
+
     Route::Post('place/order/{id}', [\App\Http\Controllers\orderController::class, 'order']);
 
     //invoice
@@ -84,7 +83,8 @@ Route:: prefix('/admin')->middleware(['auth', 'admin'])->group(function () {
     Route::get('released', [\App\Http\Controllers\orderController::class, 'released']);
     Route::post('/update/date/{id}', [\App\Http\Controllers\orderController::class, 'date_released']);
 
-
+    Route::post('/customer/update_adult',[CustomerController::class,'update_adult']);
+    Route::post('/customer/update_minor',[CustomerController::class,'update_minor']);
 
 });
 
@@ -127,6 +127,7 @@ Route:: prefix('/operator')->middleware(['auth', 'operator'])->group(function ()
     Route::get('/customers', [CustomerController::class, 'view']);
 
     Route::get('/edit/customer/{id}', [CustomerController::class, 'edit']);
+    Route::get('/verify/customer/{id}', [CustomerController::class, 'verify_customer']);
     Route::Post('customer/update', [CustomerController::class, 'update']);
     Route::Post('place/order/{id}', [\App\Http\Controllers\orderController::class, 'order']);
 
@@ -150,6 +151,8 @@ Route:: prefix('/operator')->middleware(['auth', 'operator'])->group(function ()
         Route::get('released', [\App\Http\Controllers\orderController::class, 'released']);
     Route::post('/update/date/{id}', [\App\Http\Controllers\orderController::class, 'date_released']);
 
+    Route::post('/customer/update_adult',[CustomerController::class,'update_adult']);
+    Route::post('/customer/update_minor',[CustomerController::class,'update_minor']);
 
 });
 

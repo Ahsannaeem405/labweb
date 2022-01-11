@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Country;
 use App\Models\Customer;
 use App\Models\Customer_detail;
+use App\Models\State;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -256,7 +258,23 @@ class CustomerController extends Controller
     }
     public function update_adult(Request $request){
 
+
         $cus_detail=Customer_detail::find($request->id);
+
+
+$customer = Customer::find($cus_detail->customer_id);
+
+        $customer->name = $request->name;
+        $customer->email = $request->email;
+        $customer->address = $request->address;
+        $customer->phone = $request->phone;
+        $customer->dob = $request->datee;
+        $customer->passport = $request->passport;
+
+        $customer->gender = $request->gender;
+        $customer->save();
+
+
         $cus_detail->name =  $request->name;
             $cus_detail->secondname =  $request->secondname;
             $cus_detail->surname =  $request->surname;
@@ -305,6 +323,23 @@ class CustomerController extends Controller
     public function update_minor(Request $request){
 
         $cus_detail=Customer_detail::find($request->id);
+
+
+
+            $customer = Customer::find($cus_detail->customer_id);
+
+            $customer->name = $request->name;
+            $customer->email = $request->email;
+            $customer->address = $request->address;
+            $customer->phone = $request->phone;
+            $customer->dob = $request->datee;
+            $customer->passport = $request->passport;
+
+            $customer->gender = $request->gender;
+            $customer->save();
+
+
+
         $cus_detail->name =  $request->name;
             $cus_detail->secondname =  $request->secondname;
             $cus_detail->surname =  $request->surname;
@@ -369,12 +404,33 @@ class CustomerController extends Controller
     {
 
         $cus = Customer::find($id);
-        return view('customer.edit_customer', compact('cus'));
+        $Country = Country::all();
+        $state = State::all();
+
+        // dd(2);
+        return view('customer.edit_customer', compact('cus', 'Country', 'state'));
 
 
         // dd($id);
         //
     }
+
+
+    public function verify_customer(Customer $customer, $id)
+    {
+        $Country = Country::all();
+        $state = State::all();
+
+
+        $cus = Customer::find($id);
+        return view('customer.verify_customer', compact('cus', 'Country', 'state'));
+
+
+        // dd($id);
+        //
+    }
+
+
 
     /**
      * Update the specified resource in storage.

@@ -60,7 +60,6 @@ td.sorting_1
                                 <th class="">Date of Birth</th>
 
                                 <th class="">Gender</th>
-
                                 <th class="">Status</th>
                                 <th class="">Action</th>
 
@@ -101,7 +100,8 @@ td.sorting_1
 
                                         <a href="{{url(''.$role.'/edit/customer/'.$views->id)}}" > <i class="fa fa-edit"></i> </a>
 
-                                        <a href="{{url(''.$role.'delete/customer/'.$views->id)}}" style="color: red"> <i class="fa fa-trash"></i> </a>
+                                        <a href="{{url(''.$role.'/delete/customer/'.$views->id)}}" style="color: red"> <i class="fa fa-trash"></i> </a>
+                                        <a href="{{url(''.$role.'/verify/customer/'.$views->id)}}"><i class="fas fa-check"></i></a>
                                     </td>
 
                                 </tr>
