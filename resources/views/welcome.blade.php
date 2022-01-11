@@ -97,7 +97,7 @@
 
 <body>
     <div class="container p-5">
-    @include('partials.component')
+        @include('partials.component')
         <div class="row p-3">
             <div class="col-lg-6  col-12 pt-5 text-right">
                 <img src="{{ asset('assets/images/logo-removebg-preview.png') }}" class="img-logo" alt="">
@@ -312,7 +312,7 @@
                     <h1>Fecha de nacimiento del cliente</h1>
                 </div>
                 <div class="col-6 pt-3">
-                    <input  required type="date" name="datea" value="date" class="form-control">
+                    <input required type="date" name="datea" value="date" class="form-control">
                 </div>
                 <div class="col-12 pt-5">
                     <h1>Información adicional del cliente</h1>
@@ -520,16 +520,16 @@
                 <div class="col-lg-6  col-12 pt-2">
                     <label>State/Province</label>
                     <select name="Provincea" class="form-control">
-                        @foreach ($state as $states )
-                        <option value="{{$states->name}}">{{$states->name}}</option>
+                        @foreach ($state as $states)
+                            <option value="{{ $states->name }}">{{ $states->name }}</option>
                         @endforeach
                     </select>
                 </div>
                 <div class="col-lg-6  col-12 pt-2">
                     <label>Country</label>
                     <select class="form-control" name="Countrya">
-                        @foreach ($country as $countries )
-                        <option value="{{$countries->name}}">{{$countries->name}}</option>
+                        @foreach ($country as $countries)
+                            <option value="{{ $countries->name }}">{{ $countries->name }}</option>
                         @endforeach
 
                     </select>
@@ -809,16 +809,16 @@
                 <div class="col-lg-6  col-12 pt-2">
                     <label>State/Province</label>
                     <select name="Province" class="form-control">
-                        @foreach ($state as $states )
-                        <option value="{{$states->name}}">{{$states->name}}</option>
+                        @foreach ($state as $states)
+                            <option value="{{ $states->name }}">{{ $states->name }}</option>
                         @endforeach
                     </select>
                 </div>
                 <div class="col-lg-6  col-12 pt-2">
                     <label>Country</label>
                     <select name="Country" class="form-control">
-                        @foreach ($country as $countries )
-                        <option value="{{$countries->name}}">{{$countries->name}}</option>
+                        @foreach ($country as $countries)
+                            <option value="{{ $countries->name }}">{{ $countries->name }}</option>
                         @endforeach
 
 
@@ -831,7 +831,7 @@
 
                 </div>
                 <div class="col-lg-6 col-6 pt-3">
-                    <input  required type="text" placeholder="Email" name="email" class="form-control">
+                    <input required type="text" placeholder="Email" name="email" class="form-control">
                 </div>
             </div>
 
@@ -848,7 +848,8 @@
                     <input type="radio" name="gender" value="Other"> Other<br>
                 </div>
                 <div class="col-lg-6 col-12 pt-2">
-                    <input required type="text" class="form-control" name="othre_specify" placeholder="Other Specify">
+                    <input required type="text" class="form-control" name="othre_specify"
+                        placeholder="Other Specify">
                     <label for="">Other Specify</label>
                 </div>
             </div>
@@ -862,13 +863,14 @@
 
                 </div>
                 <div class="col-lg-4  col-12 pt-2">
-                    <input required type="text" placeholder="Second Name" name="Parent_secondname" class="form-control">
+                    <input required type="text" placeholder="Second Name" name="Parent_secondname"
+                        class="form-control">
                     <label for="">Second Name</label>
 
                 </div>
 
                 <div class="col-lg-4  col-12 pt-2">
-                    <input  required type="text" placeholder="Surnames" name="Parent_surname" class="form-control">
+                    <input required type="text" placeholder="Surnames" name="Parent_surname" class="form-control">
                     <label for="">Surnames</label>
                 </div>
                 <div class="col-lg-6  col-12 pt-3">
@@ -908,12 +910,13 @@
                     <div class="finalResult">
 
                     </div>
-<input type="hidden" class="totalCount" name="totalCount" value="" id="">
+                    <input type="hidden" class="totalCount" name="totalCount" value="" id="">
                     <div class="static">
                         <div class="row p-5 mt-5">
                             <div class="col-12">
                                 <h1>Electronic signature acceptance</h1><br>
-                                <input type="checkbox" name="signature" required value="1"> By checking ts box, you agree that
+                                <input type="checkbox" name="signature" required value="1"> By checking ts box, you
+                                agree that
                                 your
                                 electronic
                                 signature will be used in place of your handwritten signature. If this is not what you
@@ -949,9 +952,9 @@
 
     <!-- Optional JavaScript -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
     <script>
         $(".adult_btn").click(function() {
-
 
             $('.adult').css('display', 'block');
             $('.maindata').css('display', 'none');
@@ -1020,6 +1023,7 @@
 
         $('.maindata').css('display', 'block');
         $('.finalResult').empty();
+    });
 
         $(".minororad_btn").click(function() {
 
@@ -1091,6 +1095,8 @@
                 });
             }
         });
+
+
     </script>
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
