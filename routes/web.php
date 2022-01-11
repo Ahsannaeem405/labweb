@@ -16,10 +16,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
+Route::get  ('/', [AdminController::class, 'home']);
 
 
 Route:: prefix('/admin')->middleware(['auth', 'admin'])->group(function () {

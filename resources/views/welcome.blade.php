@@ -288,36 +288,36 @@
                     <h1>Nombre del cliente</h1>
                 </div>
                 <div class="col-lg-4 col-12 pt-2">
-                    <input type="text" placeholder="Nombre" name="name" class="form-control">
+                    <input required type="text" placeholder="Nombre" name="namea" class="form-control">
                     <label for="">Nombre</label>
 
                 </div>
                 <div class="col-lg-4  col-12 pt-2">
-                    <input type="text" placeholder="Segundo Nombre" name="secondname" class="form-control">
+                    <input required type="text" placeholder="Segundo Nombre" name="secondnamea" class="form-control">
                     <label for="">Segundo Nombre</label>
                     <input type="hidden" name="type" value="adult" id="">
 
 
                 </div>
                 <div class="col-lg-4  col-12 pt-2">
-                    <input type="text" placeholder="Apellido" name="surname" class="form-control">
+                    <input required type="text" placeholder="Apellido" name="surnamea" class="form-control">
                     <label for="">Apellido</label>
                 </div>
                 <div class="col-lg-4  col-12 pt-3">
-                    <input type="text" placeholder="Teléfono" name="phone" class="form-control">
+                    <input required type="text" placeholder="Teléfono" name="phonea" class="form-control">
                     <label for="">Teléfono</label>
                 </div>
                 <div class="col-12 pt-3">
                     <h1>Fecha de nacimiento del cliente</h1>
                 </div>
                 <div class="col-6 pt-3">
-                    <input type="date" name="date" value="date" class="form-control">
+                    <input  required type="date" name="datea" value="date" class="form-control">
                 </div>
                 <div class="col-12 pt-5">
                     <h1>Información adicional del cliente</h1>
                 </div>
                 <div class="col-6 pt-3">
-                    <input type="text" name="passport" placeholder="Pasaporte#" class="form-control">
+                    <input required type="text" name="passporta" placeholder="Pasaporte#" class="form-control">
                     <label for="">Pasaporte#</label>
                 </div>
                 <div class="col-12 pt-3">
@@ -325,76 +325,76 @@
                 </div>
                 <div class="col-12 pt-3">
                     <p>Fiebre</p>
-                    <input type="radio" name="Fever" value="Yes">
+                    <input type="radio" checked name="Fevera" value="Yes">
                     <label for="html">Sí</label><br>
-                    <input type="radio" name="Fever" value="No">
+                    <input type="radio" name="Fevera" value="No">
                     <label for="html">No</label><br>
                 </div>
                 <div class="col-12 pt-3">
                     <p>
                         Tos (nueva aparición o empeoramiento de la tos crónica) *</p>
-                    <input type="radio" name="Cough" value="Yes">
+                    <input type="radio" checked name="Cougha" value="Yes">
                     <label for="html">Sí</label><br>
-                    <input type="radio" name="Cough" value="No">
+                    <input type="radio" name="Cougha" value="No">
                     <label for="html">No</label><br>
                 </div>
 
                 <div class="col-12 pt-3">
                     <p>
                         Dolor de garganta</p>
-                    <input type="radio" name="Throat" value="Yes">
+                    <input type="radio" checked name="Throata" value="Yes">
                     <label for="html">Sí</label><br>
-                    <input type="radio" name="Throat" value="No">
+                    <input type="radio" name="Throata" value="No">
                     <label for="html">No</label><br>
                 </div>
                 <div class="col-12 pt-3">
                     <p>
                         Dificultad para respirar (disnea)</p>
-                    <input type="radio" name="breathing" value="Yes">
+                    <input type="radio" checked name="breathinga" value="Yes">
                     <label for="html">Sí</label><br>
-                    <input type="radio" name="breathing" value="No">
+                    <input type="radio" name="breathinga" value="No">
                     <label for="html">No</label><br>
                 </div>
 
 
                 <div class="col-12 pt-3">
                     <p>Náuseas *</p>
-                    <input type="radio" name="Nausea" value="Yes">
+                    <input type="radio" checked name="Nauseaa" value="Yes">
                     <label for="html">Sí</label><br>
-                    <input type="radio" name="Nausea" value="No">
+                    <input type="radio" name="Nauseaa" value="No">
                     <label for="html">No</label><br>
                 </div>
                 <div class="col-12 pt-3">
                     <p>
                         Abdominal pain *</p>
-                    <input type="radio" name="Abdominal" value="Yes">
+                    <input type="radio" checked name="Abdominala" value="Yes">
                     <label for="html">Sí</label><br>
-                    <input type="radio" name="Abdominal" value="No">
+                    <input type="radio" name="Abdominala" value="No">
                     <label for="html">No</label><br>
                 </div>
                 <div class="col-12 pt-3">
                     <p>
                         Chills*</p>
-                    <input type="radio" name="Chills" value="Yes">
+                    <input type="radio" checked name="Chillsa" value="Yes">
                     <label for="html">Sí</label><br>
-                    <input type="radio" name="Chills" value="No">
+                    <input type="radio" name="Chillsa" value="No">
                     <label for="html">No</label><br>
                 </div>
                 <div class="col-12 pt-3">
                     <p>
                         Dolor de cabeza</p>
-                    <input type="radio" name="Headache" value="Yes">
+                    <input type="radio" checked name="Headachea" value="Yes">
                     <label for="html">Sí</label><br>
-                    <input type="radio" name="Headache" value="No">
+                    <input type="radio" name="Headachea" value="No">
                     <label for="html">No</label><br>
                 </div>
                 <div class="col-12 pt-3">
                     <p>
 
                         Dolores musculares (mialgia)</p>
-                    <input type="radio" name="Muscle" value="Yes">
+                    <input type="radio" checked name="Musclea" value="Yes">
                     <label for="html">Sí</label><br>
-                    <input type="radio" name="Muscle" value="No">
+                    <input type="radio" name="Musclea" value="No">
                     <label for="html">No</label><br>
                 </div>
 
@@ -404,9 +404,9 @@
 
 
                         Fatiga *</p>
-                    <input type="radio" name="Fatigue" value="Yes">
+                    <input type="radio" checked name="Fatiguea" value="Yes">
                     <label for="html">Sí</label><br>
-                    <input type="radio" name="Fatigue" value="No">
+                    <input type="radio" name="Fatiguea" value="No">
                     <label for="html">No</label><br>
                 </div>
                 <div class="col-12 pt-3">
@@ -414,18 +414,18 @@
 
 
                         Secreción nasal (rinorrea) *</p>
-                    <input type="radio" name="Runny" value="Yes">
+                    <input type="radio" checked name="Runnya" value="Yes">
                     <label for="html">Sí</label><br>
-                    <input type="radio" name="Runny" value="No">
+                    <input type="radio" name="Runnya" value="No">
                     <label for="html">No</label><br>
                 </div>
                 <div class="col-12 pt-3">
                     <p>
 
                         Vómitos</p>
-                    <input type="radio" name="Vomiting" value="Yes">
+                    <input type="radio" checked name="Vomitinga" value="Yes">
                     <label for="html">Sí</label><br>
-                    <input type="radio" name="Vomiting" value="No">
+                    <input type="radio" name="Vomitinga" value="No">
                     <label for="html">No</label><br>
                 </div>
 
@@ -433,9 +433,9 @@
                     <p>
 
                         Diarrea (3 deposiciones blandas / día) *</p>
-                    <input type="radio" name="Diarrhea" value="Yes">
+                    <input type="radio" checked name="Diarrheaa" value="Yes">
                     <label for="html">Sí</label><br>
-                    <input type="radio" name="Diarrhea" value="No">
+                    <input type="radio" name="Diarrheaa" value="No">
                     <label for="html">No</label><br>
                 </div>
 
@@ -445,9 +445,9 @@
 
 
                         Pérdida del olfato *</p>
-                    <input type="radio" name="Loss_of_smell" value="Yes">
+                    <input type="radio" checked name="Loss_of_smella" value="Yes">
                     <label for="html">Sí</label><br>
-                    <input type="radio" name="Loss_of_smell" value="No">
+                    <input type="radio" name="Loss_of_smella" value="No">
                     <label for="html">No</label><br>
                 </div>
 
@@ -455,17 +455,17 @@
                     <p>
 
                         Pérdida del gusto</p>
-                    <input type="radio" name="Loss_of_taste" value="Yes">
+                    <input type="radio" checked name="Loss_of_tastea" value="Yes">
                     <label for="html">Sí</label><br>
-                    <input type="radio" name="Loss_of_taste" value="No">
+                    <input type="radio" name="Loss_of_tastea" value="No">
                     <label for="html">No</label><br>
                 </div>
                 <div class="col-12 pt-3">
-                    <input type="text" placeholder="Otra especificar" name="specify" class="form-control">
+                    <input type="text" required placeholder="Otra especificar" name="specifya" class="form-control">
                     <label for="">Otra especificar</label>
                 </div>
                 <div class="col-12 pt-3">
-                    <input type="text" placeholder="Fecha de inicio de los primeros síntomas" name="symptoms"
+                    <input type="text" required placeholder="Fecha de inicio de los primeros síntomas" name="symptomsa"
                         class="form-control">
                     <label for="">Fecha de inicio de los primeros síntomas</label>
                 </div>
@@ -483,17 +483,17 @@
                     <p>
 
                         Seleccione la prueba</p>
-                    <input type="radio" name="Select_the_test" value="ANTÍGENO">
+                    <input type="radio" checked name="Select_the_testa" value="ANTÍGENO">
                     <label for="html">
                         ANTÍGENO</label><br>
-                    <input type="radio" name="Select_the_test" value="PCR">
+                    <input type="radio" checked name="Select_the_testa" value="PCR">
                     <label for="html">PCR</label><br>
-                    <input type="radio" name="Select_the_test" value="RT-PCR">
+                    <input type="radio" name="Select_the_testa" value="RT-PCR">
                     <label for="RT">RT-PCR
                     </label><br>
-                    <input type="radio" name="Select_the_test" value="PCR-24hm">
+                    <input type="radio" name="Select_the_testa" value="PCR-24hm">
                     <label for="html">PCR-24hm</label><br>
-                    <input type="radio" name="Select_the_test" value="24hrs">
+                    <input type="radio" name="Select_the_testa" value="24hrs">
                     <label for="html">RT-PCR 24hrs</label><br>
                 </div>
 
@@ -505,30 +505,31 @@
 
                 </div>
                 <div class="col-lg-6  col-12 pt-2">
-                    <input type="text" placeholder="Address" name="address" class="form-control">
+                    <input type="text" required placeholder="Address" name="addressa" class="form-control">
                 </div>
                 <div class="col-lg-6  col-12 pt-2">
-                    <input type="text" placeholder="Address2" name="address2" class="form-control">
+                    <input type="text" required placeholder="Address2" name="address2a" class="form-control">
                 </div>
                 <div class="col-lg-6  col-12 pt-2">
-                    <input type="text" placeholder="Town" name="town" class="form-control">
+                    <input type="text" required placeholder="Town" name="towna" class="form-control">
                 </div>
                 <div class="col-lg-6  col-12 pt-2">
-                    <input type="text" placeholder="Zip Code" name="zip" class="form-control">
+                    <input type="text" required placeholder="Zip Code" name="zipa" class="form-control">
                 </div>
                 <div class="col-lg-6  col-12 pt-2">
                     <label>State/Province</label>
-                    <select name="Province" class="form-control">
-                        <option value="UK">UK</option>
-                        <option value="US">US</option>
-
+                    <select name="Provincea" class="form-control">
+                        @foreach ($state as $states )
+                        <option value="{{$states->name}}">{{$states->name}}</option>
+                        @endforeach
                     </select>
                 </div>
                 <div class="col-lg-6  col-12 pt-2">
                     <label>Country</label>
-                    <select class="form-control" name="Country">
-                        <option value="America">America</option>
-
+                    <select class="form-control" name="Countrya">
+                        @foreach ($country as $countries )
+                        <option value="{{$countries->name}}">{{$countries->name}}</option>
+                        @endforeach
 
                     </select>
                 </div>
@@ -539,7 +540,7 @@
 
                 </div>
                 <div class="col-lg-6 col-6 pt-3">
-                    <input type="text" placeholder="Email" name="email" class="form-control">
+                    <input type="text" required placeholder="Email" name="emaila" class="form-control">
                 </div>
             </div>
 
@@ -549,11 +550,11 @@
                 </div>
                 <div class="col-lg-12 col-12 pt-2">
                     <p>Option</p>
-                    <input type="radio" name="gender" value="Friends"> Friends<br>
-                    <input type="radio" name="gender" value="Airline"> Airline Staff<br>
-                    <input type="radio" name="gender" value="Airport"> Airport Advertisement<br>
-                    <input type="radio" name="gender" value="Google"> Google<br>
-                    <input type="radio" name="gender" value="Other"> Other<br>
+                    <input type="radio" checked name="gendera" value="Friends"> Friends<br>
+                    <input type="radio" name="gendera" value="Airline"> Airline Staff<br>
+                    <input type="radio" name="gendera" value="Airport"> Airport Advertisement<br>
+                    <input type="radio" name="gendera" value="Google"> Google<br>
+                    <input type="radio" name="gendera" value="Other"> Other<br>
                 </div>
             </div>
 
@@ -567,23 +568,23 @@
 
 
                 <div class="col-lg-4  col-12 pt-2">
-                    <input type="text" placeholder="Name" name="name" class="form-control">
+                    <input type="text" required placeholder="Name" name="name" class="form-control">
                     <label for="">Name</label>
 
                 </div>
                 <div class="col-lg-4  col-12 pt-2">
-                    <input type="text" placeholder="Second Name" name="secondname" class="form-control">
+                    <input type="text" required placeholder="Second Name" name="secondname" class="form-control">
                     <label for="">Second Name</label>
                 </div>
 
 
                 <input type="hidden" name="type" value="minor">
                 <div class="col-lg-4  col-12 pt-2">
-                    <input type="text" placeholder="Surnames" name="surname" class="form-control">
+                    <input type="text" required placeholder="Surnames" name="surname" class="form-control">
                     <label for="">Surnames</label>
                 </div>
                 <div class="col-lg-6  col-12 pt-3">
-                    <input type="text" placeholder="Telephone" name="phone" class="form-control">
+                    <input type="text" required placeholder="Telephone" name="phone" class="form-control">
                     <label for="">Telephone</label>
                 </div>
                 <div class="col-lg-6  col-12 pt-3">
@@ -601,13 +602,13 @@
                     <h1>First Birth Date of Minor</h1>
                 </div>
                 <div class="col-6 pt-3">
-                    <input type="date" value="date" name="date" class="form-control">
+                    <input type="date" required value="date" name="date" class="form-control">
                 </div>
                 <div class="col-12 pt-5">
                     <h1>Additional Information of first of the Minor</h1>
                 </div>
                 <div class="col-6 pt-3">
-                    <input type="text" name="passport" placeholder="Pasaporte#" class="form-control">
+                    <input type="text" required name="passport" placeholder="Pasaporte#" class="form-control">
                     <label for="">Pasaporte#</label>
                 </div>
                 <div class="col-12 pt-3">
@@ -615,7 +616,7 @@
                 </div>
                 <div class="col-12 pt-3">
                     <p>Fever</p>
-                    <input type="radio" name="fever" value="Yes">
+                    <input type="radio" checked name="fever" value="Yes">
                     <label for="html">Yes</label><br>
                     <input type="radio" name="fever" value="No">
                     <label for="html">No</label><br>
@@ -623,7 +624,7 @@
                 <div class="col-12 pt-3">
                     <p>
                         Cough (new onset or worsening of chronic cough) *</p>
-                    <input type="radio" name="Cough" value="Yes">
+                    <input type="radio" checked name="Cough" value="Yes">
                     <label for="html">Yes</label><br>
                     <input type="radio" name="Cough" value="No">
                     <label for="html">No</label><br>
@@ -632,7 +633,7 @@
                 <div class="col-12 pt-3">
                     <p>
                         Sore Throat</p>
-                    <input type="radio" name="Throat" value="Yes">
+                    <input type="radio" checked name="Throat" value="Yes">
                     <label for="html">Yes</label><br>
                     <input type="radio" name="Throat" value="No">
                     <label for="html">No</label><br>
@@ -640,7 +641,7 @@
                 <div class="col-12 pt-3">
                     <p>
                         Difficulty breathing (dyspnea)</p>
-                    <input type="radio" name="breathing" value="Yes">
+                    <input type="radio" checked name="breathing" value="Yes">
                     <label for="html">Yes</label><br>
                     <input type="radio" name="breathing" value="No">
                     <label for="html">No</label><br>
@@ -649,7 +650,7 @@
 
                 <div class="col-12 pt-3">
                     <p>Nausea *</p>
-                    <input type="radio" name="Nausea" value="Yes">
+                    <input type="radio" checked name="Nausea" value="Yes">
                     <label for="html">Yes</label><br>
                     <input type="radio" name="Nausea" value="No">
                     <label for="html">No</label><br>
@@ -657,7 +658,7 @@
                 <div class="col-12 pt-3">
                     <p>
                         Abdominal pain *</p>
-                    <input type="radio" name="Abdominal " value="Yes">
+                    <input type="radio" checked name="Abdominal " value="Yes">
                     <label for="html">Yes</label><br>
                     <input type="radio" name="Abdominal " value="No">
                     <label for="html">No</label><br>
@@ -665,7 +666,7 @@
                 <div class="col-12 pt-3">
                     <p>
                         Chills *</p>
-                    <input type="radio" name="Chills" value="Yes">
+                    <input type="radio" checked name="Chills" value="Yes">
                     <label for="html">Yes</label><br>
                     <input type="radio" name="Chills" value="No">
                     <label for="html">No</label><br>
@@ -673,7 +674,7 @@
                 <div class="col-12 pt-3">
                     <p>
                         Headache</p>
-                    <input type="radio" name="Headache" value="Yes">
+                    <input type="radio" checked name="Headache" value="Yes">
                     <label for="html">Yes</label><br>
                     <input type="radio" name="Headache" value="No">
                     <label for="html">No</label><br>
@@ -682,7 +683,7 @@
                     <p>
 
                         Muscle aches (myalgia)</p>
-                    <input type="radio" name="Muscle" value="Yes">
+                    <input type="radio" checked name="Muscle" value="Yes">
                     <label for="html">Yes</label><br>
                     <input type="radio" name="Muscle" value="No">
                     <label for="html">No</label><br>
@@ -694,7 +695,7 @@
 
 
                         Fatigue *</p>
-                    <input type="radio" name="Fatigue" value="Yes">
+                    <input type="radio" checked name="Fatigue" value="Yes">
                     <label for="html">Yes</label><br>
                     <input type="radio" name="Fatigue" value="No">
                     <label for="html">No</label><br>
@@ -704,7 +705,7 @@
 
 
                         Runny nose (rhinorrhea) *</p>
-                    <input type="radio" name="Runny" value="Yes">
+                    <input type="radio" checked name="Runny" value="Yes">
                     <label for="html">Yes</label><br>
                     <input type="radio" name="Runny" value="No">
                     <label for="html">No</label><br>
@@ -713,7 +714,7 @@
                     <p>
 
                         Vomiting</p>
-                    <input type="radio" name="Vomiting" value="Yes">
+                    <input type="radio" checked name="Vomiting" value="Yes">
                     <label for="html">Yes</label><br>
                     <input type="radio" name="Vomiting" value="No">
                     <label for="html">No</label><br>
@@ -723,7 +724,7 @@
                     <p>
 
                         Diarrhea (3 loose stools / day) *</p>
-                    <input type="radio" name="Diarrhea" value="Yes">
+                    <input type="radio" checked name="Diarrhea" value="Yes">
                     <label for="html">Yes</label><br>
                     <input type="radio" name="Diarrhea" value="No">
                     <label for="html">No</label><br>
@@ -735,7 +736,7 @@
 
 
                         Loss of smell *</p>
-                    <input type="radio" name="Loss_of_smell" value="Yes">
+                    <input type="radio" checked name="Loss_of_smell" value="Yes">
                     <label for="html">Yes</label><br>
                     <input type="radio" name="Loss_of_smell" value="No">
                     <label for="html">No</label><br>
@@ -745,17 +746,17 @@
                     <p>
 
                         Loss of taste</p>
-                    <input type="radio" name="Loss_of_taste" value="Yes">
+                    <input type="radio" checked name="Loss_of_taste" value="Yes">
                     <label for="html">Yes</label><br>
                     <input type="radio" name="Loss_of_taste" value="No">
                     <label for="html">No</label><br>
                 </div>
                 <div class="col-12 pt-3">
-                    <input type="text" placeholder="Other specify" name="specify" class="form-control">
+                    <input type="text" required placeholder="Other specify" name="specify" class="form-control">
                     <label for="">Other specify</label>
                 </div>
                 <div class="col-12 pt-3">
-                    <input type="text" placeholder="" name="symptoms" class="form-control">
+                    <input type="text" required placeholder="" name="symptoms" class="form-control">
                     <label for="">Earliest Symptoms onset Date</label>
                 </div>
                 <div class="col-12 pt-5">
@@ -772,10 +773,10 @@
                     <p>
 
                         Select the test</p>
-                    <input type="radio" name="Select_the_test" value="PCR">
+                    <input type="radio" checked name="Select_the_test" value="ANTIGEN">
                     <label for="html">
                         ANTIGEN</label><br>
-                    <input type="radio" name="Select_the_test" value="">
+                    <input type="radio" name="Select_the_test" value="PCR">
                     <label for="html">PCR</label><br>
                     <input type="radio" name="Select_the_test" value="RT-PCR">
                     <label for="html">RT-PCR
@@ -793,29 +794,31 @@
 
                 </div>
                 <div class="col-lg-6  col-12 pt-2">
-                    <input type="text" placeholder="Address" name="address" class="form-control">
+                    <input type="text" required placeholder="Address" name="address" class="form-control">
                 </div>
                 <div class="col-lg-6  col-12 pt-2">
-                    <input type="text" placeholder="Address2" name="address2" class="form-control">
+                    <input type="text" required placeholder="Address2" name="address2" class="form-control">
                 </div>
                 <div class="col-lg-6  col-12 pt-2">
-                    <input type="text" placeholder="Town" name="town" class="form-control">
+                    <input type="text" required placeholder="Town" name="town" class="form-control">
                 </div>
                 <div class="col-lg-6  col-12 pt-2">
-                    <input type="text" placeholder="Zip Code" name="zip" class="form-control">
+                    <input type="text" required placeholder="Zip Code" name="zip" class="form-control">
                 </div>
                 <div class="col-lg-6  col-12 pt-2">
                     <label>State/Province</label>
                     <select name="Province" class="form-control">
-                        <option value="UK">UK</option>
-                        <option value="US">US</option>
-
+                        @foreach ($state as $states )
+                        <option value="{{$states->name}}">{{$states->name}}</option>
+                        @endforeach
                     </select>
                 </div>
                 <div class="col-lg-6  col-12 pt-2">
                     <label>Country</label>
                     <select name="Country" class="form-control">
-                        <option value="America">America</option>
+                        @foreach ($country as $countries )
+                        <option value="{{$countries->name}}">{{$countries->name}}</option>
+                        @endforeach
 
 
                     </select>
@@ -827,7 +830,7 @@
 
                 </div>
                 <div class="col-lg-6 col-6 pt-3">
-                    <input type="text" placeholder="Email" name="email" class="form-control">
+                    <input  required type="text" placeholder="Email" name="email" class="form-control">
                 </div>
             </div>
 
@@ -837,14 +840,14 @@
                 </div>
                 <div class="col-lg-12 col-12 pt-2">
                     <p>Option</p>
-                    <input type="radio" name="gender" value="Friends"> Friends<br>
+                    <input type="radio" name="gender" checked value="Friends"> Friends<br>
                     <input type="radio" name="gender" value="Airline"> Airline Staff<br>
                     <input type="radio" name="gender" value="Airport"> Airport Advertisement<br>
                     <input type="radio" name="gender" value="Google"> Google<br>
                     <input type="radio" name="gender" value="Other"> Other<br>
                 </div>
                 <div class="col-lg-6 col-12 pt-2">
-                    <input type="text" class="form-control" name="othre_specify" placeholder="Other Specify">
+                    <input required type="text" class="form-control" name="othre_specify" placeholder="Other Specify">
                     <label for="">Other Specify</label>
                 </div>
             </div>
@@ -853,27 +856,27 @@
                     <h1>Parent Or Guardian Name</h1>
                 </div>
                 <div class="col-lg-4  col-12 pt-2">
-                    <input type="text" placeholder="Name" name="Parent_name" class="form-control">
+                    <input required type="text" placeholder="Name" name="Parent_name" class="form-control">
                     <label for="">Name</label>
 
                 </div>
                 <div class="col-lg-4  col-12 pt-2">
-                    <input type="text" placeholder="Second Name" name="Parent_secondname" class="form-control">
+                    <input required type="text" placeholder="Second Name" name="Parent_secondname" class="form-control">
                     <label for="">Second Name</label>
 
                 </div>
 
                 <div class="col-lg-4  col-12 pt-2">
-                    <input type="text" placeholder="Surnames" name="Parent_surname" class="form-control">
+                    <input  required type="text" placeholder="Surnames" name="Parent_surname" class="form-control">
                     <label for="">Surnames</label>
                 </div>
                 <div class="col-lg-6  col-12 pt-3">
-                    <input type="text" placeholder="Telephone" name="Parent_phone" class="form-control">
+                    <input required type="text" placeholder="Telephone" name="Parent_phone" class="form-control">
                     <label for="">Telephone</label>
                 </div>
                 <div class="col-lg-6  col-12 pt-3">
 
-                    <input type="date" placeholder="DOB" name="Parent_dob" class="form-control">
+                    <input required type="date" placeholder="DOB" name="Parent_dob" class="form-control">
                     <label for="">Date Birth Of Gaurdian</label>
 
                 </div>
@@ -909,7 +912,7 @@
                         <div class="row p-5 mt-5">
                             <div class="col-12">
                                 <h1>Electronic signature acceptance</h1><br>
-                                <input type="checkbox" name="signature" value="1"> By checking ts box, you agree that
+                                <input type="checkbox" name="signature" required value="1"> By checking ts box, you agree that
                                 your
                                 electronic
                                 signature will be used in place of your handwritten signature. If this is not what you
@@ -1071,6 +1074,7 @@
 
 
                 $('.finalResult').append(html);
+                $('.totalCount').val(main);
 
                 $(id).find('input').each(function(index, value) {
                     var val = $(this).attr('name');
