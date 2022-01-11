@@ -244,7 +244,7 @@ return redirect("$role/view/customer")->with('success','Customer Verification su
         }
         // dd(22);
 
-        return back()->with('success', 'Added Successfully');
+        return back()->with('success', 'Request Submitted Successfully');
     }
 
 
