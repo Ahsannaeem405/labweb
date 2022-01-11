@@ -304,9 +304,20 @@
                     <input required type="text" placeholder="Apellido" name="surnamea" class="form-control">
                     <label for="">Apellido</label>
                 </div>
-                <div class="col-lg-4  col-12 pt-3">
+                <div class="col-lg-6  col-12 pt-3">
                     <input required type="text" placeholder="Teléfono" name="phonea" class="form-control">
                     <label for="">Teléfono</label>
+                </div>
+
+                <div class="col-lg-6  col-12 pt-3">
+
+
+                    <select name="Fgender" class="form-control">
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+
+                    </select>
+                    <label>Gender:</label>
                 </div>
                 <div class="col-12 pt-3">
                     <h1>Fecha de nacimiento del cliente</h1>

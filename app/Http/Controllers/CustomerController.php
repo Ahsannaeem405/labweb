@@ -53,6 +53,22 @@ class CustomerController extends Controller
 
 
         if ($request->type == "adult") {
+
+
+            $customer = new Customer();
+            $customer->name = $request->namea;
+            $customer->email = $request->emaila;
+            $customer->address = $request->addressa;
+            $customer->phone = $request->phonea;
+            $customer->dob = $request->datea;
+            $customer->passport = $request->passporta;
+            $customer->status = 'Unverified';
+            $customer->step = 1;
+            $customer->gender = $request->Fgender;
+            $customer->save();
+
+
+
             $cus_detail = new Customer_detail();
             $cus_detail->name =  $request->namea;
             $cus_detail->secondname =  $request->secondnamea;
@@ -65,8 +81,7 @@ class CustomerController extends Controller
             $cus_detail->Cough =  $request->Cougha;
             $cus_detail->Nausea =  $request->Nauseaa;
             $cus_detail->othre_specify =  $request->othre_specifya;
-
-
+            $cus_detail->gender2 =  $request->Fgender;
             $cus_detail->Throat =  $request->Throata;
             $cus_detail->breathing =  $request->breathinga;
             $cus_detail->Abdominal =  $request->Abdominala;
@@ -91,6 +106,7 @@ class CustomerController extends Controller
             $cus_detail->email =  $request->emaila;
             $cus_detail->gender =  $request->gendera;
             $cus_detail->signature =  $request->signature;
+            $cus_detail->customer_id =  $customer->id;
             $cus_detail->save();
         }
 
@@ -146,6 +162,21 @@ class CustomerController extends Controller
                 $Parent_dob = 'Parent_dob_' . $i;
 
 
+
+
+                $customer = new Customer();
+                $customer->name = $request->$name;
+                $customer->email =  $request->$email;
+                $customer->address =  $request->$address;
+                $customer->phone =  $request->$phone;
+                $customer->dob = $request->$date;
+                $customer->passport = $request->$passport;
+                $customer->status = 'Unverified';
+                 $customer->gender = $request->$Fgender;
+                $customer->step = 1;
+                $customer->save();
+
+
                 $cus_detail = new Customer_detail();
                 $cus_detail->name = $request->$name;
                 $cus_detail->secondname =  $request->$secondname;
@@ -162,7 +193,6 @@ class CustomerController extends Controller
                 $cus_detail->Select_the_test =  $request->$Select_the_test;
                 $cus_detail->othre_specify =  $request->$othre_specify;
 
-                // Select_the_test
                 $cus_detail->breathing =  $request->$breathing;
                 $cus_detail->Abdominal =  $request->$Abdominal;
                 $cus_detail->Chills =  $request->$Chills;
@@ -190,14 +220,14 @@ class CustomerController extends Controller
                 $cus_detail->Parent_phone =  $request->$Parent_phone;
                 $cus_detail->Parent_dob =  $request->$Parent_dob;
                 $cus_detail->signature =  $request->signature;
-
+                $cus_detail->customer_id =  $customer->id;
 
                 $cus_detail->save();
             }
         }
         // dd(22);
 
-        return back();
+        return back()->with('success', 'Added Successfully');
     }
 
 
