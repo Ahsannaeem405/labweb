@@ -121,9 +121,9 @@
                                                 <label>Please select test category</label>
                                                 <select class="form-control" name="test_type" required>
                                                     <option selected value="">Please select</option>
-                                                    <option value="test1">test1</option>
-                                                    <option value="test1">test2</option>
-                                                    <option value="test3">test3</option>
+                                                    <option value="PCR">PCR</option>
+                                                    <option value="RT-PCR">RT-PCR</option>
+                                                    <option value="PCR-24hm">PCR-24hm</option>
                                                 </select>
 
 

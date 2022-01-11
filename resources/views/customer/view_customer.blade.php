@@ -43,10 +43,10 @@ td.sorting_1
 
     <div class="br-mainpanel">
 
-
+        @include('partials.component')
         <div class="br-pagebody">
             <div class="br-section-wrapper table-responsive">
-                @include('partials.component')
+
                 <h6 class="tx-gray-800 tx-uppercase tx-bold tx-14 mg-b-10">View customer</h6>
 
                 <div class="" style="width: 100%;
