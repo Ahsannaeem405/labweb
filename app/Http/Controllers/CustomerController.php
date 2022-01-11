@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Customer;
+use App\Models\Customer_detail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -48,7 +49,45 @@ class CustomerController extends Controller
     }
 
     public function detail_save(Request $request){
+
         dd($request);
+        $cus_detail = new Customer_detail();
+        $cus_detail->name =  $request->name;
+        $cus_detail->secondname =  $request->secondname;
+        $cus_detail->type =  $request->type;
+        $cus_detail->surname =  $request->surname;
+        $cus_detail->phone =  $request->phone;
+        $cus_detail->datee =  $request->date;
+        $cus_detail->passport =  $request->passport;
+        $cus_detail->Fever =  $request->Fever;
+        $cus_detail->Cough =  $request->Cough;
+        $cus_detail->Throat =  $request->Throat;
+        $cus_detail->breathing =  $request->breathing;
+        $cus_detail->Abdominal =  $request->Abdominal;
+        $cus_detail->Chills =  $request->Chills;
+        $cus_detail->Headache =  $request->Headache;
+        $cus_detail->Muscle =  $request->Muscle;
+        $cus_detail->Fatigue =  $request->Fatigue;
+        $cus_detail->Runny =  $request->Runny;
+        $cus_detail->Vomiting =  $request->Vomiting;
+        $cus_detail->Diarrhea =  $request->Diarrhea;
+        $cus_detail->Loss_of_smell =  $request->Loss_of_smell;
+        $cus_detail->Loss_of_taste =  $request->Loss_of_taste;
+        $cus_detail->specify =  $request->specify;
+        $cus_detail->symptoms =  $request->symptoms;
+        $cus_detail->Select_the_test =  $request->Select_the_test;
+        $cus_detail->address =  $request->address;
+        $cus_detail->address2 =  $request->address2;
+        $cus_detail->town =  $request->town;
+        $cus_detail->zip =  $request->zip;
+        $cus_detail->Province =  $request->Province;
+        $cus_detail->Country =  $request->Country;
+        $cus_detail->email =  $request->email;
+        $cus_detail->gender =  $request->gender;
+        $cus_detail->signature =  $request->signature;
+        $cus_detail->save();
+return back();
+        // dd($request);
 
     }
 

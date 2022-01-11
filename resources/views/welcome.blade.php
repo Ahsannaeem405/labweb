@@ -317,7 +317,7 @@
                     <h1>Información adicional del cliente</h1>
                 </div>
                 <div class="col-6 pt-3">
-                    <input type="text" name="passport#" placeholder="Pasaporte#" class="form-control">
+                    <input type="text" name="passport" placeholder="Pasaporte#" class="form-control">
                     <label for="">Pasaporte#</label>
                 </div>
                 <div class="col-12 pt-3">
@@ -607,7 +607,7 @@
                     <h1>Additional Information of first of the Minor</h1>
                 </div>
                 <div class="col-6 pt-3">
-                    <input type="text" name="passport#" placeholder="Pasaporte#" class="form-control">
+                    <input type="text" name="passport" placeholder="Pasaporte#" class="form-control">
                     <label for="">Pasaporte#</label>
                 </div>
                 <div class="col-12 pt-3">
