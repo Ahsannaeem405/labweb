@@ -59,8 +59,8 @@ Route:: prefix('/admin')->middleware(['auth', 'admin'])->group(function () {
     Route::get('/customers', [CustomerController::class, 'view']);
 
     Route::get('/edit/customer/{id}', [CustomerController::class, 'edit']);
+    Route::get('/verify/customer/{id}', [CustomerController::class, 'verify_customer']);
     Route::Post('customer/update', [CustomerController::class, 'update']);
-
     Route::Post('place/order/{id}', [\App\Http\Controllers\orderController::class, 'order']);
 
     //invoice
@@ -85,6 +85,9 @@ Route:: prefix('/admin')->middleware(['auth', 'admin'])->group(function () {
 
     Route::post('/customer/update_adult',[CustomerController::class,'update_adult']);
     Route::post('/customer/update_minor',[CustomerController::class,'update_minor']);
+
+
+    Route::get('delete/customer/{id}',[CustomerController::class,'cusdel']);
 
 });
 
@@ -156,6 +159,8 @@ Route:: prefix('/operator')->middleware(['auth', 'operator'])->group(function ()
     Route::post('/customer/update_minor',[CustomerController::class,'update_minor']);
 
     Route::get('/verification/{id}', [\App\Http\Controllers\CustomerController::class, 'verification']);
+
+    Route::get('delete/customer/{id}',[CustomerController::class,'cusdel']);
 
 
 });

@@ -472,6 +472,12 @@ $customer = Customer::find($cus_detail->customer_id);
         return back()->with('success', 'updated Successfully');
     }
 
+    public function cusdel($id)
+    {
+        $del=Customer::find($id)->delete();
+        return back()->with('success','customer deleted successfully');
+    }
+
     /**
      * Remove the specified resource from storage.
      *
