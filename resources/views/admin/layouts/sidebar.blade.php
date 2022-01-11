@@ -59,25 +59,26 @@
 
             <a href="{{ url("/$role/pending/invoice") }}" class="br-menu-link">
                 <div class="br-menu-item">
-                    <i class="fa fa-users" aria-hidden="true"></i>
+                    <i class="fas fa-file-invoice"></i>
                     <span class="menu-item-label"> Pending to invoice</span>
                 </div><!-- menu-item -->
             </a>
             <a href="{{ url("/$role/pending/results") }}" class="br-menu-link">
                 <div class="br-menu-item">
-                    <i class="fa fa-users" aria-hidden="true"></i>
+                    <i class="fas fa-poll"></i>
                     <span class="menu-item-label"> Pending Results</span>
                 </div><!-- menu-item -->
             </a>
             <a href="{{ url("/$role/pending/release") }}" class="br-menu-link">
                 <div class="br-menu-item">
-                    <i class="fa fa-users" aria-hidden="true"></i>
+                    <i class="fab fa-first-order-alt"></i>
+
                     <span class="menu-item-label"> Pending Release</span>
                 </div><!-- menu-item -->
             </a>
             <a href="{{ url("/$role/released") }}" class="br-menu-link">
                 <div class="br-menu-item">
-                    <i class="fa fa-users" aria-hidden="true"></i>
+                    <i class="fas fa-check-circle"></i>
                     <span class="menu-item-label"> Released</span>
                 </div><!-- menu-item -->
             </a>

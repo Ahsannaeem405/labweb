@@ -97,6 +97,7 @@
 
 <body>
     <div class="container p-5">
+    @include('partials.component')
         <div class="row p-3">
             <div class="col-lg-6  col-12 pt-5 text-right">
                 <img src="{{ asset('assets/images/logo-removebg-preview.png') }}" class="img-logo" alt="">
@@ -952,7 +953,6 @@
         $(".adult_btn").click(function() {
 
 
-
             $('.adult').css('display', 'block');
             $('.maindata').css('display', 'none');
             $('.minors1').css('display', 'none');
@@ -1016,7 +1016,10 @@
         });
 
 
+    $(".minororad_btn").click(function () {
 
+        $('.maindata').css('display', 'block');
+        $('.finalResult').empty();
 
         $(".minororad_btn").click(function() {
 
@@ -1033,7 +1036,7 @@
                 html += $('.minorform').html();
                 html += '</div>';
 
-                $('.finalResult').append(html);
+            $('.finalResult').append(html);
 
                 $('.totalCount').val(main);
 
@@ -1047,11 +1050,11 @@
                     var val = $(this).attr('name');
                     val = $(this).attr('name', val + '_' + main);
 
-                });
+            });
 
 
-            }
-        });
+        }
+    });
 
 
         $(".minor_btn").click(function() {
@@ -1062,7 +1065,6 @@
             $('.finalResult').append(html2);
             var some_var = $(this).attr('att');
             for (let index = 1; index <= some_var; index++) {
-
 
 
                 var main = index;

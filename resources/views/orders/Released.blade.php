@@ -82,7 +82,7 @@
                     <table id="datatable1">
                         <thead>
                         <tr>
-                            <th class="">Id</th>
+                            <th class="">Order Id</th>
                             <th class="">Date</th>
                             <th class=""> Name</th>
                             <th class="">E-mail</th>
@@ -90,6 +90,7 @@
                             <th class="">Amount</th>
                             <th class="">Status</th>
                             <th class="">Result</th>
+                            <th class="">Action</th>
 
 
                         </tr>
@@ -105,7 +106,7 @@
                         @foreach ($customer as $views)
 
                             <tr>
-                                <td>{{ $i++ }}</td>
+                                <td>{{ $views->order_id }}</td>
                                 <td>{{ $views->date }}</td>
                                 <td>{{ $views->name }}</td>
 
@@ -118,8 +119,40 @@
 
 
                                 <td><span class="p-2"
-                                          style="@if($views->display_status=='negative')  background-color: #da5920;  @else  background-color: #adeaa8; @endif color: white;border-radius: 5px">{{ $views->display_status }}</span>
+                                          style="@if($views->display_status=='negative') background-color: #adeaa8;   @else   background-color: #da5920; @endif color: white;border-radius: 5px">{{ $views->display_status }}</span>
                                 </td>
+                                <td>
+                                    <i class="fa fa-edit" data-toggle="modal" data-target="#exampleModal{{$views->id}}" style="color: #9696d0;cursor: pointer" > </i>
+                                </td>
+
+
+                                <div class="modal fade" id="exampleModal{{$views->id}}" tabindex="-1" role="dialog"
+                                     aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content" style="width: 30rem">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">  Update Release date</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <form method="post" action="{{url("$role/update/date/$views->id")}}">
+                                                    @csrf
+                                                <lable>Release date</lable>
+                                                    <input type="datetime-local" name="release_date" class="form-control" value="{{ str_replace('UTC','T',\Carbon\Carbon::parse($views->date)->format('Y-m-dTH:i')) }}" required >
+
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close
+                                                </button>
+                                                <button type="submit" class="btn btn-primary">Submit</button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
 
                             </tr>
 
