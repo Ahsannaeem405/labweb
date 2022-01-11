@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Admin;
+use App\Models\Country;
+use App\Models\State;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -41,6 +43,19 @@ class AdminController extends Controller
         return view('admin.index', compact('user', 'submon', 'monthly', 'latest','tadmin'));
 
     }
+
+
+    public function home(){
+
+$country = Country::all();
+$state = State::all();
+
+return view('welcome', compact('country', 'state'));
+
+
+    }
+
+
 
     public function customer(Request $request)
     {
