@@ -47,6 +47,13 @@ class CustomerController extends Controller
 
     }
 
+    public function detail_save(Request $request){
+        dd($request);
+
+    }
+
+
+
     /**
      * Store a newly created resource in storage.
      *
