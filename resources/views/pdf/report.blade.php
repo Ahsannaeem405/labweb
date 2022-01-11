@@ -43,7 +43,7 @@
         </thead>
         <tbody>
           <tr>
-            <th scope="row" colspan="2" ><h3 style="padding-top: 20px">CLIA: <span style="border-bottom: 1px solid black;">10D2231269</span></h3></th>
+            <th scope="row" colspan="2" ><h3 style="padding-top: 20px">CLIA: <span style="border-bottom: 1px solid black;">{{$customer->id}}</span></h3></th>
 
 
 
@@ -63,67 +63,38 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
       <table class="table" style="width: 100%">
 
         <tbody>
           <tr>
             <td>Account# <span class="undr_lin">1659461101</span></td>
             <td>REFER# <span class="undr_lin">88611</span></td>
-            <td style="padding-left: 40px">PASSPORT# <span class="undr_lin">123456789</span></td>
+            <td style="padding-left: 40px">PASSPORT# <span class="undr_lin">{{$customer->passport}}</span></td>
 
           </tr>
           <tr>
             <td scope="row">INTI FERNANDEZ MD</td>
-            <td colspan="2">PATIENT: <span class="undr_lin">First Last Name</span></td>
+            <td colspan="2">PATIENT: <span class="undr_lin">{{$customer->name}}</span></td>
 
           </tr>
           <tr>
             <td>2100 NW 42 AVE</td>
-            <td>DOB: <span class="undr_lin">10/10/1980</span></td>
-            <td style="padding-left: 40px">SEX: <span class="undr_lin">MALE</span></td>
+            <td>DOB: <span class="undr_lin">{{$customer->dob}}</span></td>
+            <td style="padding-left: 40px">SEX: <span class="undr_lin">{{$customer->gender}}</span></td>
           </tr>
           <tr>
             <td colspan="2">MIAMI, FLORIDA 33126</td>
-            <td>ORDER#: <span class="undr_lin">96887</span></td>
+            <td>ORDER#: <span class="undr_lin">{{$customer->order_id}}</span></td>
           </tr>
 
           <tr>
             <td colspan="2">TEL: 305-869-1161 FAX: 305-869-1167</td>
-            <td>COLLECTED: <span class="undr_lin">01-06-2022 12:13 PM </span></td>
+            <td>COLLECTED: <span class="undr_lin">{{$customer->created_at}} </span></td>
           </tr>
 
           <tr>
             <td colspan="2">DOCTOR: INTI FERNANDEZ MD</td>
-            <td>REPORTED: <span class="undr_lin">01-06-2022 12:38 PM </span></td>
+            <td>REPORTED: <span class="undr_lin">{{$customer->date}} </span></td>
           </tr>
 
 
@@ -133,7 +104,7 @@
           </tr>
 
           <tr>
-            <td colspan="2"> <span class="txt_bold"> Method: </span> RT-PCR - Abbott ID Now</td>
+            <td colspan="2"> <span class="txt_bold"> Method: </span>{{$customer->test_type}}</td>
             <td><span class="txt_bold">Testing Platform:</span> ABBOTT IDNOW</td>
           </tr>
 
@@ -148,7 +119,7 @@
 
           <tr>
             <td colspan="2"><span class="t_p"><span class="txt_bold">Specimen Type:</span> Nasopharyngeal Swab</span></td>
-            <td><span class="t_p"><span class="txt_bold">Negative</span> for SARS-CoV-2</span></td>
+            <td><span class="t_p"><span class="txt_bold">{{$customer->display_status}}</span> for {{$customer->test_type}}</span></td>
           </tr>
 
           <tr>
