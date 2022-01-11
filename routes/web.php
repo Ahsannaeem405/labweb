@@ -79,7 +79,7 @@ Route:: prefix('/admin')->middleware(['auth', 'admin'])->group(function () {
 
 
     Route::get('released', [\App\Http\Controllers\orderController::class, 'released']);
-
+    Route::post('/update/date/{id}', [\App\Http\Controllers\orderController::class, 'date_released']);
 
 
 
@@ -145,6 +145,7 @@ Route:: prefix('/operator')->middleware(['auth', 'operator'])->group(function ()
 
 
         Route::get('released', [\App\Http\Controllers\orderController::class, 'released']);
+    Route::post('/update/date/{id}', [\App\Http\Controllers\orderController::class, 'date_released']);
 
 
 });

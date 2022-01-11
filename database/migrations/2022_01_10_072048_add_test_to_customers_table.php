@@ -20,7 +20,11 @@ class AddTestToCustomersTable extends Migration
             $table->text('payment_method')->nullable();
             $table->text('payment_amount')->nullable();
             $table->text('payment_detail')->nullable();
+            $table->dateTime('order_date')->nullable();
+            $table->dateTime('payment_date')->nullable();
+            $table->dateTime('result_date')->nullable();
             $table->dateTime('date')->nullable();
+            $table->text('order_id')->nullable();
         });
     }
 
@@ -38,7 +42,12 @@ class AddTestToCustomersTable extends Migration
             $table->dropColumn('payment_method');
             $table->dropColumn('payment_amount');
             $table->dropColumn('payment_detail');
-            $table->dropColumn('date');
+            $table->dropColumn('order_date')->nullable();
+            $table->dropColumn('payment_date')->nullable();
+            $table->dropColumn('result_date')->nullable();
+            $table->dropColumn('date')->nullable();
+            $table->dropColumn('order_id')->nullable();
+
         });
     }
 }

@@ -55,23 +55,25 @@
 
 </style>
 <body>
+
+
 <div class="container">
-    <div class="row p-5">
+    <div class="row py-5">
         <div class="col-lg-6 col-md-6 col-12 text-center logo1">
-            <img src="image/logo.png" class="img_logo2" alt="">
+            <img src="{{asset('assets/images/logo.png')}}" class="img_logo2" alt="">
         </div>
-        <div class="col-lg-6 col-md-6 col-12 mt-2">
+        <div class="col-lg-6 col-md-6 col-12 mt-2 pl-0">
             <h4>Results Verification Page</h4>
-            <h4 class="mt-5">Order #96887</h4>
-            <p><i class="far fa-building"></i> Miami International Airport &nbsp;  <i class="fas fa-check-circle"></i> Released</p>
+            <h4 class="mt-5">Order #{{$report->order_id}}</h4>
+            <p><i class="far fa-building"></i> Miami International Airport &nbsp;@if($report->step==5)  <i class="fas fa-check-circle"></i> Released @endif </p>
         </div>
         <div class="col-lg-6 col-md-6 col-12 text-center logo2 mt-2">
-            <img src="image/logo.png" class="img_logo" alt="">
+            <img src="{{asset('assets/images/logo.png')}}" class="img_logo" alt="">
         </div>
     </div>
 </div>
 
-<div class="container box">
+<div class="container box bg-white">
     <div class="row">
         <div class="col-12 p-3">
             <h5>Order Information</h5>
@@ -79,11 +81,11 @@
         </div>
         <div class="col-lg-4 col-md-6 col-12 pt-2">
             <p class="text_gray">Test Name</p>
-            <h6>RT-PCR - Abbott ID Now</h6>
+            <h6>{{$report->test_type}}</h6>
         </div>
         <div class="col-lg-4 col-md-6 col-12 pt-2">
             <p class="text_gray">Price</p>
-            <h6>175.00</h6>
+            <h6>{{$report->payment_amount}}$</h6>
         </div>
         <div class="col-lg-4 col-md-6 col-12 pt-2">
             <p class="text_gray">Testing Platform</p>
@@ -93,22 +95,29 @@
 
         <div class="col-lg-4 col-md-6 col-12 pt-2">
             <p class="text_gray">Collection Date</p>
-            <h6>01-06-2022 12:13 PM</h6>
+            <h6>{{\Carbon\Carbon::parse($report->created_at)->format('Y-m-d g:i A')}}</h6>
         </div>
         <div class="col-lg-4 col-md-6 col-12 pt-2">
             <p class="text_gray">Results Date</p>
-            <h6>01-06-2022 12:38 PM</h6>
+            <h6>{{\Carbon\Carbon::parse($report->result_date)->format('Y-m-d g:i A')}}</h6>
         </div>
         <div class="col-lg-4 col-md-6 col-12 pt-2">
             <p class="text_gray">Release Date</p>
-            <h6>01-06-2022 12:40 PM</h6>
+            <h6>{{\Carbon\Carbon::parse($report->date)->format('Y-m-d g:i A')}}</h6>
         </div>
         <div class="col-lg-4 col-md-6 col-6 pt-2">
             <p class="text_gray">Results</p>
-            <p class="text_gray">SARS-CoV-2 RT RT - PCR</hp>
+            <p class="text_gray">{{$report->test_type}}</hp>
         </div>
-        <div class="col-lg-4 col-md-6 col-6 pt-4">
-            <button class="btn btn-success">Negative</button>
+        <div class="col-lg-4 col-md-6 col-6 pt-4 mb-5">
+            @if($report->display_status==null)
+                <button class="btn btn-danger">{{'pending'}}</button>
+
+            @else
+
+            <button class="btn     @if($report->display_status=='negative') btn-success @else btn-danger  @endif">{{$report->display_status}}</button>
+
+                @endif
         </div>
 
     </div>

@@ -96,6 +96,9 @@
 
 <body>
 <div class="container p-5">
+
+    @include('partials.component')
+
     <div class="row p-3">
         <div class="col-lg-6  col-12 pt-5 text-right">
             <img src="{{asset('assets/images/logo-removebg-preview.png')}}" class="img-logo" alt="">
@@ -169,7 +172,7 @@
             <button class="btn btn-dark  minor_button">Adulto y menores</button>
         </div>
 
-{{--adults buttons--}}
+        {{--adults buttons--}}
         <div class="col-lg-2 offset-lg-1 col-12 minors  pt-2 text-center">
             <button class="btn btn-dark  minors2  minor_btn" att="1">1 Minor</button>
         </div>
@@ -212,7 +215,7 @@
 
         </div>
 
-{{--        minoor buttons--}}
+        {{--        minoor buttons--}}
 
         <div class="col-lg-2 offset-lg-1 col-12 minors1 pt-2 text-center">
             <button class="btn btn-dark  minors5  minororad_btn" att="1">1 Minor</button>
@@ -281,6 +284,8 @@
     </div>
 </div>
 <div class="container p-5">
+
+
     <div class="adultform">
         <div class="row p-5">
             <div class="col-12 ">
@@ -875,45 +880,41 @@
     </div>
 
 
-
 </div>
-
-
-
-
-
-
 
 
 <section>
 
     <div class="container mb-5">
 
-      <div class="maindata" style="display: none">
-          <div class="finalResult">
+        <div class="maindata" style="display: none">
+            <div class="finalResult">
 
-          </div>
+            </div>
 
-          <div class="static">
-              <div class="row p-5 mt-5">
-                  <div class="col-12">
-                      <h1>Electronic signature acceptance</h1><br>
-                      <input type="checkbox" name="gender" value="male"> By checking ts box, you agree that your electronic
-                      signature will be used in place of your handwritten signature. If this is not what you want, you
-                      have the right to ask to sign a paper copy instead. By checking this box, you warve this right Upon
-                      acceptance, you may request in writing that we send you a paper copy of the electronic record. You
-                      will not have to pay anything for such a copy, and you do not need any special software or hardware
-                      to view it. Your acceptance of electronic signature for any document will remain in effect until
-                      such time as you notify us in veriting that you no longer wish to use electronic signature. The
-                      revocation of your acceptance will not entall any penalty for you
-                  </div>
-              </div>
-              <center class="mt-5">
-                  <Button class="btn btn-dark">Accept Document</Button>
-              </center>
-          </div>
-      </div>
-
+            <div class="static">
+                <div class="row p-5 mt-5">
+                    <div class="col-12">
+                        <h1>Electronic signature acceptance</h1><br>
+                        <input type="checkbox" name="gender" value="male"> By checking ts box, you agree that your
+                        electronic
+                        signature will be used in place of your handwritten signature. If this is not what you want, you
+                        have the right to ask to sign a paper copy instead. By checking this box, you warve this right
+                        Upon
+                        acceptance, you may request in writing that we send you a paper copy of the electronic record.
+                        You
+                        will not have to pay anything for such a copy, and you do not need any special software or
+                        hardware
+                        to view it. Your acceptance of electronic signature for any document will remain in effect until
+                        such time as you notify us in veriting that you no longer wish to use electronic signature. The
+                        revocation of your acceptance will not entall any penalty for you
+                    </div>
+                </div>
+                <center class="mt-5">
+                    <Button class="btn btn-dark">Accept Document</Button>
+                </center>
+            </div>
+        </div>
 
 
     </div>
@@ -923,7 +924,6 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
     $(".adult_btn").click(function () {
-
 
 
         $('.adult').css('display', 'block');
@@ -940,15 +940,14 @@
         $('.maindata').css('display', 'block');
 
 
-        var html= $('.adultform').html();
+        var html = $('.adultform').html();
         $('.finalResult').empty().append(html);
     });
 
 
-//minor
+    //minor
     $(".minor_button1").click(function () {
         $('.maindata').css('display', 'none');
-
 
 
         $('.adult').css('display', 'none');
@@ -982,7 +981,6 @@
     });
 
 
-
     $(".minors222").click(function () {
         $(this).css('display', 'none');
 
@@ -990,63 +988,59 @@
     });
 
 
+    $(".minororad_btn").click(function () {
+
+        $('.maindata').css('display', 'block');
+        $('.finalResult').empty();
+
+        var some_var = $(this).attr('att');
+        for (let index = 1; index <= some_var; index++) {
+
+            var main = index;
+            var id = '#minordata' + index + '';
+            var html = '<div id="minordata' + index + '">';
+            html += $('.minorform').html();
+            html += '</div>';
 
 
-        $(".minororad_btn").click(function () {
+            $('.finalResult').append(html);
 
-            $('.maindata').css('display', 'block');
-            $('.finalResult').empty();
+            $(id).find('input').each(function (index, value) {
+                var val = $(this).attr('name');
+                val = $(this).attr('name', val + '_' + main);
 
-            var some_var = $(this).attr('att');
-            for (let index = 1; index <= some_var; index++) {
-
-                var main=index;
-               var id='#minordata'+index+'';
-                var html='<div id="minordata'+index+'">';
-                 html+= $('.minorform').html();
-                 html+= '</div>';
+            });
 
 
-                $('.finalResult').append(html);
-
-                $(id).find('input').each(function(index, value) {
-                    var val=$(this).attr('name');
-                    val=$(this).attr('name',val+'_'+main);
-
-                });
-
-
-            }
-        });
+        }
+    });
 
 
     $(".minor_btn").click(function () {
 
         $('.maindata').css('display', 'block');
         $('.finalResult').empty();
-        var html2= $('.adultform').html();
+        var html2 = $('.adultform').html();
         $('.finalResult').append(html2);
         var some_var = $(this).attr('att');
         for (let index = 1; index <= some_var; index++) {
 
-            var main=index;
-            var id='#minordata'+index+'';
-            var html='<div id="minordata'+index+'">';
-            html+= $('.minorform').html();
-            html+= '</div>';
+            var main = index;
+            var id = '#minordata' + index + '';
+            var html = '<div id="minordata' + index + '">';
+            html += $('.minorform').html();
+            html += '</div>';
 
 
             $('.finalResult').append(html);
 
-            $(id).find('input').each(function(index, value) {
-                var val=$(this).attr('name');
-                val=$(this).attr('name',val+'_'+main);
+            $(id).find('input').each(function (index, value) {
+                var val = $(this).attr('name');
+                val = $(this).attr('name', val + '_' + main);
 
             });
         }
     });
-
-
 
 
 </script>

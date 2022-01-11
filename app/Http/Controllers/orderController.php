@@ -13,7 +13,15 @@ class orderController extends Controller
 
     public function report($id)
     {
-return view('report.report');
+        $report=Customer::find($id);
+    if($report)
+    {
+        return view('report.report',compact('report'));
+
+    }
+    else{
+        return redirect('/')->with('error','No record found');
+    }
     }
     public function order(Request $request,$id)
     {
@@ -21,7 +29,8 @@ return view('report.report');
 
         $customer->step=2;
         $customer->test_type=$request->test_type;
-        $customer->date=Carbon::now();
+        $customer->order_date=Carbon::now();
+        $customer->order_id=rand(0000,9999);
         $customer->update();
         return back()->with('success','Order created successfully');
     }
@@ -39,7 +48,7 @@ return view('report.report');
         $customer->payment_method=$request->payment_method;
         $customer->payment_amount=$request->payment_amount;
         $customer->payment_detail=$request->payment_detail;
-        $customer->date=Carbon::now();
+        $customer->payment_date=Carbon::now();
         $customer->update();
         return back()->with('success','invoice paid successfully');
 
@@ -56,6 +65,7 @@ return view('report.report');
         $customer=Customer::find($id);
         $customer->step=4;
         $customer->display_status=$request->result;
+        $customer->result_date=Carbon::now();
         $customer->date=Carbon::now();
         $customer->update();
         return back()->with('success','Result updated successfully');
@@ -70,14 +80,17 @@ return view('report.report');
     public function release_send($id)
     {
         $customer=Customer::find($id);
+        $customer->step=5;
+        //$customer->date=Carbon::now();
+        $customer->update();
+
+
         $email=$customer->email;
         $host='https://'.\request()->getHost()."/report/$id";
-        $pdf = \PDF::loadView('pdf.report',compact('host'));
+        $pdf = \PDF::loadView('pdf.report',compact('host','customer'));
 
 
         $rand= rand(0, 99999999999999);
-
-
         $path = 'pdf/';
         $fileName = $rand . '.' . 'pdf' ;
         $pdf->save($path . '/' . $fileName);
@@ -89,9 +102,7 @@ return view('report.report');
 
         Mail::to($email)->send(new result($rand));
 
-        $customer->step=5;
-        $customer->date=Carbon::now();
-        $customer->update();
+
         return back()->with('success','Release send successfully');
 
     }
@@ -103,4 +114,15 @@ return view('report.report');
 
     }
 
+
+    public function date_released(Request $request,$id)
+    {
+
+        $customer=Customer::find($id);
+        $customer->date=$request->release_date;
+        $customer->update();
+        return back()->with('success','Release date updated successfully');
+
+
+    }
 }

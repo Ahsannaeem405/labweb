@@ -82,7 +82,7 @@
                     <table id="datatable1">
                         <thead>
                         <tr>
-                            <th class="">Id</th>
+                            <th class="">Order Id</th>
                             <th class="">Date</th>
                             <th class=""> Name</th>
                             <th class="">E-mail</th>
@@ -105,8 +105,8 @@
                         @foreach ($customer as $views)
 
                             <tr>
-                                <td>{{ $i++ }}</td>
-                                <td>{{ $views->date }}</td>
+                                <td>{{ $views->order_id }}</td>
+                                <td>{{ $views->payment_date }}</td>
                                 <td>{{ $views->name }}</td>
 
                                 <td>{{ $views->email }}</td>
