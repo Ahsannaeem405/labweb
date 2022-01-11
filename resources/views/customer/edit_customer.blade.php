@@ -132,7 +132,8 @@
             @else
                 @if ($cus->show->type == 'adult')
                     <form method="POST" action="{{ url('' . $role . '/customer/update_adult') }}">
-                        @csrf @if (session()->has('success'))
+                        @csrf
+                        @if (session()->has('success'))
                             <div class="alert alert-success">
                                 {{ session()->get('success') }}
                             </div>
@@ -196,9 +197,15 @@
                             <div class="col-lg-6">
                                 <div class="form-group mg-b-10-force">
 
-                                    <p>Fever :</p>
-                                    <input type="text" value="{{ $cus->show->Fever }}" name="Fever"
-                                        class="form-control">
+
+
+                                        <p>Fever :</p>
+
+
+                                        <input type="radio" @if ($cus->show->Fever == 'Yes') checked @endif name="Fever" value="Yes" checked>
+                                        <label for="Female">Yes</label><br>
+                                        <input type="radio" @if ($cus->show->Fever == 'No') checked @endif name="Fever" value="No" >
+                                        <label for="Female">No</label><br>
 
                                 </div>
                             </div><!-- col-8 -->
@@ -206,65 +213,59 @@
                                 <div class="form-group mg-b-10-force">
 
                                     <p>Cough :</p>
-                                    <input type="text" value="{{ $cus->show->Cough }}" name="Cough"
-                                        class="form-control">
+
+
+                                        <input type="radio" @if ($cus->show->Cough == 'Yes') checked @endif name="Cough" value="Yes" checked>
+                                        <label for="Female">Yes</label><br>
+                                        <input type="radio" @if ($cus->show->Cough == 'No') checked @endif name="Cough" value="No" >
+                                        <label for="Female">No</label><br>
 
                                 </div>
                             </div><!-- col-8 -->
                             <div class="col-lg-6">
                                 <div class="form-group mg-b-10-force">
 
-                                    <p>Throat :</p>
-                                    <input type="text" value="{{ $cus->show->Throat }}" name="Throat"
-                                        class="form-control">
+
+
+                                        <p>Throat :</p>
+
+
+                                        <input type="radio" @if ($cus->show->Throat == 'Yes') checked @endif name="Throat" value="Yes" checked>
+                                        <label for="Female">Yes</label><br>
+                                        <input type="radio" @if ($cus->show->Throat == 'No') checked @endif name="Throat" value="No" >
+                                        <label for="Female">No</label><br>
+
 
                                 </div>
                             </div><!-- col-8 -->
                             <div class="col-lg-6">
                                 <div class="form-group mg-b-10-force">
 
-                                    <p>Breathing :</p>
-                                    <input type="text" value="{{ $cus->show->breathing }}" name="breathing"
-                                        class="form-control">
+
+
+
+                                        <p>Breathing :</p>
+
+
+                                        <input type="radio" @if ($cus->show->breathing == 'Yes') checked @endif name="breathing" value="Yes" checked>
+                                        <label for="Female">Yes</label><br>
+                                        <input type="radio" @if ($cus->show->breathing == 'No') checked @endif name="breathing" value="No" >
+                                        <label for="Female">No</label><br>
 
                                 </div>
                             </div><!-- col-8 -->
                             <div class="col-lg-6">
                                 <div class="form-group mg-b-10-force">
 
-                                    <p>Nausea:</p>
-                                    <input type="text" value="{{ $cus->show->Nausea }}" name="Nausea"
-                                        class="form-control">
-
-                                </div>
-                            </div><!-- col-8 -->
-
-                            <div class="col-lg-6">
-                                <div class="form-group mg-b-10-force">
-
-                                    <p>Abdominal :</p>
-                                    <input type="text" value="{{ $cus->show->Abdominal }}" name="Abdominal"
-                                        class="form-control">
-
-                                </div>
-                            </div><!-- col-8 -->
 
 
-                            <div class="col-lg-6">
-                                <div class="form-group mg-b-10-force">
+                                        <p>Nausea :</p>
 
-                                    <p>Chills :</p>
-                                    <input type="text" value="{{ $cus->show->Chills }}" name="Chills"
-                                        class="form-control">
 
-                                </div>
-                            </div><!-- col-8 -->
-                            <div class="col-lg-6">
-                                <div class="form-group mg-b-10-force">
-
-                                    <p>Headache :</p>
-                                    <input type="text" value="{{ $cus->show->Headache }}" name="Headache"
-                                        class="form-control">
+                                        <input type="radio" @if ($cus->show->Nausea == 'Yes') checked @endif name="Nausea" value="Yes" checked>
+                                        <label for="Female">Yes</label><br>
+                                        <input type="radio" @if ($cus->show->Nausea == 'No') checked @endif name="Nausea" value="No" >
+                                        <label for="Female">No</label><br>
 
                                 </div>
                             </div><!-- col-8 -->
@@ -272,57 +273,46 @@
                             <div class="col-lg-6">
                                 <div class="form-group mg-b-10-force">
 
-                                    <p>Muscle :</p>
-                                    <input type="text" value="{{ $cus->show->Muscle }}" name="Muscle"
-                                        class="form-control">
+
+
+                                        <p>Abdominal :</p>
+
+
+                                        <input type="radio" @if ($cus->show->Abdominal == 'Yes') checked @endif name="Abdominal" value="Yes" checked>
+                                        <label for="Female">Yes</label><br>
+                                        <input type="radio" @if ($cus->show->Abdominal == 'No') checked @endif name="Abdominal" value="No" >
+                                        <label for="Female">No</label><br>
+
+                                </div>
+                            </div><!-- col-8 -->
+
+
+                            <div class="col-lg-6">
+                                <div class="form-group mg-b-10-force">
+
+
+                                        <p>Chills :</p>
+
+
+                                        <input type="radio" @if ($cus->show->Chills == 'Yes') checked @endif name="Chills" value="Yes" checked>
+                                        <label for="Female">Yes</label><br>
+                                        <input type="radio" @if ($cus->show->Chills == 'No') checked @endif name="Chills" value="No" >
+                                        <label for="Female">No</label><br>
 
                                 </div>
                             </div><!-- col-8 -->
                             <div class="col-lg-6">
                                 <div class="form-group mg-b-10-force">
 
-                                    <p>Fatigue:</p>
-                                    <input type="text" value="{{ $cus->show->Fatigue }}" name="Fatigue"
-                                        class="form-control">
 
-                                </div>
-                            </div><!-- col-8 -->
-                            <div class="col-lg-6">
-                                <div class="form-group mg-b-10-force">
 
-                                    <p>Runny :</p>
-                                    <input type="text" value="{{ $cus->show->Runny }}" name="Runny"
-                                        class="form-control">
+                                        <p>Headache :</p>
 
-                                </div>
-                            </div><!-- col-8 -->
 
-                            <div class="col-lg-6">
-                                <div class="form-group mg-b-10-force">
-
-                                    <p>Vomiting :</p>
-                                    <input type="text" value="{{ $cus->show->Vomiting }}" name="Vomiting"
-                                        class="form-control">
-
-                                </div>
-                            </div><!-- col-8 -->
-
-                            <div class="col-lg-6">
-                                <div class="form-group mg-b-10-force">
-
-                                    <p>Diarrhea:</p>
-                                    <input type="text" value="{{ $cus->show->Diarrhea }}" name="Diarrhea"
-                                        class="form-control">
-
-                                </div>
-                            </div><!-- col-8 -->
-
-                            <div class="col-lg-6">
-                                <div class="form-group mg-b-10-force">
-
-                                    <p>Loss_of_smell :</p>
-                                    <input type="text" value="{{ $cus->show->Loss_of_smell }}" name="Loss_of_smell"
-                                        class="form-control">
+                                        <input type="radio" @if ($cus->show->Headache == 'Yes') checked @endif name="Headache" value="Yes" checked>
+                                        <label for="Female">Yes</label><br>
+                                        <input type="radio" @if ($cus->show->Headache == 'No') checked @endif name="Headache" value="No" >
+                                        <label for="Female">No</label><br>
 
                                 </div>
                             </div><!-- col-8 -->
@@ -330,9 +320,110 @@
                             <div class="col-lg-6">
                                 <div class="form-group mg-b-10-force">
 
-                                    <p>Loss_of_taste :</p>
-                                    <input type="text" value="{{ $cus->show->Loss_of_taste }}" name="Loss_of_taste"
-                                        class="form-control">
+
+                                        <p>Muscle :</p>
+
+
+                                        <input type="radio" @if ($cus->show->Muscle == 'Yes') checked @endif name="Muscle" value="Yes" checked>
+                                        <label for="Female">Yes</label><br>
+                                        <input type="radio" @if ($cus->show->Muscle == 'No') checked @endif name="Muscle" value="No" >
+                                        <label for="Female">No</label><br>
+
+                                </div>
+                            </div><!-- col-8 -->
+                            <div class="col-lg-6">
+                                <div class="form-group mg-b-10-force">
+
+
+
+
+                                        <p>Fatigue :</p>
+
+
+                                        <input type="radio" @if ($cus->show->Fatigue == 'Yes') checked @endif name="Fatigue" value="Yes" checked>
+                                        <label for="Female">Yes</label><br>
+                                        <input type="radio" @if ($cus->show->Fatigue == 'No') checked @endif name="Fatigue" value="No" >
+                                        <label for="Female">No</label><br>
+
+                                </div>
+                            </div><!-- col-8 -->
+                            <div class="col-lg-6">
+                                <div class="form-group mg-b-10-force">
+
+
+
+
+                                        <p>Runny :</p>
+
+
+                                        <input type="radio" @if ($cus->show->Runny == 'Yes') checked @endif name="Runny" value="Yes" checked>
+                                        <label for="Female">Yes</label><br>
+                                        <input type="radio" @if ($cus->show->Runny == 'No') checked @endif name="Runny" value="No" >
+                                        <label for="Female">No</label><br>
+
+                                </div>
+                            </div><!-- col-8 -->
+
+                            <div class="col-lg-6">
+                                <div class="form-group mg-b-10-force">
+
+
+
+                                        <p>Vomiting :</p>
+
+
+                                        <input type="radio" @if ($cus->show->Vomiting == 'Yes') checked @endif name="Vomiting" value="Yes" checked>
+                                        <label for="Female">Yes</label><br>
+                                        <input type="radio" @if ($cus->show->Vomiting == 'No') checked @endif name="Vomiting" value="No" >
+                                        <label for="Female">No</label><br>
+
+                                </div>
+                            </div><!-- col-8 -->
+
+                            <div class="col-lg-6">
+                                <div class="form-group mg-b-10-force">
+
+
+                                        <p>Diarrhea :</p>
+
+
+                                        <input type="radio" @if ($cus->show->Diarrhea == 'Yes') checked @endif name="Diarrhea" value="Yes" checked>
+                                        <label for="Female">Yes</label><br>
+                                        <input type="radio" @if ($cus->show->Diarrhea == 'No') checked @endif name="Diarrhea" value="No" >
+                                        <label for="Female">No</label><br>
+
+                                </div>
+                            </div><!-- col-8 -->
+
+                            <div class="col-lg-6">
+                                <div class="form-group mg-b-10-force">
+
+
+
+                                        <p>Loss_of_smell :</p>
+
+
+                                        <input type="radio" @if ($cus->show->Loss_of_smell == 'Yes') checked @endif name="Loss_of_smell" value="Yes" checked>
+                                        <label for="Female">Yes</label><br>
+                                        <input type="radio" @if ($cus->show->Loss_of_smell == 'No') checked @endif name="Loss_of_smell" value="No" >
+                                        <label for="Female">No</label><br>
+
+                                </div>
+                            </div><!-- col-8 -->
+
+                            <div class="col-lg-6">
+                                <div class="form-group mg-b-10-force">
+
+
+
+                                        <p>Loss_of_taste :</p>
+
+
+                                        <input type="radio" @if ($cus->show->Loss_of_taste == 'Yes') checked @endif name="Loss_of_taste" value="Yes" checked>
+                                        <label for="Female">Yes</label><br>
+                                        <input type="radio" @if ($cus->show->Loss_of_taste == 'No') checked @endif name="Loss_of_taste" value="No" >
+                                        <label for="Female">No</label><br>
+
 
                                 </div>
                             </div><!-- col-8 -->
