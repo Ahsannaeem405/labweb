@@ -86,6 +86,7 @@ Route:: prefix('/admin')->middleware(['auth', 'admin'])->group(function () {
     Route::post('/customer/update_adult',[CustomerController::class,'update_adult']);
     Route::post('/customer/update_minor',[CustomerController::class,'update_minor']);
 
+    Route::get('/verification/{id}', [\App\Http\Controllers\CustomerController::class, 'verification']);
 
     Route::get('delete/customer/{id}',[CustomerController::class,'cusdel']);
 
