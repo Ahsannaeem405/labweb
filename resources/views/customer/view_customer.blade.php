@@ -101,7 +101,10 @@ td.sorting_1
                                         <a href="{{url(''.$role.'/edit/customer/'.$views->id)}}" > <i class="fa fa-edit"></i> </a>
 
                                         <a href="{{url(''.$role.'/delete/customer/'.$views->id)}}" style="color: red"> <i class="fa fa-trash"></i> </a>
+
+                                        @if($views->status != 'Verified')
                                         <a href="{{url(''.$role.'/verify/customer/'.$views->id)}}"><i class="fas fa-check"></i></a>
+                                        @endif
                                     </td>
 
                                 </tr>

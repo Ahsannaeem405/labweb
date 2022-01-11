@@ -16,10 +16,25 @@ class CustomerController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+
     public function index()
     {
         $customer = Customer::where('step', 1)->get();
         return view('customer.view_customer', compact('customer'));
+    }
+
+    public function verification($id){
+
+        $role=Auth::user()->role;
+
+$customer=Customer::find($id);
+
+$customer->status='Verified';
+
+$customer->update();
+return redirect("$role/view/customer")->with('success','Customer Verification successfully');
+
     }
 
     /**

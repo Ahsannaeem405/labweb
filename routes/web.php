@@ -114,6 +114,7 @@ Route:: prefix('/operator')->middleware(['auth', 'operator'])->group(function ()
     });
 
 
+
     Route::Post('/saveAdmin', [AdminController::class, 'create'])->name('saveAdmin');
     Route::get('/delete/{id}', [AdminController::class, 'destroy'])->name('delete');
 
@@ -153,6 +154,9 @@ Route:: prefix('/operator')->middleware(['auth', 'operator'])->group(function ()
 
     Route::post('/customer/update_adult',[CustomerController::class,'update_adult']);
     Route::post('/customer/update_minor',[CustomerController::class,'update_minor']);
+
+    Route::get('/verification/{id}', [\App\Http\Controllers\CustomerController::class, 'verification']);
+
 
 });
 
