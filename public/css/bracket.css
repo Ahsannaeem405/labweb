@@ -167,6 +167,9 @@ html {
 *::after {
   box-sizing: inherit;
 }
+.forverify{
+    cursor: pointer !important;
+}
 
 @-ms-viewport {
   width: device-width;
