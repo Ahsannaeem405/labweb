@@ -401,7 +401,7 @@ $customer = Customer::find($cus_detail->customer_id);
 
 
             $cus_detail->save();
-            dd($cus_detail);
+
 
 
         return back()->with('success', 'Updated Successfully');
