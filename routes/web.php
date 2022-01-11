@@ -59,6 +59,7 @@ Route:: prefix('/admin')->middleware(['auth', 'admin'])->group(function () {
 
     Route::get('/edit/customer/{id}', [CustomerController::class, 'edit']);
     Route::Post('customer/update', [CustomerController::class, 'update']);
+    Route::post('/customer/update_adult',[CustomerController::class,'update_adult']);
     Route::Post('place/order/{id}', [\App\Http\Controllers\orderController::class, 'order']);
 
     //invoice
