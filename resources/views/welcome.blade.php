@@ -589,7 +589,7 @@
                 <div class="col-lg-6  col-12 pt-3">
 
 
-                    <select name="gender2" class="form-control">
+                    <select name="Fgender" class="form-control">
                         <option value="male">Male</option>
                         <option value="female">Female</option>
 
@@ -899,38 +899,43 @@
         <div class="container mb-5">
 
             <div class="maindata" style="display: none">
- <form action="{{url('customer/details')}}" method="POST" >
-    @csrf
-                <div class="finalResult">
+                <form action="{{ url('customer/details') }}" method="POST">
+                    @csrf
+                    <div class="finalResult">
 
-                </div>
-
-                <div class="static">
-                    <div class="row p-5 mt-5">
-                        <div class="col-12">
-                            <h1>Electronic signature acceptance</h1><br>
-                            <input type="checkbox" name="signature" value="1"> By checking ts box, you agree that your
-                            electronic
-                            signature will be used in place of your handwritten signature. If this is not what you want,
-                            you
-                            have the right to ask to sign a paper copy instead. By checking this box, you warve this
-                            right Upon
-                            acceptance, you may request in writing that we send you a paper copy of the electronic
-                            record. You
-                            will not have to pay anything for such a copy, and you do not need any special software or
-                            hardware
-                            to view it. Your acceptance of electronic signature for any document will remain in effect
-                            until
-                            such time as you notify us in veriting that you no longer wish to use electronic signature.
-                            The
-                            revocation of your acceptance will not entall any penalty for you
-                        </div>
                     </div>
-                    <center class="mt-5">
-                        <input type="submit" class="btn btn-dark" value="Accept Document">
-                    </center>
-                </div>
-            </form>
+<input type="hidden" class="totalCount" name="totalCount" value="" id="">
+                    <div class="static">
+                        <div class="row p-5 mt-5">
+                            <div class="col-12">
+                                <h1>Electronic signature acceptance</h1><br>
+                                <input type="checkbox" name="signature" value="1"> By checking ts box, you agree that
+                                your
+                                electronic
+                                signature will be used in place of your handwritten signature. If this is not what you
+                                want,
+                                you
+                                have the right to ask to sign a paper copy instead. By checking this box, you warve this
+                                right Upon
+                                acceptance, you may request in writing that we send you a paper copy of the electronic
+                                record. You
+                                will not have to pay anything for such a copy, and you do not need any special software
+                                or
+                                hardware
+                                to view it. Your acceptance of electronic signature for any document will remain in
+                                effect
+                                until
+                                such time as you notify us in veriting that you no longer wish to use electronic
+                                signature.
+                                The
+                                revocation of your acceptance will not entall any penalty for you
+                            </div>
+                        </div>
+                        <center class="mt-5">
+                            <input type="submit" class="btn btn-dark" value="Accept Document">
+                        </center>
+                    </div>
+                </form>
             </div>
 
 
@@ -1017,21 +1022,30 @@
 
             var some_var = $(this).attr('att');
             for (let index = 1; index <= some_var; index++) {
-                // alert(2);
+
                 var main = index;
+
                 var id = '#minordata' + index + '';
                 var html = '<div id="minordata' + index + '">';
                 html += $('.minorform').html();
                 html += '</div>';
 
-
                 $('.finalResult').append(html);
+
+                $('.totalCount').val(main);
 
                 $(id).find('input').each(function(index, value) {
                     var val = $(this).attr('name');
                     val = $(this).attr('name', val + '_' + main);
 
                 });
+
+                $(id).find('select').each(function(index, value) {
+                    var val = $(this).attr('name');
+                    val = $(this).attr('name', val + '_' + main);
+
+                });
+
 
             }
         });
@@ -1046,7 +1060,10 @@
             var some_var = $(this).attr('att');
             for (let index = 1; index <= some_var; index++) {
 
+
+
                 var main = index;
+
                 var id = '#minordata' + index + '';
                 var html = '<div id="minordata' + index + '">';
                 html += $('.minorform').html();
@@ -1056,6 +1073,12 @@
                 $('.finalResult').append(html);
 
                 $(id).find('input').each(function(index, value) {
+                    var val = $(this).attr('name');
+                    val = $(this).attr('name', val + '_' + main);
+
+                });
+
+                $(id).find('select').each(function(index, value) {
                     var val = $(this).attr('name');
                     val = $(this).attr('name', val + '_' + main);
 
