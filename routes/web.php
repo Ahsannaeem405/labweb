@@ -154,6 +154,7 @@ Route:: prefix('/operator')->middleware(['auth', 'operator'])->group(function ()
 
 
 
+Route::post('/customer/details', [\App\Http\Controllers\CustomerController::class, 'detail_save']);
 
 
 
