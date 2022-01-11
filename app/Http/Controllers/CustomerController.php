@@ -50,6 +50,7 @@ class CustomerController extends Controller
 
     public function detail_save(Request $request){
 
+        dd($request);
         $cus_detail = new Customer_detail();
         $cus_detail->name =  $request->name;
         $cus_detail->secondname =  $request->secondname;
