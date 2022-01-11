@@ -949,7 +949,6 @@
     <script>
         $(".adult_btn").click(function() {
 
-
             $('.adult').css('display', 'block');
             $('.maindata').css('display', 'none');
             $('.minors1').css('display', 'none');
@@ -1087,6 +1086,8 @@
                 });
             }
         });
+        });
+
     </script>
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
