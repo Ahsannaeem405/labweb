@@ -54,7 +54,8 @@ class CreateCustomerDetailsTable extends Migration
             $table->string('Parent_phone')->nullable();
             $table->string('Parent_dob')->nullable();
             $table->string('type')->nullable();
-            $table->string('customer_id')->nullable();
+            $table->string('gender2')->nullable();
+
             $table->timestamps();
         });
     }

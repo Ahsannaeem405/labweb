@@ -589,7 +589,7 @@
                 <div class="col-lg-6  col-12 pt-3">
 
 
-                    <select name="gender" class="form-control">
+                    <select name="gender2" class="form-control">
                         <option value="male">Male</option>
                         <option value="female">Female</option>
 
@@ -899,7 +899,8 @@
         <div class="container mb-5">
 
             <div class="maindata" style="display: none">
- <form action="{{url('customer/details')}}"></form>
+ <form action="{{url('customer/details')}}" method="POST" >
+    @csrf
                 <div class="finalResult">
 
                 </div>
@@ -926,9 +927,10 @@
                         </div>
                     </div>
                     <center class="mt-5">
-                        <Button type="submit" class="btn btn-dark">Accept Document</Button>
+                        <input type="submit" class="btn btn-dark" value="Accept Document">
                     </center>
                 </div>
+            </form>
             </div>
 
 
