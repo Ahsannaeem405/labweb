@@ -1056,7 +1056,7 @@
                 <div class="form-group mg-b-10-force">
 
                     <p>Parent Name:</p>
-                    <input disabled type="text" value="{{ $cus->show->Parent_name }}" name="Parent_name" class="form-control">
+                    <input  type="text" value="{{ $cus->show->Parent_name }}" name="Parent_name" class="form-control">
 
                 </div>
             </div><!-- col-8 -->
@@ -1065,7 +1065,7 @@
                 <div class="form-group mg-b-10-force">
 
                     <p>Parent_second Name:</p>
-                    <input disabled type="text" value="{{ $cus->show->Parent_secondname }}" name="Parent_secondname"
+                    <input  type="text" value="{{ $cus->show->Parent_secondname }}" name="Parent_secondname"
                         class="form-control">
 
                 </div>
@@ -1075,7 +1075,7 @@
                 <div class="form-group mg-b-10-force">
 
                     <p>Parent_Surname :</p>
-                    <input disabled type="text" value="{{ $cus->show->Parent_surname }}" name="Parent_surname"
+                    <input  type="text" value="{{ $cus->show->Parent_surname }}" name="Parent_surname"
                         class="form-control">
 
                 </div>
@@ -1085,7 +1085,7 @@
                 <div class="form-group mg-b-10-force">
 
                     <p>Parent_phone :</p>
-                    <input disabled type="text" value="{{ $cus->show->Parent_phone }}" name="Parent_phone"
+                    <input  type="text" value="{{ $cus->show->Parent_phone }}" name="Parent_phone"
                         class="form-control">
 
                 </div>
@@ -1095,7 +1095,7 @@
                 <div class="form-group mg-b-10-force">
 
                     <p>Parent_phone :</p>
-                    <input disabled type="date" value="{{ $cus->show->Parent_dob }}" name="Parent_dob"
+                    <input  type="date" value="{{ $cus->show->Parent_dob }}" name="Parent_dob"
                         class="form-control">
 
                 </div>
@@ -1106,19 +1106,19 @@
                 <div class="form-group mg-b-10-force">
 
                     <p>How did you hear about us?</p>
-                    <input disabled type="radio" @if ($cus->show->gender == 'Friends') checked @endif name="gender2" value="Friends" checked>
+                    <input  type="radio" @if ($cus->show->gender == 'Friends') checked @endif name="gender2" value="Friends" checked>
                     <label for="Female">Friends</label><br>
 
-                    <input disabled type="radio" @if ($cus->show->gender == 'Airline Staff') checked @endif name="gender2" value="Airline Staff">
+                    <input  type="radio" @if ($cus->show->gender == 'Airline Staff') checked @endif name="gender2" value="Airline Staff">
                     <label for="Female">Airline Staff</label><br>
 
-                    <input disabled type="radio" @if ($cus->show->gender == 'Airport Advertisement') checked @endif name="gender2" value="Airport Advertisement">
+                    <input  type="radio" @if ($cus->show->gender == 'Airport Advertisement') checked @endif name="gender2" value="Airport Advertisement">
                     <label for="Female">Airport Advertisement</label><br>
 
-                    <input disabled type="radio" @if ($cus->show->gender == 'Google') checked @endif name="gender2" value="Google">
+                    <input  type="radio" @if ($cus->show->gender == 'Google') checked @endif name="gender2" value="Google">
                     <label for="Female">Google</label><br>
 
-                    <input disabled type="radio" @if ($cus->show->gender == 'Other') checked @endif name="gender2" value="Other">
+                    <input  type="radio" @if ($cus->show->gender == 'Other') checked @endif name="gender2" value="Other">
                     <label for="Female">Other</label><br>
 
 
@@ -1136,7 +1136,7 @@
 
 
 
-            <input disabled type="hidden" name="id" value="{{ $cus->show->id }}" id="">
+            <input  type="hidden" name="id" value="{{ $cus->show->id }}" id="">
 
         </div><!-- row -->
 
