@@ -43,6 +43,15 @@ class AdminController extends Controller
         return view('admin.index', compact('user', 'submon', 'monthly', 'latest','tadmin'));
 
     }
+    public function language($lang)
+    {
+        Session::put('lang',  $lang);
+
+        return back();
+
+
+
+    }
 
 
     public function home(){

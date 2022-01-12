@@ -96,7 +96,7 @@
 </style>
 
 <body>
-    <div class="container p-5">
+    <div class="container">
         @include('partials.component')
         <div class="row p-3">
             <div class="col-lg-6  col-12 pt-5 text-right">
@@ -104,109 +104,93 @@
             </div>
             <div class="col-lg-6  col-12 pt-5 heading">
                 <div class="pt-4">
-                    <h4>MIAMI INTERNATIONAL</h4>
-                    <h4>AIRPORT</h4>
-                    <h4>2100 NW 42 AVE</h4>
-                    <h4>MIAMI FLORIDA 33126</h4>
-                    <h4>TEL:305-869-1161</h4>
-                    <h4>FAX:305-869-1161</h4>
+                    <h4>{{__('profile.MIAMI INTERNATIONAL')}}</h4>
+                    <h4>{{__('profile.AIRPORT')}}</h4>
+                    <h4>{{__('profile.2100 NW 42 AVE')}}</h4>
+                    <h4>{{__('profile.MIAMI FLORIDA 33126')}}</h4>
+                    <h4>{{__('profile.TEL: 305-869-1161')}}</h4>
+                    <h4>{{__('profile.FAX: 305-869-1161')}}</h4>
                 </div>
 
 
             </div>
         </div>
     </div>
-    <div class="container p-5">
+    <div class="container">
         <div class="row  p-4">
             <div class="col-12">
-                <p>Por favor lea el siguiente documento cuidadosamente y firme:</p>
+                <p>{{__('profile.Please read the following document carefully and sign:')}}</p>
                 <div class="paragraph pl-3">
-                    <p>a. Yo autorizo a este Centro de pruebas Covid-19 "Family Rehab/ Communitel," a adquirir una
-                        muestra nasofaringea y a examinar la muestra para la detección del Covid-19 como requieren las
-                        agencias de salud pública.</p>
-                    <p>b. Yo autorizo que mis resultados sean comunicados a cualquier agencia de gobierno o como
-                        requiera la ley. También autorizo la comunicación de mis resultados positivos a las aerolineas y
-                        cruceros como es requerido por el Gobierno del Condado de Miami-Dade. Esta autorización es
-                        vigente por el periodo de un (1) año desde el dia en que fue firmado.
+                    <p>{{__('profile.a. I authorize this Covid-19 Test Center "Family Rehab / Communitel," to acquire a nasopharyngeal sample and to examine the sample for the detection of Covid-19 as required by public health agencies.')}}</p>
+                    <p>{{__('profile.b. I authorize my results to be communicated to any government agency or as required by law. I also authorize the communication of my positive results to airlines and cruise ships as required by Miami-Dade County Government. This authorization is valid for a period of one (1) year from the day it was signed.')}}
                     </p>
-                    <p>c. Entiendo que un resultado positivo es una indicación de que debo hacer una cuarentena, ponerme
-                        máscara o cubrirme la cara para no infectar a otros</p>
-                    <p>d. Yo entiendo que este laboratorio no está actuando como mi médico, y no reemplaza la necesidad
-                        del cuidado de un médico cuando sea requerido También acepto la responsabilidad de mis
-                        resultados y lo que significan. Yo estoy de acuerdo con obtener una consulta médica con mi
-                        medico para aclarar cualquier inquietud que tenga, adquirir cuidado/tratamiento si mi condición
-                        empeora.</p>
-                    <p>e. Entiendo que igual que otros procedimientos de diagnóstico, existe una posibilidad de un falso
-                        positivo o un falso negativo en la prueba de Covid-19
+                    <p>{{__('profile.c. I understand that a positive result is an indication that I should quarantine, wear a mask or cover my face so as not to infect others')}}</p>
+                    <p>{{__('profile.d. I understand that this laboratory is not acting as my physician, and does not replace the need for a physicians care when required. I also accept responsibility for my results and what they mean. I agree to obtain a medical consultation with my physician to clarify any concerns I have, to obtain care / treatment if my condition worsens.
+
+                        and. I understand that like other diagnostic procedures, there is a possibility of a false positive or false negative test for Covid-19')}}</p>
+                    <p>{{__('profile.e. I understand that "Family Rehab and Communitel," are in no way responsible if the client / patient does not arrive on time for their flight / misses it or is quarantined upon arrival at their destination. I understand that the responsibility for choosing the type of proof necessary for my destiny is mine and mine alone.')}}
                     </p>
-                    <p>f. Yo entiendo que "Family Rehab y Communitel," no son de ninguna manera responsables si at
-                        cliente/paciente no llega a tiempo a su vuelo/lo pierde o es puesto en cuarentena al llegar a su
-                        destino. Entiendo que la responsabilidad de escoger el tipo de prueba necesaria para mi destino
-                        es mia y solo mia.</p>
-                    <p>g. Yo entiendo y acepto que "Family Rehab y Communitel" no proveen cancelaciones o devoluciones
-                        una vez que la prueba ha sido administrada:</p>
-                    <p>Yo, el paciente/cliente; he sido informado del propósito de la prueba, los procedimientes, fos
-                        posibler beneficios y riesgos También ha recibido una copia de este consentimients Se me ha dado
-                        la oportunidad de hacer preguntas antes de firmar Yo acepto esta prueba de Covid-19
-                        voluntariamente, para mis necesidades personales, de negocios o de viajes</p>
+                    <p>{{__('profile.f. I understand that "Family Rehab and Communitel," are in no way responsible if the client / patient does not arrive on time for their flight / misses it or is quarantined upon arrival at their destination. I understand that the responsibility to choose the type of test necessary for my destiny is mine and mine alone.')}}</p>
+                    <p>{{__('profile.g. I understand and agree that "Family Rehab and Communitel" do not provide cancellations or refunds once the test has been administered.I, the patient / client, have been informed of the purpose of the test, the procedures, the possible benefits and risks. I have also received a copy of this consent. I have been given the opportunity to ask questions before signing. I accept this Covid-19 test voluntarily, for my personal, business or travel needs')}}</p>
+
                 </div>
             </div>
         </div>
     </div>
-    <div class="container p-5">
+    <div class="container">
         <div class="row p-5">
             <div class="col-12 text-center">
-                <h1>Por favor seleccione quién participará ...</h1>
+                <h1>{{__('profile.Please select who will participate ...')}}</h1>
             </div>
 
 
             <div class="col-lg-4  col-12 pt-2 p-0 text-center">
-                <button class="btn btn-dark adult_btn">Adulto</button>
+                <button class="btn btn-dark adult_btn">{{__('profile.Adult')}}</button>
             </div>
             <div class="col-lg-4  col-12 pt-2 p-0  text-center">
-                <button class="btn btn-dark  minor_button1">Menores</button>
+                <button class="btn btn-dark  minor_button1">{{__('profile.Minors')}}</button>
             </div>
 
             <div class="col-lg-4  col-12 pt-2 p-0  text-center">
-                <button class="btn btn-dark  minor_button">Adulto y menores</button>
+                <button class="btn btn-dark  minor_button">{{__('profile.Adult and minors')}}</button>
             </div>
 
             {{-- adults buttons --}}
             <div class="col-lg-2 offset-lg-1 col-12 minors  pt-2 text-center">
-                <button class="btn btn-dark  minors2  minor_btn" att="1">1 Minor</button>
+                <button class="btn btn-dark  minors2  minor_btn" att="1">{{__('profile.1 Minor')}}</button>
             </div>
             <div class="col-lg-2  col-12 pt-2 minors  text-center">
-                <button class="btn btn-dark   minors2 minor_btn" att="2">2 Minors</button>
+                <button class="btn btn-dark   minors2 minor_btn" att="2">{{__('profile.2 Minor')}}</button>
             </div>
             <div class="col-lg-2  col-12 pt-2 minors  text-center">
-                <button class="btn btn-dark   minors2 minor_btn" att="3">3 Minors</button>
+                <button class="btn btn-dark   minors2 minor_btn" att="3">{{__('profile.3 Minor')}}</button>
             </div>
             <div class="col-lg-2  col-12 pt-2 minors  text-center">
-                <button class="btn btn-dark   minors2 minor_btn" att="4">4 Minors</button>
+                <button class="btn btn-dark   minors2 minor_btn" att="4">{{__('profile.4 Minor')}}</button>
             </div>
             <div class="col-lg-2  col-12 pt-2 minors  text-center">
-                <button class="btn btn-dark   minors2 minor_btn" att="5">5 Minors</button>
+                <button class="btn btn-dark   minors2 minor_btn" att="5">{{__('profile.5 Minor')}}</button>
             </div>
             <div class="col-lg-2 offset-lg-1 col-12 minors  pt-2 text-center">
-                <button class="btn btn-dark  minors2 minors22 minor_btn" att="6">6 Minors</button>
+                <button class="btn btn-dark  minors2 minors22 minor_btn" att="6">{{__('profile.6 Minor')}}</button>
             </div>
             <div class="col-lg-2  col-12 pt-2 minors  text-center">
-                <button class="btn btn-dark   minors2 minors22 minor_btn" att="7">7 Minors</button>
+                <button class="btn btn-dark   minors2 minors22 minor_btn" att="7">{{__('profile.7 Minor')}}</button>
             </div>
             <div class="col-lg-2  col-12 pt-2 minors  text-center">
-                <button class="btn btn-dark   minors2 minors22 minor_btn" att="8">8 Minors</button>
+                <button class="btn btn-dark   minors2 minors22 minor_btn" att="8">{{__('profile.8 Minor')}}</button>
             </div>
             <div class="col-lg-2  col-12 pt-2 minors  text-center">
-                <button class="btn btn-dark   minors2 minors22 minor_btn" att="9">9 Minors</button>
+                <button class="btn btn-dark   minors2 minors22 minor_btn" att="9">{{__('profile.9 Minor')}}</button>
             </div>
             <div class="col-lg-2  col-12 pt-2 minors  text-center">
-                <button class="btn btn-dark   minors2 minors22 minor_btn" att="10">10 Minors</button>
+                <button class="btn btn-dark   minors2 minors22 minor_btn" att="10">{{__('profile.10 Minor')}}</button>
             </div>
 
             <div class="col-lg-12  col-12  minors  text-center">
                 <div class="row" style="box-shadow: none;">
                     <div class="col-lg-2 offset-lg-5">
-                        <button class="btn btn-dark minor_btn minors2 minors222">More Minors</button>
+                        <button class="btn btn-dark minor_btn minors2 minors222">{{__('profile.More Minors')}}</button>
 
                     </div>
                 </div>
@@ -217,41 +201,41 @@
             {{-- minoor buttons --}}
 
             <div class="col-lg-2 offset-lg-1 col-12 minors1 pt-2 text-center">
-                <button class="btn btn-dark  minors5  minororad_btn" att="1">1 Minor</button>
+                <button class="btn btn-dark  minors5  minororad_btn" att="1">{{__('profile.1 Minor')}}</button>
             </div>
             <div class="col-lg-2  col-12 pt-2 minors1 text-center">
-                <button class="btn btn-dark  minors5  minororad_btn" att="2">2 Minors</button>
+                <button class="btn btn-dark  minors5  minororad_btn" att="2">{{__('profile.2 Minor')}}</button>
             </div>
             <div class="col-lg-2  col-12 pt-2 minors1 text-center">
-                <button class="btn btn-dark minors5   minororad_btn" att="3">3 Minors</button>
+                <button class="btn btn-dark minors5   minororad_btn" att="3">{{__('profile.3 Minor')}}</button>
             </div>
             <div class="col-lg-2  col-12 pt-2 minors1 text-center">
-                <button class="btn btn-dark minors5  minororad_btn" att="4">4 Minors</button>
+                <button class="btn btn-dark minors5  minororad_btn" att="4">{{__('profile.4 Minor')}}</button>
             </div>
             <div class="col-lg-2  col-12 pt-2 minors1 text-center">
-                <button class="btn btn-dark  minors5  minororad_btn" att="5">5 Minors</button>
+                <button class="btn btn-dark  minors5  minororad_btn" att="5">{{__('profile.5 Minor')}}</button>
             </div>
             <div class="col-lg-2  col-12 offset-lg-1 pt-2 minors1 text-center">
-                <button class="btn btn-dark  minors51  minororad_btn" att="6">6 Minors</button>
+                <button class="btn btn-dark  minors51  minororad_btn" att="6">{{__('profile.6 Minor')}}</button>
             </div>
             <div class="col-lg-2  col-12 pt-2 minors1 text-center">
-                <button class="btn btn-dark minors51   minororad_btn" att="7">7 Minors</button>
+                <button class="btn btn-dark minors51   minororad_btn" att="7">{{__('profile.7 Minor')}}</button>
             </div>
             <div class="col-lg-2  col-12 pt-2 minors1 text-center">
-                <button class="btn btn-dark minors51  minororad_btn" att="8">8 Minors</button>
+                <button class="btn btn-dark minors51  minororad_btn" att="8">{{__('profile.8 Minor')}}</button>
             </div>
             <div class="col-lg-2  col-12 pt-2 minors1 text-center">
-                <button class="btn btn-dark  minors51  minororad_btn" att="9">9 Minors</button>
+                <button class="btn btn-dark  minors51  minororad_btn" att="9">{{__('profile.9 Minor')}}</button>
             </div>
             <div class="col-lg-2  col-12 pt-2 minors1 text-center">
-                <button class="btn btn-dark  minors51  minororad_btn" att="10">10 Minors</button>
+                <button class="btn btn-dark  minors51  minororad_btn" att="10">{{__('profile.10 Minor')}}</button>
             </div>
 
 
             <div class="col-lg-12  col-12  minors1 text-center">
                 <div class="row" style="box-shadow: none;">
                     <div class="col-lg-2 offset-lg-5">
-                        <button class="btn btn-dark  minors5 minorsb">More Minors</button>
+                        <button class="btn btn-dark  minors5 minorsb">{{__('profile.More Minors')}}</button>
 
                     </div>
                 </div>
@@ -260,21 +244,21 @@
             </div>
 
             <div class="col-12 pt-5 text-center ma_div">
-                <h2>Este contrato es solo para USTED</h2>
-                <button class="btn btn-dark mt-2 MinoraAdult_continue">Continuar</button>
+                <h2>{{__('profile.This contract is for YOU only')}}</h2>
+                <button class="btn btn-dark mt-2 MinoraAdult_continue">{{__('profile.Continue')}}</button>
 
 
             </div>
 
             <div class="col-12 pt-5 text-center Minor_div">
-                <h2>Este contrato es solo para USTED</h2>
-                <button class="btn btn-dark mt-2 Minor_continue">Continuar</button>
+                <h2>{{__('profile.This contract is for YOU only')}}</h2>
+                <button class="btn btn-dark mt-2 Minor_continue">{{__('profile.Continue')}}</button>
 
 
             </div>
             <div class="col-12 pt-5 text-center adult">
-                <h2>Este contrato es solo para USTED</h2>
-                <button class="btn btn-dark mt-2 continue">Continuar</button>
+                <h2>{{__('profile.This contract is for YOU only')}}</h2>
+                <button class="btn btn-dark mt-2 continue">{{__('profile.Continue')}}</button>
 
 
             </div>
@@ -282,219 +266,195 @@
 
         </div>
     </div>
-    <div class="container p-5">
+    <div class="container">
         <div class="adultform">
             <div class="row p-5">
                 <div class="col-12 ">
-                    <h1>Nombre del cliente</h1>
+                    <h1>{{__('profile.Customer name')}}</h1>
                 </div>
                 <div class="col-lg-4 col-12 pt-2">
-                    <input required type="text" placeholder="Nombre" name="namea" class="form-control">
-                    <label for="">Nombre</label>
+                    <input required type="text" placeholder="{{__('profile.Name')}}" name="namea" class="form-control">
+                    <label for="">{{__('profile.Name')}}</label>
 
                 </div>
                 <div class="col-lg-4  col-12 pt-2">
-                    <input required type="text" placeholder="Segundo Nombre" name="secondnamea" class="form-control">
-                    <label for="">Segundo Nombre</label>
+                    <input required type="text" placeholder="{{__('profile.Second name')}}" name="secondnamea" class="form-control">
+                    <label for="">{{__('profile.Second name')}}</label>
                     <input type="hidden" name="type" value="adult" id="">
 
 
                 </div>
                 <div class="col-lg-4  col-12 pt-2">
-                    <input required type="text" placeholder="Apellido" name="surnamea" class="form-control">
-                    <label for="">Apellido</label>
+                    <input required type="text" placeholder="{{__('profile.Last name')}}" name="surnamea" class="form-control">
+                    <label for="">{{__('profile.Last name')}}</label>
                 </div>
                 <div class="col-lg-6  col-12 pt-3">
-                    <input required type="text" placeholder="Teléfono" name="phonea" class="form-control">
-                    <label for="">Teléfono</label>
+                    <input required type="text" placeholder="{{__('profile.Telephone')}}" name="phonea" class="form-control">
+                    <label for="">{{__('profile.Telephone')}}</label>
                 </div>
 
                 <div class="col-lg-6  col-12 pt-3">
 
 
                     <select name="Fgender" class="form-control">
-                        <option value="male">Male</option>
-                        <option value="female">Female</option>
+                        <option value="male">{{__('profile.Male')}}</option>
+                        <option value="female">{{__('profile.Female')}}</option>
 
                     </select>
-                    <label>Gender:</label>
+                    <label>{{__('profile.Gender:')}}</label>
                 </div>
                 <div class="col-12 pt-3">
-                    <h1>Fecha de nacimiento del cliente</h1>
+                    <h1>{{__("profile.Client's date of birth")}}</h1>
                 </div>
                 <div class="col-6 pt-3">
                     <input required type="date" name="datea" value="date" class="form-control">
                 </div>
                 <div class="col-12 pt-5">
-                    <h1>Información adicional del cliente</h1>
+                    <h1>{{__('profile.Additional customer information')}}</h1>
                 </div>
                 <div class="col-6 pt-3">
-                    <input required type="text" name="passporta" placeholder="Pasaporte#" class="form-control">
-                    <label for="">Pasaporte#</label>
+                    <input required type="text" name="passporta" placeholder="{{__('profile.Passport #')}}" class="form-control">
+                    <label for="">{{__('profile.Passport #')}}</label>
                 </div>
                 <div class="col-12 pt-3">
-                    <b>¿Ha tenido alguno de los siguientes síntomas en los últimos 14 días?</b>
+                    <b>{{__('profile.Have you had any of the following symptoms in the past 14 days?')}}</b>
                 </div>
                 <div class="col-12 pt-3">
-                    <p>Fiebre</p>
+                    <p>{{__('profile.Fever')}}</p>
                     <input type="radio" checked name="Fevera" value="Yes">
-                    <label for="html">Sí</label><br>
+                    <label for="html">{{__('profile.Yes')}}</label><br>
                     <input type="radio" name="Fevera" value="No">
-                    <label for="html">No</label><br>
+                    <label for="html">{{__('profile.No')}}</label><br>
                 </div>
                 <div class="col-12 pt-3">
                     <p>
-                        Tos (nueva aparición o empeoramiento de la tos crónica) *</p>
+                        {{__('profile.Cough (new onset or worsening of chronic cough) *')}}</p>
                     <input type="radio" checked name="Cougha" value="Yes">
-                    <label for="html">Sí</label><br>
+                    <label for="html">{{__('profile.Yes')}}</label><br>
                     <input type="radio" name="Cougha" value="No">
-                    <label for="html">No</label><br>
+                    <label for="html">{{__('profile.No')}}</label><br>
                 </div>
 
                 <div class="col-12 pt-3">
-                    <p>
-                        Dolor de garganta</p>
+                    <p>{{__('profile.Throat pain')}}</p>
                     <input type="radio" checked name="Throata" value="Yes">
-                    <label for="html">Sí</label><br>
+                    <label for="html">{{__('profile.Yes')}}</label><br>
                     <input type="radio" name="Throata" value="No">
-                    <label for="html">No</label><br>
+                    <label for="html">{{__('profile.No')}}</label><br>
                 </div>
                 <div class="col-12 pt-3">
-                    <p>
-                        Dificultad para respirar (disnea)</p>
+                    <p>{{__('profile.Difficulty breathing (dyspnea)')}}</p>
                     <input type="radio" checked name="breathinga" value="Yes">
-                    <label for="html">Sí</label><br>
+                    <label for="html">{{__('profile.Yes')}}</label><br>
                     <input type="radio" name="breathinga" value="No">
-                    <label for="html">No</label><br>
+                    <label for="html">{{__('profile.No')}}</label><br>
                 </div>
 
 
                 <div class="col-12 pt-3">
-                    <p>Náuseas *</p>
+                    <p>{{__('profile.Nausea *')}}</p>
                     <input type="radio" checked name="Nauseaa" value="Yes">
-                    <label for="html">Sí</label><br>
+                    <label for="html">{{__('profile.Yes')}}</label><br>
                     <input type="radio" name="Nauseaa" value="No">
-                    <label for="html">No</label><br>
+                    <label for="html">{{__('profile.No')}}</label><br>
                 </div>
                 <div class="col-12 pt-3">
-                    <p>
-                        Abdominal pain *</p>
+                    <p>{{__('profile.Abdominal pain *')}}</p>
                     <input type="radio" checked name="Abdominala" value="Yes">
                     <label for="html">Sí</label><br>
                     <input type="radio" name="Abdominala" value="No">
                     <label for="html">No</label><br>
                 </div>
                 <div class="col-12 pt-3">
-                    <p>
-                        Chills*</p>
+                    <p>{{__('profile.Chills *')}}</p>
                     <input type="radio" checked name="Chillsa" value="Yes">
-                    <label for="html">Sí</label><br>
+                    <label for="html">{{__('profile.Yes')}}</label><br>
                     <input type="radio" name="Chillsa" value="No">
-                    <label for="html">No</label><br>
+                    <label for="html">{{__('profile.No')}}</label><br>
                 </div>
                 <div class="col-12 pt-3">
-                    <p>
-                        Dolor de cabeza</p>
+                    <p>{{__('profile.Headache')}}</p>
                     <input type="radio" checked name="Headachea" value="Yes">
-                    <label for="html">Sí</label><br>
+                    <label for="html">{{__('profile.Yes')}}</label><br>
                     <input type="radio" name="Headachea" value="No">
-                    <label for="html">No</label><br>
+                    <label for="html">{{__('profile.No')}}</label><br>
                 </div>
                 <div class="col-12 pt-3">
-                    <p>
-
-                        Dolores musculares (mialgia)</p>
+                    <p>{{__('profile.Muscle aches (myalgia)')}}</p>
                     <input type="radio" checked name="Musclea" value="Yes">
-                    <label for="html">Sí</label><br>
+                    <label for="html">{{__('profile.Yes')}}</label><br>
                     <input type="radio" name="Musclea" value="No">
-                    <label for="html">No</label><br>
+                    <label for="html">{{__('profile.No')}}</label><br>
                 </div>
 
 
                 <div class="col-12 pt-3">
-                    <p>
-
-
-                        Fatiga *</p>
+                    <p>{{__('profile.Fatigue *')}}</p>
                     <input type="radio" checked name="Fatiguea" value="Yes">
-                    <label for="html">Sí</label><br>
+                    <label for="html">{{__('profile.Yes')}}</label><br>
                     <input type="radio" name="Fatiguea" value="No">
-                    <label for="html">No</label><br>
+                    <label for="html">{{__('profile.No')}}</label><br>
                 </div>
                 <div class="col-12 pt-3">
-                    <p>
-
-
-                        Secreción nasal (rinorrea) *</p>
+                    <p>{{__('profile.Runny nose (rhinorrhea) *')}}</p>
                     <input type="radio" checked name="Runnya" value="Yes">
-                    <label for="html">Sí</label><br>
+                    <label for="html">{{__('profile.Yes')}}</label><br>
                     <input type="radio" name="Runnya" value="No">
-                    <label for="html">No</label><br>
+                    <label for="html">{{__('profile.No')}}</label><br>
                 </div>
                 <div class="col-12 pt-3">
-                    <p>
-
-                        Vómitos</p>
+                    <p>{{__('profile.Vomiting')}}</p>
                     <input type="radio" checked name="Vomitinga" value="Yes">
-                    <label for="html">Sí</label><br>
+                    <label for="html">{{__('profile.Yes')}}</label><br>
                     <input type="radio" name="Vomitinga" value="No">
-                    <label for="html">No</label><br>
+                    <label for="html">{{__('profile.No')}}</label><br>
                 </div>
 
                 <div class="col-12 pt-3">
-                    <p>
-
-                        Diarrea (3 deposiciones blandas / día) *</p>
+                    <p>{{__('profile.Diarrhea (3 loose stools / day) *')}}</p>
                     <input type="radio" checked name="Diarrheaa" value="Yes">
-                    <label for="html">Sí</label><br>
+                    <label for="html">{{__('profile.Yes')}}</label><br>
                     <input type="radio" name="Diarrheaa" value="No">
-                    <label for="html">No</label><br>
+                    <label for="html">{{__('profile.No')}}</label><br>
                 </div>
 
 
                 <div class="col-12 pt-3">
-                    <p>
-
-
-                        Pérdida del olfato *</p>
+                    <p>{{__('profile.Loss of smell *')}}</p>
                     <input type="radio" checked name="Loss_of_smella" value="Yes">
-                    <label for="html">Sí</label><br>
+                    <label for="html">{{__('profile.Yes')}}</label><br>
                     <input type="radio" name="Loss_of_smella" value="No">
-                    <label for="html">No</label><br>
+                    <label for="html">{{__('profile.No')}}</label><br>
                 </div>
 
                 <div class="col-12 pt-3">
-                    <p>
-
-                        Pérdida del gusto</p>
+                    <p>{{__('profile.Loss of taste')}}</p>
                     <input type="radio" checked name="Loss_of_tastea" value="Yes">
-                    <label for="html">Sí</label><br>
+                    <label for="html">{{__('profile.Yes')}}</label><br>
                     <input type="radio" name="Loss_of_tastea" value="No">
-                    <label for="html">No</label><br>
+                    <label for="html">{{__('profile.No')}}</label><br>
                 </div>
                 <div class="col-12 pt-3">
-                    <input type="text" required placeholder="Otra especificar" name="specifya" class="form-control">
-                    <label for="">Otra especificar</label>
+                    <input type="text" required placeholder="{{__('profile.Other specify')}}" name="specifya" class="form-control">
+                    <label for="">{{__('profile.Other specify')}}</label>
                 </div>
                 <div class="col-12 pt-3">
-                    <input type="text" required placeholder="Fecha de inicio de los primeros síntomas" name="symptomsa"
+                    <input type="text" required placeholder="{{__('profile.Date of onset of the first symptoms')}}" name="symptomsa"
                         class="form-control">
-                    <label for="">Fecha de inicio de los primeros síntomas</label>
+                    <label for="">{{__('profile.Date of onset of the first symptoms')}}</label>
                 </div>
                 <div class="col-12 pt-5">
                     <h5>
-                        Prueba de laboratorio</h5>
+                        {{__('profile.Lab test')}}</h5>
                 </div>
                 <div class="col-12 pt-5">
                     <b>
 
-                        Tipo de prueba: hisopo nasal (PCR) / antígeno / SARS-COV-2</b>
+                        {{__('profile.Test type: nasal swab (PCR) / antigen / SARS-COV-2')}}</b>
                 </div>
 
                 <div class="col-12 pt-3">
-                    <p>
-
-                        Seleccione la prueba</p>
+                    <p>{{__('profile.Select the test')}}</p>
                     <input type="radio" checked name="Select_the_testa" value="ANTÍGENO">
                     <label for="html">
                         ANTÍGENO</label><br>
@@ -513,23 +473,23 @@
             </div>
             <div class="row p-5 mt-5">
                 <div class="col-12 pt-2">
-                    <h1>Customer Address</h1>
+                    <h1>{{__('profile.Customer Address')}}</h1>
 
                 </div>
                 <div class="col-lg-6  col-12 pt-2">
-                    <input type="text" required placeholder="Address" name="addressa" class="form-control">
+                    <input type="text" required placeholder="{{__('profile.Address')}}" name="addressa" class="form-control">
                 </div>
                 <div class="col-lg-6  col-12 pt-2">
-                    <input type="text" required placeholder="Address2" name="address2a" class="form-control">
+                    <input type="text" required placeholder="{{__('profile.Address2')}}" name="address2a" class="form-control">
                 </div>
                 <div class="col-lg-6  col-12 pt-2">
-                    <input type="text" required placeholder="Town" name="towna" class="form-control">
+                    <input type="text" required placeholder="{{__('profile.Town')}}" name="towna" class="form-control">
                 </div>
                 <div class="col-lg-6  col-12 pt-2">
-                    <input type="text" required placeholder="Zip Code" name="zipa" class="form-control">
+                    <input type="text" required placeholder="{{__('profile.Zip Code')}}" name="zipa" class="form-control">
                 </div>
                 <div class="col-lg-6  col-12 pt-2">
-                    <label>State/Province</label>
+                    <label>{{__('profile.State / Province')}}</label>
                     <select name="Provincea" class="form-control">
                         @foreach ($state as $states)
                             <option value="{{ $states->name }}">{{ $states->name }}</option>
@@ -537,7 +497,7 @@
                     </select>
                 </div>
                 <div class="col-lg-6  col-12 pt-2">
-                    <label>Country</label>
+                    <label>{{__('profile.Country')}}</label>
                     <select class="form-control" name="Countrya">
                         @foreach ($country as $countries)
                             <option value="{{ $countries->name }}">{{ $countries->name }}</option>
@@ -548,25 +508,25 @@
             </div>
             <div class="row p-5 mt-5">
                 <div class="col-12">
-                    <h1>Email Address</h1>
+                    <h1>{{__('profile.Email address')}}</h1>
 
                 </div>
                 <div class="col-lg-6 col-6 pt-3">
-                    <input type="text" required placeholder="Email" name="emaila" class="form-control">
+                    <input type="text" required placeholder="{{__('profile.E-mail')}}" name="emaila" class="form-control">
                 </div>
             </div>
 
             <div class="row p-5 mt-5">
                 <div class="col-12">
-                    <h1>How did you hear about us?</h1>
+                    <h1>{{__('profile.How did you hear about us?')}}</h1>
                 </div>
                 <div class="col-lg-12 col-12 pt-2">
-                    <p>Option</p>
-                    <input type="radio" checked name="gendera" value="Friends"> Friends<br>
-                    <input type="radio" name="gendera" value="Airline"> Airline Staff<br>
-                    <input type="radio" name="gendera" value="Airport"> Airport Advertisement<br>
-                    <input type="radio" name="gendera" value="Google"> Google<br>
-                    <input type="radio" name="gendera" value="Other"> Other<br>
+                    <p>{{__('profile.Option')}}</p>
+                    <input type="radio" checked name="gendera" value="Friends"> {{__('profile.Friends')}}<br>
+                    <input type="radio" name="gendera" value="Airline">{{__('profile.Airline Staff')}}<br>
+                    <input type="radio" name="gendera" value="Airport">{{__('profile.Airport Advertisement')}}<br>
+                    <input type="radio" name="gendera" value="Google">{{__('profile.Google')}}<br>
+                    <input type="radio" name="gendera" value="Other">{{__('profile.Other')}}<br>
                 </div>
             </div>
 
@@ -575,216 +535,192 @@
         <div class="minorform" style="display: none">
             <div class="row p-5">
                 <div class="col-12 ">
-                    <h1>Name Of First Minor</h1>
+                    <h1>{{__('profile.Name Of First Minor')}}</h1>
                 </div>
 
 
                 <div class="col-lg-4  col-12 pt-2">
-                    <input type="text" required placeholder="Name" name="name" class="form-control">
-                    <label for="">Name</label>
+                    <input type="text" required placeholder="{{__('profile.Name')}}" name="name" class="form-control">
+                    <label for="">{{__('profile.Name')}}</label>
 
                 </div>
                 <div class="col-lg-4  col-12 pt-2">
-                    <input type="text" required placeholder="Second Name" name="secondname" class="form-control">
-                    <label for="">Second Name</label>
+                    <input type="text" required placeholder="{{__('profile.Second name')}}" name="secondname" class="form-control">
+                    <label for="">{{__('profile.Second name')}}</label>
                 </div>
 
 
                 <input type="hidden" name="type" value="minor">
                 <div class="col-lg-4  col-12 pt-2">
-                    <input type="text" required placeholder="Surnames" name="surname" class="form-control">
-                    <label for="">Surnames</label>
+                    <input type="text" required placeholder="{{__('profile.Surnames')}}" name="surname" class="form-control">
+                    <label for="">{{__('profile.Surnames')}}</label>
                 </div>
                 <div class="col-lg-6  col-12 pt-3">
-                    <input type="text" required placeholder="Telephone" name="phone" class="form-control">
-                    <label for="">Telephone</label>
+                    <input type="text" required placeholder="{{__('profile.Telephone')}}" name="phone" class="form-control">
+                    <label for="">{{__('profile.Telephone')}}</label>
                 </div>
                 <div class="col-lg-6  col-12 pt-3">
 
 
                     <select name="Fgender" class="form-control">
-                        <option value="male">Male</option>
-                        <option value="female">Female</option>
+                        <option value="male">{{__('profile.Male')}}</option>
+                        <option value="female">{{__('profile.Female')}}</option>
 
                     </select>
-                    <label>Gender:</label>
+                    <label>{{__('profile.Gender:')}}</label>
                 </div>
 
                 <div class="col-12 pt-3">
-                    <h1>First Birth Date of Minor</h1>
+                    <h1>{{__('profile.First Birth Date of Minor')}}</h1>
                 </div>
                 <div class="col-6 pt-3">
                     <input type="date" required value="date" name="date" class="form-control">
                 </div>
                 <div class="col-12 pt-5">
-                    <h1>Additional Information of first of the Minor</h1>
+                    <h1>{{__('profile.Additional Information of first of the Minor')}}</h1>
                 </div>
                 <div class="col-6 pt-3">
-                    <input type="text" required name="passport" placeholder="Pasaporte#" class="form-control">
-                    <label for="">Pasaporte#</label>
+                    <input type="text" required name="passport" placeholder="{{__('profile.Passport #')}}" class="form-control">
+                    <label for="">{{__('profile.Passport #')}}</label>
                 </div>
                 <div class="col-12 pt-3">
-                    <b>Have you had any of the following symptoms in the last 14 days?</b>
+                    <b>{{__('profile.Have you had any of the following symptoms in the past 14 days?')}}</b>
                 </div>
                 <div class="col-12 pt-3">
-                    <p>Fever</p>
+                    <p>{{__('profile.Fever')}}</p>
                     <input type="radio" checked name="fever" value="Yes">
-                    <label for="html">Yes</label><br>
+                    <label for="html">{{__('profile.Yes')}}</label><br>
                     <input type="radio" name="fever" value="No">
-                    <label for="html">No</label><br>
+                    <label for="html">{{__('profile.No')}}</label><br>
                 </div>
                 <div class="col-12 pt-3">
-                    <p>
-                        Cough (new onset or worsening of chronic cough) *</p>
+                    <p>{{__('profile.Cough (new onset or worsening of chronic cough) *')}}</p>
                     <input type="radio" checked name="Cough" value="Yes">
-                    <label for="html">Yes</label><br>
+                    <label for="html">{{__('profile.Yes')}}</label><br>
                     <input type="radio" name="Cough" value="No">
-                    <label for="html">No</label><br>
+                    <label for="html">{{__('profile.No')}}</label><br>
                 </div>
 
                 <div class="col-12 pt-3">
                     <p>
-                        Sore Throat</p>
+                        {{__('profile.Sore Throat')}}</p>
                     <input type="radio" checked name="Throat" value="Yes">
-                    <label for="html">Yes</label><br>
+                    <label for="html">{{__('profile.Yes')}}</label><br>
                     <input type="radio" name="Throat" value="No">
-                    <label for="html">No</label><br>
+                    <label for="html">{{__('profile.No')}}</label><br>
                 </div>
                 <div class="col-12 pt-3">
-                    <p>
-                        Difficulty breathing (dyspnea)</p>
+                    <p>{{__('profile.Difficulty breathing (dyspnea)')}}</p>
                     <input type="radio" checked name="breathing" value="Yes">
-                    <label for="html">Yes</label><br>
+                    <label for="html">{{__('profile.Yes')}}</label><br>
                     <input type="radio" name="breathing" value="No">
-                    <label for="html">No</label><br>
+                    <label for="html">{{__('profile.No')}}</label><br>
                 </div>
 
 
                 <div class="col-12 pt-3">
-                    <p>Nausea *</p>
+                    <p>{{__('profile.Nausea *')}}</p>
                     <input type="radio" checked name="Nausea" value="Yes">
-                    <label for="html">Yes</label><br>
+                    <label for="html">{{__('profile.Yes')}}</label><br>
                     <input type="radio" name="Nausea" value="No">
-                    <label for="html">No</label><br>
+                    <label for="html">{{__('profile.No')}}</label><br>
                 </div>
                 <div class="col-12 pt-3">
-                    <p>
-                        Abdominal pain *</p>
+                    <p>{{__('profile.Abdominal pain *')}}</p>
                     <input type="radio" checked name="Abdominal " value="Yes">
-                    <label for="html">Yes</label><br>
+                    <label for="html">{{__('profile.Yes')}}</label><br>
                     <input type="radio" name="Abdominal " value="No">
-                    <label for="html">No</label><br>
+                    <label for="html">{{__('profile.No')}}</label><br>
                 </div>
                 <div class="col-12 pt-3">
-                    <p>
-                        Chills *</p>
+                    <p>{{__('profile.Chills *')}}</p>
                     <input type="radio" checked name="Chills" value="Yes">
-                    <label for="html">Yes</label><br>
+                    <label for="html">{{__('profile.Yes')}}</label><br>
                     <input type="radio" name="Chills" value="No">
-                    <label for="html">No</label><br>
+                    <label for="html">{{__('profile.No')}}</label><br>
                 </div>
                 <div class="col-12 pt-3">
-                    <p>
-                        Headache</p>
+                    <p>{{__('profile.Headache')}}</p>
                     <input type="radio" checked name="Headache" value="Yes">
-                    <label for="html">Yes</label><br>
+                    <label for="html">{{__('profile.Yes')}}</label><br>
                     <input type="radio" name="Headache" value="No">
-                    <label for="html">No</label><br>
+                    <label for="html">{{__('profile.No')}}</label><br>
                 </div>
                 <div class="col-12 pt-3">
-                    <p>
-
-                        Muscle aches (myalgia)</p>
+                    <p>{{__('profile.Muscle aches (myalgia)')}}</p>
                     <input type="radio" checked name="Muscle" value="Yes">
-                    <label for="html">Yes</label><br>
+                    <label for="html">{{__('profile.Yes')}}</label><br>
                     <input type="radio" name="Muscle" value="No">
-                    <label for="html">No</label><br>
+                    <label for="html">{{__('profile.No')}}</label><br>
                 </div>
 
 
                 <div class="col-12 pt-3">
-                    <p>
-
-
-                        Fatigue *</p>
+                    <p>{{__('profile.Fatigue *')}}</p>
                     <input type="radio" checked name="Fatigue" value="Yes">
-                    <label for="html">Yes</label><br>
+                    <label for="html">{{__('profile.Yes')}}</label><br>
                     <input type="radio" name="Fatigue" value="No">
-                    <label for="html">No</label><br>
+                    <label for="html">{{__('profile.No')}}</label><br>
                 </div>
                 <div class="col-12 pt-3">
-                    <p>
-
-
-                        Runny nose (rhinorrhea) *</p>
+                    <p>{{__('profile.Runny nose (rhinorrhea) *')}}</p>
                     <input type="radio" checked name="Runny" value="Yes">
-                    <label for="html">Yes</label><br>
+                    <label for="html">{{__('profile.Yes')}}</label><br>
                     <input type="radio" name="Runny" value="No">
-                    <label for="html">No</label><br>
+                    <label for="html">{{__('profile.No')}}</label><br>
                 </div>
                 <div class="col-12 pt-3">
-                    <p>
-
-                        Vomiting</p>
+                    <p>{{__('profile.Vomiting')}}</p>
                     <input type="radio" checked name="Vomiting" value="Yes">
-                    <label for="html">Yes</label><br>
+                    <label for="html">{{__('profile.Yes')}}</label><br>
                     <input type="radio" name="Vomiting" value="No">
-                    <label for="html">No</label><br>
+                    <label for="html">{{__('profile.No')}}</label><br>
                 </div>
 
                 <div class="col-12 pt-3">
-                    <p>
-
-                        Diarrhea (3 loose stools / day) *</p>
+                    <p>{{__('profile.Diarrhea (3 loose stools / day) *')}}</p>
                     <input type="radio" checked name="Diarrhea" value="Yes">
-                    <label for="html">Yes</label><br>
+                    <label for="html">{{__('profile.Yes')}}</label><br>
                     <input type="radio" name="Diarrhea" value="No">
-                    <label for="html">No</label><br>
+                    <label for="html">{{__('profile.No')}}</label><br>
                 </div>
 
 
                 <div class="col-12 pt-3">
-                    <p>
-
-
-                        Loss of smell *</p>
+                    <p>{{__('profile.Loss of smell *')}}</p>
                     <input type="radio" checked name="Loss_of_smell" value="Yes">
-                    <label for="html">Yes</label><br>
+                    <label for="html">{{__('profile.Yes')}}</label><br>
                     <input type="radio" name="Loss_of_smell" value="No">
-                    <label for="html">No</label><br>
+                    <label for="html">{{__('profile.No')}}</label><br>
                 </div>
 
                 <div class="col-12 pt-3">
-                    <p>
-
-                        Loss of taste</p>
+                    <p>{{__('profile.Loss of taste')}}</p>
                     <input type="radio" checked name="Loss_of_taste" value="Yes">
-                    <label for="html">Yes</label><br>
+                    <label for="html">{{__('profile.Yes')}}</label><br>
                     <input type="radio" name="Loss_of_taste" value="No">
-                    <label for="html">No</label><br>
+                    <label for="html">{{__('profile.No')}}</label><br>
                 </div>
                 <div class="col-12 pt-3">
-                    <input type="text" required placeholder="Other specify" name="specify" class="form-control">
-                    <label for="">Other specify</label>
+                    <input type="text" required placeholder="{{__('profile.Other specify')}}" name="specify" class="form-control">
+                    <label for="">{{__('profile.Other specify')}}</label>
                 </div>
                 <div class="col-12 pt-3">
-                    <input type="text" required placeholder="" name="symptoms" class="form-control">
-                    <label for="">Earliest Symptoms onset Date</label>
+                    <input type="text" required placeholder="{{__('profile.Date of onset of the first symptoms')}}" name="symptoms" class="form-control">
+                    <label for="">{{__('profile.Date of onset of the first symptoms')}}</label>
                 </div>
                 <div class="col-12 pt-5">
                     <h5>
-                        Lab test</h5>
+                        {{__('profile.Lab test')}}</h5>
                 </div>
                 <div class="col-12 pt-5">
                     <b>
 
-                        Test type: nasal swab (PCR) / antigen / SARS-COV-2</b>
+                        {{__('profile.Test type: nasal swab (PCR) / antigen / SARS-COV-2')}}</b>
                 </div>
 
                 <div class="col-12 pt-3">
-                    <p>
-
-                        Select the test</p>
+                    <p>{{__('profile.Select the test')}}</p>
                     <input type="radio" checked name="Select_the_test" value="ANTIGEN">
                     <label for="html">
                         ANTIGEN</label><br>
@@ -802,23 +738,23 @@
             </div>
             <div class="row p-5 mt-5">
                 <div class="col-12 pt-2">
-                    <h1>Address of the Minor</h1>
+                    <h1>{{__('profile.Address of the Minor')}}</h1>
 
                 </div>
                 <div class="col-lg-6  col-12 pt-2">
-                    <input type="text" required placeholder="Address" name="address" class="form-control">
+                    <input type="text" required placeholder="{{__('profile.Address')}}" name="address" class="form-control">
                 </div>
                 <div class="col-lg-6  col-12 pt-2">
-                    <input type="text" required placeholder="Address2" name="address2" class="form-control">
+                    <input type="text" required placeholder="{{__('profile.Address2')}}" name="address2" class="form-control">
                 </div>
                 <div class="col-lg-6  col-12 pt-2">
-                    <input type="text" required placeholder="Town" name="town" class="form-control">
+                    <input type="text" required placeholder="{{__('profile.Town')}}" name="town" class="form-control">
                 </div>
                 <div class="col-lg-6  col-12 pt-2">
-                    <input type="text" required placeholder="Zip Code" name="zip" class="form-control">
+                    <input type="text" required placeholder="{{__('profile.Zip Code')}}" name="zip" class="form-control">
                 </div>
                 <div class="col-lg-6  col-12 pt-2">
-                    <label>State/Province</label>
+                    <label>{{__('profile.State / Province')}}</label>
                     <select name="Province" class="form-control">
                         @foreach ($state as $states)
                             <option value="{{ $states->name }}">{{ $states->name }}</option>
@@ -826,7 +762,7 @@
                     </select>
                 </div>
                 <div class="col-lg-6  col-12 pt-2">
-                    <label>Country</label>
+                    <label>{{__('profile.Country')}}</label>
                     <select name="Country" class="form-control">
                         @foreach ($country as $countries)
                             <option value="{{ $countries->name }}">{{ $countries->name }}</option>
@@ -838,20 +774,20 @@
             </div>
             <div class="row p-5 mt-5">
                 <div class="col-12">
-                    <h1>Email Address</h1>
+                    <h1>{{__('profile.Email address')}}</h1>
 
                 </div>
                 <div class="col-lg-6 col-6 pt-3">
-                    <input required type="text" placeholder="Email" name="email" class="form-control">
+                    <input required type="text" placeholder="{{__('profile.E-mail')}}" name="email" class="form-control">
                 </div>
             </div>
 
             <div class="row p-5 mt-5">
                 <div class="col-12">
-                    <h1>How did you hear about us?</h1>
+                    <h1>{{__('profile.How did you hear about us?')}}</h1>
                 </div>
                 <div class="col-lg-12 col-12 pt-2">
-                    <p>Option</p>
+                    <p>{{__('profile.Option')}}</p>
                     <input type="radio" name="gender" checked value="Friends"> Friends<br>
                     <input type="radio" name="gender" value="Airline"> Airline Staff<br>
                     <input type="radio" name="gender" value="Airport"> Airport Advertisement<br>
@@ -860,38 +796,38 @@
                 </div>
                 <div class="col-lg-6 col-12 pt-2">
                     <input required type="text" class="form-control" name="othre_specify"
-                        placeholder="Other Specify">
-                    <label for="">Other Specify</label>
+                        placeholder="{{__('profile.Other specify')}}">
+                    <label for="">{{__('profile.Other specify')}}</label>
                 </div>
             </div>
             <div class="row p-5 mt-5">
                 <div class="col-12 ">
-                    <h1>Parent Or Guardian Name</h1>
+                    <h1>{{__('profile.Parent Or Guardian Name')}}</h1>
                 </div>
                 <div class="col-lg-4  col-12 pt-2">
-                    <input required type="text" placeholder="Name" name="Parent_name" class="form-control">
-                    <label for="">Name</label>
+                    <input required type="text" placeholder="{{__('profile.Name')}}" name="Parent_name" class="form-control">
+                    <label for="">{{__('profile.Name')}}</label>
 
                 </div>
                 <div class="col-lg-4  col-12 pt-2">
-                    <input required type="text" placeholder="Second Name" name="Parent_secondname"
+                    <input required type="text" placeholder="{{__('profile.Second name')}}" name="Parent_secondname"
                         class="form-control">
-                    <label for="">Second Name</label>
+                    <label for="">{{__('profile.Second name')}}</label>
 
                 </div>
 
                 <div class="col-lg-4  col-12 pt-2">
-                    <input required type="text" placeholder="Surnames" name="Parent_surname" class="form-control">
-                    <label for="">Surnames</label>
+                    <input required type="text" placeholder="{{__('profile.Surnames')}}" name="Parent_surname" class="form-control">
+                    <label for="">{{__('profile.Surnames')}}</label>
                 </div>
                 <div class="col-lg-6  col-12 pt-3">
-                    <input required type="text" placeholder="Telephone" name="Parent_phone" class="form-control">
-                    <label for="">Telephone</label>
+                    <input required type="text" placeholder="{{__('profile.Telephone')}}" name="Parent_phone" class="form-control">
+                    <label for="">{{__('profile.Telephone')}}</label>
                 </div>
                 <div class="col-lg-6  col-12 pt-3">
 
                     <input required type="date" placeholder="DOB" name="Parent_dob" class="form-control">
-                    <label for="">Date Birth Of Gaurdian</label>
+                    <label for="">{{__('profile.Date Birth Of Gaurdian')}}</label>
 
                 </div>
 
@@ -925,32 +861,12 @@
                     <div class="static">
                         <div class="row p-5 mt-5">
                             <div class="col-12">
-                                <h1>Electronic signature acceptance</h1><br>
-                                <input type="checkbox" name="signature" required value="1"> By checking ts box, you
-                                agree that
-                                your
-                                electronic
-                                signature will be used in place of your handwritten signature. If this is not what you
-                                want,
-                                you
-                                have the right to ask to sign a paper copy instead. By checking this box, you warve this
-                                right Upon
-                                acceptance, you may request in writing that we send you a paper copy of the electronic
-                                record. You
-                                will not have to pay anything for such a copy, and you do not need any special software
-                                or
-                                hardware
-                                to view it. Your acceptance of electronic signature for any document will remain in
-                                effect
-                                until
-                                such time as you notify us in veriting that you no longer wish to use electronic
-                                signature.
-                                The
-                                revocation of your acceptance will not entall any penalty for you
+                                <h1>{{__('profile.Electronic signature acceptance')}}</h1><br>
+                                <input type="checkbox" name="signature" required value="1"> {{__('profile.By checking ts box, you agree that your electronic signature will be used in place of your handwritten signature. If this is not what you want, you have the right to ask to sign a paper copy instead. By checking this box, you warve this right Upon acceptance, you may request in writing that we send you a paper copy of the electronic record. You will not have to pay anything for such a copy, and you do not need any special software or hardware to view it. Your acceptance of electronic signature for any document will remain in effect until such time as you notify us in veriting that you no longer wish to use electronic signature. The revocation of your acceptance will not entall any penalty for you Your acceptance of electronic signature for any document will remain in effect until such time as you notify us in veriting that you no longer wish to use electronic signature. The revocation of your acceptance will not entall any penalty for you Your acceptance of electronic signature for any document will remain in effect until such time as you notify us in veriting that you no longer wish to use electronic signature. The revocation of your acceptance will not entall any penalty for you')}}
                             </div>
                         </div>
                         <center class="mt-5">
-                            <input type="submit" class="btn btn-dark" value="Accept Document">
+                            <input type="submit" class="btn btn-dark" value="{{__('profile.Accept Document')}}">
                         </center>
                     </div>
                 </form>

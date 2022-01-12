@@ -21,6 +21,7 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::get  ('/', [AdminController::class, 'home']);
+Route::get('/language/{lang}', [AdminController::class, 'language'])->name('language');
 
 
 Route:: prefix('/admin')->middleware(['auth', 'admin'])->group(function () {
