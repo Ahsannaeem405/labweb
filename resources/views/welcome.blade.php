@@ -920,6 +920,9 @@
         //minor
         $(".minor_button1").click(function() {
             $('.maindata').css('display', 'none');
+            $('.minorsb').css('display', 'block');
+
+
 
 
 
@@ -941,6 +944,9 @@
         //adult
 
         $(".minor_button").click(function() {
+
+
+            $('.minors222').css('display', 'block');
 
             $('.maindata').css('display', 'none');
             $('.adult').css('display', 'none');
