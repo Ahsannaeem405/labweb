@@ -249,6 +249,7 @@ return redirect("$role/view/customer")->with('success','Customer Verification su
 
 
 
+
     /**
      * Store a newly created resource in storage.
      *

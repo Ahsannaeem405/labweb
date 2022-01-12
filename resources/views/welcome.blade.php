@@ -11,7 +11,11 @@
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
     <title>Home</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js">
+    </script>
 </head>
+
+
 <style>
     body {
         color: #33446F;
@@ -110,7 +114,7 @@
 
 <body>
     <div class="container">
-        @include('partials.component')
+        @include('partials.component2')
         <div class="row p-3">
             <div class="col-lg-6  col-12 pt-5 text-right">
                 <img src="{{ asset('assets/images/logo-removebg-preview.png') }}" class="img-logo" alt="">
@@ -891,6 +895,9 @@
 
 
         </div>
+
+
+
     </section>
 
     <!-- Optional JavaScript -->
@@ -1047,6 +1054,7 @@
 
 
     </script>
+
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
@@ -1057,6 +1065,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
     </script>
+
 
 </body>
 
