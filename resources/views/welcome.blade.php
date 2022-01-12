@@ -18,7 +18,7 @@
     }
 
     .img-logo {
-        width: 80%;
+        width: 100%;
     }
 
     .heading h4 {
@@ -31,12 +31,15 @@
 
     .row {
         border-radius: 8px;
+        margin-left:5px;
+        margin-right:5px;
+
         box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
         margin-top: 4rem;
     }
 
     .btn-dark {
-        min-width: 80% !important;
+        min-width: 100% !important;
     }
 
     .adult {
@@ -92,6 +95,16 @@
     .adultorminor {
         display: none;
     }
+    @media only screen and (max-width: 425px){
+        h4{
+            font-size: 1.2rem !important;
+        }
+        h1{
+            font-size: 1.4rem !important;
+
+        }
+    }
+
 
 </style>
 
@@ -144,18 +157,21 @@
             </div>
 
 
-            <div class="col-lg-4  col-12 pt-2 p-0 text-center">
+            <div class="col-lg-4  col-12 p-2 text-center">
                 <button class="btn btn-dark adult_btn">{{__('profile.Adult')}}</button>
             </div>
-            <div class="col-lg-4  col-12 pt-2 p-0  text-center">
+            <div class="col-lg-4  col-12 p-2   text-center">
                 <button class="btn btn-dark  minor_button1">{{__('profile.Minors')}}</button>
             </div>
 
-            <div class="col-lg-4  col-12 pt-2 p-0  text-center">
+            <div class="col-lg-4  col-12 p-2   text-center">
                 <button class="btn btn-dark  minor_button">{{__('profile.Adult and minors')}}</button>
             </div>
 
             {{-- adults buttons --}}
+            {{-- <div class="col-12 p-0  text-center">
+
+            </div> --}}
             <div class="col-lg-2 offset-lg-1 col-12 minors  pt-2 text-center">
                 <button class="btn btn-dark  minors2  minor_btn" att="1">{{__('profile.1 Minor')}}</button>
             </div>
@@ -172,7 +188,7 @@
                 <button class="btn btn-dark   minors2 minor_btn" att="5">{{__('profile.5 Minor')}}</button>
             </div>
             <div class="col-lg-2 offset-lg-1 col-12 minors  pt-2 text-center">
-                <button class="btn btn-dark  minors2 minors22 minor_btn" att="6">{{__('profile.6 Minor')}}</button>
+                <button class="btn btn-dark ml-1  minors2 minors22 minor_btn" att="6">{{__('profile.6 Minor')}}</button>
             </div>
             <div class="col-lg-2  col-12 pt-2 minors  text-center">
                 <button class="btn btn-dark   minors2 minors22 minor_btn" att="7">{{__('profile.7 Minor')}}</button>
