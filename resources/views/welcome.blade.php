@@ -306,13 +306,13 @@
                 <div class="col-12 pt-3">
                     <h1>{{__("profile.Client's date of birth")}}</h1>
                 </div>
-                <div class="col-6 pt-3">
+                <div class="col-lg-6 col-12 pt-3">
                     <input required type="date" name="datea" value="date" class="form-control">
                 </div>
                 <div class="col-12 pt-5">
                     <h1>{{__('profile.Additional customer information')}}</h1>
                 </div>
-                <div class="col-6 pt-3">
+                <div class="col-lg-6 col-12 pt-3">
                     <input required type="text" name="passporta" placeholder="{{__('profile.Passport #')}}" class="form-control">
                     <label for="">{{__('profile.Passport #')}}</label>
                 </div>
@@ -511,7 +511,7 @@
                     <h1>{{__('profile.Email address')}}</h1>
 
                 </div>
-                <div class="col-lg-6 col-6 pt-3">
+                <div class="col-lg-6 col-12 pt-3">
                     <input type="text" required placeholder="{{__('profile.E-mail')}}" name="emaila" class="form-control">
                 </div>
             </div>
@@ -573,13 +573,13 @@
                 <div class="col-12 pt-3">
                     <h1>{{__('profile.First Birth Date of Minor')}}</h1>
                 </div>
-                <div class="col-6 pt-3">
+                <div class="col-lg-6 col-12 pt-3">
                     <input type="date" required value="date" name="date" class="form-control">
                 </div>
                 <div class="col-12 pt-5">
                     <h1>{{__('profile.Additional Information of first of the Minor')}}</h1>
                 </div>
-                <div class="col-6 pt-3">
+                <div class="col-lg-6 col-12 pt-3">
                     <input type="text" required name="passport" placeholder="{{__('profile.Passport #')}}" class="form-control">
                     <label for="">{{__('profile.Passport #')}}</label>
                 </div>
@@ -777,7 +777,7 @@
                     <h1>{{__('profile.Email address')}}</h1>
 
                 </div>
-                <div class="col-lg-6 col-6 pt-3">
+                <div class="col-lg-6 col-12 pt-3">
                     <input required type="text" placeholder="{{__('profile.E-mail')}}" name="email" class="form-control">
                 </div>
             </div>
