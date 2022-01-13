@@ -4,7 +4,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CustomerController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-
+use Illuminate\Support\Facades\App;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,7 +21,11 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::get  ('/', [AdminController::class, 'home']);
-Route::get('/language/{lang}', [AdminController::class, 'language'])->name('language');
+// Route::get('/language/{lang}', [AdminController::class, 'language'])->name('language');
+Route::get('/language/{lang}', function ($lang) {
+    App::setlocale($lang);
+    return back();
+});
 
 
 Route:: prefix('/admin')->middleware(['auth', 'admin'])->group(function () {

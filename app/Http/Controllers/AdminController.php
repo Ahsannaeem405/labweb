@@ -45,7 +45,7 @@ class AdminController extends Controller
     }
     public function language($lang)
     {
-        Session::put('lang',  $lang);
+        // Session::put('lang',  $lang);
 
         return back();
 

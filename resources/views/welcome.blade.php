@@ -11,6 +11,7 @@
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
     <title>Home</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js">
     </script>
 </head>
@@ -99,6 +100,19 @@
     .adultorminor {
         display: none;
     }
+    .dropdown{
+        float: right;
+    }
+    .btn-secondary {
+    color: #fff;
+    background-color: transparent !important;
+    color: #6c757d !important;
+    border:none !important;
+    box-shadow: none !important;
+}
+.dropdown-menu{
+    left: -50px !important;
+}
     @media only screen and (max-width: 425px){
         h4{
             font-size: 1.2rem !important;
@@ -113,6 +127,18 @@
 </style>
 
 <body>
+<div class="container pt-4">
+    <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-globe"></i>
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item" href="{{url('/language/{en}')}}">English</a>
+          <a class="dropdown-item" href="#">Spanish</a>
+
+        </div>
+      </div>
+</div>
     <div class="container">
         @include('partials.component2')
         <div class="row p-3">
