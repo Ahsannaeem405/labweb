@@ -143,17 +143,9 @@
         @include('partials.component2')
         <div class="row p-3">
             <div class="col-lg-6  col-12 pt-5 text-right">
-                <img src="{{ asset('assets/images/logo-removebg-preview.png') }}" class="img-logo" alt="">
+                <img src="{{ asset('assets/images/header.png') }}" class="img-logo"  alt="">
             </div>
-            <div class="col-lg-6  col-12 pt-5 heading">
-                <div class="pt-4">
-                    <h4>{{__('profile.MIAMI INTERNATIONAL')}}</h4>
-                    <h4>{{__('profile.AIRPORT')}}</h4>
-                    <h4>{{__('profile.2100 NW 42 AVE')}}</h4>
-                    <h4>{{__('profile.MIAMI FLORIDA 33126')}}</h4>
-                    <h4>{{__('profile.TEL: 305-869-1161')}}</h4>
-                    <h4>{{__('profile.FAX: 305-869-1161')}}</h4>
-                </div>
+            
 
 
             </div>
