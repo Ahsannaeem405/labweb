@@ -1,5 +1,5 @@
 
-    <div class="br-logo"><img src="{{ asset('assets/images/logo1.png') }}" class="img-logo" style="width:10%;" alt=""></div>
+    <div class="br-logo"><img src="{{ asset('assets/images/logo1.png') }}" class="img-logo" style="width:50%;" alt=""></div>
 
 
 
