@@ -121,6 +121,11 @@
             font-size: 1.4rem !important;
 
         }
+		.img-logo {
+        width: 100% !important;
+		margin-bottom: 15% !important;
+    }
+	
     }
 
 
@@ -143,7 +148,7 @@
         @include('partials.component2')
         <div class="row p-3">
             <div class="col-lg-6  col-12 pt-5 text-right">
-                <img src="{{ asset('assets/images/header.png') }}" class="img-logo"  alt="">
+                <img src="{{ asset('assets/images/header.png') }}" class="img-logo" style="width: 150%; margin-bottom: 5%;" alt="">
             </div>
             
 
