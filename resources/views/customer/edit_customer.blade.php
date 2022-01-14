@@ -1132,10 +1132,6 @@
             </div><!-- col-8 -->
 
 
-
-
-
-
             <input  type="hidden" name="id" value="{{ $cus->show->id }}" id="">
 
         </div><!-- row -->

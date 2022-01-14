@@ -20,7 +20,7 @@ class CustomerController extends Controller
 
     public function index()
     {
-        $customer = Customer::where('step', 1)->get();
+        $customer = Customer::where('step', 1)->where('status', 'Unverified')->get();
         return view('customer.view_customer', compact('customer'));
     }
 
@@ -269,7 +269,7 @@ return redirect("$role/view/customer")->with('success','Customer Verification su
      */
     public function view(Customer $customer)
     {
-        $customer = Customer::where('step', 1)->get();
+        $customer = Customer::where('step', 1)->where('status', 'Verified')->get();
         return view('customer.view_customer2', compact('customer'));
     }
     public function update_adult(Request $request){
@@ -288,6 +288,8 @@ $customer = Customer::find($cus_detail->customer_id);
         $customer->passport = $request->passport;
 
         $customer->gender = $request->gender;
+        $customer->status='Verified';
+
         $customer->save();
 
 
@@ -329,7 +331,6 @@ $customer = Customer::find($cus_detail->customer_id);
 
 
 
-
             $cus_detail->save();
 
         return back()->with('success', 'Updated Successfully');
@@ -350,7 +351,7 @@ $customer = Customer::find($cus_detail->customer_id);
             $customer->phone = $request->phone;
             $customer->dob = $request->datee;
             $customer->passport = $request->passport;
-
+            $customer->status='Verified';
             $customer->gender = $request->gender;
             $customer->save();
 

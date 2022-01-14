@@ -23,6 +23,9 @@ tr.odd {
     background-color: #f9f9f9;
 }
 
+tr:hover {
+    background-color: #f9f9f9;
+}
 td.sorting_1
 {
     background-color: #f9f9f9;
@@ -69,6 +72,8 @@ td.sorting_1
                             </tr>
                         </thead>
                         <tbody>
+                            @php $role=\Illuminate\Support\Facades\Auth::user()->role; @endphp
+
                             <?php
 
                             $i = 1;
@@ -77,8 +82,11 @@ td.sorting_1
 
                             @foreach ($customer as $views)
 
-                                <tr>
-                                    <td>{{ $i++ }}</td>
+                            {{-- <a href="{{url(''.$role.'/verify/customer/'.$views->id)}}"> --}}
+                                <tr class="cust" attrr="{{$views->id}}" rolee="{{$role}}">
+
+                                    <td>
+                                        {{ $i++ }}</td>
                                     <td>{{ $views->name }}</td>
 
                                     <td>{{ $views->email }}</td>
@@ -88,27 +96,23 @@ td.sorting_1
                                     <td>{{ $views->gender }}</td>
 
                                     <td>
-                                        @if($views->status == 'Verified')
-                                        <Button class="btn btn-success">{{ $views->status }}</Button>
-                                        @else
-                                        <Button class="btn btn-danger">{{'Unverified' }}</Button>
 
-                                        @endif
+                                        <Button class="btn btn-danger">{{$views->status }}</Button>
+
                                     </td>
 
                                     <td>
-                                        @php $role=\Illuminate\Support\Facades\Auth::user()->role; @endphp
 
-                                        <a href="{{url(''.$role.'/edit/customer/'.$views->id)}}" > <i class="fa fa-edit"></i> </a>
+                                        {{-- <a href="{{url(''.$role.'/edit/customer/'.$views->id)}}" > <i class="fa fa-edit"></i> </a> --}}
 
                                         <a href="{{url(''.$role.'/delete/customer/'.$views->id)}}" style="color: red"> <i class="fa fa-trash"></i> </a>
 
-                                        @if($views->status != 'Verified')
                                         <a href="{{url(''.$role.'/verify/customer/'.$views->id)}}"><i class="fas fa-check"></i></a>
-                                        @endif
+
                                     </td>
 
                                 </tr>
+                            {{-- </a> --}}
                             @endforeach
 
                         </tbody>
@@ -137,6 +141,18 @@ td.sorting_1
     <script src="https://cdn.datatables.net/buttons/2.0.0/js/buttons.print.min.js">
 
     </script>
+
+<script>
+    $(document).ready(function() {
+                $('.cust').click(function(){
+                var id =  $(this).attr('attrr');
+                var rolee =  $(this).attr('rolee');
+                var url = '/'+rolee+'/verify/customer/'+id;
+                    $(location).attr('href',url);
+
+    });
+});
+</script>
     <script>
         $(document).ready(function() {
             $('#datatable1').DataTable({

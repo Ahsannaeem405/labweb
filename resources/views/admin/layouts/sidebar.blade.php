@@ -34,7 +34,7 @@
             <a href="{{ url("/$role/view/customer") }}" class="br-menu-link">
                 <div class="br-menu-item">
                     <i class="fa fa-search" aria-hidden="true"></i>
-                    <span class="menu-item-label"> Customer Lookup</span>
+                    <span class="menu-item-label">New Customer</span>
                 </div><!-- menu-item -->
             </a><!-- br-menu-link -->
             <a href="{{ url("/$role/add/customer") }}" class="br-menu-link">

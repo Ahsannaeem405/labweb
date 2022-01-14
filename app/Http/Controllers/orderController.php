@@ -11,6 +11,13 @@ use Illuminate\Support\Facades\Mail;
 class orderController extends Controller
 {
 
+
+    public function append_signature(){
+
+            return view('signature2');
+
+    }
+
     public function report($id)
     {
         $report=Customer::find($id);
