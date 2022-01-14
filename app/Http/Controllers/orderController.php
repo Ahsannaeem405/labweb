@@ -93,7 +93,7 @@ class orderController extends Controller
 
 
         $email=$customer->email;
-        $host='https://'.\request()->getHost()."/report/$id";
+        $host='https://'.\request()->getHost()."/public/report/$id";
         $pdf = \PDF::loadView('pdf.report',compact('host','customer'));
 
 
