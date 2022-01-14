@@ -93,19 +93,16 @@
                             <div class="col-12">
                                 <h5>Invoices</h5>
                             </div>
-                            <div class="col-lg-2 col-md-6 col-6 pt-2">
-                                <button class="btn btn-secondary"><i class="far fa-edit"></i> Edit</button>
-                            </div>
                             <div class="col-lg-4 col-md-6 col-6 pt-2">
-                                <b>RT-PCR -Abbot ID Now</b>
-                                <p>1-12-2021 <i class="far fa-calendar-minus"></i></p>
+                              <p>#1234</p>
+                              <p><i class="fas fa-calendar-minus"></i> 1-02-2022</p>
                             </div>
-                            <div class="col-lg-2 col-md-6 col-6 pt-2">
-                                <button class="btn btn-secondary">Draft</button>
+                            <div class="col-lg-4 col-md-6 col-6 pt-2 text-center">
+                                <button class="btn btn-warning">Pending</button>
                             </div>
+
                             <div class="col-lg-2 col-md-4 col-4 pt-2">
-                                <a href="#" class="a_tag" style="color: green">Checkout</a>
-                                <a href="#" class="a_tag" style="color: gray">Cancel</a>
+                              <b>$ 0.00</b>
                             </div>
                             <div class="col-lg-2 col-md-2 col-2 pt-2">
                                 <a href="#" class="a_tag" style="color: gray"><i
@@ -114,24 +111,22 @@
 
 
                             {{-- 2item --}}
-                            <div class="col-lg-2 col-md-6 col-6 pt-2">
-                                <button class="btn btn-secondary"><i class="far fa-edit"></i> Edit</button>
-                            </div>
                             <div class="col-lg-4 col-md-6 col-6 pt-2">
-                                <b>RT-PCR -Abbot ID Now</b>
-                                <p>1-12-2021 <i class="far fa-calendar-minus"></i></p>
-                            </div>
-                            <div class="col-lg-2 col-md-6 col-6 pt-2">
-                                <button class="btn btn-secondary">Draft</button>
-                            </div>
-                            <div class="col-lg-2 col-md-4 col-4 pt-2">
-                                <a href="#" class="a_tag" style="color: green">Checkout</a>
-                                <a href="#" class="a_tag" style="color: gray">Cancel</a>
-                            </div>
-                            <div class="col-lg-2 col-md-2 col-2 pt-2">
-                                <a href="#" class="a_tag" style="color: gray"><i
-                                        class="fas fa-chevron-right"></i></a>
-                            </div>
+                                <p>#1234</p>
+                                <p><i class="fas fa-calendar-minus"></i> 1-02-2022</p>
+                              </div>
+                              <div class="col-lg-4 col-md-6 col-6 pt-2 text-center">
+                                  <button class="btn btn-warning">Pending</button>
+                              </div>
+
+                              <div class="col-lg-2 col-md-4 col-4 pt-2">
+                                <b>$ 0.00</b>
+                              </div>
+                              <div class="col-lg-2 col-md-2 col-2 pt-2">
+                                  <a href="#" class="a_tag" style="color: gray"><i
+                                          class="fas fa-chevron-right"></i></a>
+                              </div>
+
                         </div>
 
 
