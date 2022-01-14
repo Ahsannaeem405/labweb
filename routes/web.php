@@ -98,6 +98,8 @@ Route:: prefix('/admin')->middleware(['auth', 'admin'])->group(function () {
 
 });
 route::view('/page1','admin.page1');
+route::view('/page2','admin.page2');
+
 
 
 
