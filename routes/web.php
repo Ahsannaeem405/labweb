@@ -95,7 +95,10 @@ Route:: prefix('/admin')->middleware(['auth', 'admin'])->group(function () {
 
     Route::get('delete/customer/{id}',[CustomerController::class,'cusdel']);
 
+
 });
+route::view('/page1','admin.page1');
+route::view('/page2','admin.page2');
 
 
 
