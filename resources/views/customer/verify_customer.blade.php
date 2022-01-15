@@ -37,6 +37,7 @@
 
                 <div class="form-layout form-layout-1">
                     @php $role=\Illuminate\Support\Facades\Auth::user()->role; @endphp
+
                     @if ($cus->added_by != null)
 
                     @else
@@ -1060,11 +1061,9 @@
 
                                 <p>Country : <i style="color: red; padding-left: 8px;" class="fas fa-check forverify"></i>
                                 </p>
-                                <select  name="Country" class="form-control">
                                     <select  name="Country" required class="form-control">
 
                                         @foreach ($Country as $Country)
-
 
                                             <option value="{{ $Country->name }}" @if ($cus->show->Country == $Country->name) selected @endif>
                                                 {{ $Country->name }}</option>
@@ -1072,7 +1071,6 @@
                                     </select>
 
 
-                                </select>
 
                             </div>
                         </div><!-- col-8 -->

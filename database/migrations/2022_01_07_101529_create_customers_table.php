@@ -24,7 +24,7 @@ class CreateCustomersTable extends Migration
             $table->string('gender')->nullable();
             $table->string('status')->nullable();
             $table->string('step')->nullable();
-            // $table->string('added_by')->nullable();
+            $table->string('added_by')->nullable();
             $table->timestamps();
         });
     }

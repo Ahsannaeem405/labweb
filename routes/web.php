@@ -203,6 +203,13 @@ Route::get('/signature', function () {
     return view('signature');
 });
 
+Route::get('/pdff', function () {
+    return view('pdf.customer_pdf');
+});
+
+
+// Route::get('/pdff',[\App\Http\Controllers\CustomerController::class,'pdff']);
+
 
 Route::get('append/signature',[\App\Http\Controllers\orderController::class,'append_signature']);
 Route::get('append/signature2',[\App\Http\Controllers\orderController::class,'append_signature2']);

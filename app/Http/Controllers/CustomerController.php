@@ -10,6 +10,7 @@ use App\Models\State;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use PDF;
 
 class CustomerController extends Controller
 {
@@ -18,6 +19,18 @@ class CustomerController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+
+     public function pdff(Request $request){
+
+        $cus = Customer::find(8);
+
+        $state = State::all();
+
+        $Country  = Country::all();
+
+return view('pdf.customer_pdf', compact('cus','state','Country'));
+     }
 
 
     public function index()
@@ -38,6 +51,8 @@ $customer->update();
 return redirect("$role/view/customer")->with('success','Customer Verification successfully');
 
     }
+
+
 
     /**
      * Show the form for creating a new resource.
@@ -72,7 +87,15 @@ return redirect("$role/view/customer")->with('success','Customer Verification su
 
 
 
+        $host='https://'.\request()->getHost()."/public/customer_pdf/";
+
+
+
+
+
+
         if ($request->type == "adult") {
+
 
 
             $customer = new Customer();
@@ -86,7 +109,6 @@ return redirect("$role/view/customer")->with('success','Customer Verification su
             $customer->step = 1;
             $customer->gender = $request->Fgender;
             $customer->save();
-
 
 
             $cus_detail = new Customer_detail();
@@ -128,7 +150,26 @@ return redirect("$role/view/customer")->with('success','Customer Verification su
             $cus_detail->signature =  $request->SingsLinka;
             $cus_detail->customer_id =  $customer->id;
             $cus_detail->save();
+
+
+            $pdf = PDf::loadView('pdf.customer_pdf',compact('request'));
+            $rand= rand(0, 99999999999999);
+            $path = 'pdf/';
+
+
+            $fileName = $rand . '.' . 'pdf' ;
+
+            $pdf->save($path . '/' . $fileName);
+
+
+
+
+
+
+
         }
+
+
 
 
         $j = 0;
@@ -211,7 +252,6 @@ return redirect("$role/view/customer")->with('success','Customer Verification su
                 $cus_detail->Nausea =  $request->$Nausea;
                 $cus_detail->Select_the_test =  $request->$Select_the_test;
                 $cus_detail->othre_specify =  $request->$othre_specify;
-
                 $cus_detail->breathing =  $request->$breathing;
                 $cus_detail->Abdominal =  $request->$Abdominal;
                 $cus_detail->Chills =  $request->$Chills;
@@ -242,8 +282,33 @@ return redirect("$role/view/customer")->with('success','Customer Verification su
                 $cus_detail->customer_id =  $customer->id;
 
                 $cus_detail->save();
+
+
+                // if ($request->hasFile('file')) {
+
+
+
+                // }
+
+                $request = Customer_detail::find($cus_detail->id);
+                $pdf = PDf::loadView('pdf.customer_pdf',compact('request'));
+                $rand= rand(0, 99999999999999);
+                $path = 'uploads/stock/';
+
+                $fileName = $rand . '.' . 'pdf' ;
+
+
+                $pdf->save($path . '/' . $fileName);
+
+                    $document=new Document();
+                    $document->email=$request->$email;
+                    $document->path=$fileName;
+                    $document->save();
+
             }
         }
+        // dd(22);
+
         // dd(22);
 
         return back()->with('success', 'Request Submitted Successfully');

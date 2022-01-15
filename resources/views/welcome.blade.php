@@ -558,7 +558,7 @@
                     <input type="radio" name="Select_the_testa" value="RT-PCR">
                     <label for="RT">RT-PCR
                     </label><br>
-                    <input type="radio" name="Select_the_testa" value="PCR-24hm">
+                    <input type="radio" name="Select_the_testa" value="PCR-24hrs">
                     <label for="html">PCR-24hm</label><br>
                     <input type="radio" name="Select_the_testa" value="24hrs">
                     <label for="html">RT-PCR 24hrs</label><br>
@@ -857,7 +857,7 @@
                     <input type="radio" name="Select_the_test" value="RT-PCR">
                     <label for="html">RT-PCR
                     </label><br>
-                    <input type="radio" name="Select_the_test" value="PCR-24hm">
+                    <input type="radio" name="Select_the_test" value="PCR-24hrs">
                     <label for="html">PCR-24hm</label><br>
                     <input type="radio" name="Select_the_test" value="24hrs">
                     <label for="html">RT-PCR 24hrs</label><br>
