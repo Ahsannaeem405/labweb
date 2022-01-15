@@ -15,7 +15,7 @@ class AddTestToCustomersTable extends Migration
     {
         Schema::table('customers', function (Blueprint $table) {
             $table->text('test_type')->nullable();
-            $table->text('main_status')->nullable();
+            $table->text('main_status')->default('user');
             $table->text('display_status')->nullable();
             $table->text('payment_method')->nullable();
             $table->text('payment_amount')->nullable();

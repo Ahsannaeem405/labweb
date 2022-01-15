@@ -66,7 +66,7 @@ return redirect("$role/view/customer")->with('success','Customer Verification su
     public function detail_save(Request $request)
     {
 
-    //    dd($request  );
+
 
 
         if ($request->type == "adult") {
@@ -122,20 +122,19 @@ return redirect("$role/view/customer")->with('success','Customer Verification su
             $cus_detail->Country =  $request->Countrya;
             $cus_detail->email =  $request->emaila;
             $cus_detail->gender =  $request->gendera;
-            $cus_detail->signature =  $request->signature;
+            $cus_detail->signature =  $request->SingsLinka;
             $cus_detail->customer_id =  $customer->id;
             $cus_detail->save();
         }
 
-        // dd(123);
 
-// dd($request);
         $j = 0;
         for ($i = 1; $i <= intval($request->totalCount); $i++) {
 
             $type = 'type_' . $i;
             if ($request->$type == "minor") {
 
+                $SingsLink = 'SingsLink_' . $i;
                 $name = 'name_' . $i;
                 $secondname = 'secondname_' . $i;
                 $surname = 'surname_' . $i;
@@ -236,7 +235,7 @@ return redirect("$role/view/customer")->with('success','Customer Verification su
                 $cus_detail->Parent_surname =  $request->$Parent_surname;
                 $cus_detail->Parent_phone =  $request->$Parent_phone;
                 $cus_detail->Parent_dob =  $request->$Parent_dob;
-                $cus_detail->signature =  $request->signature;
+                $cus_detail->signature =  $request->$SingsLink;
                 $cus_detail->customer_id =  $customer->id;
 
                 $cus_detail->save();

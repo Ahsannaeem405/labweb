@@ -198,6 +198,7 @@ Route::get('/signature', function () {
 
 
 Route::get('append/signature',[\App\Http\Controllers\orderController::class,'append_signature']);
+Route::get('append/signature2',[\App\Http\Controllers\orderController::class,'append_signature2']);
 
 
 
