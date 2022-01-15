@@ -37,6 +37,7 @@
 
                 <div class="form-layout form-layout-1">
                     @php $role=\Illuminate\Support\Facades\Auth::user()->role; @endphp
+
                     @if ($cus->added_by != null)
 
                     @else
@@ -1117,18 +1118,140 @@
                                         @foreach ($state as $states)
 
 
+<<<<<<< HEAD
+                            </div>
+                        </div><!-- col-8 -->
+
+
+
+                        <div class="col-lg-6">
+                            <div class="form-group mg-b-10-force">
+
+                                <p>Select_the_test : <i style="color: red; padding-left: 8px;"
+                                        class="fas fa-check forverify"></i> </p>
+                                <input  type="radio" @if ($cus->show->Select_the_test == 'ANTIGEN') checked @endif name="Select_the_test"
+                                    value="ANTIGEN" checked>
+                                <label for="Female">PCR</label><br>
+                                <input  type="radio" @if ($cus->show->Select_the_test == 'PCR') checked @endif name="Select_the_test" value="PCR">
+                                <label for="Female">PCR</label><br>
+
+
+
+
+                                <input  type="radio" @if ($cus->show->Select_the_test == 'RT-PCR') checked @endif name="Select_the_test"
+                                    value="RT-PCR">
+                                <label for="Female">RT-PCR</label><br>
+
+                                <input  type="radio" @if ($cus->show->Select_the_test == 'PCR-24hm') checked @endif name="Select_the_test"
+                                    value="PCR-24hm">
+                                <label for="Female">PCR-24hm</label><br>
+
+                                <input  type="radio" @if ($cus->show->Select_the_test == 'RT-PCR 24hrs') checked @endif name="Select_the_test"
+                                    value="RT-PCR 24hrs">
+                                <label for="Female">RT-PCR 24hrs</label><br>
+
+
+
+                            </div>
+                        </div><!-- col-8 -->
+
+                        <div class="col-lg-6">
+                            <div class="form-group mg-b-10-force">
+
+                                <p>Address : <i style="color: red; padding-left: 8px;" class="fas fa-check forverify"></i>
+                                </p>
+                                <input  type="text" value="{{ $cus->show->address }}" name="address"
+                                    class="form-control">
+
+                            </div>
+                        </div><!-- col-8 -->
+                        <div class="col-lg-6">
+                            <div class="form-group mg-b-10-force">
+
+                                <p>Address2 : <i style="color: red; padding-left: 8px;" class="fas fa-check forverify"></i>
+                                </p>
+                                <input  type="text" value="{{ $cus->show->address2 }}" name="address2"
+                                    class="form-control">
+
+                            </div>
+                        </div><!-- col-8 -->
+                        <div class="col-lg-6">
+                            <div class="form-group mg-b-10-force">
+
+                                <p>Town: <i style="color: red; padding-left: 8px;" class="fas fa-check forverify"></i> </p>
+                                <input  type="text" value="{{ $cus->show->town }}" name="town"
+                                    class="form-control">
+
+                            </div>
+                        </div><!-- col-8 -->
+
+                        <div class="col-lg-6">
+                            <div class="form-group mg-b-10-force">
+
+                                <p>Zip : <i style="color: red; padding-left: 8px;" class="fas fa-check forverify"></i> </p>
+                                <input type="text" value="{{ $cus->show->zip }}" name="zip" class="form-control">
+
+                            </div>
+                        </div><!-- col-8 -->
+
+                        <div class="col-lg-6">
+                            <div class="form-group mg-b-10-force">
+
+                                <p>Province : <i style="color: red; padding-left: 8px;" class="fas fa-check forverify"></i>
+                                </p>
+                                <select  name="Province" class="form-control">
+
+                                    @foreach ($state as $states)
+
+
+                                        <option value="{{ $states->name }}" @if ($cus->show->Province == $states->name) selected @endif>
+                                            {{ $states->name }}
+                                        </option>
+                                    @endforeach
+                                </select>
+
+                            </div>
+                        </div><!-- col-8 -->
+
+                        <div class="col-lg-6">
+                            <div class="form-group mg-b-10-force">
+
+                                <p>Country : <i style="color: red; padding-left: 8px;" class="fas fa-check forverify"></i>
+                                </p>
+                                    <select  name="Country" required class="form-control">
+
+                                        @foreach ($Country as $Country)
+
+                                            <option value="{{ $Country->name }}" @if ($cus->show->Country == $Country->name) selected @endif>
+                                                {{ $Country->name }}</option>
+=======
                                             <option value="{{ $states->name }}"
                                                     @if ($cus->show->Province == $states->name) selected @endif>
                                                 {{ $states->name }}
                                             </option>
+>>>>>>> ff6051f7e5433eff37ac26d3bad3eb2238392f9f
                                         @endforeach
                                     </select>
 
                                 </div>
                             </div><!-- col-8 -->
 
+<<<<<<< HEAD
+
+                            </div>
+                        </div><!-- col-8 -->
+
+                        <div class="col-lg-6">
+                            <div class="form-group mg-b-10-force">
+
+                                <p>Email: <i style="color: red; padding-left: 8px;" class="fas fa-check forverify"></i>
+                                </p>
+                                <input  type="email" value="{{ $cus->show->email }}" name="email"
+                                    class="form-control">
+=======
                             <div class="col-lg-6">
                                 <div class="form-group mg-b-10-force">
+>>>>>>> ff6051f7e5433eff37ac26d3bad3eb2238392f9f
 
                                     <p>Country : <i style="color: red; padding-left: 8px;"
                                                     class="fas fa-check forverify"></i>

@@ -9,7 +9,7 @@
 
 @if (session()->has('error'))
 <script>
-    swal("Something Went Wrong", "", "error", {
+    swal("{{session()->get('error')}}", "", "error", {
         button: "Close",
 
     });
