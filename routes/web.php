@@ -97,8 +97,6 @@ Route:: prefix('/admin')->middleware(['auth', 'admin'])->group(function () {
 
 
 });
-route::view('/page1','admin.page1');
-route::view('/page2','admin.page2');
 
 
 
@@ -140,7 +138,12 @@ Route:: prefix('/operator')->middleware(['auth', 'operator'])->group(function ()
     Route::get('/customers', [CustomerController::class, 'view']);
 
     Route::get('/edit/customer/{id}', [CustomerController::class, 'edit']);
+
     Route::get('/verify/customer/{id}', [CustomerController::class, 'verify_customer']);
+
+    Route::get('/create/order/customer/{id}', [CustomerController::class, 'create_order']);
+
+
     Route::Post('customer/update', [CustomerController::class, 'update']);
     Route::Post('place/order/{id}', [\App\Http\Controllers\orderController::class, 'order']);
 
@@ -170,6 +173,10 @@ Route:: prefix('/operator')->middleware(['auth', 'operator'])->group(function ()
     Route::get('/verification/{id}', [\App\Http\Controllers\CustomerController::class, 'verification']);
 
     Route::get('delete/customer/{id}',[CustomerController::class,'cusdel']);
+    Route::get('place/order/new/{id}',[CustomerController::class,'place_order']);
+    Route::post('submit/order/{id}',[CustomerController::class,'place_order_submit']);
+    Route::post('upload/document/{id}',[CustomerController::class,'upload_document']);
+    Route::get('delete/document/{id}',[CustomerController::class,'delete_document']);
 
 
 });

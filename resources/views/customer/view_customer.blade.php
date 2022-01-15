@@ -83,7 +83,7 @@ td.sorting_1
                             @foreach ($customer as $views)
 
                             {{-- <a href="{{url(''.$role.'/verify/customer/'.$views->id)}}"> --}}
-                                <tr class="cust" attrr="{{$views->id}}" rolee="{{$role}}">
+                                <tr >
 
                                     <td>
                                         {{ $i++ }}</td>
@@ -142,17 +142,7 @@ td.sorting_1
 
     </script>
 
-<script>
-    $(document).ready(function() {
-                $('.cust').click(function(){
-                var id =  $(this).attr('attrr');
-                var rolee =  $(this).attr('rolee');
-                var url = '/'+rolee+'/verify/customer/'+id;
-                    $(location).attr('href',url);
 
-    });
-});
-</script>
     <script>
         $(document).ready(function() {
             $('#datatable1').DataTable({

@@ -124,6 +124,11 @@
 
                                                     <input type="datetime-local" name="release_date" class="form-control" value="{{ str_replace('UTC','T',\Carbon\Carbon::parse($views->date)->format('Y-m-dTH:i')) }}" required >
 
+                                            <lable>Result</lable>
+                                                    <select class="form-control" name="result" required>
+                                                        <option @if($views->display_status=='negative') selected @endif value="negative">Negative</option>
+                                                        <option @if($views->display_status=='positive') selected @endif value="positive">Positive</option>
+                                                    </select>
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close

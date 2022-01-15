@@ -123,6 +123,12 @@
                                 </td>
                                 <td>
                                     <i class="fa fa-edit" data-toggle="modal" data-target="#exampleModal{{$views->id}}" style="color: #9696d0;cursor: pointer" > </i>
+
+                                    <a href="{{url("$role/release/send/$views->id")}}">   <button
+                                            class="btn btn-primary">
+                                            Notify him
+                                        </button></a>
+
                                 </td>
 
 
@@ -141,6 +147,13 @@
                                                     @csrf
                                                 <lable>Release date</lable>
                                                     <input type="datetime-local" name="release_date" class="form-control" value="{{ str_replace('UTC','T',\Carbon\Carbon::parse($views->date)->format('Y-m-dTH:i')) }}" required >
+
+
+                                                    <lable>Result</lable>
+                                                    <select class="form-control" name="result" required>
+                                                        <option @if($views->display_status=='negative') selected @endif value="negative">Negative</option>
+                                                        <option @if($views->display_status=='positive') selected @endif value="positive">Positive</option>
+                                                    </select>
 
                                             </div>
                                             <div class="modal-footer">

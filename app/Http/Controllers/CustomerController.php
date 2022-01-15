@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Country;
 use App\Models\Customer;
 use App\Models\Customer_detail;
+use App\Models\Document;
 use App\Models\State;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -59,6 +61,7 @@ return redirect("$role/view/customer")->with('success','Customer Verification su
 
         $cus->status = 'Verified';
         $cus->added_by = Auth::user()->id;
+        $cus->main_status = 'user';
         $cus->save();
         return back()->with('success', 'Added Successfully');
     }
@@ -268,7 +271,7 @@ return redirect("$role/view/customer")->with('success','Customer Verification su
      */
     public function view(Customer $customer)
     {
-        $customer = Customer::where('step', 1)->where('status', 'Verified')->get();
+        $customer = Customer::where('status', 'Verified')->where('main_status','user')->get();
         return view('customer.view_customer2', compact('customer'));
     }
     public function update_adult(Request $request){
@@ -436,14 +439,21 @@ $customer = Customer::find($cus_detail->customer_id);
     {
         $Country = Country::all();
         $state = State::all();
-
-
         $cus = Customer::find($id);
         return view('customer.verify_customer', compact('cus', 'Country', 'state'));
 
 
-        // dd($id);
-        //
+    }
+
+    public function create_order($id)
+    {
+        $cus = Customer::find($id);
+
+        $order=Customer::where('email',$cus->email)->where('step','>',1)->where('main_status','order')->get();
+
+        $document=Document::where('email',$cus->email)->get();
+        return view('customer.order', compact('cus','order','document'));
+
     }
 
 
@@ -479,6 +489,78 @@ $customer = Customer::find($cus_detail->customer_id);
         return back()->with('success','customer deleted successfully');
     }
 
+    public function place_order($id)
+    {
+        $cus = Customer::find($id);
+        return view('customer.placeOrder',compact('cus'));
+    }
+
+    public function place_order_submit(Request $request,$id)
+    {
+        $customer = Customer::find($id);
+
+        if($request->choice)
+        {
+
+            for ($i=0; $i< count($request->choice);$i++)
+            {
+
+                $cus=new Customer();
+                $cus->name=$customer->name;
+                $cus->email=$request->email;
+                $cus->address=$customer->address;
+                $cus->phone=$request->phone;
+                $cus->dob=$customer->dob;
+                $cus->passport=$customer->passport;
+                $cus->gender=$customer->gender;
+                $cus->status=$customer->status;
+                $cus->step=2;
+                $cus->test_type=$request->choice[$i];
+                $cus->added_by=$customer->added_by;
+                $cus->order_date=Carbon::now();
+                $cus->order_id=rand(0000,9999);
+                $cus->main_status='order';
+                $cus->save();
+
+            }
+            return back()->with('success','Order created successfully');
+        }
+        else{
+           return back()->with('error','Please select Test to create order.');
+        }
+
+
+
+    }
+
+    public function upload_document(Request $request,$id)
+    {
+    //    dd($request->file);
+        $cus = Customer::find($id);
+
+        if ($request->hasFile('file')) {
+
+            $image = $request->file('file');
+            $name = time() . '.' . $image->getClientOriginalExtension();
+            $destinationPath = ('uploads/stock/');
+            $image->move($destinationPath, $name);
+
+            $document=new Document();
+            $document->email=$cus->email;
+            $document->path=$name;
+            $document->save();
+
+        }
+
+        return back()->with('success','Document uploaded successfully');
+    }
+
+    public function delete_document($id)
+    {
+        $doc=Document::find($id)->delete();
+        return back()->with('success','Document deleted successfully');
+
+    }
     /**
      * Remove the specified resource from storage.
      *
