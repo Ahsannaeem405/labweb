@@ -34,11 +34,23 @@ class orderController extends Controller
     {
         $customer=Customer::find($id);
 
-        $customer->step=2;
-        $customer->test_type=$request->test_type;
-        $customer->order_date=Carbon::now();
-        $customer->order_id=rand(0000,9999);
-        $customer->update();
+
+        $cus=new Customer();
+        $cus->name=$customer->name;
+        $cus->email=$customer->email;
+        $cus->address=$customer->address;
+        $cus->phone=$customer->phone;
+        $cus->dob=$customer->dob;
+        $cus->passport=$customer->passport;
+        $cus->gender=$customer->gender;
+        $cus->status=$customer->status;
+        $cus->step=2;
+        $cus->test_type=$request->test_type;
+        $cus->added_by=$customer->added_by;
+        $cus->order_date=Carbon::now();
+        $cus->order_id=rand(0000,9999);
+        $cus->main_status='order';
+        $cus->save();
         return back()->with('success','Order created successfully');
     }
 
@@ -127,6 +139,7 @@ class orderController extends Controller
 
         $customer=Customer::find($id);
         $customer->date=$request->release_date;
+        $customer->display_status=$request->result;
         $customer->update();
         return back()->with('success','Release date updated successfully');
 

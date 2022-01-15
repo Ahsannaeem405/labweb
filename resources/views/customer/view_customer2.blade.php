@@ -27,6 +27,10 @@
             background-color: #f9f9f9;
 
         }
+        .hoverclor:hover{
+            background-color: #9a9adc;
+            color: white;
+        }
 
 
     </style>
@@ -76,16 +80,16 @@
 
                         @foreach ($customer as $views)
 
-                            <tr>
-                                <td>{{ $i++ }}</td>
-                                <td>{{ $views->name }}</td>
+                            <tr class="hoverclor">
+                                <td class="cust" attrr="{{$views->id}}" rolee="{{$role}}" style="cursor: pointer">{{ $i++ }}</td>
+                                <td class="cust" attrr="{{$views->id}}" rolee="{{$role}}" style="cursor: pointer">{{ $views->name }}</td>
 
-                                <td>{{ $views->email }}</td>
-                                <td>{{ $views->address }}</td>
-                                <td>{{ $views->dob }}</td>
-                                <td>{{ $views->passport }}</td>
-                                <td>{{ $views->gender }}</td>
-                                <td>
+                                <td class="cust" attrr="{{$views->id}}" rolee="{{$role}}" style="cursor: pointer">{{ $views->email }}</td>
+                                <td class="cust" attrr="{{$views->id}}" rolee="{{$role}}" style="cursor: pointer">{{ $views->address }}</td>
+                                <td class="cust" attrr="{{$views->id}}" rolee="{{$role}}" style="cursor: pointer">{{ $views->dob }}</td>
+                                <td class="cust" attrr="{{$views->id}}" rolee="{{$role}}" style="cursor: pointer">{{ $views->passport }}</td>
+                                <td class="cust" attrr="{{$views->id}}" rolee="{{$role}}" style="cursor: pointer">{{ $views->gender }}</td>
+                                <td class="cust" attrr="{{$views->id}}" rolee="{{$role}}" style="cursor: pointer">
                                     @if($views->status == 'Verified')
                                         <Button class="btn btn-success">{{ $views->status }}</Button>
                                     @else
@@ -168,6 +172,19 @@
     <script src="https://cdn.datatables.net/buttons/2.0.0/js/buttons.print.min.js">
 
     </script>
+
+    <script>
+        $(document).ready(function() {
+            $('.cust').click(function(){
+                var id =  $(this).attr('attrr');
+                var rolee =  $(this).attr('rolee');
+                var url = '/'+rolee+'/create/order/customer/'+id;
+                $(location).attr('href',url);
+
+            });
+        });
+    </script>
+
     <script>
         $(document).ready(function () {
             $('#datatable1').DataTable({

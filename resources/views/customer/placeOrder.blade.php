@@ -19,20 +19,25 @@
         <div class="pd-30">
             <h4 class="tx-gray-800 mg-b-5">Dashboard</h4>
         </div><!-- d-flex -->
+        @php $role=\Illuminate\Support\Facades\Auth::user()->role; @endphp
 
         <div class="br-pagebody mg-t-5 pd-x-30">
+            @include('partials.component')
             <div class="card bd-0 shadow-base pd-30 mg-t-20">
+
+                <form action="{{url("$role/submit/order/$cus->id")}}" method="post">
+                    @csrf
                 <div class="row">
                     <div class="col-12">
                         <h5>Contact Information</h5>
                     </div>
                     <div class="col-lg-6 col-12 pt-2">
                         <label for="">Email</label>
-                        <input type="email" placeholder="Enter Your Email" name="email" class="form-control">
+                        <input type="email" placeholder="Enter Your Email" value="{{$cus->email}}" name="email" class="form-control">
                     </div>
                     <div class="col-lg-6 col-12 pt-2">
                         <label for="">Phone</label>
-                        <input type="text" placeholder="Enter Your Number" name="phone" class="form-control">
+                        <input type="text" placeholder="Enter Your Number" value="{{$cus->phone}}" name="phone" class="form-control">
                     </div>
                     <div class="col-12 pt-5">
                         <h3>Test Choice</h3>
@@ -44,7 +49,7 @@
                                 <b>$ 168</b>
                             </div>
                             <div class="col-2 pt-1">
-                                <input type="radio" name="choice" value="PCR">
+                                <input type="checkbox" name="choice[]" value="PCR">
                             </div>
                         </div>
                     </div>
@@ -55,7 +60,7 @@
                                 <b>$ 168</b>
                             </div>
                             <div class="col-2 pt-1">
-                                <input type="radio" name="choice" value="antigen">
+                                <input type="checkbox" name="choice[]" value="antigen">
                             </div>
                         </div>
                     </div>
@@ -67,7 +72,7 @@
                                 <b>$ 168</b>
                             </div>
                             <div class="col-2 pt-1">
-                                <input type="radio" name="choice" value="antibody">
+                                <input type="checkbox" name="choice[]" value="antibody">
                             </div>
                         </div>
                     </div>
@@ -79,7 +84,7 @@
                                 <b>$ 168</b>
                             </div>
                             <div class="col-2 pt-1">
-                                <input type="radio" name="choice" value="RT-PCR">
+                                <input type="checkbox" name="choice[]" value="RT-PCR">
                             </div>
                         </div>
                     </div>
@@ -91,7 +96,7 @@
                                 <b>$ 168</b>
                             </div>
                             <div class="col-2 pt-1">
-                                <input type="radio" name="choice" value="Verito">
+                                <input type="checkbox" name="choice[]" value="Verito">
                             </div>
                         </div>
                     </div>
@@ -103,7 +108,7 @@
                                 <b>$ 168</b>
                             </div>
                             <div class="col-2 pt-1">
-                                <input type="radio" name="choice" value="PCR-24">
+                                <input type="checkbox" name="choice[]" value="PCR-24">
                             </div>
                         </div>
                     </div>
@@ -115,7 +120,7 @@
                                 <b>$ 168</b>
                             </div>
                             <div class="col-2 pt-1">
-                                <input type="radio" name="choice" value="RT-PCR 24 HRS">
+                                <input type="checkbox" name="choice[]" value="RT-PCR 24 HRS">
                             </div>
                         </div>
                     </div>
@@ -127,7 +132,7 @@
                                 <b>$ 168</b>
                             </div>
                             <div class="col-2 pt-1">
-                                <input type="radio" name="choice" value="Antigen-CareStart">
+                                <input type="checkbox" name="choice[]" value="Antigen-CareStart">
                             </div>
                         </div>
                     </div>
@@ -139,7 +144,7 @@
                                 <b>$ 168</b>
                             </div>
                             <div class="col-2 pt-1">
-                                <input type="radio" name="choice" value="RT-PCR -Accula">
+                                <input type="checkbox" name="choice[]" value="RT-PCR -Accula">
                             </div>
                         </div>
                     </div>
@@ -151,7 +156,7 @@
                                 <b>$ 168</b>
                             </div>
                             <div class="col-2 pt-1">
-                                <input type="radio" name="choice" value="Sienna">
+                                <input type="checkbox" name="choice[]" value="Sienna">
                             </div>
                         </div>
                     </div>
@@ -165,7 +170,7 @@
                                 <b>$ 168</b>
                             </div>
                             <div class="col-2 pt-1">
-                                <input type="radio" name="choice" value="PCR">
+                                <input type="checkbox" name="choice[]" value="PCR">
                             </div>
                         </div>
                     </div>
@@ -181,6 +186,7 @@
 
 
                 </div>
+                </form>
             </div>
 
 

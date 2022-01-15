@@ -159,6 +159,12 @@ return view('welcome', compact('country', 'state'));
 
         $admin->address = $request->address;
 
+        if($request->password!=null)
+        {
+            dd(1);
+            $admin->password=Hash::make($request->password);
+        }
+
         $admin->update();
         return back()->with('success', 'Updated Successfully');
 
