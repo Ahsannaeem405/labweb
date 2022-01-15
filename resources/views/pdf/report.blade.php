@@ -25,7 +25,7 @@
         <thead>
           <tr>
             <th scope="col" style="width: 50%">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPMSXYTv50LROEMuedceBwZbwtNLLOjIflAQ&usqp=CAU" alt="" style="width: 100%;height:250px;">
+                <img src="{{asset('https://communitel-covid-tests.ue.r.appspot.com/images/communitel-header-without-address-gray.png')}}" alt="" style="width: 100%;height:250px;">
 
 
             </th>
