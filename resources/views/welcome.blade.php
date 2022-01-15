@@ -352,11 +352,11 @@
                 <div class="col-lg-4 col-12 pt-2">
                     <input required type="text" placeholder="{{ __('profile.Name') }}" name="namea"
                         class="form-control">
-                    <label for="">{{ __('profile.Name') }}</label>
+                    <label for="">{{ __('profile.Name') }}*</label>
 
                 </div>
                 <div class="col-lg-4  col-12 pt-2">
-                    <input required type="text" placeholder="{{ __('profile.Second name') }}" name="secondnamea"
+                    <input  type="text" placeholder="{{ __('profile.Second name') }}" name="secondnamea"
                         class="form-control">
                     <label for="">{{ __('profile.Second name') }}</label>
                     <input type="hidden" name="type" value="adult" id="">
@@ -366,12 +366,12 @@
                 <div class="col-lg-4  col-12 pt-2">
                     <input required type="text" placeholder="{{ __('profile.Last name') }}" name="surnamea"
                         class="form-control">
-                    <label for="">{{ __('profile.Last name') }}</label>
+                    <label for="">{{ __('profile.Last name') }}*</label>
                 </div>
                 <div class="col-lg-6  col-12 pt-3">
                     <input required type="text" placeholder="{{ __('profile.Telephone') }}" name="phonea"
                         class="form-control">
-                    <label for="">{{ __('profile.Telephone') }}</label>
+                    <label for="">{{ __('profile.Telephone') }}*</label>
                 </div>
 
                 <div class="col-lg-6  col-12 pt-3">
@@ -385,7 +385,7 @@
                     <label>{{ __('profile.Gender:') }}</label>
                 </div>
                 <div class="col-12 pt-3">
-                    <h1>{{ __("profile.Client's date of birth") }}</h1>
+                    <h1>{{ __("profile.Client's date of birth") }}*</h1>
                 </div>
                 <div class="col-lg-6 col-12 pt-3">
                     <input required type="date" name="datea" value="date" class="form-control">
@@ -408,13 +408,13 @@
                 <div class="col-lg-6 col-12 pt-3">
                     <input required type="text" name="passporta" placeholder="{{ __('profile.Passport #') }}"
                         class="form-control">
-                    <label for="">{{ __('profile.Passport #') }}</label>
+                    <label for="">{{ __('profile.Passport #') }}*</label>
                 </div>
                 <div class="col-12 pt-3">
                     <b>{{ __('profile.Have you had any of the following symptoms in the past 14 days?') }}</b>
                 </div>
                 <div class="col-12 pt-3">
-                    <p>{{ __('profile.Fever') }}</p>
+                    <p>{{ __('profile.Fever') }}*</p>
                     <input type="radio" name="Fevera" value="Yes">
                     <label for="html">{{ __('profile.Yes') }}</label><br>
                     <input type="radio" checked name="Fevera" value="No">
@@ -430,14 +430,14 @@
                 </div>
 
                 <div class="col-12 pt-3">
-                    <p>{{ __('profile.Throat pain') }}</p>
+                    <p>{{ __('profile.Throat pain') }}*</p>
                     <input type="radio" name="Throata" value="Yes">
                     <label for="html">{{ __('profile.Yes') }}</label><br>
                     <input type="radio" checked name="Throata" value="No">
                     <label for="html">{{ __('profile.No') }}</label><br>
                 </div>
                 <div class="col-12 pt-3">
-                    <p>{{ __('profile.Difficulty breathing (dyspnea)') }}</p>
+                    <p>{{ __('profile.Difficulty breathing (dyspnea)') }}*</p>
                     <input type="radio" name="breathinga" value="Yes">
                     <label for="html">{{ __('profile.Yes') }}</label><br>
                     <input type="radio" checked name="breathinga" value="No">
@@ -446,7 +446,7 @@
 
 
                 <div class="col-12 pt-3">
-                    <p>{{ __('profile.Nausea *') }}</p>
+                    <p>{{ __('profile.Nausea *') }}*</p>
                     <input type="radio" name="Nauseaa" value="Yes">
                     <label for="html">{{ __('profile.Yes') }}</label><br>
                     <input type="radio" checked name="Nauseaa" value="No">
@@ -467,14 +467,14 @@
                     <label for="html">{{ __('profile.No') }}</label><br>
                 </div>
                 <div class="col-12 pt-3">
-                    <p>{{ __('profile.Headache') }}</p>
+                    <p>{{ __('profile.Headache') }}*</p>
                     <input type="radio" name="Headachea" value="Yes">
                     <label for="html">{{ __('profile.Yes') }}</label><br>
                     <input type="radio" checked name="Headachea" value="No">
                     <label for="html">{{ __('profile.No') }}</label><br>
                 </div>
                 <div class="col-12 pt-3">
-                    <p>{{ __('profile.Muscle aches (myalgia)') }}</p>
+                    <p>{{ __('profile.Muscle aches (myalgia)') }}*</p>
                     <input type="radio" name="Musclea" value="Yes">
                     <label for="html">{{ __('profile.Yes') }}</label><br>
                     <input type="radio" checked name="Musclea" value="No">
@@ -497,7 +497,7 @@
                     <label for="html">{{ __('profile.No') }}</label><br>
                 </div>
                 <div class="col-12 pt-3">
-                    <p>{{ __('profile.Vomiting') }}</p>
+                    <p>{{ __('profile.Vomiting') }}*</p>
                     <input type="radio" name="Vomitinga" value="Yes">
                     <label for="html">{{ __('profile.Yes') }}</label><br>
                     <input type="radio" checked name="Vomitinga" value="No">
@@ -522,19 +522,19 @@
                 </div>
 
                 <div class="col-12 pt-3">
-                    <p>{{ __('profile.Loss of taste') }}</p>
+                    <p>{{ __('profile.Loss of taste') }}*</p>
                     <input type="radio" name="Loss_of_tastea" value="Yes">
                     <label for="html">{{ __('profile.Yes') }}</label><br>
                     <input type="radio" checked name="Loss_of_tastea" value="No">
                     <label for="html">{{ __('profile.No') }}</label><br>
                 </div>
                 <div class="col-12 pt-3">
-                    <input type="text" required placeholder="{{ __('profile.Other specify') }}" name="specifya"
+                    <input type="text"  placeholder="{{ __('profile.Other specify') }}" name="specifya"
                         class="form-control">
                     <label for="">{{ __('profile.Other specify') }}</label>
                 </div>
                 <div class="col-12 pt-3">
-                    <input type="text" required
+                    <input type="text"
                         placeholder="{{ __('profile.Date of onset of the first symptoms') }}" name="symptomsa"
                         class="form-control">
                     <label for="">{{ __('profile.Date of onset of the first symptoms') }}</label>
@@ -550,7 +550,7 @@
                 </div>
 
                 <div class="col-12 pt-3">
-                    <p>{{ __('profile.Select the test') }}</p>
+                    <p>{{ __('profile.Select the test') }}*</p>
                     <input type="radio" checked name="Select_the_testa" value="ANTÍGENO">
                     <label for="html">
                         ANTÍGENO</label><br>
@@ -628,7 +628,7 @@
             </div>
             <div class="row p-5 mt-5">
                 <div class="col-12">
-                    <h1>{{ __('profile.Email address') }}</h1>
+                    <h1>{{ __('profile.Email address') }}*</h1>
 
                 </div>
                 <div class="col-lg-6 col-12 pt-3">
@@ -663,11 +663,11 @@
                 <div class="col-lg-4  col-12 pt-2">
                     <input type="text" required placeholder="{{ __('profile.Name') }}" name="name"
                         class="form-control">
-                    <label for="">{{ __('profile.Name') }}</label>
+                    <label for="">{{ __('profile.Name') }}*</label>
 
                 </div>
                 <div class="col-lg-4  col-12 pt-2">
-                    <input type="text" required placeholder="{{ __('profile.Second name') }}" name="secondname"
+                    <input type="text"  placeholder="{{ __('profile.Second name') }}" name="secondname"
                         class="form-control">
                     <label for="">{{ __('profile.Second name') }}</label>
                 </div>
@@ -677,12 +677,12 @@
                 <div class="col-lg-4  col-12 pt-2">
                     <input type="text" required placeholder="{{ __('profile.Surnames') }}" name="surname"
                         class="form-control">
-                    <label for="">{{ __('profile.Surnames') }}</label>
+                    <label for="">{{ __('profile.Surnames') }}*</label>
                 </div>
                 <div class="col-lg-6  col-12 pt-3">
                     <input type="text" required placeholder="{{ __('profile.Telephone') }}" name="phone"
                         class="form-control">
-                    <label for="">{{ __('profile.Telephone') }}</label>
+                    <label for="">{{ __('profile.Telephone') }}*</label>
                 </div>
                 <div class="col-lg-6  col-12 pt-3">
 
@@ -696,7 +696,7 @@
                 </div>
 
                 <div class="col-12 pt-3">
-                    <h1>{{ __('profile.First Birth Date of Minor') }}</h1>
+                    <h1>{{ __('profile.First Birth Date of Minor') }}*</h1>
                 </div>
                 <div class="col-lg-6 col-12 pt-3">
                     <input type="date" required value="date" name="date" class="form-control">
@@ -705,7 +705,7 @@
                     <h1>{{ __('profile.Additional Information of first of the Minor') }}</h1>
                 </div>
                 <div class="col-lg-6 col-12 pt-3">
-                    <input type="text" required name="passport" placeholder="{{ __('profile.Passport #') }}"
+                    <input type="text"  name="passport" placeholder="{{ __('profile.Passport #') }}"
                         class="form-control">
                     <label for="">{{ __('profile.Passport #') }}</label>
                 </div>
@@ -713,7 +713,7 @@
                     <b>{{ __('profile.Have you had any of the following symptoms in the past 14 days?') }}</b>
                 </div>
                 <div class="col-12 pt-3">
-                    <p>{{ __('profile.Fever') }}</p>
+                    <p>{{ __('profile.Fever') }}*</p>
                     <input type="radio" name="fever" value="Yes">
                     <label for="html">{{ __('profile.Yes') }}</label><br>
                     <input type="radio" checked name="fever" value="No">
@@ -729,14 +729,14 @@
 
                 <div class="col-12 pt-3">
                     <p>
-                        {{ __('profile.Sore Throat') }}</p>
+                        {{ __('profile.Sore Throat') }}*</p>
                     <input type="radio" name="Throat" value="Yes">
                     <label for="html">{{ __('profile.Yes') }}</label><br>
                     <input type="radio" checked name="Throat" value="No">
                     <label for="html">{{ __('profile.No') }}</label><br>
                 </div>
                 <div class="col-12 pt-3">
-                    <p>{{ __('profile.Difficulty breathing (dyspnea)') }}</p>
+                    <p>{{ __('profile.Difficulty breathing (dyspnea)') }}*</p>
                     <input type="radio" name="breathing" value="Yes">
                     <label for="html">{{ __('profile.Yes') }}</label><br>
                     <input type="radio" checked name="breathing" value="No">
@@ -747,7 +747,7 @@
                 <div class="col-12 pt-3">
                     <p>{{ __('profile.Nausea *') }}</p>
                     <input type="radio" name="Nausea" value="Yes">
-                    <label for="html">{{ __('profile.Yes') }}</label><br>
+                    <label for="html">{{ __('profile.Yes') }}*</label><br>
                     <input type="radio" checked name="Nausea" value="No">
                     <label for="html">{{ __('profile.No') }}</label><br>
                 </div>
@@ -766,14 +766,14 @@
                     <label for="html">{{ __('profile.No') }}</label><br>
                 </div>
                 <div class="col-12 pt-3">
-                    <p>{{ __('profile.Headache') }}</p>
+                    <p>{{ __('profile.Headache') }}*</p>
                     <input type="radio" name="Headache" value="Yes">
                     <label for="html">{{ __('profile.Yes') }}</label><br>
                     <input type="radio" checked name="Headache" value="No">
                     <label for="html">{{ __('profile.No') }}</label><br>
                 </div>
                 <div class="col-12 pt-3">
-                    <p>{{ __('profile.Muscle aches (myalgia)') }}</p>
+                    <p>{{ __('profile.Muscle aches (myalgia)') }}*</p>
                     <input type="radio" name="Muscle" value="Yes">
                     <label for="html">{{ __('profile.Yes') }}</label><br>
                     <input type="radio" checked name="Muscle" value="No">
@@ -796,7 +796,7 @@
                     <label for="html">{{ __('profile.No') }}</label><br>
                 </div>
                 <div class="col-12 pt-3">
-                    <p>{{ __('profile.Vomiting') }}</p>
+                    <p>{{ __('profile.Vomiting') }}*</p>
                     <input type="radio" name="Vomiting" value="Yes">
                     <label for="html">{{ __('profile.Yes') }}</label><br>
                     <input type="radio" checked name="Vomiting" value="No">
@@ -821,19 +821,19 @@
                 </div>
 
                 <div class="col-12 pt-3">
-                    <p>{{ __('profile.Loss of taste') }}</p>
+                    <p>{{ __('profile.Loss of taste') }}*</p>
                     <input type="radio" name="Loss_of_taste" value="Yes">
                     <label for="html">{{ __('profile.Yes') }}</label><br>
                     <input type="radio" checked name="Loss_of_taste" value="No">
                     <label for="html">{{ __('profile.No') }}</label><br>
                 </div>
                 <div class="col-12 pt-3">
-                    <input type="text" required placeholder="{{ __('profile.Other specify') }}" name="specify"
+                    <input type="text"  placeholder="{{ __('profile.Other specify') }}" name="specify"
                         class="form-control">
                     <label for="">{{ __('profile.Other specify') }}</label>
                 </div>
                 <div class="col-12 pt-3">
-                    <input type="text" required
+                    <input type="text"
                         placeholder="{{ __('profile.Date of onset of the first symptoms') }}" name="symptoms"
                         class="form-control">
                     <label for="">{{ __('profile.Date of onset of the first symptoms') }}</label>
@@ -849,7 +849,7 @@
                 </div>
 
                 <div class="col-12 pt-3">
-                    <p>{{ __('profile.Select the test') }}</p>
+                    <p>{{ __('profile.Select the test') }}*</p>
                     <input type="radio" checked name="Select_the_test" value="ANTIGEN">
                     <label for="html">
                         ANTIGEN</label><br>
@@ -887,7 +887,7 @@
                         class="form-control">
                 </div>
                 <div class="col-lg-6  col-12 pt-2">
-                    <label>{{ __('profile.State / Province') }}</label>
+                    <label>{{ __('profile.State / Province') }}*</label>
                     <select name="Province" class="form-control">
                         @foreach ($state as $states)
                             <option value="{{ $states->name }}">{{ $states->name }}</option>
@@ -895,7 +895,7 @@
                     </select>
                 </div>
                 <div class="col-lg-6  col-12 pt-2">
-                    <label>{{ __('profile.Country') }}</label>
+                    <label>{{ __('profile.Country') }}*</label>
                     <select name="Country" class="form-control">
                         @foreach ($country as $countries)
                             <option value="{{ $countries->name }}">{{ $countries->name }}</option>
@@ -928,7 +928,7 @@
             </div>
             <div class="row p-5 mt-5">
                 <div class="col-12">
-                    <h1>{{ __('profile.Email address') }}</h1>
+                    <h1>{{ __('profile.Email address') }}*</h1>
 
                 </div>
                 <div class="col-lg-6 col-12 pt-3">
@@ -962,25 +962,25 @@
                 <div class="col-lg-4  col-12 pt-2">
                     <input required type="text" placeholder="{{ __('profile.Name') }}" name="Parent_name"
                         class="form-control">
-                    <label for="">{{ __('profile.Name') }}</label>
+                    <label for="">{{ __('profile.Name') }}*</label>
 
                 </div>
                 <div class="col-lg-4  col-12 pt-2">
-                    <input required type="text" placeholder="{{ __('profile.Second name') }}"
+                    <input  type="text" placeholder="{{ __('profile.Second name') }}"
                         name="Parent_secondname" class="form-control">
-                    <label for="">{{ __('profile.Second name') }}</label>
+                    <label for="">{{ __('profile.Second name') }}*</label>
 
                 </div>
 
                 <div class="col-lg-4  col-12 pt-2">
                     <input required type="text" placeholder="{{ __('profile.Surnames') }}" name="Parent_surname"
                         class="form-control">
-                    <label for="">{{ __('profile.Surnames') }}</label>
+                    <label for="">{{ __('profile.Surnames') }}*</label>
                 </div>
                 <div class="col-lg-6  col-12 pt-3">
                     <input required type="text" placeholder="{{ __('profile.Telephone') }}" name="Parent_phone"
                         class="form-control">
-                    <label for="">{{ __('profile.Telephone') }}</label>
+                    <label for="">{{ __('profile.Telephone') }}*</label>
                 </div>
                 <div class="col-lg-6  col-12 pt-3">
 
@@ -1005,8 +1005,8 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Signature</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <h5 class="modal-title" id="exampleModalLabel">Signature*</h5>
+                    <button type="button" class="close" data-dismiss="modal" required aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
@@ -1055,7 +1055,7 @@
                     <div class="static">
                         <div class="row p-5 mt-5">
                             <div class="col-12">
-                                <h1>{{ __('profile.Electronic signature acceptance') }}</h1><br>
+                                <h1>{{ __('profile.Electronic signature acceptance') }}*</h1><br>
                                 <input type="checkbox" name="signature" required value="1">
                                 {{ __(
                                     'profile.By checking ts box, you agree that your electronic signature will be used in place of your handwritten signature. If this is not what you want, you have the right to ask to sign a paper copy instead. By checking this box, you warve this right Upon acceptance, you may request in writing that we send you a paper copy of the electronic record. You will not have to pay anything for such a copy, and you do not need any special software or hardware to view it. Your acceptance of electronic signature for any document will remain in effect until such time as you notify us in veriting that you no longer wish to use electronic signature. The revocation of your acceptance will not entall any penalty for you Your acceptance of electronic signature for any document will remain in effect until such time as you notify us in veriting that you no longer wish to use electronic signature. The revocation of your acceptance will not entall any penalty for you Your acceptance of electronic signature for any document will remain in effect until such time as you notify us in veriting that you no longer wish to use electronic signature. The revocation of your acceptance will not entall any penalty for you',
