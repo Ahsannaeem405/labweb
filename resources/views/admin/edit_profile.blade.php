@@ -57,7 +57,14 @@ $user = App\Models\User::find(Auth::user()->id);
                   <label class="form-control-label">Mail Address: <span class="tx-danger">*</span></label>
                   <input class="form-control" type="text" value="{{$user->address}}" name="address"  placeholder="Enter address">
                 </div>
-              </div><!-- col-8 -->
+              </div>
+
+                <div class="col-lg-6">
+                    <div class="form-group mg-b-10-force">
+                        <label class="form-control-label">password: </label>
+                        <input class="form-control" type="password" name="password"  placeholder="password">
+                    </div>
+                </div>
 
             </div><!-- row -->
 

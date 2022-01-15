@@ -152,7 +152,7 @@ return view('welcome', compact('country', 'state'));
 
 
         $admin = User::find($request->id);
-        // dd($request);
+       
         $admin->name = $request->firstname;
 
         $admin->email = $request->email;
