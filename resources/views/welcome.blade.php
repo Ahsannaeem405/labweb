@@ -1290,9 +1290,9 @@
                 $('input[name=SingsLinka]').val(signurl);
                 // $('.sig-imagea').empty();
 
-                $('.sig-imagea').empty();
-                $("img[name=sig-imagea]").empty();
-                $("img[name=sig-imagea]").attr('src', signurl);
+               // $('.sig-imagea').empty();
+                $("img[name=sig-imagea]").empty().attr('src', signurl);
+
 
 
 
@@ -1345,21 +1345,21 @@
     </script>
 
     {{-- minratt --}}
-    <script>
-        $(document).ready(function() {
+{{--    <script>--}}
+{{--        $(document).ready(function() {--}}
 
-            $(document).on('click', '.minororad_btn', function() {
+{{--            $(document).on('click', '.minororad_btn', function() {--}}
 
-                var minoratt = $(this).attr('att');
-                $('.minratt').empty();
-                $('.minratt').val(minoratt);
+{{--                var minoratt = $(this).attr('att');--}}
+{{--                $('.minratt').empty();--}}
+{{--                $('.minratt').val(minoratt);--}}
 
-            });
+{{--            });--}}
 
 
 
-        });
-    </script>
+{{--        });--}}
+{{--    </script>--}}
 
 
 </body>
