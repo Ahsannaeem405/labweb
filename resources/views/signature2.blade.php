@@ -19,41 +19,28 @@
 
 
 
-    <div class="container app">
+    <div class="container app" style="    padding: 0;">
 
 
-    <div class="row">
+    <div class="row" style="padding-top: 6px;margin-top: 23px;">
         <div class="col-md-12">
-            <h1>E-Signature</h1>
-            <p>Sign in the canvas below and save your signature as an image!</p>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-12">
-            <canvas id="sig-canvas" width="620" height="160">
+            <canvas id="sig-canvas" style="width:100%">
                 Get a better browser, bro.
             </canvas>
         </div>
     </div>
-    <div class="row">
-        <div class="col-md-12">
-            <button class="btn btn-primary" id="sig-submitBtn">Submit Signature</button>
-            <button class="btn btn-default" id="sig-clearBtn">Clear Signature</button>
+
+        <div class="col-md-12" style="text-align: end;margin-top: 31px;">
+            <button class="btn btn-primary" id="sig-submitBtn" data-dismiss="modal">Accept Signature</button>
+            <button class="btn btn-default" id="sig-clearBtn">Clear</button>
         </div>
-    </div>
-    <br />
-    <div class="row">
+
+
         <div class="col-md-12">
-            <textarea id="sig-dataUrl" class="form-control"
+            <textarea style="display: none" id="sig-dataUrl" class="form-control"
                 rows="5">Data URL for your signature will go here!</textarea>
         </div>
-    </div>
-    <br />
-    <div class="row">
-        <div class="col-md-12">
-            <img id="sig-image" src="" alt="Your signature will go here!" />
-        </div>
-    </div>
+
 
 
 </div>

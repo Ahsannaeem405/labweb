@@ -25,6 +25,12 @@ class orderController extends Controller
 
     }
 
+    public function append_signature2(){
+
+        return view('signature');
+
+}
+
     public function report($id)
     {
         $report=Customer::find($id);

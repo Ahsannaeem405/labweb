@@ -46,7 +46,7 @@ class CreateCustomerDetailsTable extends Migration
             $table->string('Country')->nullable();
             $table->string('email')->nullable();
             $table->string('gender')->nullable();
-            $table->string('signature')->nullable();
+            $table->text('signature')->nullable();
             $table->string('othre_specify')->nullable();
             $table->string('Parent_secondname')->nullable();
             $table->string('Parent_name')->nullable();
