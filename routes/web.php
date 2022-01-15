@@ -224,9 +224,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::get('report/{id}',[\App\Http\Controllers\orderController::class,'report']);
 
-Route::get('/signature', function () {
-    return view('signature');
-});
+
 
 
 Route::get('append/signature',[\App\Http\Controllers\orderController::class,'append_signature']);
