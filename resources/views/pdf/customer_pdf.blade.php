@@ -6,6 +6,13 @@
 
 <body>
 
+    <?php
+
+    $request = $request2;
+
+    ?>
+
+
 
 
     {{-- @dd(1) --}}
@@ -657,7 +664,7 @@
 
 
 
-
+{{-- @dd(1) --}}
 
 
     <div style="border: 2px solid black; padding:0px;width: 100%">

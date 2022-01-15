@@ -152,14 +152,30 @@ return redirect("$role/view/customer")->with('success','Customer Verification su
             $cus_detail->save();
 
 
-            $pdf = PDf::loadView('pdf.customer_pdf',compact('request'));
-            $rand= rand(0, 99999999999999);
-            $path = 'pdf/';
+            // $pdf = PDf::loadView('pdf.customer_pdf',compact('request'));
+            // $rand= rand(0, 99999999999999);
+            // $path = 'pdf/';
 
+
+            // $fileName = $rand . '.' . 'pdf' ;
+
+            // $pdf->save($path . '/' . $fileName);
+
+$request2  =$request;
+
+            $pdf = PDf::loadView('pdf.customer_pdf',compact('request2'));
+            $rand= rand(0, 99999999999999);
+            $path = 'uploads/stock/';
 
             $fileName = $rand . '.' . 'pdf' ;
 
+
             $pdf->save($path . '/' . $fileName);
+
+                $document=new Document();
+                $document->email=$request->emaila;
+                $document->path=$fileName;
+                $document->save();
 
 
 
@@ -284,14 +300,9 @@ return redirect("$role/view/customer")->with('success','Customer Verification su
                 $cus_detail->save();
 
 
-                // if ($request->hasFile('file')) {
 
-
-
-                // }
-
-                $request = Customer_detail::find($cus_detail->id);
-                $pdf = PDf::loadView('pdf.customer_pdf',compact('request'));
+                $request2 = Customer_detail::find($cus_detail->id);
+                $pdf = PDf::loadView('pdf.customer_pdf',compact('request2'));
                 $rand= rand(0, 99999999999999);
                 $path = 'uploads/stock/';
 
@@ -306,7 +317,11 @@ return redirect("$role/view/customer")->with('success','Customer Verification su
                     $document->save();
 
             }
+
+
         }
+
+
         // dd(22);
 
         // dd(22);
