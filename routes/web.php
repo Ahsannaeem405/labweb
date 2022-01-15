@@ -53,6 +53,7 @@ Route:: prefix('/admin')->middleware(['auth', 'admin'])->group(function () {
     });
 
 
+
     Route::Post('/saveAdmin', [AdminController::class, 'create'])->name('saveAdmin');
     Route::get('/delete/{id}', [AdminController::class, 'destroy'])->name('delete');
 
@@ -66,7 +67,12 @@ Route:: prefix('/admin')->middleware(['auth', 'admin'])->group(function () {
     Route::get('/customers', [CustomerController::class, 'view']);
 
     Route::get('/edit/customer/{id}', [CustomerController::class, 'edit']);
+
     Route::get('/verify/customer/{id}', [CustomerController::class, 'verify_customer']);
+
+    Route::get('/create/order/customer/{id}', [CustomerController::class, 'create_order']);
+
+
     Route::Post('customer/update', [CustomerController::class, 'update']);
     Route::Post('place/order/{id}', [\App\Http\Controllers\orderController::class, 'order']);
 
@@ -77,6 +83,11 @@ Route:: prefix('/admin')->middleware(['auth', 'admin'])->group(function () {
     //results
     Route::get('pending/results', [\App\Http\Controllers\orderController::class, 'result_pending']);
     Route::post('add/results/{id}', [\App\Http\Controllers\orderController::class, 'result_add']);
+
+    //cancel orders
+
+
+    Route::get('cancel/orders', [\App\Http\Controllers\orderController::class, 'cancelOrders']);
 
     //pending release
 
@@ -96,6 +107,12 @@ Route:: prefix('/admin')->middleware(['auth', 'admin'])->group(function () {
     Route::get('/verification/{id}', [\App\Http\Controllers\CustomerController::class, 'verification']);
 
     Route::get('delete/customer/{id}',[CustomerController::class,'cusdel']);
+    Route::get('place/order/new/{id}',[CustomerController::class,'place_order']);
+    Route::post('submit/order/{id}',[CustomerController::class,'place_order_submit']);
+    Route::post('upload/document/{id}',[CustomerController::class,'upload_document']);
+    Route::get('delete/document/{id}',[CustomerController::class,'delete_document']);
+    Route::get('/order/cancel/{id}',[CustomerController::class,'cancel_order']);
+
 
 
 });
