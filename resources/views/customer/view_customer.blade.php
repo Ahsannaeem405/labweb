@@ -32,6 +32,11 @@ td.sorting_1
 
 }
 
+.hoverclr:hover{
+    background-color: #8b8be1;
+    color: white;
+}
+
 
     </style>
     <!-- ########## START: LEFT PANEL ########## -->
@@ -83,17 +88,17 @@ td.sorting_1
                             @foreach ($customer as $views)
 
                             {{-- <a href="{{url(''.$role.'/verify/customer/'.$views->id)}}"> --}}
-                                <tr >
+                                <tr class="hoverclr" >
 
-                                    <td>
+                                    <td class="cust" attrr="{{$views->id}}" rolee="{{$role}}" style="cursor: pointer">
                                         {{ $i++ }}</td>
-                                    <td>{{ $views->name }}</td>
+                                    <td class="cust" attrr="{{$views->id}}" rolee="{{$role}}" style="cursor: pointer">{{ $views->name }}</td>
 
-                                    <td>{{ $views->email }}</td>
-                                    <td>{{ $views->address }}</td>
-                                    <td>{{ $views->dob }}</td>
+                                    <td class="cust" attrr="{{$views->id}}" rolee="{{$role}}" style="cursor: pointer">{{ $views->email }}</td>
+                                    <td class="cust" attrr="{{$views->id}}" rolee="{{$role}}" style="cursor: pointer">{{ $views->address }}</td>
+                                    <td class="cust" attrr="{{$views->id}}" rolee="{{$role}}" style="cursor: pointer">{{ $views->dob }}</td>
 
-                                    <td>{{ $views->gender }}</td>
+                                    <td class="cust" attrr="{{$views->id}}" rolee="{{$role}}" style="cursor: pointer">{{ $views->gender }}</td>
 
                                     <td>
 
@@ -142,6 +147,19 @@ td.sorting_1
 
     </script>
 
+
+    <script>
+        $(document).ready(function() {
+            $('.cust').click(function(){
+
+                var id =  $(this).attr('attrr');
+                var rolee =  $(this).attr('rolee');
+                var url = '/'+rolee+'/verify/customer/'+id;
+                $(location).attr('href',url);
+
+            });
+        });
+    </script>
 
     <script>
         $(document).ready(function() {

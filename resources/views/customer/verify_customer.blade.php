@@ -54,22 +54,26 @@
 
                                     <div class="col-lg-6">
                                         <div class="form-group">
-                                            <label class="form-control-label">Name: <span class="tx-danger"></span><i
+                                            <label class="form-control-label">Name: <span
+                                                    class="tx-danger">*</span><i
                                                     style="color: red; padding-left: 8px;"
                                                     class="fas fa-check forverify forverify1"></i> </label>
-                                            <input  class="form-control" value="{{ $cus->show->name }}"
-                                                type="text" required name="name" required placeholder="Enter Name">
+                                            <input class="form-control" value="{{ $cus->show->name }}"
+                                                   type="text" required name="name" required placeholder="Enter Name">
                                         </div>
                                     </div><!-- col-4 -->
 
                                     <div class="col-lg-6">
                                         <div class="form-group">
-                                            <label class="form-control-label">Second Name: <span
-                                                    class="tx-danger"></span> <i style="color: red; padding-left: 8px;"
-                                                    class="fas fa-check forverify forverify1"></i> </label>
-                                            <input  class="form-control" type="text"
-                                                value="{{ $cus->show->secondname }}" name="secondname" required value=""
-                                                required placeholder="Secondname ">
+                                            <label class="form-control-label">Second Name:
+                                                <span
+                                                    class="tx-danger">*</span> <i style="color: red; padding-left: 8px;"
+                                                                                 class="fas fa-check forverify forverify1"></i>
+                                            </label>
+                                            <input class="form-control" type="text"
+                                                   value="{{ $cus->show->secondname }}" name="secondname" required
+                                                   value=""
+                                                   required placeholder="Secondname ">
                                         </div>
                                     </div><!-- col-4 -->
 
@@ -77,11 +81,12 @@
                                     <div class="col-lg-6">
                                         <div class="form-group mg-b-10-force">
                                             <label class="form-control-label"> Surname : <span
-                                                    class="tx-danger">*</span><i style="color: red; padding-left: 8px;"
-                                                    class="fas fa-check forverify"></i> </label>
-                                            <input  class="form-control" type="text"
-                                                value="{{ $cus->show->surname }}" name="surname" required
-                                                placeholder="Enter surname ">
+                                                    class="tx-danger"></span><i style="color: red; padding-left: 8px;"
+                                                                                 class="fas fa-check forverify"></i>
+                                            </label>
+                                            <input class="form-control" type="text"
+                                                   value="{{ $cus->show->surname }}" name="surname" required
+                                                   placeholder="Enter surname ">
                                         </div>
                                     </div><!-- col-8 -->
 
@@ -89,19 +94,22 @@
                                     <div class="col-lg-6">
                                         <div class="form-group mg-b-10-force">
                                             <label class="form-control-label"> Phone: <span
-                                                    class="tx-danger">*</span><i style="color: red; padding-left: 8px;"
-                                                    class="fas fa-check forverify"></i> </label>
-                                            <input  class="form-control" type="text"
-                                                value="{{ $cus->show->phone }}" name="phone" required placeholder="Phone">
+                                                    class="tx-danger"></span><i style="color: red; padding-left: 8px;"
+                                                                                 class="fas fa-check forverify"></i>
+                                            </label>
+                                            <input class="form-control" type="text"
+                                                   value="{{ $cus->show->phone }}" name="phone" required
+                                                   placeholder="Phone">
                                         </div>
                                     </div><!-- col-8 -->
                                     <div class="col-lg-6">
                                         <div class="form-group mg-b-10-force">
 
-                                            <p>DOB: <i style="color: red; padding-left: 8px;"
-                                                    class="fas fa-check forverify forverify1"></i> </p>
-                                            <input  type="date" value="{{ $cus->show->datee }}" name="datee"
-                                                class="form-control" required>
+                                            <p>DOB:  <span
+                                                    class="tx-danger">*</span><i style="color: red; padding-left: 8px;"
+                                                       class="fas fa-check forverify forverify1"></i></p>
+                                            <input type="date" value="{{ $cus->show->datee }}" name="datee"
+                                                   class="form-control" required>
 
                                         </div>
                                     </div><!-- col-8 -->
@@ -109,9 +117,9 @@
                                         <div class="form-group mg-b-10-force">
 
                                             <p>Passport: <i style="color: red; padding-left: 8px;"
-                                                    class="fas fa-check forverify"></i> </p>
-                                            <input  type="text" value="{{ $cus->show->passport }}" name="passport"
-                                                class="form-control">
+                                                            class="fas fa-check forverify"></i></p>
+                                            <input type="text" value="{{ $cus->show->passport }}" name="passport"
+                                                   class="form-control">
 
                                         </div>
                                     </div><!-- col-8 -->
@@ -119,16 +127,18 @@
                                         <div class="form-group mg-b-10-force">
 
 
+                                            <p>Gender  : <span
+                                                    class="tx-danger">*</span> <i style="color: red; padding-left: 8px;"
+                                                           class="fas fa-check forverify forverify1"></i></p>
 
-                                            <p>Gender : <i style="color: red; padding-left: 8px;"
-                                                    class="fas fa-check forverify forverify1"></i> </p>
 
-
-                                            <input  type="radio" @if ($cus->show->gender2 == 'male') checked @endif name="gender" value="male"
-                                                checked>
+                                            <input type="radio" @if ($cus->show->gender2 == 'male') checked
+                                                   @endif name="gender" value="male"
+                                                   checked>
                                             <label for="Female">male</label><br>
-                                            <input  type="radio" @if ($cus->show->gender2 == 'female') checked @endif name="gender"
-                                                value="female">
+                                            <input type="radio" @if ($cus->show->gender2 == 'female') checked
+                                                   @endif name="gender"
+                                                   value="female">
                                             <label for="Female">female</label><br>
 
                                         </div>
@@ -137,15 +147,16 @@
                                         <div class="form-group mg-b-10-force">
 
 
-
                                             <p>Fever : <i style="color: red; padding-left: 8px;"
-                                                    class="fas fa-check forverify"></i> </p>
+                                                          class="fas fa-check forverify"></i></p>
 
 
-                                            <input  type="radio" @if ($cus->show->Fever == 'Yes') checked @endif name="Fever" value="Yes"
-                                                checked>
+                                            <input type="radio" @if ($cus->show->Fever == 'Yes') checked
+                                                   @endif name="Fever" value="Yes"
+                                                   checked>
                                             <label for="Female">Yes</label><br>
-                                            <input  type="radio" @if ($cus->show->Fever == 'No') checked @endif name="Fever" value="No">
+                                            <input type="radio" @if ($cus->show->Fever == 'No') checked
+                                                   @endif name="Fever" value="No">
                                             <label for="Female">No</label><br>
 
                                         </div>
@@ -154,30 +165,33 @@
                                         <div class="form-group mg-b-10-force">
 
                                             <p>Cough : <i style="color: red; padding-left: 8px;"
-                                                    class="fas fa-check forverify"></i> </p>
+                                                          class="fas fa-check forverify"></i></p>
 
 
-                                            <input  type="radio" @if ($cus->show->Cough == 'Yes') checked @endif name="Cough" value="Yes"
-                                                checked>
+                                            <input type="radio" @if ($cus->show->Cough == 'Yes') checked
+                                                   @endif name="Cough" value="Yes"
+                                                   checked>
                                             <label for="Female">Yes</label><br>
-                                            <input  type="radio" @if ($cus->show->Cough == 'No') checked @endif name="Cough" value="No">
+                                            <input type="radio" @if ($cus->show->Cough == 'No') checked
+                                                   @endif name="Cough" value="No">
                                             <label for="Female">No</label><br>
 
                                         </div>
                                     </div><!-- col-8 -->
                                     <div class="col-lg-6">
                                         <div class="form-group mg-b-10-force">
-
 
 
                                             <p>Throat : <i style="color: red; padding-left: 8px;"
-                                                    class="fas fa-check forverify"></i> </p>
+                                                           class="fas fa-check forverify"></i></p>
 
 
-                                            <input  type="radio" @if ($cus->show->Throat == 'Yes') checked @endif name="Throat" value="Yes"
-                                                checked>
+                                            <input type="radio" @if ($cus->show->Throat == 'Yes') checked
+                                                   @endif name="Throat" value="Yes"
+                                                   checked>
                                             <label for="Female">Yes</label><br>
-                                            <input  type="radio" @if ($cus->show->Throat == 'No') checked @endif name="Throat" value="No">
+                                            <input type="radio" @if ($cus->show->Throat == 'No') checked
+                                                   @endif name="Throat" value="No">
                                             <label for="Female">No</label><br>
 
 
@@ -185,36 +199,37 @@
                                     </div><!-- col-8 -->
                                     <div class="col-lg-6">
                                         <div class="form-group mg-b-10-force">
-
-
 
 
                                             <p>Breathing : <i style="color: red; padding-left: 8px;"
-                                                    class="fas fa-check forverify"></i> </p>
+                                                              class="fas fa-check forverify"></i></p>
 
 
-                                            <input  type="radio" @if ($cus->show->breathing == 'Yes') checked @endif name="breathing"
-                                                value="Yes" checked>
+                                            <input type="radio" @if ($cus->show->breathing == 'Yes') checked
+                                                   @endif name="breathing"
+                                                   value="Yes" checked>
                                             <label for="Female">Yes</label><br>
-                                            <input  type="radio" @if ($cus->show->breathing == 'No') checked @endif name="breathing"
-                                                value="No">
+                                            <input type="radio" @if ($cus->show->breathing == 'No') checked
+                                                   @endif name="breathing"
+                                                   value="No">
                                             <label for="Female">No</label><br>
 
                                         </div>
                                     </div><!-- col-8 -->
                                     <div class="col-lg-6">
                                         <div class="form-group mg-b-10-force">
-
 
 
                                             <p>Nausea : <i style="color: red; padding-left: 8px;"
-                                                    class="fas fa-check forverify"></i> </p>
+                                                           class="fas fa-check forverify"></i></p>
 
 
-                                            <input  type="radio" @if ($cus->show->Nausea == 'Yes') checked @endif name="Nausea" value="Yes"
-                                                checked>
+                                            <input type="radio" @if ($cus->show->Nausea == 'Yes') checked
+                                                   @endif name="Nausea" value="Yes"
+                                                   checked>
                                             <label for="Female">Yes</label><br>
-                                            <input  type="radio" @if ($cus->show->Nausea == 'No') checked @endif name="Nausea" value="No">
+                                            <input type="radio" @if ($cus->show->Nausea == 'No') checked
+                                                   @endif name="Nausea" value="No">
                                             <label for="Female">No</label><br>
 
                                         </div>
@@ -224,16 +239,17 @@
                                         <div class="form-group mg-b-10-force">
 
 
-
                                             <p>Abdominal : <i style="color: red; padding-left: 8px;"
-                                                    class="fas fa-check forverify"></i> </p>
+                                                              class="fas fa-check forverify"></i></p>
 
 
-                                            <input  type="radio" @if ($cus->show->Abdominal == 'Yes') checked @endif name="Abdominal"
-                                                value="Yes" checked>
+                                            <input type="radio" @if ($cus->show->Abdominal == 'Yes') checked
+                                                   @endif name="Abdominal"
+                                                   value="Yes" checked>
                                             <label for="Female">Yes</label><br>
-                                            <input  type="radio" @if ($cus->show->Abdominal == 'No') checked @endif name="Abdominal"
-                                                value="No">
+                                            <input type="radio" @if ($cus->show->Abdominal == 'No') checked
+                                                   @endif name="Abdominal"
+                                                   value="No">
                                             <label for="Female">No</label><br>
 
                                         </div>
@@ -245,13 +261,15 @@
 
 
                                             <p>Chills : <i style="color: red; padding-left: 8px;"
-                                                    class="fas fa-check forverify"></i> </p>
+                                                           class="fas fa-check forverify"></i></p>
 
 
-                                            <input  type="radio" @if ($cus->show->Chills == 'Yes') checked @endif name="Chills" value="Yes"
-                                                checked>
+                                            <input type="radio" @if ($cus->show->Chills == 'Yes') checked
+                                                   @endif name="Chills" value="Yes"
+                                                   checked>
                                             <label for="Female">Yes</label><br>
-                                            <input  type="radio" @if ($cus->show->Chills == 'No') checked @endif name="Chills" value="No">
+                                            <input type="radio" @if ($cus->show->Chills == 'No') checked
+                                                   @endif name="Chills" value="No">
                                             <label for="Female">No</label><br>
 
                                         </div>
@@ -260,16 +278,17 @@
                                         <div class="form-group mg-b-10-force">
 
 
-
                                             <p>Headache : <i style="color: red; padding-left: 8px;"
-                                                    class="fas fa-check forverify"></i> </p>
+                                                             class="fas fa-check forverify"></i></p>
 
 
-                                            <input  type="radio" @if ($cus->show->Headache == 'Yes') checked @endif name="Headache"
-                                                value="Yes" checked>
+                                            <input type="radio" @if ($cus->show->Headache == 'Yes') checked
+                                                   @endif name="Headache"
+                                                   value="Yes" checked>
                                             <label for="Female">Yes</label><br>
-                                            <input  type="radio" @if ($cus->show->Headache == 'No') checked @endif name="Headache"
-                                                value="No">
+                                            <input type="radio" @if ($cus->show->Headache == 'No') checked
+                                                   @endif name="Headache"
+                                                   value="No">
                                             <label for="Female">No</label><br>
 
                                         </div>
@@ -280,50 +299,52 @@
 
 
                                             <p>Muscle : <i style="color: red; padding-left: 8px;"
-                                                    class="fas fa-check forverify"></i> </p>
+                                                           class="fas fa-check forverify"></i></p>
 
 
-                                            <input  type="radio" @if ($cus->show->Muscle == 'Yes') checked @endif name="Muscle" value="Yes"
-                                                checked>
+                                            <input type="radio" @if ($cus->show->Muscle == 'Yes') checked
+                                                   @endif name="Muscle" value="Yes"
+                                                   checked>
                                             <label for="Female">Yes</label><br>
-                                            <input  type="radio" @if ($cus->show->Muscle == 'No') checked @endif name="Muscle" value="No">
+                                            <input type="radio" @if ($cus->show->Muscle == 'No') checked
+                                                   @endif name="Muscle" value="No">
                                             <label for="Female">No</label><br>
 
                                         </div>
                                     </div><!-- col-8 -->
                                     <div class="col-lg-6">
                                         <div class="form-group mg-b-10-force">
-
-
 
 
                                             <p>Fatigue : <i style="color: red; padding-left: 8px;"
-                                                    class="fas fa-check forverify"></i> </p>
+                                                            class="fas fa-check forverify"></i></p>
 
 
-                                            <input  type="radio" @if ($cus->show->Fatigue == 'Yes') checked @endif name="Fatigue"
-                                                value="Yes" checked>
+                                            <input type="radio" @if ($cus->show->Fatigue == 'Yes') checked
+                                                   @endif name="Fatigue"
+                                                   value="Yes" checked>
                                             <label for="Female">Yes</label><br>
-                                            <input  type="radio" @if ($cus->show->Fatigue == 'No') checked @endif name="Fatigue"
-                                                value="No">
+                                            <input type="radio" @if ($cus->show->Fatigue == 'No') checked
+                                                   @endif name="Fatigue"
+                                                   value="No">
                                             <label for="Female">No</label><br>
 
                                         </div>
                                     </div><!-- col-8 -->
                                     <div class="col-lg-6">
                                         <div class="form-group mg-b-10-force">
-
-
 
 
                                             <p>Runny : <i style="color: red; padding-left: 8px;"
-                                                    class="fas fa-check forverify"></i> </p>
+                                                          class="fas fa-check forverify"></i></p>
 
 
-                                            <input  type="radio" @if ($cus->show->Runny == 'Yes') checked @endif name="Runny" value="Yes"
-                                                checked>
+                                            <input type="radio" @if ($cus->show->Runny == 'Yes') checked
+                                                   @endif name="Runny" value="Yes"
+                                                   checked>
                                             <label for="Female">Yes</label><br>
-                                            <input  type="radio" @if ($cus->show->Runny == 'No') checked @endif name="Runny" value="No">
+                                            <input type="radio" @if ($cus->show->Runny == 'No') checked
+                                                   @endif name="Runny" value="No">
                                             <label for="Female">No</label><br>
 
                                         </div>
@@ -333,16 +354,17 @@
                                         <div class="form-group mg-b-10-force">
 
 
-
                                             <p>Vomiting : <i style="color: red; padding-left: 8px;"
-                                                    class="fas fa-check forverify"></i> </p>
+                                                             class="fas fa-check forverify"></i></p>
 
 
-                                            <input  type="radio" @if ($cus->show->Vomiting == 'Yes') checked @endif name="Vomiting"
-                                                value="Yes" checked>
+                                            <input type="radio" @if ($cus->show->Vomiting == 'Yes') checked
+                                                   @endif name="Vomiting"
+                                                   value="Yes" checked>
                                             <label for="Female">Yes</label><br>
-                                            <input  type="radio" @if ($cus->show->Vomiting == 'No') checked @endif name="Vomiting"
-                                                value="No">
+                                            <input type="radio" @if ($cus->show->Vomiting == 'No') checked
+                                                   @endif name="Vomiting"
+                                                   value="No">
                                             <label for="Female">No</label><br>
 
                                         </div>
@@ -353,14 +375,16 @@
 
 
                                             <p>Diarrhea : <i style="color: red; padding-left: 8px;"
-                                                    class="fas fa-check forverify"></i> </p>
+                                                             class="fas fa-check forverify"></i></p>
 
 
-                                            <input  type="radio" @if ($cus->show->Diarrhea == 'Yes') checked @endif name="Diarrhea"
-                                                value="Yes" checked>
+                                            <input type="radio" @if ($cus->show->Diarrhea == 'Yes') checked
+                                                   @endif name="Diarrhea"
+                                                   value="Yes" checked>
                                             <label for="Female">Yes</label><br>
-                                            <input  type="radio" @if ($cus->show->Diarrhea == 'No') checked @endif name="Diarrhea"
-                                                value="No">
+                                            <input type="radio" @if ($cus->show->Diarrhea == 'No') checked
+                                                   @endif name="Diarrhea"
+                                                   value="No">
                                             <label for="Female">No</label><br>
 
                                         </div>
@@ -368,18 +392,19 @@
 
                                     <div class="col-lg-6">
                                         <div class="form-group mg-b-10-force">
-
 
 
                                             <p>Loss_of_smell : <i style="color: red; padding-left: 8px;"
-                                                    class="fas fa-check forverify"></i> </p>
+                                                                  class="fas fa-check forverify"></i></p>
 
 
-                                            <input  type="radio" @if ($cus->show->Loss_of_smell == 'Yes') checked @endif name="Loss_of_smell"
-                                                value="Yes" checked>
+                                            <input type="radio" @if ($cus->show->Loss_of_smell == 'Yes') checked
+                                                   @endif name="Loss_of_smell"
+                                                   value="Yes" checked>
                                             <label for="Female">Yes</label><br>
-                                            <input  type="radio" @if ($cus->show->Loss_of_smell == 'No') checked @endif name="Loss_of_smell"
-                                                value="No">
+                                            <input type="radio" @if ($cus->show->Loss_of_smell == 'No') checked
+                                                   @endif name="Loss_of_smell"
+                                                   value="No">
                                             <label for="Female">No</label><br>
 
                                         </div>
@@ -389,16 +414,17 @@
                                         <div class="form-group mg-b-10-force">
 
 
-
                                             <p>Loss_of_taste : <i style="color: red; padding-left: 8px;"
-                                                    class="fas fa-check forverify"></i> </p>
+                                                                  class="fas fa-check forverify"></i></p>
 
 
-                                            <input  type="radio" @if ($cus->show->Loss_of_taste == 'Yes') checked @endif name="Loss_of_taste"
-                                                value="Yes" checked>
+                                            <input type="radio" @if ($cus->show->Loss_of_taste == 'Yes') checked
+                                                   @endif name="Loss_of_taste"
+                                                   value="Yes" checked>
                                             <label for="Female">Yes</label><br>
-                                            <input  type="radio" @if ($cus->show->Loss_of_taste == 'No') checked @endif name="Loss_of_taste"
-                                                value="No">
+                                            <input type="radio" @if ($cus->show->Loss_of_taste == 'No') checked
+                                                   @endif name="Loss_of_taste"
+                                                   value="No">
                                             <label for="Female">No</label><br>
 
 
@@ -409,9 +435,9 @@
                                         <div class="form-group mg-b-10-force">
 
                                             <p>Specify : <i style="color: red; padding-left: 8px;"
-                                                    class="fas fa-check forverify"></i> </p>
-                                            <input  type="text" value="{{ $cus->show->specify }}" name="specify"
-                                                class="form-control">
+                                                            class="fas fa-check forverify"></i></p>
+                                            <input type="text" value="{{ $cus->show->specify }}" name="specify"
+                                                   class="form-control">
 
                                         </div>
                                     </div><!-- col-8 -->
@@ -419,42 +445,44 @@
                                         <div class="form-group mg-b-10-force">
 
                                             <p>Symptoms : <i style="color: red; padding-left: 8px;"
-                                                    class="fas fa-check forverify"></i> </p>
-                                            <input  type="text" value="{{ $cus->show->symptoms }}" name="symptoms"
-                                                class="form-control">
+                                                             class="fas fa-check forverify"></i></p>
+                                            <input type="text" value="{{ $cus->show->symptoms }}" name="symptoms"
+                                                   class="form-control">
 
                                         </div>
                                     </div><!-- col-8 -->
-
 
 
                                     <div class="col-lg-6">
                                         <div class="form-group mg-b-10-force">
 
                                             <p>Select_the_test : <i style="color: red; padding-left: 8px;"
-                                                    class="fas fa-check forverify"></i> </p>
-                                            <input  type="radio" @if ($cus->show->Select_the_test == 'ANTIGEN') checked @endif name="Select_the_test"
-                                                value="ANTIGEN" checked>
+                                                                    class="fas fa-check forverify"></i></p>
+                                            <input type="radio" @if ($cus->show->Select_the_test == 'ANTIGEN') checked
+                                                   @endif name="Select_the_test"
+                                                   value="ANTIGEN" checked>
                                             <label for="Female">PCR</label><br>
-                                            <input  type="radio" @if ($cus->show->Select_the_test == 'PCR') checked @endif name="Select_the_test"
-                                                value="PCR">
+                                            <input type="radio" @if ($cus->show->Select_the_test == 'PCR') checked
+                                                   @endif name="Select_the_test"
+                                                   value="PCR">
                                             <label for="Female">PCR</label><br>
 
 
-
-
-                                            <input  type="radio" @if ($cus->show->Select_the_test == 'RT-PCR') checked @endif name="Select_the_test"
-                                                value="RT-PCR">
+                                            <input type="radio" @if ($cus->show->Select_the_test == 'RT-PCR') checked
+                                                   @endif name="Select_the_test"
+                                                   value="RT-PCR">
                                             <label for="Female">RT-PCR</label><br>
 
-                                            <input  type="radio" @if ($cus->show->Select_the_test == 'PCR-24hm') checked @endif name="Select_the_test"
-                                                value="PCR-24hm">
+                                            <input type="radio" @if ($cus->show->Select_the_test == 'PCR-24hm') checked
+                                                   @endif name="Select_the_test"
+                                                   value="PCR-24hm">
                                             <label for="Female">PCR-24hm</label><br>
 
-                                            <input  type="radio" @if ($cus->show->Select_the_test == 'RT-PCR 24hrs') checked @endif name="Select_the_test"
-                                                value="RT-PCR 24hrs">
+                                            <input type="radio"
+                                                   @if ($cus->show->Select_the_test == 'RT-PCR 24hrs') checked
+                                                   @endif name="Select_the_test"
+                                                   value="RT-PCR 24hrs">
                                             <label for="Female">RT-PCR 24hrs</label><br>
-
 
 
                                         </div>
@@ -464,9 +492,9 @@
                                         <div class="form-group mg-b-10-force">
 
                                             <p>Address : <i style="color: red; padding-left: 8px;"
-                                                    class="fas fa-check forverify"></i> </p>
-                                            <input  type="text" value="{{ $cus->show->address }}" name="address"
-                                                class="form-control">
+                                                            class="fas fa-check forverify"></i></p>
+                                            <input type="text" value="{{ $cus->show->address }}" name="address"
+                                                   class="form-control">
 
                                         </div>
                                     </div><!-- col-8 -->
@@ -474,9 +502,9 @@
                                         <div class="form-group mg-b-10-force">
 
                                             <p>Address2 : <i style="color: red; padding-left: 8px;"
-                                                    class="fas fa-check forverify"></i> </p>
-                                            <input  type="text" value="{{ $cus->show->address2 }}"
-                                                name="address2" class="form-control">
+                                                             class="fas fa-check forverify"></i></p>
+                                            <input type="text" value="{{ $cus->show->address2 }}"
+                                                   name="address2" class="form-control">
 
                                         </div>
                                     </div><!-- col-8 -->
@@ -484,9 +512,9 @@
                                         <div class="form-group mg-b-10-force">
 
                                             <p>Town: <i style="color: red; padding-left: 8px;"
-                                                    class="fas fa-check forverify"></i> </p>
-                                            <input  type="text" value="{{ $cus->show->town }}" name="town"
-                                                class="form-control">
+                                                        class="fas fa-check forverify"></i></p>
+                                            <input type="text" value="{{ $cus->show->town }}" name="town"
+                                                   class="form-control">
 
                                         </div>
                                     </div><!-- col-8 -->
@@ -495,9 +523,9 @@
                                         <div class="form-group mg-b-10-force">
 
                                             <p>Zip : <i style="color: red; padding-left: 8px;"
-                                                    class="fas fa-check forverify"></i> </p>
-                                            <input  type="text" value="{{ $cus->show->zip }}" name="zip"
-                                                class="form-control">
+                                                        class="fas fa-check forverify"></i></p>
+                                            <input type="text" value="{{ $cus->show->zip }}" name="zip"
+                                                   class="form-control">
 
                                         </div>
                                     </div><!-- col-8 -->
@@ -506,12 +534,13 @@
                                         <div class="form-group mg-b-10-force">
 
                                             <p>Province : <i style="color: red; padding-left: 8px;"
-                                                    class="fas fa-check forverify"></i> </p>
-                                            <select  name="Province" class="form-control">
+                                                             class="fas fa-check forverify"></i></p>
+                                            <select name="Province" class="form-control">
                                                 @foreach ($state as $states)
 
 
-                                                    <option value="{{ $states->name }}" @if ($cus->show->Province == $states->name) selected @endif>
+                                                    <option value="{{ $states->name }}"
+                                                            @if ($cus->show->Province == $states->name) selected @endif>
                                                         {{ $states->name }}</option>
                                                 @endforeach
 
@@ -524,13 +553,14 @@
                                         <div class="form-group mg-b-10-force">
 
                                             <p>Country : <i style="color: red; padding-left: 8px;"
-                                                    class="fas fa-check forverify"></i> </p>
-                                            <select  name="Country" class="form-control">
+                                                            class="fas fa-check forverify"></i></p>
+                                            <select name="Country" class="form-control">
 
 
                                                 @foreach ($Country as $Country)
 
-                                                    <option value="{{ $Country->name }}" @if ($cus->show->Country == $Country->name) selected @endif>
+                                                    <option value="{{ $Country->name }}"
+                                                            @if ($cus->show->Country == $Country->name) selected @endif>
                                                         {{ $Country->name }}</option>
 
                                                 @endforeach
@@ -544,57 +574,51 @@
                                         <div class="form-group mg-b-10-force">
 
                                             <p>Email: <i style="color: red; padding-left: 8px;"
-                                                    class="fas fa-check forverify"></i> </p>
-                                            <input  type="email" value="{{ $cus->show->email }}" name="email"
-                                                class="form-control">
+                                                         class="fas fa-check forverify"></i></p>
+                                            <input type="email" value="{{ $cus->show->email }}" name="email"
+                                                   class="form-control">
 
                                         </div>
                                     </div><!-- col-8 -->
-
-
 
 
                                     <div class="col-lg-6">
                                         <div class="form-group mg-b-10-force">
 
                                             <p>How did you hear about us? <i style="color: red; padding-left: 8px;"
-                                                    class="fas fa-check forverify"></i></p>
-                                            <input  type="radio" @if ($cus->show->gender == 'Friends') checked @endif name="gender2"
-                                                value="Friends" checked>
+                                                                             class="fas fa-check forverify"></i></p>
+                                            <input type="radio" @if ($cus->show->gender == 'Friends') checked
+                                                   @endif name="gender2"
+                                                   value="Friends" checked>
                                             <label for="Female">Friends</label><br>
 
-                                            <input  type="radio" @if ($cus->show->gender == 'Airline Staff') checked @endif name="gender2"
-                                                value="Airline Staff">
+                                            <input type="radio" @if ($cus->show->gender == 'Airline Staff') checked
+                                                   @endif name="gender2"
+                                                   value="Airline Staff">
                                             <label for="Female">Airline Staff </label><br>
 
-                                            <input  type="radio" @if ($cus->show->gender == 'Airport Advertisement') checked @endif name="gender2"
-                                                value="Airport Advertisement">
+                                            <input type="radio"
+                                                   @if ($cus->show->gender == 'Airport Advertisement') checked
+                                                   @endif name="gender2"
+                                                   value="Airport Advertisement">
                                             <label for="Female">Airport Advertisement </label><br>
 
-                                            <input  type="radio" @if ($cus->show->gender == 'Google') checked @endif name="gender2"
-                                                value="Google">
+                                            <input type="radio" @if ($cus->show->gender == 'Google') checked
+                                                   @endif name="gender2"
+                                                   value="Google">
                                             <label for="Female">Google</label><br>
 
-                                            <input  type="radio" @if ($cus->show->gender == 'Other') checked @endif name="gender2"
-                                                value="Other">
+                                            <input type="radio" @if ($cus->show->gender == 'Other') checked
+                                                   @endif name="gender2"
+                                                   value="Other">
                                             <label for="Female">Other </label><br>
-
-
-
-
-
-
 
 
                                         </div>
                                     </div><!-- col-8 -->
 
 
-
-
-
-
-                                    <input  type="hidden" name="id" value="{{ $cus->show->id }}" id="">
+                                    <input type="hidden" name="id" value="{{ $cus->show->id }}" id="">
 
                                 </div><!-- row -->
 
@@ -608,589 +632,631 @@
                 </form>
 
 
-
-
                 @else
-                <form method="POST" action="{{ url('' . $role . '/customer/update_minor') }}">
-                    @csrf
-                    @if (session()->has('success'))
-                        <div class="alert alert-success">
-                            {{ session()->get('success') }}
-                        </div>
-                    @endif
-
-
-                    <div class="row mg-b-25">
-
-                        <div class="col-lg-6">
-                            <div class="form-group">
-                                <label class="form-control-label">Name: <span class="tx-danger"></span><i
-                                        style="color: red; padding-left: 8px;" class="fas fa-check forverify forverify1"></i> </label>
-                                <input  class="form-control" value="{{ $cus->show->name }}" type="text"
-                                    required name="name" required placeholder="Enter Name">
+                    <form method="POST" action="{{ url('' . $role . '/customer/update_minor') }}">
+                        @csrf
+                        @if (session()->has('success'))
+                            <div class="alert alert-success">
+                                {{ session()->get('success') }}
                             </div>
-                        </div><!-- col-4 -->
+                        @endif
+
+
+                        <div class="row mg-b-25">
+
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label class="form-control-label">Name:<span
+                                            class="tx-danger">*</span><i
+                                            style="color: red; padding-left: 8px;"
+                                            class="fas fa-check forverify forverify1"></i> </label>
+                                    <input class="form-control" value="{{ $cus->show->name }}" type="text"
+                                           required name="name" required placeholder="Enter Name">
+                                </div>
+                            </div><!-- col-4 -->
+
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label class="form-control-label">Second Name: <span
+                                            class="tx-danger">*</span><i
+                                            style="color: red; padding-left: 8px;"
+                                            class="fas fa-check forverify forverify1"></i> </label>
+                                    <input class="form-control" type="text" value="{{ $cus->show->secondname }}"
+                                           name="secondname" required value="" required placeholder="Secondname ">
+                                </div>
+                            </div><!-- col-4 -->
+
+
+                            <div class="col-lg-6">
+                                <div class="form-group mg-b-10-force">
+                                    <label class="form-control-label"> Surname : <span class="tx-danger"></span><i
+                                            style="color: red; padding-left: 8px;" class="fas fa-check forverify"></i>
+                                    </label>
+                                    <input class="form-control" type="text" value="{{ $cus->show->surname }}"
+                                           name="surname" required placeholder="Enter surname ">
+                                </div>
+                            </div><!-- col-8 -->
+
+
+                            <div class="col-lg-6">
+                                <div class="form-group mg-b-10-force">
+                                    <label class="form-control-label"> Phone: <span class="tx-danger"></span><i
+                                            style="color: red; padding-left: 8px;" class="fas fa-check forverify"></i>
+                                    </label>
+                                    <input class="form-control" type="text" value="{{ $cus->show->phone }}"
+                                           name="phone" required placeholder="Phone">
+                                </div>
+                            </div><!-- col-8 -->
+                            <div class="col-lg-6">
+                                <div class="form-group mg-b-10-force">
+
+                                    <p>DOB:<span
+                                            class="tx-danger">*</span> <i style="color: red; padding-left: 8px;"
+                                               class="fas fa-check forverify forverify1"></i></p>
+                                    <input type="date" value="{{ $cus->show->datee }}" name="datee"
+                                           class="form-control" required>
+
+                                </div>
+                            </div><!-- col-8 -->
+                            <div class="col-lg-6">
+                                <div class="form-group mg-b-10-force">
+
+                                    <p>Passport: <i style="color: red; padding-left: 8px;"
+                                                    class="fas fa-check forverify"></i>
+                                    </p>
+                                    <input type="text" value="{{ $cus->show->passport }}" name="passport"
+                                           class="form-control">
+
+                                </div>
+                            </div><!-- col-8 -->
+                            <div class="col-lg-6">
+                                <div class="form-group mg-b-10-force">
+
+
+                                    <p>Gender : <span
+                                            class="tx-danger">*</span> <i style="color: red; padding-left: 8px;"
+                                                   class="fas fa-check forverify forverify1"></i>
+                                    </p>
+
+
+                                    <input type="radio" @if ($cus->show->gender2 == 'male') checked @endif name="gender"
+                                           value="male" checked>
+                                    <label for="Female">male</label><br>
+                                    <input type="radio" @if ($cus->show->gender2 == 'female') checked
+                                           @endif name="gender" value="female">
+                                    <label for="Female">female</label><br>
+
+                                </div>
+                            </div><!-- col-8 -->
+                            <div class="col-lg-6">
+                                <div class="form-group mg-b-10-force">
+
+
+                                    <p>Fever : <i style="color: red; padding-left: 8px;"
+                                                  class="fas fa-check forverify"></i>
+                                    </p>
+
+
+                                    <input type="radio" @if ($cus->show->Fever == 'Yes') checked @endif name="Fever"
+                                           value="Yes" checked>
+                                    <label for="Female">Yes</label><br>
+                                    <input type="radio" @if ($cus->show->Fever == 'No') checked @endif name="Fever"
+                                           value="No">
+                                    <label for="Female">No</label><br>
 
-                        <div class="col-lg-6">
-                            <div class="form-group">
-                                <label class="form-control-label">Second Name: <span class="tx-danger"></span><i
-                                        style="color: red; padding-left: 8px;" class="fas fa-check forverify forverify1"></i> </label>
-                                <input  class="form-control" type="text" value="{{ $cus->show->secondname }}"
-                                    name="secondname" required value="" required placeholder="Secondname ">
-                            </div>
-                        </div><!-- col-4 -->
+                                </div>
+                            </div><!-- col-8 -->
+                            <div class="col-lg-6">
+                                <div class="form-group mg-b-10-force">
 
+                                    <p>Cough : <i style="color: red; padding-left: 8px;"
+                                                  class="fas fa-check forverify"></i>
+                                    </p>
 
-                        <div class="col-lg-6">
-                            <div class="form-group mg-b-10-force">
-                                <label class="form-control-label"> Surname : <span class="tx-danger">*</span><i
-                                        style="color: red; padding-left: 8px;" class="fas fa-check forverify"></i> </label>
-                                <input  class="form-control" type="text" value="{{ $cus->show->surname }}"
-                                    name="surname" required placeholder="Enter surname ">
-                            </div>
-                        </div><!-- col-8 -->
 
+                                    <input type="radio" @if ($cus->show->Cough == 'Yes') checked @endif name="Cough"
+                                           value="Yes" checked>
+                                    <label for="Female">Yes</label><br>
+                                    <input type="radio" @if ($cus->show->Cough == 'No') checked @endif name="Cough"
+                                           value="No">
+                                    <label for="Female">No</label><br>
 
-                        <div class="col-lg-6">
-                            <div class="form-group mg-b-10-force">
-                                <label class="form-control-label"> Phone: <span class="tx-danger">*</span><i
-                                        style="color: red; padding-left: 8px;" class="fas fa-check forverify"></i> </label>
-                                <input  class="form-control" type="text" value="{{ $cus->show->phone }}"
-                                    name="phone" required placeholder="Phone">
-                            </div>
-                        </div><!-- col-8 -->
-                        <div class="col-lg-6">
-                            <div class="form-group mg-b-10-force">
+                                </div>
+                            </div><!-- col-8 -->
+                            <div class="col-lg-6">
+                                <div class="form-group mg-b-10-force">
 
-                                <p>DOB: <i style="color: red; padding-left: 8px;" class="fas fa-check forverify forverify1"></i> </p>
-                                <input  type="date" value="{{ $cus->show->datee }}" name="datee"
-                                    class="form-control" required>
 
-                            </div>
-                        </div><!-- col-8 -->
-                        <div class="col-lg-6">
-                            <div class="form-group mg-b-10-force">
+                                    <p>Throat : <i style="color: red; padding-left: 8px;"
+                                                   class="fas fa-check forverify"></i>
+                                    </p>
 
-                                <p>Passport: <i style="color: red; padding-left: 8px;" class="fas fa-check forverify"></i>
-                                </p>
-                                <input  type="text" value="{{ $cus->show->passport }}" name="passport"
-                                    class="form-control">
 
-                            </div>
-                        </div><!-- col-8 -->
-                        <div class="col-lg-6">
-                            <div class="form-group mg-b-10-force">
+                                    <input type="radio" @if ($cus->show->Throat == 'Yes') checked @endif name="Throat"
+                                           value="Yes" checked>
+                                    <label for="Female">Yes</label><br>
+                                    <input type="radio" @if ($cus->show->Throat == 'No') checked @endif name="Throat"
+                                           value="No">
+                                    <label for="Female">No</label><br>
 
 
+                                </div>
+                            </div><!-- col-8 -->
+                            <div class="col-lg-6">
+                                <div class="form-group mg-b-10-force">
 
-                                <p>Gender : <i style="color: red; padding-left: 8px;" class="fas fa-check forverify forverify1"></i>
-                                </p>
 
+                                    <p>Breathing : <i style="color: red; padding-left: 8px;"
+                                                      class="fas fa-check forverify"></i></p>
 
-                                <input  type="radio" @if ($cus->show->gender2 == 'male') checked @endif name="gender" value="male" checked>
-                                <label for="Female">male</label><br>
-                                <input  type="radio" @if ($cus->show->gender2 == 'female') checked @endif name="gender" value="female">
-                                <label for="Female">female</label><br>
 
-                            </div>
-                        </div><!-- col-8 -->
-                        <div class="col-lg-6">
-                            <div class="form-group mg-b-10-force">
+                                    <input type="radio" @if ($cus->show->breathing == 'Yes') checked
+                                           @endif name="breathing" value="Yes" checked>
+                                    <label for="Female">Yes</label><br>
+                                    <input type="radio" @if ($cus->show->breathing == 'No') checked
+                                           @endif name="breathing" value="No">
+                                    <label for="Female">No</label><br>
 
+                                </div>
+                            </div><!-- col-8 -->
+                            <div class="col-lg-6">
+                                <div class="form-group mg-b-10-force">
 
 
-                                <p>Fever : <i style="color: red; padding-left: 8px;" class="fas fa-check forverify"></i>
-                                </p>
+                                    <p>Nausea : <i style="color: red; padding-left: 8px;"
+                                                   class="fas fa-check forverify"></i>
+                                    </p>
 
 
-                                <input  type="radio" @if ($cus->show->Fever == 'Yes') checked @endif name="Fever" value="Yes" checked>
-                                <label for="Female">Yes</label><br>
-                                <input  type="radio" @if ($cus->show->Fever == 'No') checked @endif name="Fever" value="No">
-                                <label for="Female">No</label><br>
+                                    <input type="radio" @if ($cus->show->Nausea == 'Yes') checked @endif name="Nausea"
+                                           value="Yes" checked>
+                                    <label for="Female">Yes</label><br>
+                                    <input type="radio" @if ($cus->show->Nausea == 'No') checked @endif name="Nausea"
+                                           value="No">
+                                    <label for="Female">No</label><br>
 
-                            </div>
-                        </div><!-- col-8 -->
-                        <div class="col-lg-6">
-                            <div class="form-group mg-b-10-force">
+                                </div>
+                            </div><!-- col-8 -->
 
-                                <p>Cough : <i style="color: red; padding-left: 8px;" class="fas fa-check forverify"></i>
-                                </p>
+                            <div class="col-lg-6">
+                                <div class="form-group mg-b-10-force">
 
 
-                                <input  type="radio" @if ($cus->show->Cough == 'Yes') checked @endif name="Cough" value="Yes" checked>
-                                <label for="Female">Yes</label><br>
-                                <input  type="radio" @if ($cus->show->Cough == 'No') checked @endif name="Cough" value="No">
-                                <label for="Female">No</label><br>
+                                    <p>Abdominal : <i style="color: red; padding-left: 8px;"
+                                                      class="fas fa-check forverify"></i></p>
 
-                            </div>
-                        </div><!-- col-8 -->
-                        <div class="col-lg-6">
-                            <div class="form-group mg-b-10-force">
 
+                                    <input type="radio" @if ($cus->show->Abdominal == 'Yes') checked
+                                           @endif name="Abdominal" value="Yes" checked>
+                                    <label for="Female">Yes</label><br>
+                                    <input type="radio" @if ($cus->show->Abdominal == 'No') checked
+                                           @endif name="Abdominal" value="No">
+                                    <label for="Female">No</label><br>
 
+                                </div>
+                            </div><!-- col-8 -->
 
-                                <p>Throat : <i style="color: red; padding-left: 8px;" class="fas fa-check forverify"></i>
-                                </p>
 
+                            <div class="col-lg-6">
+                                <div class="form-group mg-b-10-force">
 
-                                <input  type="radio" @if ($cus->show->Throat == 'Yes') checked @endif name="Throat" value="Yes" checked>
-                                <label for="Female">Yes</label><br>
-                                <input  type="radio" @if ($cus->show->Throat == 'No') checked @endif name="Throat" value="No">
-                                <label for="Female">No</label><br>
 
+                                    <p>Chills : <i style="color: red; padding-left: 8px;"
+                                                   class="fas fa-check forverify"></i>
+                                    </p>
 
-                            </div>
-                        </div><!-- col-8 -->
-                        <div class="col-lg-6">
-                            <div class="form-group mg-b-10-force">
 
+                                    <input type="radio" @if ($cus->show->Chills == 'Yes') checked @endif name="Chills"
+                                           value="Yes" checked>
+                                    <label for="Female">Yes</label><br>
+                                    <input type="radio" @if ($cus->show->Chills == 'No') checked @endif name="Chills"
+                                           value="No">
+                                    <label for="Female">No</label><br>
 
+                                </div>
+                            </div><!-- col-8 -->
+                            <div class="col-lg-6">
+                                <div class="form-group mg-b-10-force">
 
 
-                                <p>Breathing : <i style="color: red; padding-left: 8px;"
-                                        class="fas fa-check forverify"></i> </p>
+                                    <p>Headache : <i style="color: red; padding-left: 8px;"
+                                                     class="fas fa-check forverify"></i>
+                                    </p>
 
 
-                                <input  type="radio" @if ($cus->show->breathing == 'Yes') checked @endif name="breathing" value="Yes" checked>
-                                <label for="Female">Yes</label><br>
-                                <input  type="radio" @if ($cus->show->breathing == 'No') checked @endif name="breathing" value="No">
-                                <label for="Female">No</label><br>
+                                    <input type="radio" @if ($cus->show->Headache == 'Yes') checked
+                                           @endif name="Headache" value="Yes" checked>
+                                    <label for="Female">Yes</label><br>
+                                    <input type="radio" @if ($cus->show->Headache == 'No') checked
+                                           @endif name="Headache" value="No">
+                                    <label for="Female">No</label><br>
 
-                            </div>
-                        </div><!-- col-8 -->
-                        <div class="col-lg-6">
-                            <div class="form-group mg-b-10-force">
+                                </div>
+                            </div><!-- col-8 -->
 
+                            <div class="col-lg-6">
+                                <div class="form-group mg-b-10-force">
 
 
-                                <p>Nausea : <i style="color: red; padding-left: 8px;" class="fas fa-check forverify"></i>
-                                </p>
+                                    <p>Muscle : <i style="color: red; padding-left: 8px;"
+                                                   class="fas fa-check forverify"></i>
+                                    </p>
 
 
-                                <input  type="radio" @if ($cus->show->Nausea == 'Yes') checked @endif name="Nausea" value="Yes" checked>
-                                <label for="Female">Yes</label><br>
-                                <input  type="radio" @if ($cus->show->Nausea == 'No') checked @endif name="Nausea" value="No">
-                                <label for="Female">No</label><br>
+                                    <input type="radio" @if ($cus->show->Muscle == 'Yes') checked @endif name="Muscle"
+                                           value="Yes" checked>
+                                    <label for="Female">Yes</label><br>
+                                    <input type="radio" @if ($cus->show->Muscle == 'No') checked @endif name="Muscle"
+                                           value="No">
+                                    <label for="Female">No</label><br>
 
-                            </div>
-                        </div><!-- col-8 -->
+                                </div>
+                            </div><!-- col-8 -->
+                            <div class="col-lg-6">
+                                <div class="form-group mg-b-10-force">
 
-                        <div class="col-lg-6">
-                            <div class="form-group mg-b-10-force">
 
+                                    <p>Fatigue : <i style="color: red; padding-left: 8px;"
+                                                    class="fas fa-check forverify"></i>
+                                    </p>
 
 
-                                <p>Abdominal : <i style="color: red; padding-left: 8px;"
-                                        class="fas fa-check forverify"></i> </p>
+                                    <input type="radio" @if ($cus->show->Fatigue == 'Yes') checked @endif name="Fatigue"
+                                           value="Yes" checked>
+                                    <label for="Female">Yes</label><br>
+                                    <input type="radio" @if ($cus->show->Fatigue == 'No') checked @endif name="Fatigue"
+                                           value="No">
+                                    <label for="Female">No</label><br>
 
+                                </div>
+                            </div><!-- col-8 -->
+                            <div class="col-lg-6">
+                                <div class="form-group mg-b-10-force">
 
-                                <input  type="radio" @if ($cus->show->Abdominal == 'Yes') checked @endif name="Abdominal" value="Yes" checked>
-                                <label for="Female">Yes</label><br>
-                                <input  type="radio" @if ($cus->show->Abdominal == 'No') checked @endif name="Abdominal" value="No">
-                                <label for="Female">No</label><br>
 
-                            </div>
-                        </div><!-- col-8 -->
+                                    <p>Runny : <i style="color: red; padding-left: 8px;"
+                                                  class="fas fa-check forverify"></i>
+                                    </p>
 
 
-                        <div class="col-lg-6">
-                            <div class="form-group mg-b-10-force">
+                                    <input type="radio" @if ($cus->show->Runny == 'Yes') checked @endif name="Runny"
+                                           value="Yes" checked>
+                                    <label for="Female">Yes</label><br>
+                                    <input type="radio" @if ($cus->show->Runny == 'No') checked @endif name="Runny"
+                                           value="No">
+                                    <label for="Female">No</label><br>
 
+                                </div>
+                            </div><!-- col-8 -->
 
-                                <p>Chills : <i style="color: red; padding-left: 8px;" class="fas fa-check forverify"></i>
-                                </p>
+                            <div class="col-lg-6">
+                                <div class="form-group mg-b-10-force">
 
 
-                                <input  type="radio" @if ($cus->show->Chills == 'Yes') checked @endif name="Chills" value="Yes" checked>
-                                <label for="Female">Yes</label><br>
-                                <input  type="radio" @if ($cus->show->Chills == 'No') checked @endif name="Chills" value="No">
-                                <label for="Female">No</label><br>
+                                    <p>Vomiting : <i style="color: red; padding-left: 8px;"
+                                                     class="fas fa-check forverify"></i>
+                                    </p>
 
-                            </div>
-                        </div><!-- col-8 -->
-                        <div class="col-lg-6">
-                            <div class="form-group mg-b-10-force">
 
+                                    <input type="radio" @if ($cus->show->Vomiting == 'Yes') checked
+                                           @endif name="Vomiting" value="Yes" checked>
+                                    <label for="Female">Yes</label><br>
+                                    <input type="radio" @if ($cus->show->Vomiting == 'No') checked
+                                           @endif name="Vomiting" value="No">
+                                    <label for="Female">No</label><br>
 
+                                </div>
+                            </div><!-- col-8 -->
 
-                                <p>Headache : <i style="color: red; padding-left: 8px;" class="fas fa-check forverify"></i>
-                                </p>
+                            <div class="col-lg-6">
+                                <div class="form-group mg-b-10-force">
 
 
-                                <input  type="radio" @if ($cus->show->Headache == 'Yes') checked @endif name="Headache" value="Yes" checked>
-                                <label for="Female">Yes</label><br>
-                                <input  type="radio" @if ($cus->show->Headache == 'No') checked @endif name="Headache" value="No">
-                                <label for="Female">No</label><br>
+                                    <p>Diarrhea : <i style="color: red; padding-left: 8px;"
+                                                     class="fas fa-check forverify"></i>
+                                    </p>
 
-                            </div>
-                        </div><!-- col-8 -->
 
-                        <div class="col-lg-6">
-                            <div class="form-group mg-b-10-force">
+                                    <input type="radio" @if ($cus->show->Diarrhea == 'Yes') checked
+                                           @endif name="Diarrhea" value="Yes" checked>
+                                    <label for="Female">Yes</label><br>
+                                    <input type="radio" @if ($cus->show->Diarrhea == 'No') checked
+                                           @endif name="Diarrhea" value="No">
+                                    <label for="Female">No</label><br>
 
+                                </div>
+                            </div><!-- col-8 -->
 
-                                <p>Muscle : <i style="color: red; padding-left: 8px;" class="fas fa-check forverify"></i>
-                                </p>
+                            <div class="col-lg-6">
+                                <div class="form-group mg-b-10-force">
 
 
-                                <input  type="radio" @if ($cus->show->Muscle == 'Yes') checked @endif name="Muscle" value="Yes" checked>
-                                <label for="Female">Yes</label><br>
-                                <input  type="radio" @if ($cus->show->Muscle == 'No') checked @endif name="Muscle" value="No">
-                                <label for="Female">No</label><br>
+                                    <p>Loss_of_smell : <i style="color: red; padding-left: 8px;"
+                                                          class="fas fa-check forverify"></i></p>
 
-                            </div>
-                        </div><!-- col-8 -->
-                        <div class="col-lg-6">
-                            <div class="form-group mg-b-10-force">
 
+                                    <input type="radio" @if ($cus->show->Loss_of_smell == 'Yes') checked
+                                           @endif name="Loss_of_smell" value="Yes"
+                                           checked>
+                                    <label for="Female">Yes</label><br>
+                                    <input type="radio" @if ($cus->show->Loss_of_smell == 'No') checked
+                                           @endif name="Loss_of_smell" value="No">
+                                    <label for="Female">No</label><br>
 
+                                </div>
+                            </div><!-- col-8 -->
 
+                            <div class="col-lg-6">
+                                <div class="form-group mg-b-10-force">
 
-                                <p>Fatigue : <i style="color: red; padding-left: 8px;" class="fas fa-check forverify"></i>
-                                </p>
 
+                                    <p>Loss_of_taste : <i style="color: red; padding-left: 8px;"
+                                                          class="fas fa-check forverify"></i></p>
 
-                                <input  type="radio" @if ($cus->show->Fatigue == 'Yes') checked @endif name="Fatigue" value="Yes" checked>
-                                <label for="Female">Yes</label><br>
-                                <input  type="radio" @if ($cus->show->Fatigue == 'No') checked @endif name="Fatigue" value="No">
-                                <label for="Female">No</label><br>
 
-                            </div>
-                        </div><!-- col-8 -->
-                        <div class="col-lg-6">
-                            <div class="form-group mg-b-10-force">
+                                    <input type="radio" @if ($cus->show->Loss_of_taste == 'Yes') checked
+                                           @endif name="Loss_of_taste" value="Yes"
+                                           checked>
+                                    <label for="Female">Yes</label><br>
+                                    <input type="radio" @if ($cus->show->Loss_of_taste == 'No') checked
+                                           @endif name="Loss_of_taste" value="No">
+                                    <label for="Female">No</label><br>
 
 
+                                </div>
+                            </div><!-- col-8 -->
 
+                            <div class="col-lg-6">
+                                <div class="form-group mg-b-10-force">
 
-                                <p>Runny : <i style="color: red; padding-left: 8px;" class="fas fa-check forverify"></i>
-                                </p>
+                                    <p>Specify : <i style="color: red; padding-left: 8px;"
+                                                    class="fas fa-check forverify"></i>
+                                    </p>
+                                    <input type="text" value="{{ $cus->show->specify }}" name="specify"
+                                           class="form-control">
 
+                                </div>
+                            </div><!-- col-8 -->
+                            <div class="col-lg-6">
+                                <div class="form-group mg-b-10-force">
 
-                                <input  type="radio" @if ($cus->show->Runny == 'Yes') checked @endif name="Runny" value="Yes" checked>
-                                <label for="Female">Yes</label><br>
-                                <input  type="radio" @if ($cus->show->Runny == 'No') checked @endif name="Runny" value="No">
-                                <label for="Female">No</label><br>
+                                    <p>Symptoms : <i style="color: red; padding-left: 8px;"
+                                                     class="fas fa-check forverify"></i>
+                                    </p>
+                                    <input type="text" value="{{ $cus->show->symptoms }}" name="symptoms"
+                                           class="form-control">
 
-                            </div>
-                        </div><!-- col-8 -->
+                                </div>
+                            </div><!-- col-8 -->
 
-                        <div class="col-lg-6">
-                            <div class="form-group mg-b-10-force">
 
+                            <div class="col-lg-6">
+                                <div class="form-group mg-b-10-force">
 
+                                    <p>Select_the_test : <i style="color: red; padding-left: 8px;"
+                                                            class="fas fa-check forverify"></i></p>
+                                    <input type="radio" @if ($cus->show->Select_the_test == 'ANTIGEN') checked
+                                           @endif name="Select_the_test"
+                                           value="ANTIGEN" checked>
+                                    <label for="Female">PCR</label><br>
+                                    <input type="radio" @if ($cus->show->Select_the_test == 'PCR') checked
+                                           @endif name="Select_the_test" value="PCR">
+                                    <label for="Female">PCR</label><br>
 
-                                <p>Vomiting : <i style="color: red; padding-left: 8px;" class="fas fa-check forverify"></i>
-                                </p>
 
+                                    <input type="radio" @if ($cus->show->Select_the_test == 'RT-PCR') checked
+                                           @endif name="Select_the_test"
+                                           value="RT-PCR">
+                                    <label for="Female">RT-PCR</label><br>
 
-                                <input  type="radio" @if ($cus->show->Vomiting == 'Yes') checked @endif name="Vomiting" value="Yes" checked>
-                                <label for="Female">Yes</label><br>
-                                <input  type="radio" @if ($cus->show->Vomiting == 'No') checked @endif name="Vomiting" value="No">
-                                <label for="Female">No</label><br>
+                                    <input type="radio" @if ($cus->show->Select_the_test == 'PCR-24hm') checked
+                                           @endif name="Select_the_test"
+                                           value="PCR-24hm">
+                                    <label for="Female">PCR-24hm</label><br>
 
-                            </div>
-                        </div><!-- col-8 -->
+                                    <input type="radio" @if ($cus->show->Select_the_test == 'RT-PCR 24hrs') checked
+                                           @endif name="Select_the_test"
+                                           value="RT-PCR 24hrs">
+                                    <label for="Female">RT-PCR 24hrs</label><br>
 
-                        <div class="col-lg-6">
-                            <div class="form-group mg-b-10-force">
 
+                                </div>
+                            </div><!-- col-8 -->
 
-                                <p>Diarrhea : <i style="color: red; padding-left: 8px;" class="fas fa-check forverify"></i>
-                                </p>
+                            <div class="col-lg-6">
+                                <div class="form-group mg-b-10-force">
 
+                                    <p>Address : <i style="color: red; padding-left: 8px;"
+                                                    class="fas fa-check forverify"></i>
+                                    </p>
+                                    <input type="text" value="{{ $cus->show->address }}" name="address"
+                                           class="form-control">
 
-                                <input  type="radio" @if ($cus->show->Diarrhea == 'Yes') checked @endif name="Diarrhea" value="Yes" checked>
-                                <label for="Female">Yes</label><br>
-                                <input  type="radio" @if ($cus->show->Diarrhea == 'No') checked @endif name="Diarrhea" value="No">
-                                <label for="Female">No</label><br>
+                                </div>
+                            </div><!-- col-8 -->
+                            <div class="col-lg-6">
+                                <div class="form-group mg-b-10-force">
 
-                            </div>
-                        </div><!-- col-8 -->
+                                    <p>Address2 : <i style="color: red; padding-left: 8px;"
+                                                     class="fas fa-check forverify"></i>
+                                    </p>
+                                    <input type="text" value="{{ $cus->show->address2 }}" name="address2"
+                                           class="form-control">
 
-                        <div class="col-lg-6">
-                            <div class="form-group mg-b-10-force">
+                                </div>
+                            </div><!-- col-8 -->
+                            <div class="col-lg-6">
+                                <div class="form-group mg-b-10-force">
 
+                                    <p>Town: <i style="color: red; padding-left: 8px;"
+                                                class="fas fa-check forverify"></i></p>
+                                    <input type="text" value="{{ $cus->show->town }}" name="town"
+                                           class="form-control">
 
+                                </div>
+                            </div><!-- col-8 -->
 
-                                <p>Loss_of_smell : <i style="color: red; padding-left: 8px;"
-                                        class="fas fa-check forverify"></i> </p>
+                            <div class="col-lg-6">
+                                <div class="form-group mg-b-10-force">
 
+                                    <p>Zip : <i style="color: red; padding-left: 8px;"
+                                                class="fas fa-check forverify"></i></p>
+                                    <input type="text" value="{{ $cus->show->zip }}" name="zip" class="form-control">
 
-                                <input  type="radio" @if ($cus->show->Loss_of_smell == 'Yes') checked @endif name="Loss_of_smell" value="Yes"
-                                    checked>
-                                <label for="Female">Yes</label><br>
-                                <input  type="radio" @if ($cus->show->Loss_of_smell == 'No') checked @endif name="Loss_of_smell" value="No">
-                                <label for="Female">No</label><br>
+                                </div>
+                            </div><!-- col-8 -->
 
-                            </div>
-                        </div><!-- col-8 -->
+                            <div class="col-lg-6">
+                                <div class="form-group mg-b-10-force">
 
-                        <div class="col-lg-6">
-                            <div class="form-group mg-b-10-force">
+                                    <p>Province : <i style="color: red; padding-left: 8px;"
+                                                     class="fas fa-check forverify"></i>
+                                    </p>
+                                    <select name="Province" class="form-control">
 
+                                        @foreach ($state as $states)
 
 
-                                <p>Loss_of_taste : <i style="color: red; padding-left: 8px;"
-                                        class="fas fa-check forverify"></i> </p>
-
-
-                                <input  type="radio" @if ($cus->show->Loss_of_taste == 'Yes') checked @endif name="Loss_of_taste" value="Yes"
-                                    checked>
-                                <label for="Female">Yes</label><br>
-                                <input  type="radio" @if ($cus->show->Loss_of_taste == 'No') checked @endif name="Loss_of_taste" value="No">
-                                <label for="Female">No</label><br>
-
-
-                            </div>
-                        </div><!-- col-8 -->
-
-                        <div class="col-lg-6">
-                            <div class="form-group mg-b-10-force">
-
-                                <p>Specify : <i style="color: red; padding-left: 8px;" class="fas fa-check forverify"></i>
-                                </p>
-                                <input  type="text" value="{{ $cus->show->specify }}" name="specify"
-                                    class="form-control">
-
-                            </div>
-                        </div><!-- col-8 -->
-                        <div class="col-lg-6">
-                            <div class="form-group mg-b-10-force">
-
-                                <p>Symptoms : <i style="color: red; padding-left: 8px;" class="fas fa-check forverify"></i>
-                                </p>
-                                <input  type="text" value="{{ $cus->show->symptoms }}" name="symptoms"
-                                    class="form-control">
-
-                            </div>
-                        </div><!-- col-8 -->
-
-
-
-                        <div class="col-lg-6">
-                            <div class="form-group mg-b-10-force">
-
-                                <p>Select_the_test : <i style="color: red; padding-left: 8px;"
-                                        class="fas fa-check forverify"></i> </p>
-                                <input  type="radio" @if ($cus->show->Select_the_test == 'ANTIGEN') checked @endif name="Select_the_test"
-                                    value="ANTIGEN" checked>
-                                <label for="Female">PCR</label><br>
-                                <input  type="radio" @if ($cus->show->Select_the_test == 'PCR') checked @endif name="Select_the_test" value="PCR">
-                                <label for="Female">PCR</label><br>
-
-
-
-
-                                <input  type="radio" @if ($cus->show->Select_the_test == 'RT-PCR') checked @endif name="Select_the_test"
-                                    value="RT-PCR">
-                                <label for="Female">RT-PCR</label><br>
-
-                                <input  type="radio" @if ($cus->show->Select_the_test == 'PCR-24hm') checked @endif name="Select_the_test"
-                                    value="PCR-24hm">
-                                <label for="Female">PCR-24hm</label><br>
-
-                                <input  type="radio" @if ($cus->show->Select_the_test == 'RT-PCR 24hrs') checked @endif name="Select_the_test"
-                                    value="RT-PCR 24hrs">
-                                <label for="Female">RT-PCR 24hrs</label><br>
-
-
-
-                            </div>
-                        </div><!-- col-8 -->
-
-                        <div class="col-lg-6">
-                            <div class="form-group mg-b-10-force">
-
-                                <p>Address : <i style="color: red; padding-left: 8px;" class="fas fa-check forverify"></i>
-                                </p>
-                                <input  type="text" value="{{ $cus->show->address }}" name="address"
-                                    class="form-control">
-
-                            </div>
-                        </div><!-- col-8 -->
-                        <div class="col-lg-6">
-                            <div class="form-group mg-b-10-force">
-
-                                <p>Address2 : <i style="color: red; padding-left: 8px;" class="fas fa-check forverify"></i>
-                                </p>
-                                <input  type="text" value="{{ $cus->show->address2 }}" name="address2"
-                                    class="form-control">
-
-                            </div>
-                        </div><!-- col-8 -->
-                        <div class="col-lg-6">
-                            <div class="form-group mg-b-10-force">
-
-                                <p>Town: <i style="color: red; padding-left: 8px;" class="fas fa-check forverify"></i> </p>
-                                <input  type="text" value="{{ $cus->show->town }}" name="town"
-                                    class="form-control">
-
-                            </div>
-                        </div><!-- col-8 -->
-
-                        <div class="col-lg-6">
-                            <div class="form-group mg-b-10-force">
-
-                                <p>Zip : <i style="color: red; padding-left: 8px;" class="fas fa-check forverify"></i> </p>
-                                <input type="text" value="{{ $cus->show->zip }}" name="zip" class="form-control">
-
-                            </div>
-                        </div><!-- col-8 -->
-
-                        <div class="col-lg-6">
-                            <div class="form-group mg-b-10-force">
-
-                                <p>Province : <i style="color: red; padding-left: 8px;" class="fas fa-check forverify"></i>
-                                </p>
-                                <select  name="Province" class="form-control">
-
-                                    @foreach ($state as $states)
-
-
-                                        <option value="{{ $states->name }}" @if ($cus->show->Province == $states->name) selected @endif>
-                                            {{ $states->name }}
-                                        </option>
-                                    @endforeach
-                                </select>
-
-                            </div>
-                        </div><!-- col-8 -->
-
-                        <div class="col-lg-6">
-                            <div class="form-group mg-b-10-force">
-
-                                <p>Country : <i style="color: red; padding-left: 8px;" class="fas fa-check forverify"></i>
-                                </p>
-                                <select  name="Country" class="form-control">
-                                    <select  name="Country" required class="form-control">
-
-                                        @foreach ($Country as $Country)
-
-
-                                            <option value="{{ $Country->name }}" @if ($cus->show->Country == $Country->name) selected @endif>
-                                                {{ $Country->name }}</option>
+                                            <option value="{{ $states->name }}"
+                                                    @if ($cus->show->Province == $states->name) selected @endif>
+                                                {{ $states->name }}
+                                            </option>
                                         @endforeach
                                     </select>
 
+                                </div>
+                            </div><!-- col-8 -->
 
-                                </select>
+                            <div class="col-lg-6">
+                                <div class="form-group mg-b-10-force">
 
-                            </div>
-                        </div><!-- col-8 -->
+                                    <p>Country : <i style="color: red; padding-left: 8px;"
+                                                    class="fas fa-check forverify"></i>
+                                    </p>
+                                    <select name="Country" class="form-control">
+                                        <select name="Country" required class="form-control">
 
-                        <div class="col-lg-6">
-                            <div class="form-group mg-b-10-force">
-
-                                <p>Email: <i style="color: red; padding-left: 8px;" class="fas fa-check forverify"></i>
-                                </p>
-                                <input  type="email" value="{{ $cus->show->email }}" name="email"
-                                    class="form-control">
-
-                            </div>
-                        </div><!-- col-8 -->
-                        <div class="col-lg-6">
-                            <div class="form-group mg-b-10-force">
-
-                                <p>Parent Name: <i style="color: red; padding-left: 8px;"
-                                        class="fas fa-check forverify"></i> </p>
-                                <input  type="text" value="{{ $cus->show->Parent_name }}" name="Parent_name"
-                                    class="form-control">
-
-                            </div>
-                        </div><!-- col-8 -->
-
-                        <div class="col-lg-6">
-                            <div class="form-group mg-b-10-force">
-
-                                <p>Parent_second Name: <i style="color: red; padding-left: 8px;"
-                                        class="fas fa-check forverify"></i> </p>
-                                <input  type="text" value="{{ $cus->show->Parent_secondname }}"
-                                    name="Parent_secondname" class="form-control">
-
-                            </div>
-                        </div><!-- col-8 -->
-
-                        <div class="col-lg-6">
-                            <div class="form-group mg-b-10-force">
-
-                                <p>Parent_Surname : <i style="color: red; padding-left: 8px;"
-                                        class="fas fa-check forverify"></i> </p>
-                                <input  type="text" value="{{ $cus->show->Parent_surname }}"
-                                    name="Parent_surname" class="form-control">
-
-                            </div>
-                        </div><!-- col-8 -->
-
-                        <div class="col-lg-6">
-                            <div class="form-group mg-b-10-force">
-
-                                <p>Parent_phone : <i style="color: red; padding-left: 8px;"
-                                        class="fas fa-check forverify"></i> </p>
-                                <input  type="text" value="{{ $cus->show->Parent_phone }}" name="Parent_phone"
-                                    class="form-control">
-
-                            </div>
-                        </div><!-- col-8 -->
-
-                        <div class="col-lg-6">
-                            <div class="form-group mg-b-10-force">
-
-                                <p>Parent_phone : <i style="color: red; padding-left: 8px;"
-                                        class="fas fa-check forverify"></i> </p>
-                                <input  type="date" value="{{ $cus->show->Parent_dob }}" name="Parent_dob"
-                                    class="form-control">
-
-                            </div>
-                        </div><!-- col-8 -->
+                                            @foreach ($Country as $Country)
 
 
-                        <div class="col-lg-6">
-                            <div class="form-group mg-b-10-force">
-
-                                <p>How did you hear about us? <i style="color: red; padding-left: 8px;"
-                                        class="fas fa-check forverify"></i> </p>
-                                <input  type="radio" @if ($cus->show->gender == 'Friends') checked @endif name="gender2" value="Friends"
-                                    checked>
-                                <label for="Female">Friends</label><br>
-
-                                <input  type="radio" @if ($cus->show->gender == 'Airline Staff') checked @endif name="gender2" value="Airline Staff">
-                                <label for="Female">Airline Staff</label><br>
-
-                                <input  type="radio" @if ($cus->show->gender == 'Airport Advertisement') checked @endif name="gender2"
-                                    value="Airport Advertisement">
-                                <label for="Female">Airport Advertisement</label><br>
-
-                                <input  type="radio" @if ($cus->show->gender == 'Google') checked @endif name="gender2" value="Google">
-                                <label for="Female">Google</label><br>
-
-                                <input  type="radio" @if ($cus->show->gender == 'Other') checked @endif name="gender2" value="Other">
-                                <label for="Female">Other</label><br>
+                                                <option value="{{ $Country->name }}"
+                                                        @if ($cus->show->Country == $Country->name) selected @endif>
+                                                    {{ $Country->name }}</option>
+                                            @endforeach
+                                        </select>
 
 
+                                    </select>
+
+                                </div>
+                            </div><!-- col-8 -->
+
+                            <div class="col-lg-6">
+                                <div class="form-group mg-b-10-force">
+
+                                    <p>Email: <i style="color: red; padding-left: 8px;"
+                                                 class="fas fa-check forverify"></i>
+                                    </p>
+                                    <input type="email" value="{{ $cus->show->email }}" name="email"
+                                           class="form-control">
+
+                                </div>
+                            </div><!-- col-8 -->
+                            <div class="col-lg-6">
+                                <div class="form-group mg-b-10-force">
+
+                                    <p>Parent Name: <i style="color: red; padding-left: 8px;"
+                                                       class="fas fa-check forverify"></i></p>
+                                    <input type="text" value="{{ $cus->show->Parent_name }}" name="Parent_name"
+                                           class="form-control">
+
+                                </div>
+                            </div><!-- col-8 -->
+
+                            <div class="col-lg-6">
+                                <div class="form-group mg-b-10-force">
+
+                                    <p>Parent_second Name: <i style="color: red; padding-left: 8px;"
+                                                              class="fas fa-check forverify"></i></p>
+                                    <input type="text" value="{{ $cus->show->Parent_secondname }}"
+                                           name="Parent_secondname" class="form-control">
+
+                                </div>
+                            </div><!-- col-8 -->
+
+                            <div class="col-lg-6">
+                                <div class="form-group mg-b-10-force">
+
+                                    <p>Parent_Surname : <i style="color: red; padding-left: 8px;"
+                                                           class="fas fa-check forverify"></i></p>
+                                    <input type="text" value="{{ $cus->show->Parent_surname }}"
+                                           name="Parent_surname" class="form-control">
+
+                                </div>
+                            </div><!-- col-8 -->
+
+                            <div class="col-lg-6">
+                                <div class="form-group mg-b-10-force">
+
+                                    <p>Parent_phone : <i style="color: red; padding-left: 8px;"
+                                                         class="fas fa-check forverify"></i></p>
+                                    <input type="text" value="{{ $cus->show->Parent_phone }}" name="Parent_phone"
+                                           class="form-control">
+
+                                </div>
+                            </div><!-- col-8 -->
+
+                            <div class="col-lg-6">
+                                <div class="form-group mg-b-10-force">
+
+                                    <p>Parent_phone : <i style="color: red; padding-left: 8px;"
+                                                         class="fas fa-check forverify"></i></p>
+                                    <input type="date" value="{{ $cus->show->Parent_dob }}" name="Parent_dob"
+                                           class="form-control">
+
+                                </div>
+                            </div><!-- col-8 -->
 
 
+                            <div class="col-lg-6">
+                                <div class="form-group mg-b-10-force">
+
+                                    <p>How did you hear about us? <i style="color: red; padding-left: 8px;"
+                                                                     class="fas fa-check forverify"></i></p>
+                                    <input type="radio" @if ($cus->show->gender == 'Friends') checked
+                                           @endif name="gender2" value="Friends"
+                                           checked>
+                                    <label for="Female">Friends</label><br>
+
+                                    <input type="radio" @if ($cus->show->gender == 'Airline Staff') checked
+                                           @endif name="gender2" value="Airline Staff">
+                                    <label for="Female">Airline Staff</label><br>
+
+                                    <input type="radio" @if ($cus->show->gender == 'Airport Advertisement') checked
+                                           @endif name="gender2"
+                                           value="Airport Advertisement">
+                                    <label for="Female">Airport Advertisement</label><br>
+
+                                    <input type="radio" @if ($cus->show->gender == 'Google') checked
+                                           @endif name="gender2" value="Google">
+                                    <label for="Female">Google</label><br>
+
+                                    <input type="radio" @if ($cus->show->gender == 'Other') checked
+                                           @endif name="gender2" value="Other">
+                                    <label for="Female">Other</label><br>
 
 
+                                </div>
+                            </div><!-- col-8 -->
 
 
-                            </div>
-                        </div><!-- col-8 -->
+                            <input type="hidden" name="id" value="{{ $cus->show->id }}" id="">
 
+                        </div><!-- row -->
 
-
-
-
-
-                        <input  type="hidden" name="id" value="{{ $cus->show->id }}" id="">
-
-                    </div><!-- row -->
-
-                    <div class="form-layout-footer">
-                        <input type="submit" class="btn btn-info Verify" disabled value="Submit" name="" id="">
-                    </div><!-- form-layout-footer -->
-
-
+                        <div class="form-layout-footer">
+                            <input type="submit" class="btn btn-info Verify" disabled value="Submit" name="" id="">
+                        </div><!-- form-layout-footer -->
 
 
             </div><!-- form-layout -->
@@ -1201,10 +1267,6 @@
             @endif
 
 
-
-
-
-
         </div><!-- br-section-wrapper -->
     </div><!-- br-pagebody -->
     @include('admin.layouts.footer')
@@ -1213,32 +1275,30 @@
 
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script>
-        $(document).ready(function() {
+        $(document).ready(function () {
 
-            $(".forverify").click(function() {
+            $(".forverify").click(function () {
                 $(this).css('color', 'green');
 
                 $(this).removeClass("forverify");
                 $(this).removeClass("forverify1");
 
 
-
                 var length = $('.forverify1').length;
                 // alert(length)
                 if (length == 0) {
-                    $('.Verify').prop("disabled", false);;
+                    $('.Verify').prop("disabled", false);
+                    ;
 
 
-                }
-                else
-                {
-                    $('.Verify').prop("disabled", true);;
+                } else {
+                    $('.Verify').prop("disabled", true);
+                    ;
 
                 }
                 // alert(length);
-
 
 
             });
