@@ -608,7 +608,9 @@
                 </form>
 
 
-            @else
+
+
+                @else
                 <form method="POST" action="{{ url('' . $role . '/customer/update_minor') }}">
                     @csrf
                     @if (session()->has('success'))

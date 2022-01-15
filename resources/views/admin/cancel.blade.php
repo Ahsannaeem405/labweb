@@ -46,7 +46,7 @@
         <div class="br-pagebody">
             @include('partials.component')
             <div class="br-section-wrapper table-responsive">
-                <h6 class="tx-gray-800 tx-uppercase tx-bold tx-14 mg-b-10">View Canceled Invoices</h6>
+                <h6 class="tx-gray-800 tx-uppercase tx-bold tx-14 mg-b-10">View Canceled Orders</h6>
 
                 <div class="" style="width: 100%;
                         overflow: auto;    overflow-y: hidden!important;">

@@ -1094,7 +1094,7 @@
         });
 
         $(".continue").click(function() {
-            $(this).css('display', 'none');
+           // $(this).css('display', 'none');
             $('.maindata').css('display', 'block');
 
 
