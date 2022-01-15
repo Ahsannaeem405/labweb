@@ -70,8 +70,8 @@
                                                                                  class="fas fa-check forverify "></i>
                                             </label>
                                             <input class="form-control" type="text"
-                                                   value="{{ $cus->show->secondname }}" name="secondname" required
-                                                   value=""
+                                                   value="{{ $cus->show->secondname }}" name="secondname"
+
                                                    required placeholder="Secondname ">
                                         </div>
                                     </div><!-- col-4 -->
@@ -661,7 +661,7 @@
                                             style="color: red; padding-left: 8px;"
                                             class="fas fa-check forverify "></i> </label>
                                     <input class="form-control" type="text" value="{{ $cus->show->secondname }}"
-                                           name="secondname" required value="" required placeholder="Secondname ">
+                                           name="secondname"   required placeholder="Secondname ">
                                 </div>
                             </div><!-- col-4 -->
 
