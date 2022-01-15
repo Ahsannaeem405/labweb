@@ -661,7 +661,7 @@
                                             style="color: red; padding-left: 8px;"
                                             class="fas fa-check forverify "></i> </label>
                                     <input class="form-control" type="text" value="{{ $cus->show->secondname }}"
-                                           name="secondname"    placeholder="Secondname ">
+                                           name="secondname"   placeholder="Secondname ">
                                 </div>
                             </div><!-- col-4 -->
 

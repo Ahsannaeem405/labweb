@@ -65,9 +65,9 @@
                             </div><!-- col-4 -->
                             <div class="col-lg-6">
                                 <div class="form-group mg-b-10-force">
-                                    <label class="form-control-label">Mail Address: <span
+                                    <label class="form-control-label"> Address: <span
                                             class="tx-danger">*</span></label>
-                                    <input class="form-control" type="text" name="address" id="address" value="" required
+                                    <input class="form-control" type="text" name="address"  value="" required
                                         placeholder="Enter Address">
                                 </div>
                             </div><!-- col-8 -->
