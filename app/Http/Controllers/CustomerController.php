@@ -523,7 +523,8 @@ $customer = Customer::find($cus_detail->customer_id);
                 $cus->save();
 
             }
-            return back()->with('success','Order created successfully');
+            $role=Auth::user()->role;
+            return redirect("$role/create/order/customer/$customer->id")->with('success','Order created successfully');
         }
         else{
            return back()->with('error','Please select Test to create order.');

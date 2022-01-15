@@ -158,11 +158,14 @@
                             @foreach($document as $documents)
                               <div class="w-100 p-1 m-1" style="background-color: #9595e8">   <span class="mt-1" style="color: white">{{$documents->path}}</span>
 
+                              <a href="{{asset("uploads/stock/$documents->path")}}" target="_blank">     <span class="p-1"  style="color: white;float: right"><i class="fa fa-search"></i></span>
+                              </a>
                                   <a href="{{url("$role/delete/document/$documents->id")}}" onclick="return confirm('Are you sure you want to delete this item?');" ><span class="p-1"  style="color: white;float: right;color: red"><i class="fa fa-trash"></i></span></a>
-                           <a href="{{asset("uploads/stock/$documents->path")}}" download> <span class="p-1"  style="color: white;float: right">download</span> </a>
+                           <a href="{{asset("uploads/stock/$documents->path")}}" download> <span class="p-1"  style="color: white;float: right">download</span>  </a>
 
 
                               </div>
+                                
                             @endforeach
 
                             <form class="w-100" action="{{url("$role/upload/document/$cus->id")}}" method="post" enctype="multipart/form-data">

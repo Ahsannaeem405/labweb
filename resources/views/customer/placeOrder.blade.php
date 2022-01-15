@@ -163,17 +163,7 @@
 
 
 
-                    <div class="col-lg-4 col-md-6 col-12 pt-3">
-                        <div class="row border_div m-2 p-2">
-                            <div class="col-10">
-                                <p>PCR</p>
-                                <b>$ 168</b>
-                            </div>
-                            <div class="col-2 pt-1">
-                                <input type="checkbox" name="choice[]" value="PCR">
-                            </div>
-                        </div>
-                    </div>
+
                     <div class="col-12 pt-3 text-right">
                         <button class="btn btn-secondary">Cancel</button>
                         <button class="btn btn-primary">Submit</button>

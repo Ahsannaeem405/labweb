@@ -67,8 +67,8 @@
                                         <div class="form-group">
                                             <label class="form-control-label">Second Name:
                                                 <span
-                                                    class="tx-danger">*</span> <i style="color: red; padding-left: 8px;"
-                                                                                 class="fas fa-check forverify forverify1"></i>
+                                                    class="tx-danger"></span> <i style="color: red; padding-left: 8px;"
+                                                                                 class="fas fa-check forverify "></i>
                                             </label>
                                             <input class="form-control" type="text"
                                                    value="{{ $cus->show->secondname }}" name="secondname" required
@@ -81,8 +81,8 @@
                                     <div class="col-lg-6">
                                         <div class="form-group mg-b-10-force">
                                             <label class="form-control-label"> Surname : <span
-                                                    class="tx-danger"></span><i style="color: red; padding-left: 8px;"
-                                                                                 class="fas fa-check forverify"></i>
+                                                    class="tx-danger">*</span><i style="color: red; padding-left: 8px;"
+                                                                                 class="fas fa-check forverify forverify1"></i>
                                             </label>
                                             <input class="form-control" type="text"
                                                    value="{{ $cus->show->surname }}" name="surname" required
@@ -658,9 +658,9 @@
                             <div class="col-lg-6">
                                 <div class="form-group">
                                     <label class="form-control-label">Second Name: <span
-                                            class="tx-danger">*</span><i
+                                            class="tx-danger"></span><i
                                             style="color: red; padding-left: 8px;"
-                                            class="fas fa-check forverify forverify1"></i> </label>
+                                            class="fas fa-check forverify "></i> </label>
                                     <input class="form-control" type="text" value="{{ $cus->show->secondname }}"
                                            name="secondname" required value="" required placeholder="Secondname ">
                                 </div>
@@ -669,8 +669,8 @@
 
                             <div class="col-lg-6">
                                 <div class="form-group mg-b-10-force">
-                                    <label class="form-control-label"> Surname : <span class="tx-danger"></span><i
-                                            style="color: red; padding-left: 8px;" class="fas fa-check forverify"></i>
+                                    <label class="form-control-label"> Surname : <span class="tx-danger">*</span><i
+                                            style="color: red; padding-left: 8px;" class="fas fa-check forverify forverify1"></i>
                                     </label>
                                     <input class="form-control" type="text" value="{{ $cus->show->surname }}"
                                            name="surname" required placeholder="Enter surname ">

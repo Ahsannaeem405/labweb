@@ -165,7 +165,7 @@
         <div class="row p-3">
             <div class="col-lg-6  col-12 pt-5 text-right">
                 <img src="{{ asset('assets/images/header.png') }}" class="img-logo"
-                    style="width: 150%; margin-bottom: 5%;" alt="">
+                    style="width: 100%; margin-bottom: 5%;" alt="">
             </div>
 
 
