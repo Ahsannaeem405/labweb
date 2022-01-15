@@ -38,9 +38,7 @@
                 <div class="form-layout form-layout-1">
                     @php $role=\Illuminate\Support\Facades\Auth::user()->role; @endphp
 
-                    @if ($cus->added_by != null)
 
-                    @else
                         @if ($cus->show->type == 'adult')
                             <form method="POST" action="{{ url('' . $role . '/customer/update_adult') }}">
                                 @csrf
@@ -474,10 +472,10 @@
                                                    value="RT-PCR">
                                             <label for="Female">RT-PCR</label><br>
 
-                                            <input type="radio" @if ($cus->show->Select_the_test == 'PCR-24hm') checked
+                                            <input type="radio" @if ($cus->show->Select_the_test == 'PCR-24hrs') checked
                                                    @endif name="Select_the_test"
-                                                   value="PCR-24hm">
-                                            <label for="Female">PCR-24hm</label><br>
+                                                   value="PCR-24hrs">
+                                            <label for="Female">PCR-24hrs</label><br>
 
                                             <input type="radio"
                                                    @if ($cus->show->Select_the_test == 'RT-PCR 24hrs') checked
@@ -1050,10 +1048,10 @@
                                            value="RT-PCR">
                                     <label for="Female">RT-PCR</label><br>
 
-                                    <input type="radio" @if ($cus->show->Select_the_test == 'PCR-24hm') checked
+                                    <input type="radio" @if ($cus->show->Select_the_test == 'PCR-24hrs') checked
                                            @endif name="Select_the_test"
-                                           value="PCR-24hm">
-                                    <label for="Female">PCR-24hm</label><br>
+                                           value="PCR-24hrs">
+                                    <label for="Female">PCR-24hrs</label><br>
 
                                     <input type="radio" @if ($cus->show->Select_the_test == 'RT-PCR 24hrs') checked
                                            @endif name="Select_the_test"
@@ -1116,9 +1114,13 @@
                                     <select name="Province" class="form-control">
 
                                         @foreach ($state as $states)
+                                            <option value="{{ $states->name }}"
+                                                    @if ($cus->show->Province == $states->name) selected @endif>
+                                                {{ $states->name }}</option>
+                                            @endforeach
 
 
-<<<<<<< HEAD
+
                             </div>
                         </div><!-- col-8 -->
 
@@ -1142,9 +1144,9 @@
                                     value="RT-PCR">
                                 <label for="Female">RT-PCR</label><br>
 
-                                <input  type="radio" @if ($cus->show->Select_the_test == 'PCR-24hm') checked @endif name="Select_the_test"
-                                    value="PCR-24hm">
-                                <label for="Female">PCR-24hm</label><br>
+                                <input  type="radio" @if ($cus->show->Select_the_test == 'PCR-24hrs') checked @endif name="Select_the_test"
+                                    value="PCR-24hrs">
+                                <label for="Female">PCR-24hrs</label><br>
 
                                 <input  type="radio" @if ($cus->show->Select_the_test == 'RT-PCR 24hrs') checked @endif name="Select_the_test"
                                     value="RT-PCR 24hrs">
@@ -1224,19 +1226,13 @@
 
                                             <option value="{{ $Country->name }}" @if ($cus->show->Country == $Country->name) selected @endif>
                                                 {{ $Country->name }}</option>
-=======
-                                            <option value="{{ $states->name }}"
-                                                    @if ($cus->show->Province == $states->name) selected @endif>
-                                                {{ $states->name }}
-                                            </option>
->>>>>>> ff6051f7e5433eff37ac26d3bad3eb2238392f9f
+
                                         @endforeach
                                     </select>
 
                                 </div>
                             </div><!-- col-8 -->
 
-<<<<<<< HEAD
 
                             </div>
                         </div><!-- col-8 -->
@@ -1248,10 +1244,8 @@
                                 </p>
                                 <input  type="email" value="{{ $cus->show->email }}" name="email"
                                     class="form-control">
-=======
                             <div class="col-lg-6">
                                 <div class="form-group mg-b-10-force">
->>>>>>> ff6051f7e5433eff37ac26d3bad3eb2238392f9f
 
                                     <p>Country : <i style="color: red; padding-left: 8px;"
                                                     class="fas fa-check forverify"></i>
@@ -1386,8 +1380,6 @@
             </form>
             @endif
 
-
-            @endif
 
 
         </div><!-- br-section-wrapper -->
