@@ -1,5 +1,6 @@
-<!doctype html>
-<html lang="en">
+<!doctype html >
+
+<html>
 
 <head>
     <!-- Required meta tags -->
@@ -153,8 +154,8 @@
                 <i class="fas fa-globe"></i>
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="{{ url('/language/{en}') }}">English</a>
-                <a class="dropdown-item" href="#">Spanish</a>
+                <a class="dropdown-item" href="{{ url('/language/en') }}">English</a>
+                <a class="dropdown-item" href="{{ url('/language/sp') }}">Spanish</a>
 
             </div>
         </div>
@@ -164,7 +165,7 @@
         <div class="row p-3">
             <div class="col-lg-6  col-12 pt-5 text-right">
                 <img src="{{ asset('assets/images/header.png') }}" class="img-logo"
-                    style="width: 150%; margin-bottom: 5%;" alt="">
+                    style="width: 100%; margin-bottom: 5%;" alt="">
             </div>
 
 
@@ -1093,7 +1094,7 @@
         });
 
         $(".continue").click(function() {
-            $(this).css('display', 'none');
+           // $(this).css('display', 'none');
             $('.maindata').css('display', 'block');
 
 
@@ -1289,9 +1290,9 @@
                 $('input[name=SingsLinka]').val(signurl);
                 // $('.sig-imagea').empty();
 
-                $('.sig-imagea').empty();
-                $("img[name=sig-imagea]").empty();
-                $("img[name=sig-imagea]").attr('src', signurl);
+               // $('.sig-imagea').empty();
+                $("img[name=sig-imagea]").empty().attr('src', signurl);
+
 
 
 
@@ -1344,21 +1345,21 @@
     </script>
 
     {{-- minratt --}}
-    <script>
-        $(document).ready(function() {
+{{--    <script>--}}
+{{--        $(document).ready(function() {--}}
 
-            $(document).on('click', '.minororad_btn', function() {
+{{--            $(document).on('click', '.minororad_btn', function() {--}}
 
-                var minoratt = $(this).attr('att');
-                $('.minratt').empty();
-                $('.minratt').val(minoratt);
+{{--                var minoratt = $(this).attr('att');--}}
+{{--                $('.minratt').empty();--}}
+{{--                $('.minratt').val(minoratt);--}}
 
-            });
+{{--            });--}}
 
 
 
-        });
-    </script>
+{{--        });--}}
+{{--    </script>--}}
 
 
 </body>

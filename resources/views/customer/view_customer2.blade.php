@@ -126,8 +126,16 @@
                                                 <select class="form-control" name="test_type" required>
                                                     <option selected value="">Please select</option>
                                                     <option value="PCR">PCR</option>
-                                                    <option value="RT-PCR">RT-PCR</option>
-                                                    <option value="PCR-24hm">PCR-24hm</option>
+                                                    <option value="Antigen-BinaxNow">Antigen-BinaxNow</option>
+                                                    <option value="Antibody">Antibody</option>
+                                                    <option value="RT-PCR - Abbot Id Now">RT-PCR - Abbot Id Now</option>
+                                                    <option value="Antigen -Verito Plus">Antigen -Verito Plus</option>
+                                                    <option value="PCR -24Hrs">PCR -24Hrs</option>
+                                                    <option value="RT-PCR 24 HRS -ABBOT ID NOW">RT-PCR 24 HRS -ABBOT ID NOW</option>
+                                                    <option value="Antigen-CareStart">Antigen-CareStart</option>
+                                                    <option value="RT-PCR -Accula">RT-PCR -Accula</option>
+                                                    <option value="Antigen-Sienna">Antigen-Sienna</option>
+
                                                 </select>
 
 
@@ -178,7 +186,7 @@
             $('.cust').click(function(){
                 var id =  $(this).attr('attrr');
                 var rolee =  $(this).attr('rolee');
-                var url = '/'+rolee+'/create/order/customer/'+id;
+                var url = '/public/'+rolee+'/create/order/customer/'+id;
                 $(location).attr('href',url);
 
             });

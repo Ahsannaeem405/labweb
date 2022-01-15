@@ -24,7 +24,7 @@
 
     <div class="row" style="padding-top: 6px;margin-top: 23px;">
         <div class="col-md-12">
-            <canvas id="sig-canvas2" style="width:100%">
+            <canvas id="sig-canvas2" width="420" height="160">
                 Get a better browser, bro.
             </canvas>
         </div>

@@ -23,6 +23,8 @@
     <!-- ########## START: MAIN PANEL ########## -->
     <div class="br-mainpanel">
         <div class="pd-30">
+            @include('partials.component')
+
             <div class="row">
                 <div class="col-12 pt-2">
                     <a href="{{url("$role/customers")}}"><i class="fas fa-chevron-left"></i> Back to Customer List</a>
@@ -90,7 +92,8 @@
                                 @endif                            </div>
                             <div class="col-lg-2 col-md-4 col-4 pt-2">
 {{--                                <a href="#" class="a_tag" style="color: green">Checkout</a>--}}
-                                <a href="#" class="a_tag" style="color: blue;text-decoration: underline">Cancel</a>
+                                @if($orders->display_status==null )    <a  disabled  onclick="return confirm('Are you sure you want to delete this item?');" href="{{url("$role/order/cancel/$orders->id")}}" class="a_tag" style="color: blue;text-decoration: underline">Cancel</a>
+                                @endif
                             </div>
                             <div class="col-lg-2 col-md-2 col-2 pt-2">
 {{--                                <a href="#" class="a_tag" style="color: gray"><i--}}
@@ -111,7 +114,7 @@
                                 <h5>Invoices</h5>
                             </div>
                             @foreach($order as $orders)
-@if($orders->step>2)
+@if($orders->step>1 && $orders->display_status!='Canceled')
                             <div class="col-lg-4 col-md-6 col-6 pt-2">
                               <span>#{{$orders->id}}</span> <span> - </span>
                               <span><i class="fas fa-calendar-minus"></i> {{$orders->payment_date}}</span>
@@ -145,7 +148,6 @@
                 </div>
                 <div class="col-lg-4 col-12">
 
-                    @include('partials.component')
 
                     <div class="card bd-0 shadow-base p-3">
                         <div class="row">
@@ -156,11 +158,14 @@
                             @foreach($document as $documents)
                               <div class="w-100 p-1 m-1" style="background-color: #9595e8">   <span class="mt-1" style="color: white">{{$documents->path}}</span>
 
+                              <a href="{{asset("uploads/stock/$documents->path")}}" target="_blank">     <span class="p-1"  style="color: white;float: right"><i class="fa fa-search"></i></span>
+                              </a>
                                   <a href="{{url("$role/delete/document/$documents->id")}}" onclick="return confirm('Are you sure you want to delete this item?');" ><span class="p-1"  style="color: white;float: right;color: red"><i class="fa fa-trash"></i></span></a>
-                           <a href="{{asset("uploads/stock/$documents->path")}}" download> <span class="p-1"  style="color: white;float: right">download</span> </a>
+                           <a href="{{asset("uploads/stock/$documents->path")}}" download> <span class="p-1"  style="color: white;float: right">download</span>  </a>
 
 
                               </div>
+                                
                             @endforeach
 
                             <form class="w-100" action="{{url("$role/upload/document/$cus->id")}}" method="post" enctype="multipart/form-data">

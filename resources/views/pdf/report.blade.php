@@ -119,7 +119,7 @@
 
           <tr>
             <td colspan="2"><span class="t_p"><span class="txt_bold">Specimen Type:</span> Nasopharyngeal Swab</span></td>
-            <td><span class="t_p"><span class="txt_bold">{{$customer->display_status}}</span> for {{$customer->test_type}}</span></td>
+            <td><span class="t_p"><span class="txt_bold" style=" text-transform: uppercase;">{{$customer->display_status}}</span> for {{$customer->test_type}}</span></td>
           </tr>
 
           <tr>

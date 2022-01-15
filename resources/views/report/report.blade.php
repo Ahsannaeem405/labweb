@@ -62,7 +62,7 @@
         <div class="col-lg-6 col-md-6 col-12 text-center logo1">
             <img src="{{asset('assets/images/logo.png')}}" class="img_logo2" alt="">
         </div>
-        <div class="col-lg-6 col-md-6 col-12 mt-2 pl-0">
+        <div class="col-lg-6 col-md-6 col-12 mt-2 ">
             <h4>Results Verification Page</h4>
             <h4 class="mt-5">Order #{{$report->order_id}}</h4>
             <p><i class="far fa-building"></i> Miami International Airport &nbsp;@if($report->step==5)  <i class="fas fa-check-circle"></i> Released @endif </p>

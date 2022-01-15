@@ -152,7 +152,7 @@ return view('welcome', compact('country', 'state'));
 
 
         $admin = User::find($request->id);
-        // dd($request);
+       
         $admin->name = $request->firstname;
 
         $admin->email = $request->email;
@@ -161,7 +161,7 @@ return view('welcome', compact('country', 'state'));
 
         if($request->password!=null)
         {
-            dd(1);
+
             $admin->password=Hash::make($request->password);
         }
 
