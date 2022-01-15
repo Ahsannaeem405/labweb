@@ -20,11 +20,13 @@ use Illuminate\Support\Facades\App;
 //     return view('welcome');
 // });
 
-Route::get  ('/', [AdminController::class, 'home']);
+Route::get  ('/', [AdminController::class, 'home'])->middleware('lang');
 // Route::get('/language/{lang}', [AdminController::class, 'language'])->name('language');
 Route::get('/language/{lang}', function ($lang) {
     App::setlocale($lang);
-    return back();
+
+   Session::put('lang',$lang);
+   return back();
 });
 
 
@@ -155,6 +157,11 @@ Route:: prefix('/operator')->middleware(['auth', 'operator'])->group(function ()
     Route::get('pending/results', [\App\Http\Controllers\orderController::class, 'result_pending']);
     Route::post('add/results/{id}', [\App\Http\Controllers\orderController::class, 'result_add']);
 
+    //cancel orders
+
+
+        Route::get('cancel/orders', [\App\Http\Controllers\orderController::class, 'cancelOrders']);
+
     //pending release
 
 
@@ -177,6 +184,7 @@ Route:: prefix('/operator')->middleware(['auth', 'operator'])->group(function ()
     Route::post('submit/order/{id}',[CustomerController::class,'place_order_submit']);
     Route::post('upload/document/{id}',[CustomerController::class,'upload_document']);
     Route::get('delete/document/{id}',[CustomerController::class,'delete_document']);
+    Route::get('/order/cancel/{id}',[CustomerController::class,'cancel_order']);
 
 
 });

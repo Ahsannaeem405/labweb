@@ -562,6 +562,14 @@ $customer = Customer::find($cus_detail->customer_id);
         return back()->with('success','Document deleted successfully');
 
     }
+
+    public function cancel_order($id)
+    {
+        $cus = Customer::find($id);
+        $cus->display_status = 'Canceled';
+        $cus->update();
+        return back()->with('success','Order Canceled  successfully');
+    }
     /**
      * Remove the specified resource from storage.
      *

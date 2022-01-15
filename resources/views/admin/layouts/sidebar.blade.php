@@ -83,6 +83,13 @@
                 </div><!-- menu-item -->
             </a>
 
+            <a href="{{ url("/$role/cancel/orders") }}" class="br-menu-link">
+                <div class="br-menu-item">
+                    <i class="fas fa-remove"></i>
+                    <span class="menu-item-label"> Canceled Orders</span>
+                </div><!-- menu-item -->
+            </a>
+
 
 
 

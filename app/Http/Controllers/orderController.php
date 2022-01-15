@@ -12,6 +12,13 @@ class orderController extends Controller
 {
 
 
+    public function cancelOrders()
+    {
+        $customer =Customer::where('display_status','Canceled')->get();
+
+
+        return view('admin.cancel',compact('customer'));
+    }
     public function append_signature(){
 
             return view('signature2');
@@ -56,7 +63,8 @@ class orderController extends Controller
 
     public function invoice_pending()
     {
-        $customer = Customer::where('step',2)->get();
+        $customer = Customer::where('step',2)->where('display_status','=',null)->get();
+
         return view('orders.pendingInvoice', compact('customer'));
     }
 
@@ -75,7 +83,7 @@ class orderController extends Controller
 
     public function result_pending()
     {
-        $customer = Customer::where('step',3)->get();
+        $customer = Customer::where('step',3)->where('display_status','=',null)->get();
         return view('orders.pendingResult', compact('customer'));
     }
     public function result_add(Request $request,$id)
@@ -92,7 +100,7 @@ class orderController extends Controller
 
     public function pending_release()
     {
-        $customer = Customer::where('step',4)->get();
+        $customer = Customer::where('step',4)->where('display_status','!=','Canceled')->get();
         return view('orders.pendingRelease', compact('customer'));
     }
 
@@ -128,7 +136,7 @@ class orderController extends Controller
 
     public function released()
     {
-        $customer = Customer::where('step',5)->get();
+        $customer = Customer::where('step',5)->where('display_status','!=','Canceled')->get();
         return view('orders.Released', compact('customer'));
 
     }

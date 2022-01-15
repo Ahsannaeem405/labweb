@@ -161,7 +161,7 @@ return view('welcome', compact('country', 'state'));
 
         if($request->password!=null)
         {
-            dd(1);
+
             $admin->password=Hash::make($request->password);
         }
 

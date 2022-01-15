@@ -1,5 +1,6 @@
-<!doctype html>
-<html lang="en">
+<!doctype html >
+
+<html>
 
 <head>
     <!-- Required meta tags -->
@@ -152,8 +153,8 @@
                 <i class="fas fa-globe"></i>
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="{{ url('/language/{en}') }}">English</a>
-                <a class="dropdown-item" href="#">Spanish</a>
+                <a class="dropdown-item" href="{{ url('/language/en') }}">English</a>
+                <a class="dropdown-item" href="{{ url('/language/sp') }}">Spanish</a>
 
             </div>
         </div>
