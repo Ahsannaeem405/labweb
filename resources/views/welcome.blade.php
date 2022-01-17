@@ -399,8 +399,6 @@
 
                 </div>
 
-
-
                 <div class="col-12 pt-5">
 
                     <h1>{{ __('profile.Additional customer information') }}</h1>
