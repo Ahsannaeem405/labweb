@@ -1,7 +1,8 @@
 @extends('admin.layouts.default')
 @section('content')
+<link href="{{asset('/lib/datatables/jquery.dataTables.css')}}" rel="stylesheet">
 
-    <link rel="https://cdn.datatables.net/1.11.0/css/jquery.dataTables.min.css">
+    {{-- <link rel="https://cdn.datatables.net/1.11.0/css/jquery.dataTables.min.css"> --}}
 
     {{-- <link rel="https://cdn.datatables.net/buttons/2.0.0/css/buttons.dataTables.min.css"> --}}
 
@@ -11,9 +12,9 @@
             margin-top: 83px;
         }
 
-        div#datatable1_paginate {
+        /* div#datatable1_paginate {
             display: none;
-        }
+        } */
 
         table#datatable1 {
             width: 100%;
