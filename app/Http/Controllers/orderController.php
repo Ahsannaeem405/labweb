@@ -39,8 +39,10 @@ class orderController extends Controller
 // dd($idd, $id);
 
 $idd = intval($idd);
-dd($idd);
-        $report=Customer::find($id);
+// dd($idd);
+        $report=Customer::find($idd);
+
+
     if($report)
     {
         return view('report.report',compact('report'));
