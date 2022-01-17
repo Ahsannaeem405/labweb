@@ -137,21 +137,6 @@
 
 
 
-    <script>
-        var searchInput = 'address';
-        $(document).ready(function() {
-            var autocomplete;
-            autocomplete = new google.maps.places.Autocomplete((document.getElementById(searchInput)), {
-                types: ['geocode'],
-                /*componentRestrictions: {
-                 country: "USA"
-                }*/
-            });
 
-            google.maps.event.addListener(autocomplete, 'place_changed', function() {
-                var near_place = autocomplete.getPlace();
-            });
-        });
-    </script>
 
 @endsection

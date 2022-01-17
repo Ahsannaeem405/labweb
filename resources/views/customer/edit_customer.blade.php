@@ -155,7 +155,7 @@
                                     <label class="form-control-label">Second Name: <span
                                             class="tx-danger"></span></label>
                                     <input class="form-control" type="text" value="{{ $cus->show->secondname }}"
-                                        name="secondname" required value="" required placeholder="Secondname ">
+                                        name="secondname"  required placeholder="Secondname ">
                                 </div>
                             </div><!-- col-4 -->
 
@@ -648,7 +648,7 @@
                 <div class="form-group">
                     <label class="form-control-label">Second Name: <span class="tx-danger"></span></label>
                     <input class="form-control" type="text" value="{{ $cus->show->secondname }}" name="secondname"
-                        required value="" required placeholder="Secondname ">
+                        required placeholder="Secondname ">
                 </div>
             </div><!-- col-4 -->
 
@@ -1159,21 +1159,6 @@
 
 
 
-    <script>
-        var searchInput = 'address';
-        $(document).ready(function() {
-            var autocomplete;
-            autocomplete = new google.maps.places.Autocomplete((document.getElementById(searchInput)), {
-                types: ['geocode'],
-                /*componentRestrictions: {
-                 country: "USA"
-                }*/
-            });
 
-            google.maps.event.addListener(autocomplete, 'place_changed', function() {
-                var near_place = autocomplete.getPlace();
-            });
-        });
-    </script>
 
 @endsection

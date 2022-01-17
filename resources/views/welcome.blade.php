@@ -558,7 +558,7 @@
                     <label for="RT">RT-PCR
                     </label><br>
                     <input type="radio" name="Select_the_testa" value="PCR-24hrs">
-                    <label for="html">PCR-24hm</label><br>
+                    <label for="html">PCR-24hrs</label><br>
                     <input type="radio" name="Select_the_testa" value="24hrs">
                     <label for="html">RT-PCR 24hrs</label><br>
                 </div>
@@ -575,7 +575,7 @@
                         class="form-control">
                 </div>
                 <div class="col-lg-6  col-12 pt-2">
-                    <input type="text" required placeholder="{{ __('profile.Address2') }}" name="address2a"
+                    <input type="text"  placeholder="{{ __('profile.Address2') }}" name="address2a"
                         class="form-control">
                 </div>
                 <div class="col-lg-6  col-12 pt-2">
@@ -857,7 +857,7 @@
                     <label for="html">RT-PCR
                     </label><br>
                     <input type="radio" name="Select_the_test" value="PCR-24hrs">
-                    <label for="html">PCR-24hm</label><br>
+                    <label for="html">PCR-24hrs</label><br>
                     <input type="radio" name="Select_the_test" value="24hrs">
                     <label for="html">RT-PCR 24hrs</label><br>
                 </div>
@@ -873,7 +873,7 @@
                         class="form-control">
                 </div>
                 <div class="col-lg-6  col-12 pt-2">
-                    <input type="text" required placeholder="{{ __('profile.Address2') }}" name="address2"
+                    <input type="text"  placeholder="{{ __('profile.Address2') }}" name="address2"
                         class="form-control">
                 </div>
                 <div class="col-lg-6  col-12 pt-2">
