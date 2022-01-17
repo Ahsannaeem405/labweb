@@ -1049,15 +1049,14 @@
                     <label for="">Airlin/CruiseLine *</label>
                     <select required name="CruiseLine" id="" class="form-control">
 
-                        <option value="Air Lingus">Air Lingus (EI)</option>
-                        <option value="Aeroflot">Aeroflot (SU) </option>
-                        <option value="Aerolineas">Aerolineas Argentinas (AR)</option>
-                        <option value="Aeromexico">Aeromexico (AM)</option>
-                        <option value="Air Canada">Air Canada (AC)</option>
-
-                        <option value="Air Century">Air Century (Y2)</option>
-                        <option value="Air Europa">Air Europa (UX)</option>
-                        <option value="Air France">Air France (AF)</option>
+                        <option value="Air Lingus (EI)">Air Lingus (EI)</option>
+                        <option value="Aeroflot (SU)<">Aeroflot (SU)</option>
+                        <option value="Aerolineas Argentinas (AR)">Aerolineas Argentinas (AR)</option>
+                        <option value="Aeromexico (AM)">Aeromexico (AM)</option>
+                        <option value="Air Canada (AC)">Air Canada (AC)</option>
+                        <option value="Air Century (Y2)">Air Century (Y2)</option>
+                        <option value="Air Europa (UX)">Air Europa (UX)</option>
+                        <option value="Air France (AF)">Air France (AF)</option>
                         <option value="Alitalia">Alitalia (AZ)</option>
                         <option value="American">American Airlines (AA)</option>
                         <option value="Avianca">Avianca (AV, TA)</option>
@@ -1066,7 +1065,6 @@
                         <option value="British Airways">British Airways (BA)</option>
                         <option value="Caribbean Airlines">Caribbean Airlines (BW)</option>
                         <option value="Cayman">Cayman Airways (KX)</option>
-
                         <option value="COPA Airlines">COPA Airlines (CM)</option>
                         <option value="Delta">Delta Air Lines (DL)</option>
                         <option value="Eastern">Eastern Airlines (2D)</option>
