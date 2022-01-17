@@ -155,7 +155,7 @@
                                     <label class="form-control-label">Second Name: <span
                                             class="tx-danger"></span></label>
                                     <input class="form-control" type="text" value="{{ $cus->show->secondname }}"
-                                        name="secondname"  required placeholder="Secondname ">
+                                        name="secondname"   placeholder="Secondname ">
                                 </div>
                             </div><!-- col-4 -->
 
@@ -648,7 +648,7 @@
                 <div class="form-group">
                     <label class="form-control-label">Second Name: <span class="tx-danger"></span></label>
                     <input class="form-control" type="text" value="{{ $cus->show->secondname }}" name="secondname"
-                        required placeholder="Secondname ">
+                         placeholder="Secondname ">
                 </div>
             </div><!-- col-4 -->
 
