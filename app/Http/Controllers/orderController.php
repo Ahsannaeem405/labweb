@@ -36,7 +36,9 @@ class orderController extends Controller
 
       $idd =   base64_decode($id);
 
-dd($idd, $id);
+// dd($idd, $id);
+
+$idd = intval($idd);
         $report=Customer::find($id);
     if($report)
     {
