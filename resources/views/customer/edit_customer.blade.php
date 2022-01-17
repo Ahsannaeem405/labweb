@@ -581,7 +581,7 @@
             <div class="form-group mg-b-10-force">
 
                 <p>How did you hear about us?</p>
-                <input type="radio" @if ($cus->show->gender == 'Friends') checked @endif name="gender2" value="Friends" checked>
+                <input type="radio" @if ($cus->show->gender == 'Friends') checked @endif name="gender2" value="Friends" >
                 <label for="Female">Friends</label><br>
 
                 <input type="radio" @if ($cus->show->gender == 'Airline Staff') checked @endif name="gender2" value="Airline Staff">
@@ -1106,7 +1106,7 @@
                 <div class="form-group mg-b-10-force">
 
                     <p>How did you hear about us?</p>
-                    <input  type="radio" @if ($cus->show->gender == 'Friends') checked @endif name="gender2" value="Friends" checked>
+                    <input  type="radio" @if ($cus->show->gender == 'Friends') checked @endif name="gender2" value="Friends" >
                     <label for="Female">Friends</label><br>
 
                     <input  type="radio" @if ($cus->show->gender == 'Airline Staff') checked @endif name="gender2" value="Airline Staff">

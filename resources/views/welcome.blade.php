@@ -747,8 +747,8 @@
                 <div class="col-lg-12 col-12 pt-2">
                     <p>{{ __('profile.Option') }}</p>
                     <input type="radio" checked name="gendera" value="Friends"> {{ __('profile.Friends') }}<br>
-                    <input type="radio" name="gendera" value="Airline">{{ __('profile.Airline Staff') }}<br>
-                    <input type="radio" name="gendera" value="Airport">{{ __('profile.Airport Advertisement') }}<br>
+                    <input type="radio" name="gendera" value="Airline Staff">{{ __('profile.Airline Staff') }}<br>
+                    <input type="radio" name="gendera" value="Airport Advertisement">{{ __('profile.Airport Advertisement') }}<br>
                     <input type="radio" name="gendera" value="Google">{{ __('profile.Google') }}<br>
                     <input type="radio" name="gendera" value="Other">{{ __('profile.Other') }}<br>
                 </div>
@@ -1148,8 +1148,8 @@
                 <div class="col-lg-12 col-12 pt-2">
                     <p>{{ __('profile.Option') }}</p>
                     <input type="radio" name="gender" checked value="Friends"> Friends<br>
-                    <input type="radio" name="gender" value="Airline"> Airline Staff<br>
-                    <input type="radio" name="gender" value="Airport"> Airport Advertisement<br>
+                    <input type="radio" name="gender" value="Airline Staff"> Airline Staff<br>
+                    <input type="radio" name="gender" value="Airport Advertisement"> Airport Advertisement<br>
                     <input type="radio" name="gender" value="Google"> Google<br>
                     <input type="radio" name="gender" value="Other"> Other<br>
                 </div>
