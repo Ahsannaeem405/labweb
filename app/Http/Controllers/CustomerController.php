@@ -445,6 +445,8 @@ $customer = Customer::find($cus_detail->customer_id);
             $cus_detail->email =  $request->email;
             $cus_detail->gender =  $request->gender2;
             $cus_detail->gender2 =  $request->gender;
+            $cus_detail->Destination =  $request->Destination;
+            $cus_detail->F_Cruise =  $request->F_Cruise;
 
 
 
@@ -523,7 +525,8 @@ $customer = Customer::find($cus_detail->customer_id);
 
 
 
-
+        $cus_detail->Destination =  $request->Destination;
+        $cus_detail->F_Cruise =  $request->F_Cruise;
 
             $cus_detail->save();
 

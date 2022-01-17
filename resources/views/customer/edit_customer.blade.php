@@ -575,6 +575,27 @@
         </div><!-- col-8 -->
 
 
+                            <div class="col-lg-6">
+                                <div class="form-group mg-b-10-force">
+
+                                    <p>Destination: </p>
+                                    <input type="text" value="{{ $cus->show->Destination }}" name="Destination"
+                                           class="form-control">
+
+                                </div>
+                            </div><!-- col-8 -->
+                            <div class="col-lg-6">
+                                <div class="form-group mg-b-10-force">
+
+                                    <p>Flight/Cruise #:</p>
+                                    <input type="text" value="{{ $cus->show->F_Cruise }}" name="F_Cruise"
+                                           class="form-control">
+
+                                </div>
+                            </div><!-- col-8 -->
+
+
+
 
 
         <div class="col-lg-6">
@@ -1100,7 +1121,24 @@
 
                 </div>
             </div><!-- col-8 -->
+            <div class="col-lg-6">
+                <div class="form-group mg-b-10-force">
 
+                    <p>Destination: </p>
+                    <input type="text" value="{{ $cus->show->Destination }}" name="Destination"
+                           class="form-control">
+
+                </div>
+            </div><!-- col-8 -->
+            <div class="col-lg-6">
+                <div class="form-group mg-b-10-force">
+
+                    <p>Flight/Cruise #: </p>
+                    <input type="text" value="{{ $cus->show->F_Cruise }}" name="F_Cruise"
+                           class="form-control">
+
+                </div>
+            </div><!-- col-8 -->
 
             <div class="col-lg-6">
                 <div class="form-group mg-b-10-force">
