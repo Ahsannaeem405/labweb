@@ -70,6 +70,11 @@ Route:: prefix('/admin')->middleware(['auth', 'admin'])->group(function () {
 
     Route::get('/verify/customer/{id}', [CustomerController::class, 'verify_customer']);
 
+    Route::get('/customer/view/order/{id}', [CustomerController::class, 'view_order']);
+
+
+
+
     Route::get('/create/order/customer/{id}', [CustomerController::class, 'create_order']);
 
 
@@ -239,3 +244,7 @@ Route::get('append/signature2',[\App\Http\Controllers\orderController::class,'ap
 
 
 
+
+Route::get('/testpdf', function () {
+    return view('pdf.testpdf');
+});

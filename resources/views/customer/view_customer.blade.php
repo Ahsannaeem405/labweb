@@ -1,19 +1,18 @@
 @extends('admin.layouts.default')
 @section('content')
 
-    <link rel="https://cdn.datatables.net/1.11.0/css/jquery.dataTables.min.css">
+    {{-- <link rel="https://cdn.datatables.net/1.11.0/css/jquery.dataTables.min.css"> --}}
 
-    {{-- <link rel="https://cdn.datatables.net/buttons/2.0.0/css/buttons.dataTables.min.css"> --}}
+    <link href="{{asset('/lib/datatables/jquery.dataTables.css')}}" rel="stylesheet">
 
-    {{-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" /> --}}
     <style>
         .br-pagebody {
             margin-top: 83px;
         }
-
+/*
         div#datatable1_paginate {
             display: none;
-        }
+        } */
 
         table#datatable1 {
     width: 100%;

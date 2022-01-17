@@ -1,4 +1,4 @@
-<!doctype html >
+<!doctype html>
 
 <html>
 
@@ -192,7 +192,7 @@
                     </p>
                     <p>{{ __('profile.d. I understand that this laboratory is not acting as my physician, and does not replace the need for a physicians care when required. I also accept responsibility for my results and what they mean. I agree to obtain a medical consultation with my physician to clarify any concerns I have, to obtain care / treatment if my condition worsens.
 
-                                                                                                                            and. I understand that like other diagnostic procedures, there is a possibility of a false positive or false negative test for Covid-19') }}
+                                                                                                                                                                                                                                                    and. I understand that like other diagnostic procedures, there is a possibility of a false positive or false negative test for Covid-19') }}
                     </p>
                     <p>{{ __('profile.e. I understand that "Family Rehab and Communitel," are in no way responsible if the client / patient does not arrive on time for their flight / misses it or is quarantined upon arrival at their destination. I understand that the responsibility for choosing the type of proof necessary for my destiny is mine and mine alone.') }}
                     </p>
@@ -356,10 +356,10 @@
 
                 </div>
                 <div class="col-lg-4  col-12 pt-2">
-                    <input  type="text" placeholder="{{ __('profile.Second name') }}" name="secondnamea"
+                    <input type="text" placeholder="{{ __('profile.Second name') }}" name="secondnamea"
                         class="form-control">
                     <label for="">{{ __('profile.Second name') }}</label>
-                    <input type="hidden" name="type" value="adult" id="">
+                    <input type="hidden" class="typeadu" name="type" value="adult" id="">
 
 
                 </div>
@@ -527,14 +527,13 @@
                     <label for="html">{{ __('profile.No') }}</label><br>
                 </div>
                 <div class="col-12 pt-3">
-                    <input type="text"  placeholder="{{ __('profile.Other specify') }}" name="specifya"
+                    <input type="text" placeholder="{{ __('profile.Other specify') }}" name="specifya"
                         class="form-control">
                     <label for="">{{ __('profile.Other specify') }}</label>
                 </div>
                 <div class="col-12 pt-3">
-                    <input type="text"
-                        placeholder="{{ __('profile.Date of onset of the first symptoms') }}" name="symptomsa"
-                        class="form-control">
+                    <input type="text" placeholder="{{ __('profile.Date of onset of the first symptoms') }}"
+                        name="symptomsa" class="form-control">
                     <label for="">{{ __('profile.Date of onset of the first symptoms') }}</label>
                 </div>
                 <div class="col-12 pt-5">
@@ -575,7 +574,7 @@
                         class="form-control">
                 </div>
                 <div class="col-lg-6  col-12 pt-2">
-                    <input type="text"  placeholder="{{ __('profile.Address2') }}" name="address2a"
+                    <input type="text" placeholder="{{ __('profile.Address2') }}" name="address2a"
                         class="form-control">
                 </div>
                 <div class="col-lg-6  col-12 pt-2">
@@ -608,9 +607,11 @@
 
                 <div class="col-lg-4 mt-3 col-12 pt-2 ">
 
-                    <button type="button" class="btn btn-dark appSign" data-toggle="modal" data-target="#exampleModal">
+                    <input type="button" class="btn btn-dark appSign" value="Click to Sign" required
+                        data-toggle="modal" data-target="#exampleModal">
+                    {{-- <button type="button" class="btn btn-dark appSign" required data-toggle="modal" data-target="#exampleModal">
                         Click to Sign
-                    </button>
+                    </button> --}}
                     <div>
                         <input type="hidden" class="SingsLink" name="SingsLinka" value="">
 
@@ -618,8 +619,8 @@
                 </div>
 
                 <div class="col-lg-6 mt-3 col-12 pt-2">
-                    <div style="">
-                        <img src="" name="sig-imagea"  alt="">
+                    <div class="img1" style="">
+                        <img class="" src="" name="sig-imagea" alt="">
                     </div>
                 </div>
 
@@ -634,6 +635,110 @@
                         class="form-control">
                 </div>
             </div>
+
+
+
+            <div class="row p-5 mt-5">
+                <div class="col-12">
+                    <h1>{{ 'FLIGHT/CRUISE INFORMATION' }}</h1>
+                </div>
+                <div class="col-lg-6 col-12 pt-3">
+
+                    <label for="">Airlin/CruiseLine *</label>
+                    <select required name="CruiseLinea" id="" class="form-control">
+
+                        <option value="Air Lingus">Air Lingus (EI)</option>
+                        <option value="Aeroflot">Aeroflot (SU) </option>
+                        <option value="Aerolineas">Aerolineas Argentinas (AR)</option>
+                        <option value="Aeromexico">Aeromexico (AM)</option>
+                        <option value="Air Canada">Air Canada (AC)</option>
+
+                        <option value="Air Century">Air Century (Y2)</option>
+                        <option value="Air Europa">Air Europa (UX)</option>
+                        <option value="Air France">Air France (AF)</option>
+                        <option value="Alitalia">Alitalia (AZ)</option>
+                        <option value="American">American Airlines (AA)</option>
+                        <option value="Avianca">Avianca (AV, TA)</option>
+                        <option value="Bahamasair">Bahamasair (UP)</option>
+                        <option value="BOA-Boliviana">BOA-Boliviana de Aviacion (OB)</option>
+                        <option value="British Airways">British Airways (BA)</option>
+                        <option value="Caribbean Airlines">Caribbean Airlines (BW)</option>
+                        <option value="Cayman">Cayman Airways (KX)</option>
+
+                        <option value="COPA Airlines">COPA Airlines (CM)</option>
+                        <option value="Delta">Delta Air Lines (DL)</option>
+                        <option value="Eastern">Eastern Airlines (2D)</option>
+                        <option value="El AL">El Al (LY)</option>
+                        <option value="Emirates">Emirates (EK)</option>
+                        <option value="Finnair">Finnair (AY)</option>
+                        <option value="Frontier">Frontier Airlines (F9)</option>
+                        <option value="Iberia">Iberia (IB)</option>
+                        <option value="JetBlue">JetBlue (B6)</option>
+                        <option value="KLM">KLM (KL)</option>
+                        <option value="LATAM Airlines">LATAM Airlines (4M, JJ, LA,LP, XP)</option>
+                        <option value="LOT">LOT Polish Airlines (LO)</option>
+                        <option value="Lufthansa">Lufthansa (LH)</option>
+                        <option value="Qatar">Qatar (QR)</option>
+                        <option value="SAS">SAS (SK)</option>
+                        <option value="Southwest">Southwest (WN)</option>
+                        <option value="Sun Country">Sun Country (SY)</option>
+                        <option value="Sunwing">Sunwing (WG</option>
+                        <option value="Surinam">Surinam Airways (PY)</option>
+                        <option value="Swift">Swift Air (SWQ)</option>
+                        <option value="Swiss">Swiss International (LX)</option>
+                        <option value="TAP">TAP Air Portugal (TP)</option>
+                        <option value="TUIfly">TUIfly (TB, OR)</option>
+                        <option value="Turkish">Turkish (TK)</option>
+                        <option value="United Airlines">United Airlines (UA)</option>
+                        <option value="Virgin Atlantic">Virgin Atlantic (VS)</option>
+                        <option value="Viva">Viva (VH)</option>
+                        <option value="Volaris">Volaris (Y4)</option>
+                        <option value="WestJet">WestJet (WS)</option>
+                        <option value="World">World Atlantic (WAL)</option>
+                        <option value="N/A">N/A</option>
+                        <option value="Azamara Club">Azamara Club Cruises</option>
+                        <option value="Carnival">Carnival</option>
+                        <option value="Celebrity">Celebrity X Cruises</option>
+                        <option value="Crystal Cruises">Crystal Cruises</option>
+                        <option value="Disney Cruise">Disney Cruise Line</option>
+                        <option value="MSC Cruises">MSC Cruises</option>
+                        <option value="Norwegian Cruise">Norwegian Cruise Line</option>
+                        <option value="Oceania Cruises">Oceania Cruises</option>
+                        <option value="Regent Seven">Regent Seven Seas Cruises</option>
+                        <option value="Royal Caribbean">Royal Caribbean International</option>
+                        <option value="Viking Ocean">Viking Ocean Cruises</option>
+                        <option value="Virgin Voyages">Virgin Voyages</option>
+                        <option value="AIDA">AIDA</option>
+                        <option value="Hapag-Lloyd">Hapag-Lloyd</option>
+                        <option value="Hurtigruten">Hurtigruten</option>
+                        <option value="O Cruises">P&amp;amp;O Cruises</option>
+                        <option value="Phoenix">Phoenix</option>
+                        <option value="Pricess Cruises">Pricess Cruises</option>
+                        <option value="SAGA">SAGA</option>
+                        <option value="SCENIC Luxury">SCENIC Luxury Cruises</option>
+                        <option value="SEABOURN">SEABOURN</option>
+                        <option value="TUI Cruises">TUI Cruises</option>
+                        <option value="Windstar Cruises">Windstar Cruises</option>
+
+
+
+                    </select>
+
+                </div>
+
+                <div class="col-lg-6 col-12 pt-3">
+                    <label for="">Destination *</label>
+                    <input type="text" required placeholder="Destination" name="Destinationa" class="form-control">
+                </div>
+
+
+                <div class="col-lg-6 col-12 pt-3">
+                    <label for="">Flight/Cruise # *</label>
+                    <input type="text" required placeholder="Flight/Cruise" name="F_Cruisea" class="form-control">
+                </div>
+            </div>
+
+
 
             <div class="row p-5 mt-5">
                 <div class="col-12">
@@ -665,13 +770,13 @@
 
                 </div>
                 <div class="col-lg-4  col-12 pt-2">
-                    <input type="text"  placeholder="{{ __('profile.Second name') }}" name="secondname"
+                    <input type="text" placeholder="{{ __('profile.Second name') }}" name="secondname"
                         class="form-control">
                     <label for="">{{ __('profile.Second name') }}</label>
                 </div>
 
 
-                <input type="hidden" name="type" value="minor">
+                <input type="hidden" class="typemin" name="type" value="minor">
                 <div class="col-lg-4  col-12 pt-2">
                     <input type="text" required placeholder="{{ __('profile.Surnames') }}" name="surname"
                         class="form-control">
@@ -703,7 +808,7 @@
                     <h1>{{ __('profile.Additional Information of first of the Minor') }}</h1>
                 </div>
                 <div class="col-lg-6 col-12 pt-3">
-                    <input type="text"  name="passport" placeholder="{{ __('profile.Passport #') }}"
+                    <input type="text" name="passport" placeholder="{{ __('profile.Passport #') }}"
                         class="form-control">
                     <label for="">{{ __('profile.Passport #') }}</label>
                 </div>
@@ -826,14 +931,13 @@
                     <label for="html">{{ __('profile.No') }}</label><br>
                 </div>
                 <div class="col-12 pt-3">
-                    <input type="text"  placeholder="{{ __('profile.Other specify') }}" name="specify"
+                    <input type="text" placeholder="{{ __('profile.Other specify') }}" name="specify"
                         class="form-control">
                     <label for="">{{ __('profile.Other specify') }}</label>
                 </div>
                 <div class="col-12 pt-3">
-                    <input type="text"
-                        placeholder="{{ __('profile.Date of onset of the first symptoms') }}" name="symptoms"
-                        class="form-control">
+                    <input type="text" placeholder="{{ __('profile.Date of onset of the first symptoms') }}"
+                        name="symptoms" class="form-control">
                     <label for="">{{ __('profile.Date of onset of the first symptoms') }}</label>
                 </div>
                 <div class="col-12 pt-5">
@@ -873,7 +977,7 @@
                         class="form-control">
                 </div>
                 <div class="col-lg-6  col-12 pt-2">
-                    <input type="text"  placeholder="{{ __('profile.Address2') }}" name="address2"
+                    <input type="text" placeholder="{{ __('profile.Address2') }}" name="address2"
                         class="form-control">
                 </div>
                 <div class="col-lg-6  col-12 pt-2">
@@ -904,7 +1008,7 @@
                 </div>
 
                 <div class="col-lg-4 mt-3 col-12 pt-2 ">
-                    <button type="button" class="btn btn-dark appSignM" nameatt="nameatt" name="appSignM"
+                    <button type="button" required class="btn btn-dark appSignM" nameatt="nameatt" name="appSignM"
                         data-toggle="modal" data-target="#exampleModalAPP">
                         Click to Sign
                     </button>
@@ -917,8 +1021,8 @@
 
 
                 <div class="col-lg-6 mt-3 col-12 pt-2">
-                    <div style>
-                        <img src="" name="sig-image">
+                    <div name="">
+                        <img class="imgAPP" src="" name="sig-image">
                     </div>
                 </div>
 
@@ -934,6 +1038,108 @@
                         class="form-control">
                 </div>
             </div>
+
+
+            <div class="row p-5 mt-5">
+                <div class="col-12">
+                    <h1>{{ 'FLIGHT/CRUISE INFORMATION' }}</h1>
+                </div>
+                <div class="col-lg-6 col-12 pt-3">
+
+                    <label for="">Airlin/CruiseLine *</label>
+                    <select required name="CruiseLine" id="" class="form-control">
+
+                        <option value="Air Lingus">Air Lingus (EI)</option>
+                        <option value="Aeroflot">Aeroflot (SU) </option>
+                        <option value="Aerolineas">Aerolineas Argentinas (AR)</option>
+                        <option value="Aeromexico">Aeromexico (AM)</option>
+                        <option value="Air Canada">Air Canada (AC)</option>
+
+                        <option value="Air Century">Air Century (Y2)</option>
+                        <option value="Air Europa">Air Europa (UX)</option>
+                        <option value="Air France">Air France (AF)</option>
+                        <option value="Alitalia">Alitalia (AZ)</option>
+                        <option value="American">American Airlines (AA)</option>
+                        <option value="Avianca">Avianca (AV, TA)</option>
+                        <option value="Bahamasair">Bahamasair (UP)</option>
+                        <option value="BOA-Boliviana">BOA-Boliviana de Aviacion (OB)</option>
+                        <option value="British Airways">British Airways (BA)</option>
+                        <option value="Caribbean Airlines">Caribbean Airlines (BW)</option>
+                        <option value="Cayman">Cayman Airways (KX)</option>
+
+                        <option value="COPA Airlines">COPA Airlines (CM)</option>
+                        <option value="Delta">Delta Air Lines (DL)</option>
+                        <option value="Eastern">Eastern Airlines (2D)</option>
+                        <option value="El AL">El Al (LY)</option>
+                        <option value="Emirates">Emirates (EK)</option>
+                        <option value="Finnair">Finnair (AY)</option>
+                        <option value="Frontier">Frontier Airlines (F9)</option>
+                        <option value="Iberia">Iberia (IB)</option>
+                        <option value="JetBlue">JetBlue (B6)</option>
+                        <option value="KLM">KLM (KL)</option>
+                        <option value="LATAM Airlines">LATAM Airlines (4M, JJ, LA,LP, XP)</option>
+                        <option value="LOT">LOT Polish Airlines (LO)</option>
+                        <option value="Lufthansa">Lufthansa (LH)</option>
+                        <option value="Qatar">Qatar (QR)</option>
+                        <option value="SAS">SAS (SK)</option>
+                        <option value="Southwest">Southwest (WN)</option>
+                        <option value="Sun Country">Sun Country (SY)</option>
+                        <option value="Sunwing">Sunwing (WG</option>
+                        <option value="Surinam">Surinam Airways (PY)</option>
+                        <option value="Swift">Swift Air (SWQ)</option>
+                        <option value="Swiss">Swiss International (LX)</option>
+                        <option value="TAP">TAP Air Portugal (TP)</option>
+                        <option value="TUIfly">TUIfly (TB, OR)</option>
+                        <option value="Turkish">Turkish (TK)</option>
+                        <option value="United Airlines">United Airlines (UA)</option>
+                        <option value="Virgin Atlantic">Virgin Atlantic (VS)</option>
+                        <option value="Viva">Viva (VH)</option>
+                        <option value="Volaris">Volaris (Y4)</option>
+                        <option value="WestJet">WestJet (WS)</option>
+                        <option value="World">World Atlantic (WAL)</option>
+                        <option value="N/A">N/A</option>
+                        <option value="Azamara Club">Azamara Club Cruises</option>
+                        <option value="Carnival">Carnival</option>
+                        <option value="Celebrity">Celebrity X Cruises</option>
+                        <option value="Crystal Cruises">Crystal Cruises</option>
+                        <option value="Disney Cruise">Disney Cruise Line</option>
+                        <option value="MSC Cruises">MSC Cruises</option>
+                        <option value="Norwegian Cruise">Norwegian Cruise Line</option>
+                        <option value="Oceania Cruises">Oceania Cruises</option>
+                        <option value="Regent Seven">Regent Seven Seas Cruises</option>
+                        <option value="Royal Caribbean">Royal Caribbean International</option>
+                        <option value="Viking Ocean">Viking Ocean Cruises</option>
+                        <option value="Virgin Voyages">Virgin Voyages</option>
+                        <option value="AIDA">AIDA</option>
+                        <option value="Hapag-Lloyd">Hapag-Lloyd</option>
+                        <option value="Hurtigruten">Hurtigruten</option>
+                        <option value="O Cruises">P&amp;amp;O Cruises</option>
+                        <option value="Phoenix">Phoenix</option>
+                        <option value="Pricess Cruises">Pricess Cruises</option>
+                        <option value="SAGA">SAGA</option>
+                        <option value="SCENIC Luxury">SCENIC Luxury Cruises</option>
+                        <option value="SEABOURN">SEABOURN</option>
+                        <option value="TUI Cruises">TUI Cruises</option>
+                        <option value="Windstar Cruises">Windstar Cruises</option>
+
+
+
+                    </select>
+
+                </div>
+
+                <div class="col-lg-6 col-12 pt-3">
+                    <label for="">Destination *</label>
+                    <input type="text" required placeholder="Destination" name="Destination" class="form-control">
+                </div>
+
+
+                <div class="col-lg-6 col-12 pt-3">
+                    <label for="">Flight/Cruise # *</label>
+                    <input type="text" required placeholder="Flight/Cruise" name="F_Cruise" class="form-control">
+                </div>
+            </div>
+
 
             <div class="row p-5 mt-5">
                 <div class="col-12">
@@ -964,8 +1170,8 @@
 
                 </div>
                 <div class="col-lg-4  col-12 pt-2">
-                    <input  type="text" placeholder="{{ __('profile.Second name') }}"
-                        name="Parent_secondname" class="form-control">
+                    <input type="text" placeholder="{{ __('profile.Second name') }}" name="Parent_secondname"
+                        class="form-control">
                     <label for="">{{ __('profile.Second name') }}*</label>
 
                 </div>
@@ -1061,7 +1267,7 @@
                             </div>
                         </div>
                         <center class="mt-5">
-                            <input type="submit" class="btn btn-dark"
+                            <input type="submit" class="btn btn-dark acceptt"
                                 value="{{ __('profile.Accept Document') }}">
                         </center>
                     </div>
@@ -1092,7 +1298,7 @@
         });
 
         $(".continue").click(function() {
-           // $(this).css('display', 'none');
+            // $(this).css('display', 'none');
             $('.maindata').css('display', 'block');
 
 
@@ -1288,7 +1494,7 @@
                 $('input[name=SingsLinka]').val(signurl);
                 // $('.sig-imagea').empty();
 
-               // $('.sig-imagea').empty();
+                // $('.sig-imagea').empty();
                 $("img[name=sig-imagea]").empty().attr('src', signurl);
 
 
@@ -1329,11 +1535,11 @@
 
                 // alert(nameatt);
 
-                $("input[name=SingsLink_"+nameatt+"]").empty();
-                $("input[name=SingsLink_"+nameatt+"]").val(signurl);
+                $("input[name=SingsLink_" + nameatt + "]").empty();
+                $("input[name=SingsLink_" + nameatt + "]").val(signurl);
 
-                $("img[name=sig-image_"+nameatt+"]").empty();
-                $("img[name=sig-image_"+nameatt+"]").attr('src', signurl);
+                $("img[name=sig-image_" + nameatt + "]").empty();
+                $("img[name=sig-image_" + nameatt + "]").attr('src', signurl);
 
 
             });
@@ -1342,23 +1548,77 @@
         });
     </script>
 
-    {{-- minratt --}}
-{{--    <script>--}}
-{{--        $(document).ready(function() {--}}
+    <script>
+        //    var nameat11t = 0;
+        $(document).ready(function() {
 
-{{--            $(document).on('click', '.minororad_btn', function() {--}}
+            // var adult = $('.typeadu').val();
 
-{{--                var minoratt = $(this).attr('att');--}}
-{{--                $('.minratt').empty();--}}
-{{--                $('.minratt').val(minoratt);--}}
-
-{{--            });--}}
+            $(document).on('click', '.acceptt', function() {
 
 
+                $('.finalResult').find('img').each(function(index, value) {
+                    var imgsrc = $(this).attr('src');
 
-{{--        });--}}
-{{--    </script>--}}
+                    // alert(imgsrc);
 
+                    if(imgsrc == '')
+                    {
+                        alert('Signature is required');
+                        event.preventDefault();
+                        return false;
+                    }
+                    else
+                    {
+                        console.log(imgsrc);
+                    alert(imgsrc);
+                    }
+
+                });
+
+                // if (adult == 'adult') {
+                //     alert(adult);
+                //     var btnsub = $("img[name=sig-imagea]").attr('src');
+
+                //     if (btnsub == '') {
+                //         alert('Signature is required')
+                //         event.preventDefault();
+
+                //     } else {
+                //         console.log(btnsub);
+
+                //     }
+                // }
+
+            });
+
+
+
+
+            // $(document).on('click', '.acceptt', function() {
+
+            //     var minor = $('.typemin').val();
+            //     if (minor == 'minor') {
+            //         var totalCount = $('.totalCount').val();
+
+            //         for (var i = 1; i <= 2; i++) {
+            //             var imguni = $("img[name=sig-image_" + i + "]").attr('src');
+            //             if (imguni == '') {
+            //                 alert('Signature is required of Minor' + i + '');
+            //                 event.preventDefault();
+
+            //             } else {
+            //                 console.log(imguni);
+            //             }
+            //         }
+
+
+            //     }
+
+            // });
+
+        });
+    </script>
 
 </body>
 

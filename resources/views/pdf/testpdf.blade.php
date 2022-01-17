@@ -8,26 +8,23 @@
 
 
 
-    <table class="table" style="width: 100%;margin-bottom: 30px;">
+    <table class="table" style="width: 100%;">
         <thead>
           <tr>
             <th style="text-align: right;padding-right: 100px;">
-                <img class="text-center"    style="width: 124px;"  src="https://chart.googleapis.com/chart?chs=186x189&cht=qr&chl={{$host}}&choe=UTF-8" title="ACD Deposit Address" />
-
-
+                <img class="text-center" style="width: 124px;" src="https://chart.googleapis.com/chart?chs=186x189&cht=qr&chl=&choe=UTF-8" title="ACD Deposit Address" />
           </tr>
         </thead>
 
       </table>
 
 
-    <table class="table" style="width: 100%; margin-top: -17px;">
+    <table class="table" style="width: 100%;    margin-top: -17px;">
         <thead>
           <tr>
             <th scope="col" style="width: 50%">
-                {{-- <img src="{{asset('https://communitel-covid-tests.ue.r.appspot.com/images/communitel-header-without-address-gray.png')}}" alt="" style="width: 100%;height:250px;"> --}}
+                <img src="{{'assets/qrcode.png'}}" alt="" style="width: 100%;height: 213px;">
 
-                    <img src="{{'assets/qrcode.png' }}" alt="" style="width: 100%;height: 213px;">
 
             </th>
             <th scope="col" style="width: 50%"><p style="font-size: 22px;font-weight:inherit">MIAMI INTERNATIONAL AIRPORT
@@ -44,7 +41,7 @@
         </thead>
         <tbody>
           <tr>
-            <th scope="row" colspan="2" ><h3 style="padding-top: 8px">CLIA: <span style="border-bottom: 1px solid black;">{{$customer->id}}</span></h3></th>
+            <th scope="row" colspan="2" ><h3 style="padding-top: 8px">CLIA: <span style="border-bottom: 1px solid black;"></span></h3></th>
 
 
 
@@ -70,32 +67,32 @@
           <tr>
             <td>Account# <span class="undr_lin">1659461101</span></td>
             <td>REFER# <span class="undr_lin">88611</span></td>
-            <td style="padding-left: 40px">PASSPORT# <span class="undr_lin">{{$customer->passport}}</span></td>
+            <td style="padding-left: 40px">PASSPORT# <span class="undr_lin"></span></td>
 
           </tr>
           <tr>
             <td scope="row">INTI FERNANDEZ MD</td>
-            <td colspan="2">PATIENT: <span class="undr_lin">{{$customer->name}}</span></td>
+            <td colspan="2">PATIENT: <span class="undr_lin"></span></td>
 
           </tr>
           <tr>
             <td>2100 NW 42 AVE</td>
-            <td>DOB: <span class="undr_lin">{{$customer->dob}}</span></td>
-            <td style="padding-left: 40px">SEX: <span class="undr_lin">{{$customer->gender}}</span></td>
+            <td>DOB: <span class="undr_lin">    </span></td>
+            <td style="padding-left: 40px">SEX: <span class="undr_lin"></span></td>
           </tr>
           <tr>
             <td colspan="2">MIAMI, FLORIDA 33126</td>
-            <td>ORDER#: <span class="undr_lin">{{$customer->order_id}}</span></td>
+            <td>ORDER#: <span class="undr_lin"></span></td>
           </tr>
 
           <tr>
             <td colspan="2">TEL: 305-869-1161 FAX: 305-869-1167</td>
-            <td>COLLECTED: <span class="undr_lin">{{$customer->created_at}} </span></td>
+            <td>COLLECTED: <span class="undr_lin"> </span></td>
           </tr>
 
           <tr>
             <td colspan="2">DOCTOR: INTI FERNANDEZ MD</td>
-            <td>REPORTED: <span class="undr_lin">{{$customer->date}} </span></td>
+            <td>REPORTED: <span class="undr_lin"> </span></td>
           </tr>
 
 
@@ -105,7 +102,7 @@
           </tr>
 
           <tr>
-            <td colspan="2"> <span class="txt_bold"> Method: </span>{{$customer->test_type}}</td>
+            <td colspan="2"> <span class="txt_bold"> Method: </span></td>
             <td><span class="txt_bold">Testing Platform:</span> ABBOTT IDNOW</td>
           </tr>
 
@@ -120,7 +117,7 @@
 
           <tr>
             <td colspan="2"><span class="t_p"><span class="txt_bold">Specimen Type:</span> Nasopharyngeal Swab</span></td>
-            <td><span class="t_p"><span class="txt_bold" style=" text-transform: uppercase;">{{$customer->display_status}}</span> for {{$customer->test_type}}</span></td>
+            <td><span class="t_p"><span class="txt_bold" style=" text-transform: uppercase;"></span> for</span></td>
           </tr>
 
           <tr>

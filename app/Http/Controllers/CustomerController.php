@@ -90,7 +90,9 @@ return redirect("$role/view/customer")->with('success','Customer Verification su
         $host='https://'.\request()->getHost()."/public/customer_pdf/";
 
 
-
+// dd($request->CruiseLinea);
+// dd($request->F_Cruisea);
+// dd($request->Destinationa);
 
 
 
@@ -114,6 +116,9 @@ if(!$find)
 
 
     $cus_detail = new Customer_detail();
+    $cus_detail->CruiseLine =  $request->CruiseLinea;
+    $cus_detail->F_Cruise =  $request->F_Cruisea;
+    $cus_detail->Destination =  $request->Destinationa;
     $cus_detail->name =  $request->namea;
     $cus_detail->secondname =  $request->secondnamea;
     $cus_detail->type =  $request->type;
@@ -250,6 +255,10 @@ else{
                     $Parent_phone = 'Parent_phone_' . $i;
                     $Parent_dob = 'Parent_dob_' . $i;
 
+                    $CruiseLine = 'CruiseLine_' . $i;
+                    $F_Cruise = 'F_Cruise_' . $i;
+                    $Destination = 'Destination_' . $i;
+
 
 
 
@@ -267,6 +276,12 @@ else{
 
 
                     $cus_detail = new Customer_detail();
+
+                    $cus_detail->CruiseLine =  $request->$CruiseLine;
+                    $cus_detail->F_Cruise =  $request->$F_Cruise;
+                    $cus_detail->Destination =  $request->$Destination;
+
+
                     $cus_detail->name = $request->$name;
                     $cus_detail->secondname =  $request->$secondname;
                     $cus_detail->type =  $request->$type;
@@ -395,6 +410,10 @@ $customer = Customer::find($cus_detail->customer_id);
 
 
         $cus_detail->name =  $request->name;
+
+        $cus_detail->Destination =  $request->Destination;
+        $cus_detail->F_Cruise =  $request->F_Cruise;
+
             $cus_detail->secondname =  $request->secondname;
             $cus_detail->surname =  $request->surname;
             $cus_detail->phone =  $request->phone;
@@ -457,6 +476,9 @@ $customer = Customer::find($cus_detail->customer_id);
             $customer->save();
 
 
+
+            $cus_detail->Destination =  $request->Destination;
+            $cus_detail->F_Cruise =  $request->F_Cruise;
 
         $cus_detail->name =  $request->name;
             $cus_detail->secondname =  $request->secondname;
@@ -533,6 +555,15 @@ $customer = Customer::find($cus_detail->customer_id);
         //
     }
 
+    public function view_order($id){
+
+        $Country = Country::all();
+        $state = State::all();
+        $cus = Customer::find($id);
+        return view('customer.order2', compact('cus', 'Country', 'state'));
+
+
+    }
 
     public function verify_customer(Customer $customer, $id)
     {
@@ -622,7 +653,7 @@ $customer = Customer::find($cus_detail->customer_id);
                 $cus->save();
 
             }
-            return back()->with('success','Order created successfully');
+            return redirect('/admin/customers')->with('success','Order created successfully');
         }
         else{
            return back()->with('error','Please select Test to create order.');

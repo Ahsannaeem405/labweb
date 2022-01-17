@@ -580,6 +580,40 @@
                                         </div>
                                     </div><!-- col-8 -->
 
+                                    <div class="col-lg-6">
+                                        <div class="form-group mg-b-10-force">
+
+                                            <p>Destination: <i style="color: red; padding-left: 8px;"
+                                                         class="fas fa-check forverify"></i></p>
+                                            <input type="text" value="{{ $cus->show->Destination }}" name="Destination"
+                                                   class="form-control">
+
+                                        </div>
+                                    </div><!-- col-8 -->
+                                    <div class="col-lg-6">
+                                        <div class="form-group mg-b-10-force">
+
+                                            <p>Flight/Cruise #: <i style="color: red; padding-left: 8px;"
+                                                         class="fas fa-check forverify"></i></p>
+                                            <input type="text" value="{{ $cus->show->F_Cruise }}" name="F_Cruise"
+                                                   class="form-control">
+
+                                        </div>
+                                    </div><!-- col-8 -->
+{{--
+                                    <div class="col-lg-6">
+                                        <div class="form-group mg-b-10-force">
+
+                                            <p>Airlin/CruiseLine: <i style="color: red; padding-left: 8px;"
+                                                         class="fas fa-check forverify"></i></p>
+                                            <input type="email" value="{{ $cus->show->CruiseLine }}" name="email"
+                                                   class="form-control">
+
+                                        </div>
+                                    </div><!-- col-8 --> --}}
+
+
+
 
                                     <div class="col-lg-6">
                                         <div class="form-group mg-b-10-force">
@@ -1254,8 +1288,8 @@
                                         <select name="Country" required class="form-control">
 
                                             @foreach ($Country as $Country)
-
-
+{{--
+@dd($Country->name) --}}
                                                 <option value="{{ $Country->name }}"
                                                         @if ($cus->show->Country == $Country->name) selected @endif>
                                                     {{ $Country->name }}</option>
@@ -1334,6 +1368,37 @@
                                 </div>
                             </div><!-- col-8 -->
 
+                            <div class="col-lg-6">
+                                <div class="form-group mg-b-10-force">
+
+                                    <p>Destination: <i style="color: red; padding-left: 8px;"
+                                                 class="fas fa-check forverify"></i></p>
+                                    <input type="text" value="{{ $cus->show->Destination }}" name="Destination"
+                                           class="form-control">
+
+                                </div>
+                            </div><!-- col-8 -->
+                            <div class="col-lg-6">
+                                <div class="form-group mg-b-10-force">
+
+                                    <p>Flight/Cruise #: <i style="color: red; padding-left: 8px;"
+                                                 class="fas fa-check forverify"></i></p>
+                                    <input type="text" value="{{ $cus->show->F_Cruise }}" name="F_Cruise"
+                                           class="form-control">
+
+                                </div>
+                            </div><!-- col-8 -->
+{{--
+                            <div class="col-lg-6">
+                                <div class="form-group mg-b-10-force">
+
+                                    <p>Airlin/CruiseLine: <i style="color: red; padding-left: 8px;"
+                                                 class="fas fa-check forverify"></i></p>
+                                    <input type="email" value="{{ $cus->show->CruiseLine }}" name="email"
+                                           class="form-control">
+
+                                </div>
+                            </div><!-- col-8 --> --}}
 
                             <div class="col-lg-6">
                                 <div class="form-group mg-b-10-force">

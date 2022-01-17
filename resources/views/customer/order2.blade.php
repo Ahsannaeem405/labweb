@@ -27,16 +27,16 @@
 
             <div class="row">
                 <div class="col-12 pt-2">
-                    <a href="{{ url("$role/customers") }}"><i class="fas fa-chevron-left"></i> Back to Customer List</a>
+                    <a href="{{ url("$role/customers/") }}"><i class="fas fa-chevron-left"></i> Back to Customer List</a>
                 </div>
                 <div class="col-12 pt-2 text-dark">
-                    <h5>{{ $cus->name }}</h5>
-                    <p>#{{ $cus->id }}</p>
-                    <p><span class="text-bold">{{ $cus->gender }}</span> Born on <span
-                            class="text-bold">{{ $cus->dob }}</span></p>
+                    <h5>{{ 'order' }}</h5>
+                    <p>{{ 'Miami International Airport'}} &nbsp;&nbsp;&nbsp; <i class="fa fa-clock-o" aria-hidden="true"></i> Active
+                    </p>
+
 
                 </div>
-                <div class="col-lg-8 col-12 pt-3 text-dark">
+                {{-- <div class="col-lg-8 col-12 pt-3 text-dark">
                     <div class="row">
                         <div class="col-lg-4 col-md-4 col-12">
                             <p><i class="far fa-envelope"></i> {{ $cus->email }}</p>
@@ -49,16 +49,8 @@
                         </div>
                     </div>
 
+                </div> --}}
 
-
-                </div>
-                <div class="col-lg-4 col-12 pt-2 text-dark text-right">
-                    <a href="{{ url("$role/edit/customer/$cus->id") }}"> <button class="btn btn-secondary">Edit
-                            Customer</button></a>
-                    <a href="{{ url("$role/place/order/new/$cus->id") }}"> <button class="btn btn-primary">Place
-                            Order</button></a>
-
-                </div>
             </div>
         </div><!-- d-flex -->
 
@@ -91,33 +83,25 @@
                                 </thead>
                                 <tbody>
 
-                                    @foreach ($order as $orders)
+                                    {{-- @foreach ($order as $orders) --}}
 
                                   <tr>
 
-                                    <td class="cust" attrr="{{$orders->id}}" rolee="{{$role}}">#{{ $orders->id }} </td>
-                                    <td class="cust" attrr="{{$orders->id}}" rolee="{{$role}}">{{ $orders->test_type }}</td>
-                                    <td class="cust" attrr="{{$orders->id}}" rolee="{{$role}}">{{ $orders->order_date }}</td>
-                                    <td class="cust" attrr="{{$orders->id}}" rolee="{{$role}}">
-                                        @if ($orders->display_status == null)
-                                        <button class="btn btn-warning">{{ 'pending' }}</button>
+                                    <td >#</td>
+                                    <td >1</td>
+                                    <td ></td>
+                                    <td >
 
-                                    @else
 
                                         <button
-                                            class="btn     @if ($orders->display_status == 'negative') btn-success @else btn-danger  @endif">{{ $orders->display_status }}</button>
+                                            class="btn   ">5</button>
 
-                                    @endif
                                     </td>
-                                    <td class="cust" attrr="{{$orders->id}}" rolee="{{$role}}">
-                                        @if ($orders->display_status == null) <a disabled
-                                        onclick="return confirm('Are you sure you want to delete this item?');"
-                                        href="{{ url("$role/order/cancel/$orders->id") }}" class="a_tag"
-                                        style="color: blue;text-decoration: underline">Cancel</a>
-                                @endif
+                                    <td>
+                               5
                                     </td>
                                   </tr>
-                                  @endforeach
+                                  {{-- @endforeach --}}
 
                                 </tbody>
                               </table>
@@ -141,33 +125,26 @@
                             <div class="col-12">
                                 <h5>Invoices</h5>
                             </div>
-                            @foreach ($order as $orders)
-                                @if ($orders->step > 1 && $orders->display_status != 'Canceled')
+                            {{-- @foreach ($order as $orders) --}}
+kflos
                                     <div class="col-lg-4 col-md-6 col-6 pt-2">
-                                        <span>#{{ $orders->id }}</span> <span> - </span>
-                                        <span><i class="fas fa-calendar-minus"></i> {{ $orders->payment_date }}</span>
+                                        <span>#5</span> <span> - </span>
+                                        <span><i class="fas fa-calendar-minus"></i> 52</span>
                                     </div>
                                     <div class="col-lg-4 col-md-6 col-6 pt-2 text-center">
-                                        @if ($orders->step > 2)
-                                            <button class="btn btn-success">Completed</button>
-
-                                        @else
-                                            <button class="btn btn-warning">Pending</button>
-
-                                        @endif
+                                 =jj
                                     </div>
 
                                     <div class="col-lg-2 col-md-4 col-4 pt-2">
-                                        <b>${{ $orders->payment_amount }}</b>
+                                        <b>$2</b>
                                     </div>
                                     <div class="col-lg-2 col-md-2 col-2 pt-2">
-                                        {{-- <a href="#" class="a_tag" style="color: gray"><i --}}
-                                        {{-- class="fas fa-chevron-right"></i></a> --}}
+
                                     </div>
 
 
-                                @endif
-                            @endforeach
+
+
 
                         </div>
 
@@ -183,27 +160,27 @@
                                 <b>Document</b>
 
                             </div>
-                            @foreach ($document as $documents)
+                            {{-- @foreach ($document as $documents) --}}
                                 <div class="w-100 p-1 m-1" style="background-color: #9595e8"> <span class="mt-1"
-                                        style="color: white">{{ $documents->path }}</span>
+                                        style="color: white">545</span>
 
-                                    <a href="{{ asset("uploads/stock/$documents->path") }}" target="_blank"> <span
+                                    <a href="#" target="_blank"> <span
                                             class="p-1" style="color: white;float: right"><i
                                                 class="fa fa-search"></i></span>
                                     </a>
-                                    <a href="{{ url("$role/delete/document/$documents->id") }}"
+                                    <a href="#"
                                         onclick="return confirm('Are you sure you want to delete this item?');"><span
                                             class="p-1" style="color: white;float: right;color: red"><i
                                                 class="fa fa-trash"></i></span></a>
-                                    <a href="{{ asset("uploads/stock/$documents->path") }}" download> <span
+                                    <a href="#" download> <span
                                             class="p-1" style="color: white;float: right">download</span> </a>
 
 
                                 </div>
+{{--
+                            @endforeach --}}
 
-                            @endforeach
-
-                            <form class="w-100" action="{{ url("$role/upload/document/$cus->id") }}"
+                            <form class="w-100" action="#"
                                 method="post" enctype="multipart/form-data">
                                 @csrf
                                 <lable class="ml-2 mt-5 font-weight-bold">Upload Document</lable>
@@ -230,38 +207,38 @@
                                 <i class="fas fa-user"></i> New Patient Created
                             </div>
                             <div class="col-5 pt-2">
-                                <p>{{ $cus->created_at }}</p>
+                                <p>kdf</p>
                             </div>
-
-                            @foreach ($order as $orders)
+{{--
+                            @foreach ($order as $orders) --}}
 
                                 <div class="col-7 pt-2">
-                                    <i class="fas fa-user"></i> Order #{{ $orders->id }} - created
+                                    <i class="fas fa-user"></i> Order #745- created
                                 </div>
                                 <div class="col-5 pt-2">
-                                    <p>{{ $orders->created_at }}</p>
+                                    <p>dds</p>
                                 </div>
 
 
-                                @if ($orders->payment_date != null)
+                                {{-- @if ($orders->payment_date != null) --}}
                                     <div class="col-7 pt-2">
-                                        <i class="fas fa-user"></i> Order #{{ $orders->id }} - Invoice paid
+                                        <i class="fas fa-user"></i> Order #85 - Invoice paid
                                     </div>
                                     <div class="col-5 pt-2">
-                                        <p>{{ $orders->payment_date }}</p>
+                                        <p>podf</p>
                                     </div>
-                                @endif
+                                {{-- @endif --}}
 
-                                @if ($orders->date != null)
+                                {{-- @if ($orders->date != null) --}}
                                     <div class="col-7 pt-2">
-                                        <i class="fas fa-user"></i> Order #{{ $orders->id }} - Released
+                                        <i class="fas fa-user"></i> Order #852 - Released
                                     </div>
                                     <div class="col-5 pt-2">
-                                        <p>{{ $orders->date }}</p>
+                                        <p>;lfd</p>
                                     </div>
-                                @endif
+                                {{-- @endif --}}
 
-                            @endforeach
+                            {{-- @endforeach --}}
 
                             {{-- item 2 --}}
                             {{-- <div class="col-7 pt-2"> --}}
@@ -453,19 +430,20 @@
 
 
 
-    // <script>
-    //     $(document).ready(function() {
-    //         $('.cust').click(function(){
+    <script>
+        $(document).ready(function() {
+            $('.cust').click(function(){
 
-    //             var id =  $(this).attr('attrr');
+                var id =  $(this).attr('attrr');
 
-    //             var rolee =  $(this).attr('rolee');
-    //             var url = '/public/'+rolee+'/customer/view/order/'+id;
-    //             $(location).attr('href',url);
+                alert(1);
+                var rolee =  $(this).attr('rolee');
+                var url = '/public/'+rolee+'/customer/view/order/'+id;
+                $(location).attr('href',url);
 
-    //         });
-    //     });
-    // </script>
+            });
+        });
+    </script>
 
 
 @endsection

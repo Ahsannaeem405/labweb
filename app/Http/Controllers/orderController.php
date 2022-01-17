@@ -33,6 +33,10 @@ class orderController extends Controller
 
     public function report($id)
     {
+
+      $idd =   base64_decode($id);
+
+// dd($idd);
         $report=Customer::find($id);
     if($report)
     {
@@ -120,9 +124,9 @@ class orderController extends Controller
 
         $email=$customer->email;
 
+       $idd =  base64_encode($id);
 
-
-        $host='https://'.\request()->getHost()."/public/report/$id";
+        $host='https://'.\request()->getHost()."/public/report/$idd";
         $pdf = \PDF::loadView('pdf.report',compact('host','customer'));
         $rand= rand(0, 99999999999999);
         $path = 'pdf/';
