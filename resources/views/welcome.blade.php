@@ -1571,7 +1571,7 @@
                     else
                     {
                         console.log(imgsrc);
-                    alert(imgsrc);
+                    // alert(imgsrc);
                     }
 
                 });
