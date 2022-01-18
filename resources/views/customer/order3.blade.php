@@ -144,7 +144,7 @@
                                         <span>${{$order->payment_amount}}</span>
                                     </div>
                                     <div class="col-lg-2 col-md-4 col-12 " style="text-align: end">
-                                        <a href="{{url("/public/$role/customer/view/order",$order->id)}}">
+                                        <a href="{{url("/$role/customer/view/order",$order->id)}}">
                                             <i class="fa fa-arrow-right" aria-hidden="true">
                                         </i>
                                     </a>
