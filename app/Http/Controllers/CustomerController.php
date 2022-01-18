@@ -411,8 +411,7 @@ $customer = Customer::find($cus_detail->customer_id);
 
         $cus_detail->name =  $request->name;
 
-        $cus_detail->Destination =  $request->Destination;
-        $cus_detail->F_Cruise =  $request->F_Cruise;
+
 
             $cus_detail->secondname =  $request->secondname;
             $cus_detail->surname =  $request->surname;
@@ -479,8 +478,7 @@ $customer = Customer::find($cus_detail->customer_id);
 
 
 
-            $cus_detail->Destination =  $request->Destination;
-            $cus_detail->F_Cruise =  $request->F_Cruise;
+
 
         $cus_detail->name =  $request->name;
             $cus_detail->secondname =  $request->secondname;
