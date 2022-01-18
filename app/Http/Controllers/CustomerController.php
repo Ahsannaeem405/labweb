@@ -756,13 +756,13 @@ return back()->with('success', 'Successfully canceled');
 
 
 
-        $order = Customer::where('id', $id)->where('step', '>', 1)->where('main_status', 'order')->first();
-        // dd($order);
+        $order = Customer::find($id);
+       //  dd($order);
         $Country = Country::all();
         $state = State::all();
         $cus = Customer::find($id);
 
-        $document = Document::where('email', $order->email)->get();
+        $document = Document::where('email', $cus->email)->get();
         return view('customer.order2', compact('cus', 'Country', 'state', 'order', 'document'));
     }
 
