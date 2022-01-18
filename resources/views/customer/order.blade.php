@@ -181,7 +181,7 @@
                                                 </td>
                                                 <td>
                                                     <a
-                                                        href="{{ url("/public/$role/customer/view/order", $orders->id) }}">
+                                                        href="{{ url("/$role/customer/view/order", $orders->id) }}">
                                                         <i class="fa fa-arrow-right" aria-hidden="true">
                                                         </i>
                                                     </a>
@@ -249,7 +249,7 @@
                                                 </td>
                                                 <td>
                                                     <a
-                                                        href="{{ url("/public/$role/customer/view/invoice", $orders->id) }}">
+                                                        href="{{ url("/$role/customer/view/invoice", $orders->id) }}">
                                                         <i class="fa fa-arrow-right" aria-hidden="true">
                                                         </i>
                                                     </a>
