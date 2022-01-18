@@ -80,47 +80,119 @@
                             </div>
                             <table class="table table-striped">
                                 <thead>
-                                  <tr>
-                                    {{-- <th scope="col">#</th>
-                                    <th scope="col">First</th>
-                                    <th scope="col">Last</th>
-                                    <th scope="col">Handle</th>
-                                    <th scope="col">Handle</th>
-                                    <th scope="col">Handle</th> --}}
-                                  </tr>
+                                    <tr>
+
+                                    </tr>
                                 </thead>
                                 <tbody>
 
                                     @foreach ($order as $orders)
+                                        {{-- @dd($orders->test_type ) --}}
 
-                                  <tr>
+                                        @if ($orders->main_status == 'user')
+                                        @if(isset($orders->show->Select_the_test))
 
-                                    <td class="cust" attrr="{{$orders->id}}" rolee="{{$role}}">#{{ $orders->id }} </td>
-                                    <td class="cust" attrr="{{$orders->id}}" rolee="{{$role}}">{{ $orders->test_type }}</td>
-                                    <td class="cust" attrr="{{$orders->id}}" rolee="{{$role}}">{{ $orders->order_date }}</td>
-                                    <td class="cust" attrr="{{$orders->id}}" rolee="{{$role}}">
-                                        @if ($orders->display_status == null)
-                                        <button class="btn btn-warning">{{ 'pending' }}</button>
 
-                                    @else
+                                            <tr>
 
-                                        <button
-                                            class="btn     @if ($orders->display_status == 'negative') btn-success @else btn-danger  @endif">{{ $orders->display_status }}</button>
+                                                <td  attrr="{{ $orders->id }}"
+                                                    rolee="{{ $role }}"># </td>
 
-                                    @endif
-                                    </td>
-                                    <td class="cust" attrr="{{$orders->id}}" rolee="{{$role}}">
-                                        @if ($orders->display_status == null) <a disabled
-                                        onclick="return confirm('Are you sure you want to delete this item?');"
-                                        href="{{ url("$role/order/cancel/$orders->id") }}" class="a_tag"
-                                        style="color: blue;text-decoration: underline">Cancel</a>
-                                @endif
-                                    </td>
-                                  </tr>
-                                  @endforeach
+
+
+                                                <td  attrr="{{ $orders->id }}"
+                                                    rolee="{{ $role }}">
+
+                                                    {{ $orders->show->Select_the_test }}
+
+
+                                                </td>
+                                                <td  attrr="{{ $orders->id }}"
+                                                    rolee="{{ $role }}">
+                                                    @if(isset($orders->show->created_at))
+                                                    {{ $orders->show->created_at }}
+                                                    @endif
+
+
+                                                </td>
+
+                                                <td>
+                                                    <a    onclick="return confirm('Are you sure you want to approve this item?');" href="{{ url("$role/order/approve/$orders->id") }}" class="btn btn-secondary Draft" >{{ 'Draft' }}</a>
+                                                </td>
+
+                                                <td  attrr="{{ $orders->id }}"
+                                                    rolee="{{ $role }}">
+                                                    @if ($orders->display_status == null) <a
+                                                            disabled
+                                                            onclick="return confirm('Are you sure you want to delete this item?');"
+                                                            href="{{ url("$role/order/cancel/$orders->id") }}"
+                                                            class="a_tag"
+                                                            style="color: blue;text-decoration: underline">Cancel</a>
+                                                    @endif
+                                                </td>
+                                                <td>
+                                                    <a
+                                                        href="{{ url("/public/$role/customer/view/order", $orders->id) }}">
+                                                        <i class="fa fa-arrow-right" aria-hidden="true">
+                                                        </i>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                            @endif
+
+                                        @else
+                                            <tr>
+                                                <td class="cust" attrr="{{ $orders->id }}"
+                                                    rolee="{{ $role }}">#{{ $orders->id }} </td>
+
+
+
+                                                <td class="cust" attrr="{{ $orders->id }}"
+                                                    rolee="{{ $role }}">
+                                                    {{ $orders->test_type }}
+                                                </td>
+                                                <td class="cust" attrr="{{ $orders->id }}"
+                                                    rolee="{{ $role }}">
+                                                    {{ $orders->order_date }}</td>
+
+                                                <td class="cust" attrr="{{ $orders->id }}"
+                                                    rolee="{{ $role }}">
+                                                    @if ($orders->display_status == null)
+                                                        <button class="btn btn-warning">{{ 'pending' }}</button>
+
+                                                    @else
+
+                                                        <button
+                                                            class="btn     @if ($orders->display_status == 'negative') btn-success @else btn-danger  @endif">{{ $orders->display_status }}</button>
+
+                                                    @endif
+                                                </td>
+
+
+                                                <td class="cust" attrr="{{ $orders->id }}"
+                                                    rolee="{{ $role }}">
+                                                    @if ($orders->display_status == null) <a
+                                                            disabled
+                                                            onclick="return confirm('Are you sure you want to delete this item?');"
+                                                            href="{{ url("$role/order/cancel/$orders->id") }}"
+                                                            class="a_tag"
+                                                            style="color: blue;text-decoration: underline">Cancel</a>
+                                                    @endif
+                                                </td>
+                                                <td>
+                                                    <a
+                                                        href="{{ url("/public/$role/customer/view/order", $orders->id) }}">
+                                                        <i class="fa fa-arrow-right" aria-hidden="true">
+                                                        </i>
+                                                    </a>
+                                                </td>
+                                            </tr>
+
+                                        @endif
+                                    @endforeach
 
                                 </tbody>
-                              </table>
+                            </table>
                         </div>
 
 
@@ -136,7 +208,67 @@
 
 
 
-                    <div class="card bd-0 shadow-base p-3 mt-3">
+                    <div class="card bd-0 shadow-base p-3">
+                        <div class="row">
+                            <div class="col-12">
+                                <h5>Invoices</h5>
+                            </div>
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                    @foreach ($order as $orders)
+                                        @if ($orders->step > 1 && $orders->display_status != 'Canceled')
+                                            <tr>
+
+                                                <td class="invoi" attrr="{{ $orders->id }}"
+                                                    rolee="{{ $role }}">#{{ $orders->id }}
+                                                    <span> - </span>
+                                                    <span><i class="fas fa-calendar-minus"></i>
+                                                </td>
+                                                <td class="invoi" attrr="{{ $orders->id }}"
+                                                    rolee="{{ $role }}">{{ $orders->payment_date }}</td>
+
+                                                <td class="invoi" attrr="{{ $orders->id }}"
+                                                    rolee="{{ $role }}">
+                                                    @if ($orders->step > 2)
+                                                        <button class="btn btn-success">Completed</button>
+
+                                                    @else
+                                                        <button class="btn btn-warning">Pending</button>
+
+                                                    @endif
+                                                </td>
+                                                <td class="invoi" attrr="{{ $orders->id }}"
+                                                    rolee="{{ $role }}">
+                                                    ${{ $orders->payment_amount }}
+                                                </td>
+                                                <td>
+                                                    <a
+                                                        href="{{ url("/public/$role/customer/view/invoice", $orders->id) }}">
+                                                        <i class="fa fa-arrow-right" aria-hidden="true">
+                                                        </i>
+                                                    </a>
+
+                                                </td>
+                                            </tr>
+                                        @endif
+                                    @endforeach
+
+                                </tbody>
+                            </table>
+                        </div>
+
+
+                    </div>
+
+
+
+                    {{-- <div class="card bd-0 shadow-base p-3 mt-3">
                         <div class="row">
                             <div class="col-12">
                                 <h5>Invoices</h5>
@@ -161,8 +293,7 @@
                                         <b>${{ $orders->payment_amount }}</b>
                                     </div>
                                     <div class="col-lg-2 col-md-2 col-2 pt-2">
-                                        {{-- <a href="#" class="a_tag" style="color: gray"><i --}}
-                                        {{-- class="fas fa-chevron-right"></i></a> --}}
+
                                     </div>
 
 
@@ -172,7 +303,7 @@
                         </div>
 
 
-                    </div>
+                    </div> --}}
                 </div>
                 <div class="col-lg-4 col-12">
 
@@ -185,7 +316,8 @@
                             </div>
                             @foreach ($document as $documents)
                                 <div class="w-100 p-1 m-1" style="background-color: #9595e8"> <span class="mt-1"
-                                        style="color: white">{{ $documents->path }}</span>
+                                        style="color: white"> @if(isset($documents->path )) {{ 'Smartwaiver Consent.pdf' }} @endif </span>
+
 
                                     <a href="{{ asset("uploads/stock/$documents->path") }}" target="_blank"> <span
                                             class="p-1" style="color: white;float: right"><i
@@ -453,19 +585,35 @@
 
 
 
-    // <script>
-    //     $(document).ready(function() {
-    //         $('.cust').click(function(){
+    <script>
+        $(document).ready(function() {
+            $('.cust').click(function() {
 
-    //             var id =  $(this).attr('attrr');
+                var id = $(this).attr('attrr');
 
-    //             var rolee =  $(this).attr('rolee');
-    //             var url = '/public/'+rolee+'/customer/view/order/'+id;
-    //             $(location).attr('href',url);
+                var rolee = $(this).attr('rolee');
+                var url = '/public/' + rolee + '/customer/view/order/' + id;
+                $(location).attr('href', url);
 
-    //         });
-    //     });
-    // </script>
+            });
+        });
+    </script>
+
+    <script>
+        $(document).ready(function() {
+            $('.invoi').click(function() {
+
+                var id = $(this).attr('attrr');
+
+                var rolee = $(this).attr('rolee');
+                var url = '/public/' + rolee + '/customer/view/invoice/' + id;
+                $(location).attr('href', url);
+
+            });
+        });
+    </script>
+
+
 
 
 @endsection

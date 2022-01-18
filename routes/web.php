@@ -72,6 +72,7 @@ Route:: prefix('/admin')->middleware(['auth', 'admin'])->group(function () {
 
     Route::get('/customer/view/order/{id}', [CustomerController::class, 'view_order']);
 
+    Route::get('/customer/view/invoice/{id}', [CustomerController::class, 'view_invoice']);
 
 
 
@@ -118,6 +119,7 @@ Route:: prefix('/admin')->middleware(['auth', 'admin'])->group(function () {
     Route::get('delete/document/{id}',[CustomerController::class,'delete_document']);
     Route::get('/order/cancel/{id}',[CustomerController::class,'cancel_order']);
 
+    Route::get('/order/approve/{id}',[CustomerController::class,'order_approve']);
 
 
 });
@@ -206,6 +208,8 @@ Route:: prefix('/operator')->middleware(['auth', 'operator'])->group(function ()
     Route::post('submit/order/{id}',[CustomerController::class,'place_order_submit']);
     Route::post('upload/document/{id}',[CustomerController::class,'upload_document']);
     Route::get('delete/document/{id}',[CustomerController::class,'delete_document']);
+    Route::get('/order/approve/{id}',[CustomerController::class,'order_approve']);
+
     Route::get('/order/cancel/{id}',[CustomerController::class,'cancel_order']);
 
 

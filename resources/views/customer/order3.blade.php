@@ -21,7 +21,6 @@
     @php $role=\Illuminate\Support\Facades\Auth::user()->role; @endphp
 
     <!-- ########## START: MAIN PANEL ########## -->
-    {{-- @dd($order) --}}
     <div class="br-mainpanel">
         <div class="pd-30">
             @include('partials.component')
@@ -31,9 +30,17 @@
                     <a href="{{ url("$role/customers/") }}"><i class="fas fa-chevron-left"></i> Back to Customer List</a>
                 </div>
                 <div class="col-12 pt-2 text-dark">
-                    <h5>{{ 'Order' }}</h5>
-                    <p>{{ 'Miami International Airport' }} &nbsp;&nbsp;&nbsp; <i class="fa fa-clock-o"
-                            aria-hidden="true"></i> Active
+                    <h5>{{ 'Invoice #'.$order->id }}</h5>
+                    <p>{{ 'Miami International Airport' }} &nbsp;&nbsp;&nbsp; <i class="fa fa-check"
+                            aria-hidden="true"></i>
+
+                            @if ($order->step > 2)
+                         Paid
+
+                        @else
+                           Pending
+
+                        @endif
                     </p>
 
 
@@ -45,14 +52,13 @@
 
         <div class="br-pagebody mg-t-5 pd-x-30">
 
-            {{-- @dd($order->name) --}}
             <div class="row">
                 <div class="col-lg-8 col-12">
                     <div class="card bd-0 shadow-base p-3">
                         <div class="row">
                             <div class="col-12">
-                                <h5 s>Patient Information</h5>
-                                <span>Patient Personal Information</span>
+                                <h5 s>Payor Information</h5>
+                                <span>Payor Personal Information</span>
                             </div>
                             <div class="col-lg-12 col-12 pt-3 text-dark">
                                 <div class="row">
@@ -88,68 +94,6 @@
                                         <br>
 
                                        <span class="mt-1"
-                                            style=""><i class="fa fa-file" aria-hidden="true"></i> &nbsp;@if(isset($documents->path )) {{ 'Smartwaiver Consent.pdf' }} @endif</span>
-
-                                    </div>
-
-                                    <div class="col-lg-6 col-md-6 col-md-6"
-                                        style="text-align: end;vertical-align: middle;margin: auto;">
-                                        <a href="{{ asset("uploads/stock/$documents->path") }}" target="_blank"> <span
-                                            class="p-1">Download</a>
-                                    </div>
-                                    @endforeach
-
-                                </div>
-                            </div>
-                        </div>
-
-
-                    </div>
-
-                    <br>
-
-{{--
-                    @dd($order) --}}
-
-
-                    <div class="card bd-0 shadow-base p-3">
-                        <div class="row">
-                            <div class="col-12">
-                                <h5 s>Order Information</h5>
-                            </div>
-                            <div class="col-lg-12 col-12 pt-3 text-dark">
-                                <div class="row">
-                                    <div class="col-lg-4 col-md-4 col-12">
-                                        <label style="    font-weight: bold;" for="">Test Name</label>
-                                        <p>{{$order->test_type}}</p>
-                                    </div>
-                                    <div class="col-lg-4 col-md-4 col-12">
-                                        <label style="    font-weight: bold;" for="">Price</label>
-                                        <p>${{$order->payment_amount}}</p>
-                                    </div>
-                                    <div class="col-lg-4 col-md-4 col-12">
-                                        <label style="    font-weight: bold;" for="">Testing Platform</label>
-                                        <p>ABBOTT IDNOW</p>
-                                    </div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="col-lg-4 col-md-4 col-12">
-                                        <label style="    font-weight: bold;" for="">Results </label>
-                                        <p>{{$order->display_status}}</p>
-                                    </div>
-
-                                </div>
-                                <div class="row">
-
-                                    <div class="col-lg-12 col-md-12" style="margin-bottom: -15px;">
-                                    <label style="    font-weight: bold;" for="">Documents</label>
-                                    </div>
-                                    @foreach ($document as $documents)
-                                    <div class="col-lg-6 col-md-6 col-md-6">
-                                        <br>
-
-                                       <span class="mt-1"
                                             style=""><i class="fa fa-file" aria-hidden="true"></i> &nbsp;{{ $documents->path }}</span>
 
                                     </div>
@@ -168,6 +112,9 @@
 
                     </div>
 
+                    <br>
+
+
 
 
                     <br>
@@ -177,16 +124,14 @@
                     <div class="card bd-0 shadow-base p-3">
                         <div class="row">
                             <div class="col-12">
-                                <h5 s>Invoices</h5>
+                                <h5 s>Invoices Lines</h5>
                             </div>
                             <div class="col-lg-12 col-12 pt-3 text-dark">
                                 <div class="row">
                                     <div class="col-lg-4 col-md-4 col-12">
-                                        @if ($order->step > 1 && $order->display_status != 'Canceled')
-                                        <p>Invoice # {{ $order->id }}</p>
-                                        @endif
+                                        <p>{{'Order #'.$order->id}}</p>
                                     </div>
-                                    <div class="col-lg-4 col-md-4 col-12" style="text-align: end">
+                                    <div class="col-lg-2 col-md-4 col-12" style="text-align: end">
                                         @if ($order->step > 2)
                                         <button class="btn btn-success">Paid</button>
 
@@ -195,8 +140,19 @@
 
                                     @endif
                                     </div>
-                                    <div class="col-lg-4 col-md-4 col-12 " style="text-align: end">
-                                        <span>${{ $order->payment_amount }}</span>
+                                    <div class="col-lg-2 col-md-4 col-12 " style="text-align: end">
+                                        <span>${{$order->payment_amount}}</span>
+                                    </div>
+                                    <div class="col-lg-2 col-md-4 col-12 " style="text-align: end">
+                                        <a href="{{url("/public/$role/customer/view/order",$order->id)}}">
+                                            <i class="fa fa-arrow-right" aria-hidden="true">
+                                        </i>
+                                    </a>
+
+                                    </div>
+                                    <div class="col-lg-2 col-md-4 col-12 " style="text-align: end">
+                                        <span><i class="fa fa-trash" aria-hidden="true"></i>
+                                        </span>
                                     </div>
                                 </div>
 
@@ -227,50 +183,28 @@
 
 
                             <div class="col-7 pt-2">
-                                Test
+                                Subtotal
                             </div>
-                            <div class="col-5 pt-2">
-                                <p>{{$order->test_type}}</p>
-                            </div>
-                            {{-- @foreach ($order as $orders) --}}
-
-                            <div class="col-7 pt-2">
-                               Price
-                            </div>
-{{-- @dd($order) --}}
-                            <div class="col-5 pt-2">
+                            <div class="col-5 pt-2" style="text-align: center;">
                                 <p>${{$order->payment_amount}}</p>
                             </div>
 
 
-                            {{-- @if ($orders->payment_date != null) --}}
-                            <div class="col-7 pt-2">
-                               date
-                            </div>
-                            <div class="col-5 pt-2">
-                                <p>{{$order->result_date}}</p>
-                            </div>
-
                             <hr class="col-10" />
-                            @if( isset($order->display_status))
-
-
                             <div class="col-7 pt-2">
-                               <span style="font-weight: bold">Result</span>
-                             </div>
-                             <div class="col-5 pt-2">
-                                 <p>{{$order->display_status}}</p>
-                             </div>
+                                <span style="font-weight: bold">Total</span>
+                            </div>
+                            <div class="col-5 pt-2" style="text-align: center;">
+                                <p>${{$order->payment_amount}}</p>
+                            </div>
 
-                             @else
-                             <div class="col-7 pt-2">
-                                <span style="font-weight: bold">No Result Provided</span>
-                              </div>
-                              <div class="col-5 pt-2">
-                                  <p></p>
-                              </div>
+                            <div class="col-12 pt-2">
+                                <button onclick="window.print()"     style="    width: 100%;">
+                                    Print Invoice Receipt</button>
+                                <button style="    width: 100%;    margin-top: 7px;    ">
+                                    Regenerate Invoice Receipt</button>
+                            </div>
 
-                              @endif
 
                         </div>
 
