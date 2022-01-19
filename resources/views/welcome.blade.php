@@ -163,7 +163,7 @@
     <div class="container">
         @include('partials.component2')
         <div class="row p-3">
-            <div class="col-lg-6  col-12 pt-5 text-right">
+            <div class="col-lg-6  col-12 pt-5 text-right" style="margin: auto">
                 <img src="{{ asset('assets/images/header.png') }}" class="img-logo"
                     style="width: 100%; margin-bottom: 5%;" alt="">
             </div>
