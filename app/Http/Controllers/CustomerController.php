@@ -386,6 +386,7 @@ return back()->with('success', 'Successfully canceled');
                 if (!$find) {
 
 
+                    // dd( $request->$SingsLink);
 
 
                     $customer = new Customer();

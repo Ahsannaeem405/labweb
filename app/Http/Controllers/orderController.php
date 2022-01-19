@@ -119,6 +119,28 @@ $idd = intval($idd);
         return view('orders.pendingRelease', compact('customer'));
     }
 
+
+    public function downloadd($id){
+
+$customer=Customer::find($id);
+
+
+
+$email=$customer->email;
+
+$idd =  base64_encode($id);
+
+$host='https://'.\request()->getHost()."/public/report/$idd";
+$pdf = \PDF::loadView('pdf.report',compact('host','customer'));
+
+
+// download PDF file with download method
+return $pdf->download('pdf_report.pdf');
+
+
+return back();
+
+    }
     public function release_send($id)
     {
         $customer=Customer::find($id);

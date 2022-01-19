@@ -145,21 +145,31 @@
                                     <div class="col-lg-12 col-md-12" style="margin-bottom: -15px;">
                                     <label style="    font-weight: bold;" for="">Documents</label>
                                     </div>
-                                    @foreach ($document as $documents)
-                                    <div class="col-lg-6 col-md-6 col-md-6">
-                                        <br>
 
-                                       <span class="mt-1"
-                                            style=""><i class="fa fa-file" aria-hidden="true"></i> &nbsp;{{ $documents->path }}</span>
+                                    @if($order->step >=4)
 
-                                    </div>
+                                    <span class="mt-1"
+                                    style="    padding: 12px;"><i class="fa fa-file" aria-hidden="true"></i> &nbsp;{{ 'Medical lab report.pdf' }}</span>
+
+
 
                                     <div class="col-lg-6 col-md-6 col-md-6"
-                                        style="text-align: end;vertical-align: middle;margin: auto;">
-                                        <a href="{{ asset("uploads/stock/$documents->path") }}" target="_blank"> <span
-                                            class="p-1">Download</a>
-                                    </div>
-                                    @endforeach
+                                    style="text-align: end;vertical-align: middle;margin: auto;">
+                                    <a href="{{url("$role/downloadd/$order->id")}}" > <span
+                                        class="p-1">Download</a>
+
+
+
+{{--
+
+                                        <a href="{{url("$role/release/send/$views->id")}}">   <button
+                                            class="btn btn-primary">
+                                            Notify him
+                                        </button></a> --}}
+
+                                </div>
+                                    @endif
+
 
                                 </div>
                             </div>

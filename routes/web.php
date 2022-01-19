@@ -101,6 +101,10 @@ Route:: prefix('/admin')->middleware(['auth', 'admin'])->group(function () {
     Route::get('pending/release', [\App\Http\Controllers\orderController::class, 'pending_release']);
     Route::get('/release/send/{id}', [\App\Http\Controllers\orderController::class, 'release_send']);
 
+
+
+    Route::get('/downloadd/{id}', [\App\Http\Controllers\orderController::class, 'downloadd']);
+
     //released
 
 
@@ -197,6 +201,7 @@ Route:: prefix('/operator')->middleware(['auth', 'operator'])->group(function ()
 
     Route::get('pending/release', [\App\Http\Controllers\orderController::class, 'pending_release']);
     Route::get('/release/send/{id}', [\App\Http\Controllers\orderController::class, 'release_send']);
+    Route::get('/downloadd/{id}', [\App\Http\Controllers\orderController::class, 'downloadd']);
 
     //released
 
