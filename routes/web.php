@@ -167,6 +167,12 @@ Route:: prefix('/operator')->middleware(['auth', 'operator'])->group(function ()
 
     Route::get('/verify/customer/{id}', [CustomerController::class, 'verify_customer']);
 
+    Route::get('/customer/view/order/{id}', [CustomerController::class, 'view_order']);
+
+    Route::get('/customer/view/invoice/{id}', [CustomerController::class, 'view_invoice']);
+
+
+
     Route::get('/create/order/customer/{id}', [CustomerController::class, 'create_order']);
 
 
@@ -184,18 +190,18 @@ Route:: prefix('/operator')->middleware(['auth', 'operator'])->group(function ()
     //cancel orders
 
 
-        Route::get('cancel/orders', [\App\Http\Controllers\orderController::class, 'cancelOrders']);
+    Route::get('cancel/orders', [\App\Http\Controllers\orderController::class, 'cancelOrders']);
 
     //pending release
 
 
-        Route::get('pending/release', [\App\Http\Controllers\orderController::class, 'pending_release']);
-        Route::get('/release/send/{id}', [\App\Http\Controllers\orderController::class, 'release_send']);
+    Route::get('pending/release', [\App\Http\Controllers\orderController::class, 'pending_release']);
+    Route::get('/release/send/{id}', [\App\Http\Controllers\orderController::class, 'release_send']);
 
-        //released
+    //released
 
 
-        Route::get('released', [\App\Http\Controllers\orderController::class, 'released']);
+    Route::get('released', [\App\Http\Controllers\orderController::class, 'released']);
     Route::post('/update/date/{id}', [\App\Http\Controllers\orderController::class, 'date_released']);
 
     Route::post('/customer/update_adult',[CustomerController::class,'update_adult']);
@@ -208,11 +214,9 @@ Route:: prefix('/operator')->middleware(['auth', 'operator'])->group(function ()
     Route::post('submit/order/{id}',[CustomerController::class,'place_order_submit']);
     Route::post('upload/document/{id}',[CustomerController::class,'upload_document']);
     Route::get('delete/document/{id}',[CustomerController::class,'delete_document']);
-    Route::get('/order/approve/{id}',[CustomerController::class,'order_approve']);
-
     Route::get('/order/cancel/{id}',[CustomerController::class,'cancel_order']);
 
-
+    Route::get('/order/approve/{id}',[CustomerController::class,'order_approve']);
 });
 
 

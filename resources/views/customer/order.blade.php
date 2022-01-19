@@ -89,7 +89,7 @@
                                     @foreach ($order as $orders)
                                         {{-- @dd($orders->test_type ) --}}
 
-                                        @if ($orders->main_status == 'user')
+                                        @if ($orders->main_status == 'user' and $orders->duplicate != 2)
                                         @if(isset($orders->show->Select_the_test))
 
 
@@ -132,7 +132,7 @@
                                                 </td>
                                                 <td>
                                                     <a
-                                                        href="{{ url("/public/$role/customer/view/order", $orders->id) }}">
+                                                        href="{{ url("/$role/customer/view/order", $orders->id) }}">
                                                         <i class="fa fa-arrow-right" aria-hidden="true">
                                                         </i>
                                                     </a>
@@ -140,10 +140,10 @@
                                             </tr>
                                             @endif
 
-                                        @else
+                                        @elseif($orders->duplicate != 2)
                                             <tr>
                                                 <td class="cust" attrr="{{ $orders->id }}"
-                                                    rolee="{{ $role }}">#{{ $orders->id }} </td>
+                                                    rolee="{{ $role }}">#{{ $orders->order_id }} </td>
 
 
 
@@ -181,7 +181,7 @@
                                                 </td>
                                                 <td>
                                                     <a
-                                                        href="{{ url("/public/$role/customer/view/order", $orders->id) }}">
+                                                        href="{{ url("/$role/customer/view/order", $orders->id) }}">
                                                         <i class="fa fa-arrow-right" aria-hidden="true">
                                                         </i>
                                                     </a>
@@ -226,7 +226,7 @@
                                             <tr>
 
                                                 <td class="invoi" attrr="{{ $orders->id }}"
-                                                    rolee="{{ $role }}">#{{ $orders->id }}
+                                                    rolee="{{ $role }}">#{{ $orders->order_id }}
                                                     <span> - </span>
                                                     <span><i class="fas fa-calendar-minus"></i>
                                                 </td>
@@ -249,7 +249,7 @@
                                                 </td>
                                                 <td>
                                                     <a
-                                                        href="{{ url("/public/$role/customer/view/invoice", $orders->id) }}">
+                                                        href="{{ url("/$role/customer/view/invoice", $orders->id) }}">
                                                         <i class="fa fa-arrow-right" aria-hidden="true">
                                                         </i>
                                                     </a>
@@ -366,9 +366,9 @@
                             </div>
 
                             @foreach ($order as $orders)
-
+                                @if($orders->order_id!=null)
                                 <div class="col-7 pt-2">
-                                    <i class="fas fa-user"></i> Order #{{ $orders->id }} - created
+                                    <i class="fas fa-user"></i> Order #{{ $orders->order_id }} - created
                                 </div>
                                 <div class="col-5 pt-2">
                                     <p>{{ $orders->created_at }}</p>
@@ -377,7 +377,7 @@
 
                                 @if ($orders->payment_date != null)
                                     <div class="col-7 pt-2">
-                                        <i class="fas fa-user"></i> Order #{{ $orders->id }} - Invoice paid
+                                        <i class="fas fa-user"></i> Order #{{ $orders->order_id }} - Invoice paid
                                     </div>
                                     <div class="col-5 pt-2">
                                         <p>{{ $orders->payment_date }}</p>
@@ -386,11 +386,12 @@
 
                                 @if ($orders->date != null)
                                     <div class="col-7 pt-2">
-                                        <i class="fas fa-user"></i> Order #{{ $orders->id }} - Released
+                                        <i class="fas fa-user"></i> Order #{{ $orders->order_id }} - Released
                                     </div>
                                     <div class="col-5 pt-2">
                                         <p>{{ $orders->date }}</p>
                                     </div>
+                                @endif
                                 @endif
 
                             @endforeach

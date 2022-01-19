@@ -65,7 +65,19 @@ return back()->with('success', 'Successfully canceled');
         $cus->save();
 
      $cuss =  Customer::find($id);
-     $cuss->delete();
+     if ($cuss->duplicate==1)
+     {
+         $cuss->delete();
+
+     }
+
+        if ($cuss->duplicate==0)
+        {
+            $cuss->duplicate=2;
+            $cuss->update();
+
+        }
+
 
         return redirect("$role/create/order/customer/$cus->id");
 
@@ -577,7 +589,8 @@ return back()->with('success', 'Successfully canceled');
      */
     public function view(Customer $customer)
     {
-        $customer = Customer::where('status', 'Verified')->where('duplicate', 0)->where('main_status', 'user')->get();
+        $customer = Customer::where('status', 'Verified')->wherein('duplicate', [0,2])->where('main_status', 'user')->get();
+
         return view('customer.view_customer2', compact('customer'));
     }
     public function update_adult(Request $request)
@@ -756,13 +769,13 @@ return back()->with('success', 'Successfully canceled');
 
 
 
-        $order = Customer::where('id', $id)->where('step', '>', 1)->where('main_status', 'order')->first();
-        // dd($order);
+        $order = Customer::find($id);
+       //  dd($order);
         $Country = Country::all();
         $state = State::all();
         $cus = Customer::find($id);
 
-        $document = Document::where('email', $order->email)->get();
+        $document = Document::where('email', $cus->email)->get();
         return view('customer.order2', compact('cus', 'Country', 'state', 'order', 'document'));
     }
 
