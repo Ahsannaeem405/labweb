@@ -1,19 +1,17 @@
 @extends('admin.layouts.default')
 @section('content')
 
-    <link rel="https://cdn.datatables.net/1.11.0/css/jquery.dataTables.min.css">
+    {{-- <link rel="https://cdn.datatables.net/1.11.0/css/jquery.dataTables.min.css"> --}}
+    <link href="{{asset('/lib/datatables/jquery.dataTables.css')}}" rel="stylesheet">
 
-    {{-- <link rel="https://cdn.datatables.net/buttons/2.0.0/css/buttons.dataTables.min.css"> --}}
-
-    {{-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" /> --}}
     <style>
         .br-pagebody {
             margin-top: 83px;
         }
 
-        div#datatable1_paginate {
+        /* div#datatable1_paginate {
             display: none;
-        }
+        } */
 
         table#datatable1 {
             width: 100%;
@@ -26,6 +24,10 @@
         td.sorting_1 {
             background-color: #f9f9f9;
 
+        }
+        .hoverclor:hover{
+            background-color: #9a9adc;
+            color: white;
         }
 
 
@@ -76,16 +78,16 @@
 
                         @foreach ($customer as $views)
 
-                            <tr>
-                                <td>{{ $i++ }}</td>
-                                <td>{{ $views->name }}</td>
+                            <tr class="hoverclor">
+                                <td class="cust" attrr="{{$views->id}}" rolee="{{$role}}" style="cursor: pointer">{{ $i++ }}</td>
+                                <td class="cust" attrr="{{$views->id}}" rolee="{{$role}}" style="cursor: pointer">{{ $views->name }}</td>
 
-                                <td>{{ $views->email }}</td>
-                                <td>{{ $views->address }}</td>
-                                <td>{{ $views->dob }}</td>
-                                <td>{{ $views->passport }}</td>
-                                <td>{{ $views->gender }}</td>
-                                <td>
+                                <td class="cust" attrr="{{$views->id}}" rolee="{{$role}}" style="cursor: pointer">{{ $views->email }}</td>
+                                <td class="cust" attrr="{{$views->id}}" rolee="{{$role}}" style="cursor: pointer">{{ $views->address }}</td>
+                                <td class="cust" attrr="{{$views->id}}" rolee="{{$role}}" style="cursor: pointer">{{ $views->dob }}</td>
+                                <td class="cust" attrr="{{$views->id}}" rolee="{{$role}}" style="cursor: pointer">{{ $views->passport }}</td>
+                                <td class="cust" attrr="{{$views->id}}" rolee="{{$role}}" style="cursor: pointer">{{ $views->gender }}</td>
+                                <td class="cust" attrr="{{$views->id}}" rolee="{{$role}}" style="cursor: pointer">
                                     @if($views->status == 'Verified')
                                         <Button class="btn btn-success">{{ $views->status }}</Button>
                                     @else
@@ -122,8 +124,16 @@
                                                 <select class="form-control" name="test_type" required>
                                                     <option selected value="">Please select</option>
                                                     <option value="PCR">PCR</option>
-                                                    <option value="RT-PCR">RT-PCR</option>
-                                                    <option value="PCR-24hm">PCR-24hm</option>
+                                                    <option value="Antigen-BinaxNow">Antigen-BinaxNow</option>
+                                                    <option value="Antibody">Antibody</option>
+                                                    <option value="RT-PCR - Abbot Id Now">RT-PCR - Abbot Id Now</option>
+                                                    <option value="Antigen -Verito Plus">Antigen -Verito Plus</option>
+                                                    <option value="PCR -24Hrs">PCR -24Hrs</option>
+                                                    <option value="RT-PCR 24 HRS -ABBOT ID NOW">RT-PCR 24 HRS -ABBOT ID NOW</option>
+                                                    <option value="Antigen-CareStart">Antigen-CareStart</option>
+                                                    <option value="RT-PCR -Accula">RT-PCR -Accula</option>
+                                                    <option value="Antigen-Sienna">Antigen-Sienna</option>
+
                                                 </select>
 
 
@@ -168,6 +178,19 @@
     <script src="https://cdn.datatables.net/buttons/2.0.0/js/buttons.print.min.js">
 
     </script>
+
+    <script>
+        $(document).ready(function() {
+            $('.cust').click(function(){
+                var id =  $(this).attr('attrr');
+                var rolee =  $(this).attr('rolee');
+                var url = '/public/'+rolee+'/create/order/customer/'+id;
+                $(location).attr('href',url);
+
+            });
+        });
+    </script>
+
     <script>
         $(document).ready(function () {
             $('#datatable1').DataTable({

@@ -1,5 +1,6 @@
 <!doctype html>
-<html lang="en">
+
+<html>
 
 <head>
     <!-- Required meta tags -->
@@ -7,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <!-- Bootstrap CSS -->
+    <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
@@ -142,6 +143,7 @@
         border-radius: 15px;
         cursor: crosshair;
     }
+
 </style>
 
 <body>
@@ -152,8 +154,8 @@
                 <i class="fas fa-globe"></i>
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="{{ url('/language/{en}') }}">English</a>
-                <a class="dropdown-item" href="#">Spanish</a>
+                <a class="dropdown-item" href="{{ url('/language/en') }}">English</a>
+                <a class="dropdown-item" href="{{ url('/language/sp') }}">Spanish</a>
 
             </div>
         </div>
@@ -163,7 +165,7 @@
         <div class="row p-3">
             <div class="col-lg-6  col-12 pt-5 text-right">
                 <img src="{{ asset('assets/images/header.png') }}" class="img-logo"
-                    style="width: 150%; margin-bottom: 5%;" alt="">
+                    style="width: 100%; margin-bottom: 5%;" alt="">
             </div>
 
 
@@ -190,7 +192,7 @@
                     </p>
                     <p>{{ __('profile.d. I understand that this laboratory is not acting as my physician, and does not replace the need for a physicians care when required. I also accept responsibility for my results and what they mean. I agree to obtain a medical consultation with my physician to clarify any concerns I have, to obtain care / treatment if my condition worsens.
 
-                                                                and. I understand that like other diagnostic procedures, there is a possibility of a false positive or false negative test for Covid-19') }}
+                                                                                                                                                                                                                                                    and. I understand that like other diagnostic procedures, there is a possibility of a false positive or false negative test for Covid-19') }}
                     </p>
                     <p>{{ __('profile.e. I understand that "Family Rehab and Communitel," are in no way responsible if the client / patient does not arrive on time for their flight / misses it or is quarantined upon arrival at their destination. I understand that the responsibility for choosing the type of proof necessary for my destiny is mine and mine alone.') }}
                     </p>
@@ -350,26 +352,26 @@
                 <div class="col-lg-4 col-12 pt-2">
                     <input required type="text" placeholder="{{ __('profile.Name') }}" name="namea"
                         class="form-control">
-                    <label for="">{{ __('profile.Name') }}</label>
+                    <label for="">{{ __('profile.Name') }}*</label>
 
                 </div>
                 <div class="col-lg-4  col-12 pt-2">
-                    <input required type="text" placeholder="{{ __('profile.Second name') }}" name="secondnamea"
+                    <input type="text" placeholder="{{ __('profile.Second name') }}" name="secondnamea"
                         class="form-control">
                     <label for="">{{ __('profile.Second name') }}</label>
-                    <input type="hidden" name="type" value="adult" id="">
+                    <input type="hidden" class="typeadu" name="type" value="adult" id="">
 
 
                 </div>
                 <div class="col-lg-4  col-12 pt-2">
                     <input required type="text" placeholder="{{ __('profile.Last name') }}" name="surnamea"
                         class="form-control">
-                    <label for="">{{ __('profile.Last name') }}</label>
+                    <label for="">{{ __('profile.Last name') }}*</label>
                 </div>
                 <div class="col-lg-6  col-12 pt-3">
                     <input required type="text" placeholder="{{ __('profile.Telephone') }}" name="phonea"
                         class="form-control">
-                    <label for="">{{ __('profile.Telephone') }}</label>
+                    <label for="">{{ __('profile.Telephone') }}*</label>
                 </div>
 
                 <div class="col-lg-6  col-12 pt-3">
@@ -383,7 +385,7 @@
                     <label>{{ __('profile.Gender:') }}</label>
                 </div>
                 <div class="col-12 pt-3">
-                    <h1>{{ __("profile.Client's date of birth") }}</h1>
+                    <h1>{{ __("profile.Client's date of birth") }}*</h1>
                 </div>
                 <div class="col-lg-6 col-12 pt-3">
                     <input required type="date" name="datea" value="date" class="form-control">
@@ -397,8 +399,6 @@
 
                 </div>
 
-
-
                 <div class="col-12 pt-5">
 
                     <h1>{{ __('profile.Additional customer information') }}</h1>
@@ -406,135 +406,134 @@
                 <div class="col-lg-6 col-12 pt-3">
                     <input required type="text" name="passporta" placeholder="{{ __('profile.Passport #') }}"
                         class="form-control">
-                    <label for="">{{ __('profile.Passport #') }}</label>
+                    <label for="">{{ __('profile.Passport #') }}*</label>
                 </div>
                 <div class="col-12 pt-3">
                     <b>{{ __('profile.Have you had any of the following symptoms in the past 14 days?') }}</b>
                 </div>
                 <div class="col-12 pt-3">
-                    <p>{{ __('profile.Fever') }}</p>
-                    <input type="radio" checked name="Fevera" value="Yes">
+                    <p>{{ __('profile.Fever') }}*</p>
+                    <input type="radio" name="Fevera" value="Yes">
                     <label for="html">{{ __('profile.Yes') }}</label><br>
-                    <input type="radio" name="Fevera" value="No">
+                    <input type="radio" checked name="Fevera" value="No">
                     <label for="html">{{ __('profile.No') }}</label><br>
                 </div>
                 <div class="col-12 pt-3">
                     <p>
                         {{ __('profile.Cough (new onset or worsening of chronic cough) *') }}</p>
-                    <input type="radio" checked name="Cougha" value="Yes">
+                    <input type="radio" name="Cougha" value="Yes">
                     <label for="html">{{ __('profile.Yes') }}</label><br>
-                    <input type="radio" name="Cougha" value="No">
+                    <input type="radio" checked name="Cougha" value="No">
                     <label for="html">{{ __('profile.No') }}</label><br>
                 </div>
 
                 <div class="col-12 pt-3">
-                    <p>{{ __('profile.Throat pain') }}</p>
-                    <input type="radio" checked name="Throata" value="Yes">
+                    <p>{{ __('profile.Throat pain') }}*</p>
+                    <input type="radio" name="Throata" value="Yes">
                     <label for="html">{{ __('profile.Yes') }}</label><br>
-                    <input type="radio" name="Throata" value="No">
+                    <input type="radio" checked name="Throata" value="No">
                     <label for="html">{{ __('profile.No') }}</label><br>
                 </div>
                 <div class="col-12 pt-3">
-                    <p>{{ __('profile.Difficulty breathing (dyspnea)') }}</p>
-                    <input type="radio" checked name="breathinga" value="Yes">
+                    <p>{{ __('profile.Difficulty breathing (dyspnea)') }}*</p>
+                    <input type="radio" name="breathinga" value="Yes">
                     <label for="html">{{ __('profile.Yes') }}</label><br>
-                    <input type="radio" name="breathinga" value="No">
+                    <input type="radio" checked name="breathinga" value="No">
                     <label for="html">{{ __('profile.No') }}</label><br>
                 </div>
 
 
                 <div class="col-12 pt-3">
-                    <p>{{ __('profile.Nausea *') }}</p>
-                    <input type="radio" checked name="Nauseaa" value="Yes">
+                    <p>{{ __('profile.Nausea *') }}*</p>
+                    <input type="radio" name="Nauseaa" value="Yes">
                     <label for="html">{{ __('profile.Yes') }}</label><br>
-                    <input type="radio" name="Nauseaa" value="No">
+                    <input type="radio" checked name="Nauseaa" value="No">
                     <label for="html">{{ __('profile.No') }}</label><br>
                 </div>
                 <div class="col-12 pt-3">
                     <p>{{ __('profile.Abdominal pain *') }}</p>
-                    <input type="radio" checked name="Abdominala" value="Yes">
+                    <input type="radio" name="Abdominala" value="Yes">
                     <label for="html">Sí</label><br>
-                    <input type="radio" name="Abdominala" value="No">
+                    <input type="radio" checked name="Abdominala" value="No">
                     <label for="html">No</label><br>
                 </div>
                 <div class="col-12 pt-3">
                     <p>{{ __('profile.Chills *') }}</p>
-                    <input type="radio" checked name="Chillsa" value="Yes">
+                    <input type="radio" name="Chillsa" value="Yes">
                     <label for="html">{{ __('profile.Yes') }}</label><br>
-                    <input type="radio" name="Chillsa" value="No">
+                    <input type="radio" checked name="Chillsa" value="No">
                     <label for="html">{{ __('profile.No') }}</label><br>
                 </div>
                 <div class="col-12 pt-3">
-                    <p>{{ __('profile.Headache') }}</p>
-                    <input type="radio" checked name="Headachea" value="Yes">
+                    <p>{{ __('profile.Headache') }}*</p>
+                    <input type="radio" name="Headachea" value="Yes">
                     <label for="html">{{ __('profile.Yes') }}</label><br>
-                    <input type="radio" name="Headachea" value="No">
+                    <input type="radio" checked name="Headachea" value="No">
                     <label for="html">{{ __('profile.No') }}</label><br>
                 </div>
                 <div class="col-12 pt-3">
-                    <p>{{ __('profile.Muscle aches (myalgia)') }}</p>
-                    <input type="radio" checked name="Musclea" value="Yes">
+                    <p>{{ __('profile.Muscle aches (myalgia)') }}*</p>
+                    <input type="radio" name="Musclea" value="Yes">
                     <label for="html">{{ __('profile.Yes') }}</label><br>
-                    <input type="radio" name="Musclea" value="No">
+                    <input type="radio" checked name="Musclea" value="No">
                     <label for="html">{{ __('profile.No') }}</label><br>
                 </div>
 
 
                 <div class="col-12 pt-3">
                     <p>{{ __('profile.Fatigue *') }}</p>
-                    <input type="radio" checked name="Fatiguea" value="Yes">
+                    <input type="radio" name="Fatiguea" value="Yes">
                     <label for="html">{{ __('profile.Yes') }}</label><br>
-                    <input type="radio" name="Fatiguea" value="No">
+                    <input type="radio" checked name="Fatiguea" value="No">
                     <label for="html">{{ __('profile.No') }}</label><br>
                 </div>
                 <div class="col-12 pt-3">
                     <p>{{ __('profile.Runny nose (rhinorrhea) *') }}</p>
-                    <input type="radio" checked name="Runnya" value="Yes">
+                    <input type="radio" name="Runnya" value="Yes">
                     <label for="html">{{ __('profile.Yes') }}</label><br>
-                    <input type="radio" name="Runnya" value="No">
+                    <input type="radio" checked name="Runnya" value="No">
                     <label for="html">{{ __('profile.No') }}</label><br>
                 </div>
                 <div class="col-12 pt-3">
-                    <p>{{ __('profile.Vomiting') }}</p>
-                    <input type="radio" checked name="Vomitinga" value="Yes">
+                    <p>{{ __('profile.Vomiting') }}*</p>
+                    <input type="radio" name="Vomitinga" value="Yes">
                     <label for="html">{{ __('profile.Yes') }}</label><br>
-                    <input type="radio" name="Vomitinga" value="No">
+                    <input type="radio" checked name="Vomitinga" value="No">
                     <label for="html">{{ __('profile.No') }}</label><br>
                 </div>
 
                 <div class="col-12 pt-3">
                     <p>{{ __('profile.Diarrhea (3 loose stools / day) *') }}</p>
-                    <input type="radio" checked name="Diarrheaa" value="Yes">
+                    <input type="radio" name="Diarrheaa" value="Yes">
                     <label for="html">{{ __('profile.Yes') }}</label><br>
-                    <input type="radio" name="Diarrheaa" value="No">
+                    <input type="radio" checked name="Diarrheaa" value="No">
                     <label for="html">{{ __('profile.No') }}</label><br>
                 </div>
 
 
                 <div class="col-12 pt-3">
                     <p>{{ __('profile.Loss of smell *') }}</p>
-                    <input type="radio" checked name="Loss_of_smella" value="Yes">
+                    <input type="radio" name="Loss_of_smella" value="Yes">
                     <label for="html">{{ __('profile.Yes') }}</label><br>
-                    <input type="radio" name="Loss_of_smella" value="No">
+                    <input type="radio" checked name="Loss_of_smella" value="No">
                     <label for="html">{{ __('profile.No') }}</label><br>
                 </div>
 
                 <div class="col-12 pt-3">
-                    <p>{{ __('profile.Loss of taste') }}</p>
-                    <input type="radio" checked name="Loss_of_tastea" value="Yes">
+                    <p>{{ __('profile.Loss of taste') }}*</p>
+                    <input type="radio" name="Loss_of_tastea" value="Yes">
                     <label for="html">{{ __('profile.Yes') }}</label><br>
-                    <input type="radio" name="Loss_of_tastea" value="No">
+                    <input type="radio" checked name="Loss_of_tastea" value="No">
                     <label for="html">{{ __('profile.No') }}</label><br>
                 </div>
                 <div class="col-12 pt-3">
-                    <input type="text" required placeholder="{{ __('profile.Other specify') }}" name="specifya"
+                    <input type="text" placeholder="{{ __('profile.Other specify') }}" name="specifya"
                         class="form-control">
                     <label for="">{{ __('profile.Other specify') }}</label>
                 </div>
                 <div class="col-12 pt-3">
-                    <input type="text" required
-                        placeholder="{{ __('profile.Date of onset of the first symptoms') }}" name="symptomsa"
-                        class="form-control">
+                    <input type="text" placeholder="{{ __('profile.Date of onset of the first symptoms') }}"
+                        name="symptomsa" class="form-control">
                     <label for="">{{ __('profile.Date of onset of the first symptoms') }}</label>
                 </div>
                 <div class="col-12 pt-5">
@@ -548,7 +547,7 @@
                 </div>
 
                 <div class="col-12 pt-3">
-                    <p>{{ __('profile.Select the test') }}</p>
+                    <p>{{ __('profile.Select the test') }}*</p>
                     <input type="radio" checked name="Select_the_testa" value="ANTÍGENO">
                     <label for="html">
                         ANTÍGENO</label><br>
@@ -557,8 +556,8 @@
                     <input type="radio" name="Select_the_testa" value="RT-PCR">
                     <label for="RT">RT-PCR
                     </label><br>
-                    <input type="radio" name="Select_the_testa" value="PCR-24hm">
-                    <label for="html">PCR-24hm</label><br>
+                    <input type="radio" name="Select_the_testa" value="PCR-24hrs">
+                    <label for="html">PCR-24hrs</label><br>
                     <input type="radio" name="Select_the_testa" value="24hrs">
                     <label for="html">RT-PCR 24hrs</label><br>
                 </div>
@@ -575,7 +574,7 @@
                         class="form-control">
                 </div>
                 <div class="col-lg-6  col-12 pt-2">
-                    <input type="text" required placeholder="{{ __('profile.Address2') }}" name="address2a"
+                    <input type="text" placeholder="{{ __('profile.Address2') }}" name="address2a"
                         class="form-control">
                 </div>
                 <div class="col-lg-6  col-12 pt-2">
@@ -603,10 +602,32 @@
 
                     </select>
                 </div>
+
+
+
+                <div class="col-lg-4 mt-3 col-12 pt-2 ">
+
+                    <input type="button" class="btn btn-dark appSign" value="Click to Sign" required
+                        data-toggle="modal" data-target="#exampleModal">
+                    {{-- <button type="button" class="btn btn-dark appSign" required data-toggle="modal" data-target="#exampleModal">
+                        Click to Sign
+                    </button> --}}
+                    <div>
+                        <input type="hidden" class="SingsLink" name="SingsLinka" value="">
+
+                    </div>
+                </div>
+
+                <div class="col-lg-6 mt-3 col-12 pt-2">
+                    <div class="img1" style="">
+                        <img class="" src="" name="sig-imagea" alt="">
+                    </div>
+                </div>
+
             </div>
             <div class="row p-5 mt-5">
                 <div class="col-12">
-                    <h1>{{ __('profile.Email address') }}</h1>
+                    <h1>{{ __('profile.Email address') }}*</h1>
 
                 </div>
                 <div class="col-lg-6 col-12 pt-3">
@@ -615,6 +636,110 @@
                 </div>
             </div>
 
+
+
+            <div class="row p-5 mt-5">
+                <div class="col-12">
+                    <h1>{{ 'FLIGHT/CRUISE INFORMATION' }}</h1>
+                </div>
+                <div class="col-lg-6 col-12 pt-3">
+
+                    <label for="">Airlin/CruiseLine *</label>
+                    <select required name="CruiseLinea" id="" class="form-control">
+
+                        <option value="Air Lingus (EI)">Air Lingus (EI)</option>
+                        <option value="Aeroflot (SU)">Aeroflot (SU) </option>
+                        <option value="Aerolineas Argentinas (AR)">Aerolineas Argentinas (AR)</option>
+                        <option value="Aeromexico (AM)">Aeromexico (AM)</option>
+                        <option value="Air Canada (AC)">Air Canada (AC)</option>
+
+                        <option value="Air Century (Y2)">Air Century (Y2)</option>
+                        <option value="Air Europa (UX)">Air Europa (UX)</option>
+                        <option value="Air France (AF)">Air France (AF)</option>
+                        <option value="Alitalia (AZ)">Alitalia (AZ)</option>
+                        <option value="American Airlines (AA)">American Airlines (AA)</option>
+                        <option value="Avianca (AV, TA)">Avianca (AV, TA)</option>
+                        <option value="Bahamasair (UP)">Bahamasair (UP)</option>
+                        <option value="BOA-Boliviana de Aviacion (OB)">BOA-Boliviana de Aviacion (OB)</option>
+                        <option value="British Airways (BA)">British Airways (BA)</option>
+                        <option value="Caribbean Airlines (BW)">Caribbean Airlines (BW)</option>
+                        <option value="Cayman Airways (KX)">Cayman Airways (KX)</option>
+
+                        <option value="COPA Airlines (CM)">COPA Airlines (CM)</option>
+                        <option value="Delta Air Lines (DL)">Delta Air Lines (DL)</option>
+                        <option value="Eastern Airlines (2D)">Eastern Airlines (2D)</option>
+                        <option value="El Al (LY)">El Al (LY)</option>
+                        <option value="Emirates (EK)">Emirates (EK)</option>
+                        <option value="Finnair (AY)">Finnair (AY)</option>
+                        <option value="Frontier Airlines (F9)">Frontier Airlines (F9)</option>
+                        <option value="Iberia (IB)">Iberia (IB)</option>
+                        <option value="JetBlue (B6)">JetBlue (B6)</option>
+                        <option value="KLM (KL)">KLM (KL)</option>
+                        <option value="LATAM Airlines (4M, JJ, LA,LP, XP)">LATAM Airlines (4M, JJ, LA,LP, XP)</option>
+                        <option value="LOT Polish Airlines (LO)">LOT Polish Airlines (LO)</option>
+                        <option value="Lufthansa (LH)">Lufthansa (LH)</option>
+                        <option value="Qatar (QR)">Qatar (QR)</option>
+                        <option value="SAS (SK)">SAS (SK)</option>
+                        <option value="Southwest (WN)">Southwest (WN)</option>
+                        <option value="Sun Country (SY)">Sun Country (SY)</option>
+                        <option value="Sunwing (WG)">Sunwing (WG)</option>
+                        <option value="Surinam Airways (PY)">Surinam Airways (PY)</option>
+                        <option value="Swift Air (SWQ)">Swift Air (SWQ)</option>
+                        <option value="Swiss International (LX)">Swiss International (LX)</option>
+                        <option value="TAP Air Portugal (TP)">TAP Air Portugal (TP)</option>
+                        <option value="TUIfly (TB, OR)">TUIfly (TB, OR)</option>
+                        <option value="Turkish (TK)">Turkish (TK)</option>
+                        <option value="United Airlines (UA)">United Airlines (UA)</option>
+                        <option value="Virgin Atlantic (VS)">Virgin Atlantic (VS)</option>
+                        <option value="Viva (VH)">Viva (VH)</option>
+                        <option value="Volaris (Y4)">Volaris (Y4)</option>
+                        <option value="WestJet (WS)">WestJet (WS)</option>
+                        <option value="World Atlantic (WAL)">World Atlantic (WAL)</option>
+                        <option value="N/A">N/A</option>
+                        <option value="Azamara Club Cruises">Azamara Club Cruises</option>
+                        <option value="Carnival">Carnival</option>
+                        <option value="Celebrity X Cruises">Celebrity X Cruises</option>
+                        <option value="Crystal Cruises">Crystal Cruises</option>
+                        <option value="Disney Cruise Line">Disney Cruise Line</option>
+                        <option value="MSC Cruises">MSC Cruises</option>
+                        <option value="Norwegian Cruise Line">Norwegian Cruise Line</option>
+                        <option value="Oceania Cruises">Oceania Cruises</option>
+                        <option value="Regent Seven Seas Cruises">Regent Seven Seas Cruises</option>
+                        <option value="Royal Caribbean International">Royal Caribbean International</option>
+                        <option value="Viking Ocean Cruises">Viking Ocean Cruises</option>
+                        <option value="Virgin Voyages">Virgin Voyages</option>
+                        <option value="AIDA">AIDA</option>
+                        <option value="Hapag-Lloyd">Hapag-Lloyd</option>
+                        <option value="Hurtigruten">Hurtigruten</option>
+                        <option value="PampO Cruises">P&amp;amp;O Cruises</option>
+                        <option value="Phoenix">Phoenix</option>
+                        <option value="Pricess Cruises">Pricess Cruises</option>
+                        <option value="SAGA">SAGA</option>
+                        <option value="SCENIC Luxury Cruises">SCENIC Luxury Cruises</option>
+                        <option value="SEABOURN">SEABOURN</option>
+                        <option value="TUI Cruises">TUI Cruises</option>
+                        <option value="Windstar Cruises">Windstar Cruises</option>
+
+
+
+                    </select>
+
+                </div>
+
+                <div class="col-lg-6 col-12 pt-3">
+                    <label for="">Destination *</label>
+                    <input type="text" required placeholder="Destination" name="Destinationa" class="form-control">
+                </div>
+
+
+                <div class="col-lg-6 col-12 pt-3">
+                    <label for="">Flight/Cruise # *</label>
+                    <input type="text" required placeholder="Flight/Cruise" name="F_Cruisea" class="form-control">
+                </div>
+            </div>
+
+
+
             <div class="row p-5 mt-5">
                 <div class="col-12">
                     <h1>{{ __('profile.How did you hear about us?') }}</h1>
@@ -622,8 +747,8 @@
                 <div class="col-lg-12 col-12 pt-2">
                     <p>{{ __('profile.Option') }}</p>
                     <input type="radio" checked name="gendera" value="Friends"> {{ __('profile.Friends') }}<br>
-                    <input type="radio" name="gendera" value="Airline">{{ __('profile.Airline Staff') }}<br>
-                    <input type="radio" name="gendera" value="Airport">{{ __('profile.Airport Advertisement') }}<br>
+                    <input type="radio" name="gendera" value="Airline Staff">{{ __('profile.Airline Staff') }}<br>
+                    <input type="radio" name="gendera" value="Airport Advertisement">{{ __('profile.Airport Advertisement') }}<br>
                     <input type="radio" name="gendera" value="Google">{{ __('profile.Google') }}<br>
                     <input type="radio" name="gendera" value="Other">{{ __('profile.Other') }}<br>
                 </div>
@@ -641,26 +766,26 @@
                 <div class="col-lg-4  col-12 pt-2">
                     <input type="text" required placeholder="{{ __('profile.Name') }}" name="name"
                         class="form-control">
-                    <label for="">{{ __('profile.Name') }}</label>
+                    <label for="">{{ __('profile.Name') }}*</label>
 
                 </div>
                 <div class="col-lg-4  col-12 pt-2">
-                    <input type="text" required placeholder="{{ __('profile.Second name') }}" name="secondname"
+                    <input type="text" placeholder="{{ __('profile.Second name') }}" name="secondname"
                         class="form-control">
                     <label for="">{{ __('profile.Second name') }}</label>
                 </div>
 
 
-                <input type="hidden" name="type" value="minor">
+                <input type="hidden" class="typemin" name="type" value="minor">
                 <div class="col-lg-4  col-12 pt-2">
                     <input type="text" required placeholder="{{ __('profile.Surnames') }}" name="surname"
                         class="form-control">
-                    <label for="">{{ __('profile.Surnames') }}</label>
+                    <label for="">{{ __('profile.Surnames') }}*</label>
                 </div>
                 <div class="col-lg-6  col-12 pt-3">
                     <input type="text" required placeholder="{{ __('profile.Telephone') }}" name="phone"
                         class="form-control">
-                    <label for="">{{ __('profile.Telephone') }}</label>
+                    <label for="">{{ __('profile.Telephone') }}*</label>
                 </div>
                 <div class="col-lg-6  col-12 pt-3">
 
@@ -674,7 +799,7 @@
                 </div>
 
                 <div class="col-12 pt-3">
-                    <h1>{{ __('profile.First Birth Date of Minor') }}</h1>
+                    <h1>{{ __('profile.First Birth Date of Minor') }}*</h1>
                 </div>
                 <div class="col-lg-6 col-12 pt-3">
                     <input type="date" required value="date" name="date" class="form-control">
@@ -683,7 +808,7 @@
                     <h1>{{ __('profile.Additional Information of first of the Minor') }}</h1>
                 </div>
                 <div class="col-lg-6 col-12 pt-3">
-                    <input type="text" required name="passport" placeholder="{{ __('profile.Passport #') }}"
+                    <input type="text" name="passport" placeholder="{{ __('profile.Passport #') }}"
                         class="form-control">
                     <label for="">{{ __('profile.Passport #') }}</label>
                 </div>
@@ -691,129 +816,128 @@
                     <b>{{ __('profile.Have you had any of the following symptoms in the past 14 days?') }}</b>
                 </div>
                 <div class="col-12 pt-3">
-                    <p>{{ __('profile.Fever') }}</p>
-                    <input type="radio" checked name="fever" value="Yes">
+                    <p>{{ __('profile.Fever') }}*</p>
+                    <input type="radio" name="fever" value="Yes">
                     <label for="html">{{ __('profile.Yes') }}</label><br>
-                    <input type="radio" name="fever" value="No">
+                    <input type="radio" checked name="fever" value="No">
                     <label for="html">{{ __('profile.No') }}</label><br>
                 </div>
                 <div class="col-12 pt-3">
                     <p>{{ __('profile.Cough (new onset or worsening of chronic cough) *') }}</p>
-                    <input type="radio" checked name="Cough" value="Yes">
+                    <input type="radio" name="Cough" value="Yes">
                     <label for="html">{{ __('profile.Yes') }}</label><br>
-                    <input type="radio" name="Cough" value="No">
+                    <input type="radio" checked name="Cough" value="No">
                     <label for="html">{{ __('profile.No') }}</label><br>
                 </div>
 
                 <div class="col-12 pt-3">
                     <p>
-                        {{ __('profile.Sore Throat') }}</p>
-                    <input type="radio" checked name="Throat" value="Yes">
+                        {{ __('profile.Sore Throat') }}*</p>
+                    <input type="radio" name="Throat" value="Yes">
                     <label for="html">{{ __('profile.Yes') }}</label><br>
-                    <input type="radio" name="Throat" value="No">
+                    <input type="radio" checked name="Throat" value="No">
                     <label for="html">{{ __('profile.No') }}</label><br>
                 </div>
                 <div class="col-12 pt-3">
-                    <p>{{ __('profile.Difficulty breathing (dyspnea)') }}</p>
-                    <input type="radio" checked name="breathing" value="Yes">
+                    <p>{{ __('profile.Difficulty breathing (dyspnea)') }}*</p>
+                    <input type="radio" name="breathing" value="Yes">
                     <label for="html">{{ __('profile.Yes') }}</label><br>
-                    <input type="radio" name="breathing" value="No">
+                    <input type="radio" checked name="breathing" value="No">
                     <label for="html">{{ __('profile.No') }}</label><br>
                 </div>
 
 
                 <div class="col-12 pt-3">
                     <p>{{ __('profile.Nausea *') }}</p>
-                    <input type="radio" checked name="Nausea" value="Yes">
-                    <label for="html">{{ __('profile.Yes') }}</label><br>
-                    <input type="radio" name="Nausea" value="No">
+                    <input type="radio" name="Nausea" value="Yes">
+                    <label for="html">{{ __('profile.Yes') }}*</label><br>
+                    <input type="radio" checked name="Nausea" value="No">
                     <label for="html">{{ __('profile.No') }}</label><br>
                 </div>
                 <div class="col-12 pt-3">
                     <p>{{ __('profile.Abdominal pain *') }}</p>
-                    <input type="radio" checked name="Abdominal " value="Yes">
+                    <input type="radio" name="Abdominal " value="Yes">
                     <label for="html">{{ __('profile.Yes') }}</label><br>
-                    <input type="radio" name="Abdominal " value="No">
+                    <input type="radio" checked name="Abdominal " value="No">
                     <label for="html">{{ __('profile.No') }}</label><br>
                 </div>
                 <div class="col-12 pt-3">
                     <p>{{ __('profile.Chills *') }}</p>
-                    <input type="radio" checked name="Chills" value="Yes">
+                    <input type="radio" name="Chills" value="Yes">
                     <label for="html">{{ __('profile.Yes') }}</label><br>
-                    <input type="radio" name="Chills" value="No">
+                    <input type="radio" checked name="Chills" value="No">
                     <label for="html">{{ __('profile.No') }}</label><br>
                 </div>
                 <div class="col-12 pt-3">
-                    <p>{{ __('profile.Headache') }}</p>
-                    <input type="radio" checked name="Headache" value="Yes">
+                    <p>{{ __('profile.Headache') }}*</p>
+                    <input type="radio" name="Headache" value="Yes">
                     <label for="html">{{ __('profile.Yes') }}</label><br>
-                    <input type="radio" name="Headache" value="No">
+                    <input type="radio" checked name="Headache" value="No">
                     <label for="html">{{ __('profile.No') }}</label><br>
                 </div>
                 <div class="col-12 pt-3">
-                    <p>{{ __('profile.Muscle aches (myalgia)') }}</p>
-                    <input type="radio" checked name="Muscle" value="Yes">
+                    <p>{{ __('profile.Muscle aches (myalgia)') }}*</p>
+                    <input type="radio" name="Muscle" value="Yes">
                     <label for="html">{{ __('profile.Yes') }}</label><br>
-                    <input type="radio" name="Muscle" value="No">
+                    <input type="radio" checked name="Muscle" value="No">
                     <label for="html">{{ __('profile.No') }}</label><br>
                 </div>
 
 
                 <div class="col-12 pt-3">
                     <p>{{ __('profile.Fatigue *') }}</p>
-                    <input type="radio" checked name="Fatigue" value="Yes">
+                    <input type="radio" name="Fatigue" value="Yes">
                     <label for="html">{{ __('profile.Yes') }}</label><br>
-                    <input type="radio" name="Fatigue" value="No">
+                    <input type="radio" checked name="Fatigue" value="No">
                     <label for="html">{{ __('profile.No') }}</label><br>
                 </div>
                 <div class="col-12 pt-3">
                     <p>{{ __('profile.Runny nose (rhinorrhea) *') }}</p>
-                    <input type="radio" checked name="Runny" value="Yes">
+                    <input type="radio" name="Runny" value="Yes">
                     <label for="html">{{ __('profile.Yes') }}</label><br>
-                    <input type="radio" name="Runny" value="No">
+                    <input type="radio" checked name="Runny" value="No">
                     <label for="html">{{ __('profile.No') }}</label><br>
                 </div>
                 <div class="col-12 pt-3">
-                    <p>{{ __('profile.Vomiting') }}</p>
-                    <input type="radio" checked name="Vomiting" value="Yes">
+                    <p>{{ __('profile.Vomiting') }}*</p>
+                    <input type="radio" name="Vomiting" value="Yes">
                     <label for="html">{{ __('profile.Yes') }}</label><br>
-                    <input type="radio" name="Vomiting" value="No">
+                    <input type="radio" checked name="Vomiting" value="No">
                     <label for="html">{{ __('profile.No') }}</label><br>
                 </div>
 
                 <div class="col-12 pt-3">
                     <p>{{ __('profile.Diarrhea (3 loose stools / day) *') }}</p>
-                    <input type="radio" checked name="Diarrhea" value="Yes">
+                    <input type="radio" name="Diarrhea" value="Yes">
                     <label for="html">{{ __('profile.Yes') }}</label><br>
-                    <input type="radio" name="Diarrhea" value="No">
+                    <input type="radio" checked name="Diarrhea" value="No">
                     <label for="html">{{ __('profile.No') }}</label><br>
                 </div>
 
 
                 <div class="col-12 pt-3">
                     <p>{{ __('profile.Loss of smell *') }}</p>
-                    <input type="radio" checked name="Loss_of_smell" value="Yes">
+                    <input type="radio" name="Loss_of_smell" value="Yes">
                     <label for="html">{{ __('profile.Yes') }}</label><br>
-                    <input type="radio" name="Loss_of_smell" value="No">
+                    <input type="radio" checked name="Loss_of_smell" value="No">
                     <label for="html">{{ __('profile.No') }}</label><br>
                 </div>
 
                 <div class="col-12 pt-3">
-                    <p>{{ __('profile.Loss of taste') }}</p>
-                    <input type="radio" checked name="Loss_of_taste" value="Yes">
+                    <p>{{ __('profile.Loss of taste') }}*</p>
+                    <input type="radio" name="Loss_of_taste" value="Yes">
                     <label for="html">{{ __('profile.Yes') }}</label><br>
-                    <input type="radio" name="Loss_of_taste" value="No">
+                    <input type="radio" checked name="Loss_of_taste" value="No">
                     <label for="html">{{ __('profile.No') }}</label><br>
                 </div>
                 <div class="col-12 pt-3">
-                    <input type="text" required placeholder="{{ __('profile.Other specify') }}" name="specify"
+                    <input type="text" placeholder="{{ __('profile.Other specify') }}" name="specify"
                         class="form-control">
                     <label for="">{{ __('profile.Other specify') }}</label>
                 </div>
                 <div class="col-12 pt-3">
-                    <input type="text" required
-                        placeholder="{{ __('profile.Date of onset of the first symptoms') }}" name="symptoms"
-                        class="form-control">
+                    <input type="text" placeholder="{{ __('profile.Date of onset of the first symptoms') }}"
+                        name="symptoms" class="form-control">
                     <label for="">{{ __('profile.Date of onset of the first symptoms') }}</label>
                 </div>
                 <div class="col-12 pt-5">
@@ -827,7 +951,7 @@
                 </div>
 
                 <div class="col-12 pt-3">
-                    <p>{{ __('profile.Select the test') }}</p>
+                    <p>{{ __('profile.Select the test') }}*</p>
                     <input type="radio" checked name="Select_the_test" value="ANTIGEN">
                     <label for="html">
                         ANTIGEN</label><br>
@@ -836,8 +960,8 @@
                     <input type="radio" name="Select_the_test" value="RT-PCR">
                     <label for="html">RT-PCR
                     </label><br>
-                    <input type="radio" name="Select_the_test" value="PCR-24hm">
-                    <label for="html">PCR-24hm</label><br>
+                    <input type="radio" name="Select_the_test" value="PCR-24hrs">
+                    <label for="html">PCR-24hrs</label><br>
                     <input type="radio" name="Select_the_test" value="24hrs">
                     <label for="html">RT-PCR 24hrs</label><br>
                 </div>
@@ -853,7 +977,7 @@
                         class="form-control">
                 </div>
                 <div class="col-lg-6  col-12 pt-2">
-                    <input type="text" required placeholder="{{ __('profile.Address2') }}" name="address2"
+                    <input type="text" placeholder="{{ __('profile.Address2') }}" name="address2"
                         class="form-control">
                 </div>
                 <div class="col-lg-6  col-12 pt-2">
@@ -865,7 +989,7 @@
                         class="form-control">
                 </div>
                 <div class="col-lg-6  col-12 pt-2">
-                    <label>{{ __('profile.State / Province') }}</label>
+                    <label>{{ __('profile.State / Province') }}*</label>
                     <select name="Province" class="form-control">
                         @foreach ($state as $states)
                             <option value="{{ $states->name }}">{{ $states->name }}</option>
@@ -873,7 +997,7 @@
                     </select>
                 </div>
                 <div class="col-lg-6  col-12 pt-2">
-                    <label>{{ __('profile.Country') }}</label>
+                    <label>{{ __('profile.Country') }}*</label>
                     <select name="Country" class="form-control">
                         @foreach ($country as $countries)
                             <option value="{{ $countries->name }}">{{ $countries->name }}</option>
@@ -882,10 +1006,31 @@
 
                     </select>
                 </div>
+
+                <div class="col-lg-4 mt-3 col-12 pt-2 ">
+                    <button type="button" required class="btn btn-dark appSignM" nameatt="nameatt" name="appSignM"
+                        data-toggle="modal" data-target="#exampleModalAPP">
+                        Click to Sign
+                    </button>
+                    <input type="hidden" class="SingsLink" name="SingsLink" value="">
+
+
+
+
+                </div>
+
+
+                <div class="col-lg-6 mt-3 col-12 pt-2">
+                    <div name="">
+                        <img class="imgAPP" src="" name="sig-image">
+                    </div>
+                </div>
+
+
             </div>
             <div class="row p-5 mt-5">
                 <div class="col-12">
-                    <h1>{{ __('profile.Email address') }}</h1>
+                    <h1>{{ __('profile.Email address') }}*</h1>
 
                 </div>
                 <div class="col-lg-6 col-12 pt-3">
@@ -894,6 +1039,109 @@
                 </div>
             </div>
 
+
+            <div class="row p-5 mt-5">
+                <div class="col-12">
+                    <h1>{{ 'FLIGHT/CRUISE INFORMATION' }}</h1>
+                </div>
+                <div class="col-lg-6 col-12 pt-3">
+
+                    <label for="">Airlin/CruiseLine *</label>
+                    <select required name="CruiseLine" id="" class="form-control">
+
+
+                        <option value="Air Lingus (EI)">Air Lingus (EI)</option>
+                        <option value="Aeroflot (SU)">Aeroflot (SU) </option>
+                        <option value="Aerolineas Argentinas (AR)">Aerolineas Argentinas (AR)</option>
+                        <option value="Aeromexico (AM)">Aeromexico (AM)</option>
+                        <option value="Air Canada (AC)">Air Canada (AC)</option>
+
+                        <option value="Air Century (Y2)">Air Century (Y2)</option>
+                        <option value="Air Europa (UX)">Air Europa (UX)</option>
+                        <option value="Air France (AF)">Air France (AF)</option>
+                        <option value="Alitalia (AZ)">Alitalia (AZ)</option>
+                        <option value="American Airlines (AA)">American Airlines (AA)</option>
+                        <option value="Avianca (AV, TA)">Avianca (AV, TA)</option>
+                        <option value="Bahamasair (UP)">Bahamasair (UP)</option>
+                        <option value="BOA-Boliviana de Aviacion (OB)">BOA-Boliviana de Aviacion (OB)</option>
+                        <option value="British Airways (BA)">British Airways (BA)</option>
+                        <option value="Caribbean Airlines (BW)">Caribbean Airlines (BW)</option>
+                        <option value="Cayman Airways (KX)">Cayman Airways (KX)</option>
+
+                        <option value="COPA Airlines (CM)">COPA Airlines (CM)</option>
+                        <option value="Delta Air Lines (DL)">Delta Air Lines (DL)</option>
+                        <option value="Eastern Airlines (2D)">Eastern Airlines (2D)</option>
+                        <option value="El Al (LY)">El Al (LY)</option>
+                        <option value="Emirates (EK)">Emirates (EK)</option>
+                        <option value="Finnair (AY)">Finnair (AY)</option>
+                        <option value="Frontier Airlines (F9)">Frontier Airlines (F9)</option>
+                        <option value="Iberia (IB)">Iberia (IB)</option>
+                        <option value="JetBlue (B6)">JetBlue (B6)</option>
+                        <option value="KLM (KL)">KLM (KL)</option>
+                        <option value="LATAM Airlines (4M, JJ, LA,LP, XP)">LATAM Airlines (4M, JJ, LA,LP, XP)</option>
+                        <option value="LOT Polish Airlines (LO)">LOT Polish Airlines (LO)</option>
+                        <option value="Lufthansa (LH)">Lufthansa (LH)</option>
+                        <option value="Qatar (QR)">Qatar (QR)</option>
+                        <option value="SAS (SK)">SAS (SK)</option>
+                        <option value="Southwest (WN)">Southwest (WN)</option>
+                        <option value="Sun Country (SY)">Sun Country (SY)</option>
+                        <option value="Sunwing (WG)">Sunwing (WG)</option>
+                        <option value="Surinam Airways (PY)">Surinam Airways (PY)</option>
+                        <option value="Swift Air (SWQ)">Swift Air (SWQ)</option>
+                        <option value="Swiss International (LX)">Swiss International (LX)</option>
+                        <option value="TAP Air Portugal (TP)">TAP Air Portugal (TP)</option>
+                        <option value="TUIfly (TB, OR)">TUIfly (TB, OR)</option>
+                        <option value="Turkish (TK)">Turkish (TK)</option>
+                        <option value="United Airlines (UA)">United Airlines (UA)</option>
+                        <option value="Virgin Atlantic (VS)">Virgin Atlantic (VS)</option>
+                        <option value="Viva (VH)">Viva (VH)</option>
+                        <option value="Volaris (Y4)">Volaris (Y4)</option>
+                        <option value="WestJet (WS)">WestJet (WS)</option>
+                        <option value="World Atlantic (WAL)">World Atlantic (WAL)</option>
+                        <option value="N/A">N/A</option>
+                        <option value="Azamara Club Cruises">Azamara Club Cruises</option>
+                        <option value="Carnival">Carnival</option>
+                        <option value="Celebrity X Cruises">Celebrity X Cruises</option>
+                        <option value="Crystal Cruises">Crystal Cruises</option>
+                        <option value="Disney Cruise Line">Disney Cruise Line</option>
+                        <option value="MSC Cruises">MSC Cruises</option>
+                        <option value="Norwegian Cruise Line">Norwegian Cruise Line</option>
+                        <option value="Oceania Cruises">Oceania Cruises</option>
+                        <option value="Regent Seven Seas Cruises">Regent Seven Seas Cruises</option>
+                        <option value="Royal Caribbean International">Royal Caribbean International</option>
+                        <option value="Viking Ocean Cruises">Viking Ocean Cruises</option>
+                        <option value="Virgin Voyages">Virgin Voyages</option>
+                        <option value="AIDA">AIDA</option>
+                        <option value="Hapag-Lloyd">Hapag-Lloyd</option>
+                        <option value="Hurtigruten">Hurtigruten</option>
+                        <option value="PampO Cruises">P&amp;amp;O Cruises</option>
+                        <option value="Phoenix">Phoenix</option>
+                        <option value="Pricess Cruises">Pricess Cruises</option>
+                        <option value="SAGA">SAGA</option>
+                        <option value="SCENIC Luxury Cruises">SCENIC Luxury Cruises</option>
+                        <option value="SEABOURN">SEABOURN</option>
+                        <option value="TUI Cruises">TUI Cruises</option>
+                        <option value="Windstar Cruises">Windstar Cruises</option>
+
+
+
+                    </select>
+
+                </div>
+
+                <div class="col-lg-6 col-12 pt-3">
+                    <label for="">Destination *</label>
+                    <input type="text" required placeholder="Destination" name="Destination" class="form-control">
+                </div>
+
+
+                <div class="col-lg-6 col-12 pt-3">
+                    <label for="">Flight/Cruise # *</label>
+                    <input type="text" required placeholder="Flight/Cruise" name="F_Cruise" class="form-control">
+                </div>
+            </div>
+
+
             <div class="row p-5 mt-5">
                 <div class="col-12">
                     <h1>{{ __('profile.How did you hear about us?') }}</h1>
@@ -901,8 +1149,8 @@
                 <div class="col-lg-12 col-12 pt-2">
                     <p>{{ __('profile.Option') }}</p>
                     <input type="radio" name="gender" checked value="Friends"> Friends<br>
-                    <input type="radio" name="gender" value="Airline"> Airline Staff<br>
-                    <input type="radio" name="gender" value="Airport"> Airport Advertisement<br>
+                    <input type="radio" name="gender" value="Airline Staff"> Airline Staff<br>
+                    <input type="radio" name="gender" value="Airport Advertisement"> Airport Advertisement<br>
                     <input type="radio" name="gender" value="Google"> Google<br>
                     <input type="radio" name="gender" value="Other"> Other<br>
                 </div>
@@ -919,25 +1167,25 @@
                 <div class="col-lg-4  col-12 pt-2">
                     <input required type="text" placeholder="{{ __('profile.Name') }}" name="Parent_name"
                         class="form-control">
-                    <label for="">{{ __('profile.Name') }}</label>
+                    <label for="">{{ __('profile.Name') }}*</label>
 
                 </div>
                 <div class="col-lg-4  col-12 pt-2">
-                    <input required type="text" placeholder="{{ __('profile.Second name') }}"
-                        name="Parent_secondname" class="form-control">
-                    <label for="">{{ __('profile.Second name') }}</label>
+                    <input type="text" placeholder="{{ __('profile.Second name') }}" name="Parent_secondname"
+                        class="form-control">
+                    <label for="">{{ __('profile.Second name') }}*</label>
 
                 </div>
 
                 <div class="col-lg-4  col-12 pt-2">
                     <input required type="text" placeholder="{{ __('profile.Surnames') }}" name="Parent_surname"
                         class="form-control">
-                    <label for="">{{ __('profile.Surnames') }}</label>
+                    <label for="">{{ __('profile.Surnames') }}*</label>
                 </div>
                 <div class="col-lg-6  col-12 pt-3">
                     <input required type="text" placeholder="{{ __('profile.Telephone') }}" name="Parent_phone"
                         class="form-control">
-                    <label for="">{{ __('profile.Telephone') }}</label>
+                    <label for="">{{ __('profile.Telephone') }}*</label>
                 </div>
                 <div class="col-lg-6  col-12 pt-3">
 
@@ -957,7 +1205,43 @@
 
 
 
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Signature*</h5>
+                    <button type="button" class="close" data-dismiss="modal" required aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body Sings">
 
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="modal fade" id="exampleModalAPP" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Signature</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body Sings2">
+
+                </div>
+
+            </div>
+        </div>
+    </div>
 
 
 
@@ -976,7 +1260,7 @@
                     <div class="static">
                         <div class="row p-5 mt-5">
                             <div class="col-12">
-                                <h1>{{ __('profile.Electronic signature acceptance') }}</h1><br>
+                                <h1>{{ __('profile.Electronic signature acceptance') }}*</h1><br>
                                 <input type="checkbox" name="signature" required value="1">
                                 {{ __(
                                     'profile.By checking ts box, you agree that your electronic signature will be used in place of your handwritten signature. If this is not what you want, you have the right to ask to sign a paper copy instead. By checking this box, you warve this right Upon acceptance, you may request in writing that we send you a paper copy of the electronic record. You will not have to pay anything for such a copy, and you do not need any special software or hardware to view it. Your acceptance of electronic signature for any document will remain in effect until such time as you notify us in veriting that you no longer wish to use electronic signature. The revocation of your acceptance will not entall any penalty for you Your acceptance of electronic signature for any document will remain in effect until such time as you notify us in veriting that you no longer wish to use electronic signature. The revocation of your acceptance will not entall any penalty for you Your acceptance of electronic signature for any document will remain in effect until such time as you notify us in veriting that you no longer wish to use electronic signature. The revocation of your acceptance will not entall any penalty for you',
@@ -984,7 +1268,7 @@
                             </div>
                         </div>
                         <center class="mt-5">
-                            <input type="submit" class="btn btn-dark"
+                            <input type="submit" class="btn btn-dark acceptt"
                                 value="{{ __('profile.Accept Document') }}">
                         </center>
                     </div>
@@ -1015,7 +1299,7 @@
         });
 
         $(".continue").click(function() {
-            $(this).css('display', 'none');
+            // $(this).css('display', 'none');
             $('.maindata').css('display', 'block');
 
 
@@ -1112,7 +1396,16 @@
 
                 });
 
+                $(id).find('img').each(function(index, value) {
+                    var val = $(this).attr('name');
+                    val = $(this).attr('name', val + '_' + main);
 
+                });
+                $(id).find('.appSignM').each(function(index, value) {
+                    var val = $(this).attr('nameatt');
+                    val = $(this).attr('nameatt', main);
+
+                });
             }
         });
 
@@ -1125,7 +1418,6 @@
             $('.finalResult').append(html2);
             var some_var = $(this).attr('att');
             for (let index = 1; index <= some_var; index++) {
-
 
                 var main = index;
 
@@ -1141,7 +1433,6 @@
                 $(id).find('input').each(function(index, value) {
                     var val = $(this).attr('name');
                     val = $(this).attr('name', val + '_' + main);
-
                 });
 
                 $(id).find('select').each(function(index, value) {
@@ -1149,15 +1440,28 @@
                     val = $(this).attr('name', val + '_' + main);
 
                 });
+
+                $(id).find('img').each(function(index, value) {
+                    var val = $(this).attr('name');
+                    val = $(this).attr('name', val + '_' + main);
+                });
+
+                $(id).find('.appSignM').each(function(index, value) {
+                    var val = $(this).attr('nameatt');
+                    val = $(this).attr('nameatt', main);
+
+                });
+
+
             }
         });
     </script>
 
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    {{-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
-    </script>
+    </script> --}}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
         integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
     </script>
@@ -1165,151 +1469,157 @@
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
     </script>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 
+    <script>
+        $(document).ready(function() {
 
+            $(document).on('click', '.appSign', function() {
+                $.ajax({
+                    type: "GEt",
+                    url: "{{ url('append/signature') }}",
+                    success: function(res) {
 
-<script>
+                        $('.Sings').empty().append(res);
 
-    (function() {
+                    }
+                });
 
-        window.requestAnimFrame = (function(callback) {
-            return window.requestAnimationFrame ||
-                window.webkitRequestAnimationFrame ||
-                window.mozRequestAnimationFrame ||
-                window.oRequestAnimationFrame ||
-                window.msRequestAnimaitonFrame ||
-                function(callback) {
-                    window.setTimeout(callback, 1000 / 60);
-                };
-        })();
-
-        var canvas = document.getElementById("sig-canvas");
-        var ctx = canvas.getContext("2d");
-        ctx.strokeStyle = "#222222";
-        ctx.lineWidth = 4;
-
-        var drawing = false;
-        var mousePos = {
-            x: 0,
-            y: 0
-        };
-        var lastPos = mousePos;
-
-        canvas.addEventListener("mousedown", function(e) {
-
-            drawing = true;
-            lastPos = getMousePos(canvas, e);
-        }, false);
-
-        canvas.addEventListener("mouseup", function(e) {
-
-            drawing = false;
-        }, false);
-
-        canvas.addEventListener("mousemove", function(e) {
-            mousePos = getMousePos(canvas, e);
-        }, false);
-
-        // Add touch event support for mobile
-        canvas.addEventListener("touchstart", function(e) {
-            // alert(1);
-        }, false);
-
-        canvas.addEventListener("touchmove", function(e) {
-            var touch = e.touches[0];
-            var me = new MouseEvent("mousemove", {
-                clientX: touch.clientX,
-                clientY: touch.clientY
             });
-            canvas.dispatchEvent(me);
-        }, false);
+            $(document).on('click', '#sig-submitBtn', function() {
 
-        canvas.addEventListener("touchstart", function(e) {
-            mousePos = getTouchPos(canvas, e);
-            var touch = e.touches[0];
-            var me = new MouseEvent("mousedown", {
-                clientX: touch.clientX,
-                clientY: touch.clientY
+                var signurl = $('#sig-dataUrl').text();
+                $("input[name=SingsLinka]").empty();
+
+                $('input[name=SingsLinka]').val(signurl);
+                // $('.sig-imagea').empty();
+
+                // $('.sig-imagea').empty();
+                $("img[name=sig-imagea]").empty().attr('src', signurl);
+
+
+
+
             });
-            canvas.dispatchEvent(me);
-        }, false);
 
-        canvas.addEventListener("touchend", function(e) {
-            var me = new MouseEvent("mouseup", {});
-            canvas.dispatchEvent(me);
-        }, false);
 
-        function getMousePos(canvasDom, mouseEvent) {
-            var rect = canvasDom.getBoundingClientRect();
-            return {
-                x: mouseEvent.clientX - rect.left,
-                y: mouseEvent.clientY - rect.top
-            }
-        }
+        });
+    </script>
 
-        function getTouchPos(canvasDom, touchEvent) {
-            var rect = canvasDom.getBoundingClientRect();
-            return {
-                x: touchEvent.touches[0].clientX - rect.left,
-                y: touchEvent.touches[0].clientY - rect.top
-            }
-        }
 
-        function renderCanvas() {
-            if (drawing) {
-                ctx.moveTo(lastPos.x, lastPos.y);
-                ctx.lineTo(mousePos.x, mousePos.y);
-                ctx.stroke();
-                lastPos = mousePos;
-            }
-        }
+    <script>
+        var nameatt = 0;
+        $(document).ready(function() {
 
-        // Prevent scrolling when touching the canvas
-        document.body.addEventListener("touchstart", function(e) {
-            if (e.target == canvas) {
-                e.preventDefault();
-            }
-        }, false);
-        document.body.addEventListener("touchend", function(e) {
-            if (e.target == canvas) {
-                e.preventDefault();
-            }
-        }, false);
-        document.body.addEventListener("touchmove", function(e) {
-            if (e.target == canvas) {
-                e.preventDefault();
-            }
-        }, false);
+            $(document).on('click', '.appSignM', function() {
 
-        (function drawLoop() {
-            requestAnimFrame(drawLoop);
-            renderCanvas();
-        })();
+                nameatt = $(this).attr('nameatt');
 
-        function clearCanvas() {
-            canvas.width = canvas.width;
-        }
 
-        // Set up the UI
-        var sigText = document.getElementById("sig-dataUrl");
-        var sigImage = document.getElementById("sig-image");
-        var clearBtn = document.getElementById("sig-clearBtn");
-        var submitBtn = document.getElementById("sig-submitBtn");
-        clearBtn.addEventListener("click", function(e) {
-            clearCanvas();
-            sigText.innerHTML = "Data URL for your signature will go here!";
-            sigImage.setAttribute("src", "");
-        }, false);
-        submitBtn.addEventListener("click", function(e) {
-            var dataUrl = canvas.toDataURL();
-            sigText.innerHTML = dataUrl;
-            sigImage.setAttribute("src", dataUrl);
-        }, false);
+                $.ajax({
+                    type: "GEt",
+                    url: "{{ url('append/signature2') }}",
+                    success: function(res) {
 
-    })();
-</script>
+                        $('.Sings2').empty().append(res);
 
+
+                    }
+                });
+
+            });
+            $(document).on('click', '#sig-submitBtn2', function() {
+
+
+                var signurl = $('#sig-dataUrl2').text();
+
+                // alert(nameatt);
+
+                $("input[name=SingsLink_" + nameatt + "]").empty();
+                $("input[name=SingsLink_" + nameatt + "]").val(signurl);
+
+                $("img[name=sig-image_" + nameatt + "]").empty();
+                $("img[name=sig-image_" + nameatt + "]").attr('src', signurl);
+
+
+            });
+
+
+        });
+    </script>
+
+    <script>
+        //    var nameat11t = 0;
+        $(document).ready(function() {
+
+            // var adult = $('.typeadu').val();
+
+            $(document).on('click', '.acceptt', function() {
+
+
+                $('.finalResult').find('img').each(function(index, value) {
+                    var imgsrc = $(this).attr('src');
+
+                    // alert(imgsrc);
+
+                    if(imgsrc == '')
+                    {
+                        alert('Signature is required');
+                        event.preventDefault();
+                        return false;
+                    }
+                    else
+                    {
+                        console.log(imgsrc);
+                    // alert(imgsrc);
+                    }
+
+                });
+
+                // if (adult == 'adult') {
+                //     alert(adult);
+                //     var btnsub = $("img[name=sig-imagea]").attr('src');
+
+                //     if (btnsub == '') {
+                //         alert('Signature is required')
+                //         event.preventDefault();
+
+                //     } else {
+                //         console.log(btnsub);
+
+                //     }
+                // }
+
+            });
+
+
+
+
+            // $(document).on('click', '.acceptt', function() {
+
+            //     var minor = $('.typemin').val();
+            //     if (minor == 'minor') {
+            //         var totalCount = $('.totalCount').val();
+
+            //         for (var i = 1; i <= 2; i++) {
+            //             var imguni = $("img[name=sig-image_" + i + "]").attr('src');
+            //             if (imguni == '') {
+            //                 alert('Signature is required of Minor' + i + '');
+            //                 event.preventDefault();
+
+            //             } else {
+            //                 console.log(imguni);
+            //             }
+            //         }
+
+
+            //     }
+
+            // });
+
+        });
+    </script>
 
 </body>
 

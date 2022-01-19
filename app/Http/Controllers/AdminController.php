@@ -152,12 +152,18 @@ return view('welcome', compact('country', 'state'));
 
 
         $admin = User::find($request->id);
-        // dd($request);
+       
         $admin->name = $request->firstname;
 
         $admin->email = $request->email;
 
         $admin->address = $request->address;
+
+        if($request->password!=null)
+        {
+
+            $admin->password=Hash::make($request->password);
+        }
 
         $admin->update();
         return back()->with('success', 'Updated Successfully');

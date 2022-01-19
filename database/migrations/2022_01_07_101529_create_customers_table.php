@@ -25,6 +25,7 @@ class CreateCustomersTable extends Migration
             $table->string('status')->nullable();
             $table->string('step')->nullable();
             $table->string('added_by')->nullable();
+            $table->integer('duplicate')->default(0);
             $table->timestamps();
         });
     }

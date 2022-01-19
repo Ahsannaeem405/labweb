@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Hi</title>
+    <title></title>
     <link href="https://chart.googleapis.com/chart?chs=186x189&cht=qr&chl=http%3A%2F%2Fwww.google.com%2F&choe=UTF-8">
 </head>
 <body>
@@ -12,7 +12,7 @@
         <thead>
           <tr>
             <th style="text-align: right;padding-right: 100px;">
-                <img class="text-center" src="https://chart.googleapis.com/chart?chs=186x189&cht=qr&chl={{$host}}&choe=UTF-8" title="ACD Deposit Address" />
+                <img class="text-center"    style="width: 124px;"  src="https://chart.googleapis.com/chart?chs=186x189&cht=qr&chl={{$host}}&choe=UTF-8" title="ACD Deposit Address" />
 
 
           </tr>
@@ -21,20 +21,21 @@
       </table>
 
 
-    <table class="table" style="width: 100%">
+    <table class="table" style="width: 100%; margin-top: -17px;">
         <thead>
           <tr>
             <th scope="col" style="width: 50%">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPMSXYTv50LROEMuedceBwZbwtNLLOjIflAQ&usqp=CAU" alt="" style="width: 100%;height:250px;">
+                {{-- <img src="{{asset('https://communitel-covid-tests.ue.r.appspot.com/images/communitel-header-without-address-gray.png')}}" alt="" style="width: 100%;height:250px;"> --}}
 
+                    <img src="{{'assets/qrcode.png' }}" alt="" style="width: 100%;height: 213px;">
 
             </th>
             <th scope="col" style="width: 50%"><p style="font-size: 22px;font-weight:inherit">MIAMI INTERNATIONAL AIRPORT
                 2100 NW 42 AVE
                 MIAMI, FLORIDA 33126</p>
 
-                <h3 style="font-size: 30px">TEL: 305-869-1161</h3>
-                <h3 style="font-size: 30px">FAX: 305-869-1167</h3>
+                <h3 style="font-size: 23px">TEL: 305-869-1161</h3>
+                <h3 style="font-size: 23px">FAX: 305-869-1167</h3>
 
             </th>
 
@@ -43,14 +44,14 @@
         </thead>
         <tbody>
           <tr>
-            <th scope="row" colspan="2" ><h3 style="padding-top: 20px">CLIA: <span style="border-bottom: 1px solid black;">{{$customer->id}}</span></h3></th>
+            <th scope="row" colspan="2" ><h3 style="padding-top: 8px">CLIA: <span style="border-bottom: 1px solid black;">{{$customer->id}}</span></h3></th>
 
 
 
           </tr>
           <tr>
 
-            <td scope="row" colspan="2"><h3 style="padding-top: 10px">CLINICAL LABORATORY REPORT</h3></td>
+            <td scope="row" colspan="2"><h3 style="">CLINICAL LABORATORY REPORT</h3></td>
 
 
           </tr>
@@ -119,7 +120,7 @@
 
           <tr>
             <td colspan="2"><span class="t_p"><span class="txt_bold">Specimen Type:</span> Nasopharyngeal Swab</span></td>
-            <td><span class="t_p"><span class="txt_bold">{{$customer->display_status}}</span> for {{$customer->test_type}}</span></td>
+            <td><span class="t_p"><span class="txt_bold" style=" text-transform: uppercase;">{{$customer->display_status}}</span> for {{$customer->test_type}}</span></td>
           </tr>
 
           <tr>

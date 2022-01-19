@@ -12,15 +12,37 @@ class orderController extends Controller
 {
 
 
+    public function cancelOrders()
+    {
+        $customer =Customer::where('display_status','Canceled')->get();
+
+
+        return view('admin.cancel',compact('customer'));
+    }
     public function append_signature(){
 
             return view('signature2');
 
     }
 
+    public function append_signature2(){
+
+        return view('signature');
+
+}
+
     public function report($id)
     {
-        $report=Customer::find($id);
+
+      $idd =   base64_decode($id);
+
+// dd($idd, $id);
+
+$idd = intval($idd);
+// dd($idd);
+        $report=Customer::find($idd);
+
+
     if($report)
     {
         return view('report.report',compact('report'));
@@ -34,17 +56,30 @@ class orderController extends Controller
     {
         $customer=Customer::find($id);
 
-        $customer->step=2;
-        $customer->test_type=$request->test_type;
-        $customer->order_date=Carbon::now();
-        $customer->order_id=rand(0000,9999);
-        $customer->update();
+
+        $cus=new Customer();
+        $cus->name=$customer->name;
+        $cus->email=$customer->email;
+        $cus->address=$customer->address;
+        $cus->phone=$customer->phone;
+        $cus->dob=$customer->dob;
+        $cus->passport=$customer->passport;
+        $cus->gender=$customer->gender;
+        $cus->status=$customer->status;
+        $cus->step=2;
+        $cus->test_type=$request->test_type;
+        $cus->added_by=$customer->added_by;
+        $cus->order_date=Carbon::now();
+        $cus->order_id=rand(0000,9999);
+        $cus->main_status='order';
+        $cus->save();
         return back()->with('success','Order created successfully');
     }
 
     public function invoice_pending()
     {
-        $customer = Customer::where('step',2)->get();
+        $customer = Customer::where('step',2)->where('display_status','=',null)->get();
+
         return view('orders.pendingInvoice', compact('customer'));
     }
 
@@ -63,7 +98,7 @@ class orderController extends Controller
 
     public function result_pending()
     {
-        $customer = Customer::where('step',3)->get();
+        $customer = Customer::where('step',3)->where('display_status','=',null)->get();
         return view('orders.pendingResult', compact('customer'));
     }
     public function result_add(Request $request,$id)
@@ -80,7 +115,7 @@ class orderController extends Controller
 
     public function pending_release()
     {
-        $customer = Customer::where('step',4)->get();
+        $customer = Customer::where('step',4)->where('display_status','!=','Canceled')->get();
         return view('orders.pendingRelease', compact('customer'));
     }
 
@@ -93,16 +128,15 @@ class orderController extends Controller
 
 
         $email=$customer->email;
-        $host='https://'.\request()->getHost()."/public/report/$id";
+
+       $idd =  base64_encode($id);
+
+        $host='https://'.\request()->getHost()."/public/report/$idd";
         $pdf = \PDF::loadView('pdf.report',compact('host','customer'));
-
-
         $rand= rand(0, 99999999999999);
         $path = 'pdf/';
         $fileName = $rand . '.' . 'pdf' ;
         $pdf->save($path . '/' . $fileName);
-
-
 
 
 
@@ -116,7 +150,7 @@ class orderController extends Controller
 
     public function released()
     {
-        $customer = Customer::where('step',5)->get();
+        $customer = Customer::where('step',5)->where('display_status','!=','Canceled')->get();
         return view('orders.Released', compact('customer'));
 
     }
@@ -127,6 +161,7 @@ class orderController extends Controller
 
         $customer=Customer::find($id);
         $customer->date=$request->release_date;
+        $customer->display_status=$request->result;
         $customer->update();
         return back()->with('success','Release date updated successfully');
 

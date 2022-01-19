@@ -1,19 +1,18 @@
 @extends('admin.layouts.default')
 @section('content')
 
-    <link rel="https://cdn.datatables.net/1.11.0/css/jquery.dataTables.min.css">
+    {{-- <link rel="https://cdn.datatables.net/1.11.0/css/jquery.dataTables.min.css"> --}}
 
-    {{-- <link rel="https://cdn.datatables.net/buttons/2.0.0/css/buttons.dataTables.min.css"> --}}
+    <link href="{{asset('/lib/datatables/jquery.dataTables.css')}}" rel="stylesheet">
 
-    {{-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" /> --}}
     <style>
         .br-pagebody {
             margin-top: 83px;
         }
-
+/*
         div#datatable1_paginate {
             display: none;
-        }
+        } */
 
         table#datatable1 {
     width: 100%;
@@ -30,6 +29,11 @@ td.sorting_1
 {
     background-color: #f9f9f9;
 
+}
+
+.hoverclr:hover{
+    background-color: #8b8be1;
+    color: white;
 }
 
 
@@ -83,17 +87,17 @@ td.sorting_1
                             @foreach ($customer as $views)
 
                             {{-- <a href="{{url(''.$role.'/verify/customer/'.$views->id)}}"> --}}
-                                <tr class="cust" attrr="{{$views->id}}" rolee="{{$role}}">
+                                <tr class="hoverclr" >
 
-                                    <td>
+                                    <td class="cust" attrr="{{$views->id}}" rolee="{{$role}}" style="cursor: pointer">
                                         {{ $i++ }}</td>
-                                    <td>{{ $views->name }}</td>
+                                    <td class="cust" attrr="{{$views->id}}" rolee="{{$role}}" style="cursor: pointer">{{ $views->name }}</td>
 
-                                    <td>{{ $views->email }}</td>
-                                    <td>{{ $views->address }}</td>
-                                    <td>{{ $views->dob }}</td>
+                                    <td class="cust" attrr="{{$views->id}}" rolee="{{$role}}" style="cursor: pointer">{{ $views->email }}</td>
+                                    <td class="cust" attrr="{{$views->id}}" rolee="{{$role}}" style="cursor: pointer">{{ $views->address }}</td>
+                                    <td class="cust" attrr="{{$views->id}}" rolee="{{$role}}" style="cursor: pointer">{{ $views->dob }}</td>
 
-                                    <td>{{ $views->gender }}</td>
+                                    <td class="cust" attrr="{{$views->id}}" rolee="{{$role}}" style="cursor: pointer">{{ $views->gender }}</td>
 
                                     <td>
 
@@ -142,17 +146,20 @@ td.sorting_1
 
     </script>
 
-<script>
-    $(document).ready(function() {
-                $('.cust').click(function(){
+
+    <script>
+        $(document).ready(function() {
+            $('.cust').click(function(){
+
                 var id =  $(this).attr('attrr');
                 var rolee =  $(this).attr('rolee');
-                var url = '/'+rolee+'/verify/customer/'+id;
-                    $(location).attr('href',url);
+                var url = '/public/'+rolee+'/verify/customer/'+id;
+                $(location).attr('href',url);
 
-    });
-});
-</script>
+            });
+        });
+    </script>
+
     <script>
         $(document).ready(function() {
             $('#datatable1').DataTable({

@@ -155,7 +155,7 @@
                                     <label class="form-control-label">Second Name: <span
                                             class="tx-danger"></span></label>
                                     <input class="form-control" type="text" value="{{ $cus->show->secondname }}"
-                                        name="secondname" required value="" required placeholder="Secondname ">
+                                        name="secondname"   placeholder="Secondname ">
                                 </div>
                             </div><!-- col-4 -->
 
@@ -575,13 +575,34 @@
         </div><!-- col-8 -->
 
 
+                            <div class="col-lg-6">
+                                <div class="form-group mg-b-10-force">
+
+                                    <p>Destination: </p>
+                                    <input type="text" value="{{ $cus->show->Destination }}" name="Destination"
+                                           class="form-control">
+
+                                </div>
+                            </div><!-- col-8 -->
+                            <div class="col-lg-6">
+                                <div class="form-group mg-b-10-force">
+
+                                    <p>Flight/Cruise #:</p>
+                                    <input type="text" value="{{ $cus->show->F_Cruise }}" name="F_Cruise"
+                                           class="form-control">
+
+                                </div>
+                            </div><!-- col-8 -->
+
+
+
 
 
         <div class="col-lg-6">
             <div class="form-group mg-b-10-force">
 
                 <p>How did you hear about us?</p>
-                <input type="radio" @if ($cus->show->gender == 'Friends') checked @endif name="gender2" value="Friends" checked>
+                <input type="radio" @if ($cus->show->gender == 'Friends') checked @endif name="gender2" value="Friends" >
                 <label for="Female">Friends</label><br>
 
                 <input type="radio" @if ($cus->show->gender == 'Airline Staff') checked @endif name="gender2" value="Airline Staff">
@@ -648,7 +669,7 @@
                 <div class="form-group">
                     <label class="form-control-label">Second Name: <span class="tx-danger"></span></label>
                     <input class="form-control" type="text" value="{{ $cus->show->secondname }}" name="secondname"
-                        required value="" required placeholder="Secondname ">
+                         placeholder="Secondname ">
                 </div>
             </div><!-- col-4 -->
 
@@ -1100,13 +1121,30 @@
 
                 </div>
             </div><!-- col-8 -->
+            <div class="col-lg-6">
+                <div class="form-group mg-b-10-force">
 
+                    <p>Destination: </p>
+                    <input type="text" value="{{ $cus->show->Destination }}" name="Destination"
+                           class="form-control">
+
+                </div>
+            </div><!-- col-8 -->
+            <div class="col-lg-6">
+                <div class="form-group mg-b-10-force">
+
+                    <p>Flight/Cruise #: </p>
+                    <input type="text" value="{{ $cus->show->F_Cruise }}" name="F_Cruise"
+                           class="form-control">
+
+                </div>
+            </div><!-- col-8 -->
 
             <div class="col-lg-6">
                 <div class="form-group mg-b-10-force">
 
                     <p>How did you hear about us?</p>
-                    <input  type="radio" @if ($cus->show->gender == 'Friends') checked @endif name="gender2" value="Friends" checked>
+                    <input  type="radio" @if ($cus->show->gender == 'Friends') checked @endif name="gender2" value="Friends" >
                     <label for="Female">Friends</label><br>
 
                     <input  type="radio" @if ($cus->show->gender == 'Airline Staff') checked @endif name="gender2" value="Airline Staff">
@@ -1159,21 +1197,6 @@
 
 
 
-    <script>
-        var searchInput = 'address';
-        $(document).ready(function() {
-            var autocomplete;
-            autocomplete = new google.maps.places.Autocomplete((document.getElementById(searchInput)), {
-                types: ['geocode'],
-                /*componentRestrictions: {
-                 country: "USA"
-                }*/
-            });
 
-            google.maps.event.addListener(autocomplete, 'place_changed', function() {
-                var near_place = autocomplete.getPlace();
-            });
-        });
-    </script>
 
 @endsection
