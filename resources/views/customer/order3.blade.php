@@ -200,7 +200,7 @@
                             <div class="col-12 pt-2" style="text-align: center">
                                 {{--  <button onclick="window.print()"     style="    width: 100%;">
                                     Print Invoice Receipt</button>  --}}
-                                    <a href="{{ url('operator/prnpriview/'.$order->id) }}" target="_blank" style="width: 100%" class="btn btn-primary">Print Invoice</a>
+                                    <a href="{{ url("$role/prnpriview/$order->id") }}" target="_blank" style="width: 100%" class="btn btn-primary">Print Invoice</a>
 
                                 {{--  <button style="    width: 100%;    margin-top: 7px;    ">
                                     Regenerate Invoice Receipt</button>  --}}

@@ -36,6 +36,12 @@ Route:: prefix('/admin')->middleware(['auth', 'admin'])->group(function () {
     Route::get  ('/', [AdminController::class, 'index']);
 
 
+    Route::get('/prnpriview/{order_id}', function ($order_id) {
+
+        $order_detail=Customer::where('id', $order_id)->first();
+        // dd($order_detail);
+        return view('customer.pdf2',compact('order_detail'));
+        });
 
     Route::get('/add/operator', function () {
         return view('admin.AddAdmin');
