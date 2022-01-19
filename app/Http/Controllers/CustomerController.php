@@ -134,7 +134,6 @@ return back()->with('success', 'Successfully canceled');
 
             $find = Customer::where('email', $request->emaila)->where('name', $request->namea)->where('passport', $request->passporta)->where('dob', $request->datea)->first();
 
-
             //if record exists
             if ($find) {
 
@@ -226,6 +225,7 @@ return back()->with('success', 'Successfully canceled');
             //if record does not exists
 
             else {
+
                 $customer = new Customer();
                 $customer->name = $request->namea;
                 $customer->email = $request->emaila;
