@@ -94,6 +94,14 @@
 
 
                                             <tr>
+                                                <td>
+                                                    <a
+                                                        href="{{ url("/$role/customer/view/order", $orders->id) }}">
+                                                        <button><i class="fa fa-info-circle p-1"></i>Detail</button>
+                                                        </i>
+                                                    </a>
+                                                </td>
+
 
                                                 <td  attrr="{{ $orders->id }}"
                                                     rolee="{{ $role }}"># </td>
@@ -142,6 +150,15 @@
 
                                         @elseif($orders->duplicate != 2)
                                             <tr>
+
+                                                <td>
+                                                    <a
+                                                        href="{{ url("/$role/customer/view/order", $orders->id) }}">
+                                                        <button><i class="fa fa-info-circle p-1"></i>Detail</button>
+                                                        </i>
+                                                    </a>
+                                                </td>
+
                                                 <td class="cust" attrr="{{ $orders->id }}"
                                                     rolee="{{ $role }}">#{{ $orders->order_id }} </td>
 
