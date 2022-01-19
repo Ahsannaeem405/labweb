@@ -60,7 +60,7 @@
 <div class="container">
     <div class="row py-5">
         <div class="col-lg-6 col-md-6 col-12 text-center logo1">
-            <img src="{{asset('assets/images/logo.png')}}" class="img_logo2" alt="">
+            <img src="{{asset('assets/qrcode.png')}}" class="img_logo2" alt="">
         </div>
         <div class="col-lg-6 col-md-6 col-12 mt-2 ">
             <h4>Results Verification Page</h4>
@@ -68,7 +68,7 @@
             <p><i class="far fa-building"></i> Miami International Airport &nbsp;@if($report->step==5)  <i class="fas fa-check-circle"></i> Released @endif </p>
         </div>
         <div class="col-lg-6 col-md-6 col-12 text-center logo2 mt-2">
-            <img src="{{asset('assets/images/logo.png')}}" class="img_logo" alt="">
+            <img src="{{asset('assets/qrcode.png')}}" class="img_logo" alt="">
         </div>
     </div>
 </div>

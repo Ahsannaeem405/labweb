@@ -150,10 +150,10 @@ return back();
 
 
         $email=$customer->email;
-
+       $rand2 =  rand(00000,99999);
        $idd =  base64_encode($id);
 
-        $host='https://'.\request()->getHost()."/public/report/$idd";
+        $host='https://'.\request()->getHost()."/public/report/$idd?id=$rand2";
         $pdf = \PDF::loadView('pdf.report',compact('host','customer'));
         $rand= rand(0, 99999999999999);
         $path = 'pdf/';
