@@ -151,8 +151,7 @@
 
                                     </div>
                                     <div class="col-lg-2 col-md-4 col-12 " style="text-align: end">
-                                        <span><i class="fa fa-trash" aria-hidden="true"></i>
-                                        </span>
+
                                     </div>
                                 </div>
 
@@ -198,11 +197,13 @@
                                 <p>${{$order->payment_amount}}</p>
                             </div>
 
-                            <div class="col-12 pt-2">
-                                <button onclick="window.print()"     style="    width: 100%;">
-                                    Print Invoice Receipt</button>
-                                <button style="    width: 100%;    margin-top: 7px;    ">
-                                    Regenerate Invoice Receipt</button>
+                            <div class="col-12 pt-2" style="text-align: center">
+                                {{--  <button onclick="window.print()"     style="    width: 100%;">
+                                    Print Invoice Receipt</button>  --}}
+                                    <a href="{{ url("$role/prnpriview/$order->id") }}" target="_blank" style="width: 100%" class="btn btn-primary">Print Invoice</a>
+
+                                {{--  <button style="    width: 100%;    margin-top: 7px;    ">
+                                    Regenerate Invoice Receipt</button>  --}}
                             </div>
 
 

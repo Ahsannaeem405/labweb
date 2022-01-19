@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CustomerController;
+use App\Models\Customer;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\App;
@@ -35,6 +36,12 @@ Route:: prefix('/admin')->middleware(['auth', 'admin'])->group(function () {
     Route::get  ('/', [AdminController::class, 'index']);
 
 
+    Route::get('/prnpriview/{order_id}', function ($order_id) {
+
+        $order_detail=Customer::where('id', $order_id)->first();
+        // dd($order_detail);
+        return view('customer.pdf2',compact('order_detail'));
+        });
 
     Route::get('/add/operator', function () {
         return view('admin.AddAdmin');
@@ -175,7 +182,12 @@ Route:: prefix('/operator')->middleware(['auth', 'operator'])->group(function ()
 
     Route::get('/customer/view/invoice/{id}', [CustomerController::class, 'view_invoice']);
 
+Route::get('/prnpriview/{order_id}', function ($order_id) {
 
+$order_detail=Customer::where('id', $order_id)->first();
+// dd($order_detail);
+return view('customer.pdf2',compact('order_detail'));
+});
 
     Route::get('/create/order/customer/{id}', [CustomerController::class, 'create_order']);
 
