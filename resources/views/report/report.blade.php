@@ -85,7 +85,7 @@
         </div>
         <div class="col-lg-4 col-md-6 col-12 pt-2">
             <p class="text_gray">Price</p>
-            <h6>{{$report->payment_amount}}$</h6>
+            <h6>${{$report->payment_amount}}</h6>
         </div>
         <div class="col-lg-4 col-md-6 col-12 pt-2">
             <p class="text_gray">Testing Platform</p>

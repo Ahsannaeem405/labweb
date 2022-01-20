@@ -81,7 +81,7 @@
 
 
                                 <td>{{ $views->test_type }}</td>
-                                <td>{{ $views->payment_amount }}$</td>
+                                <td>${{ $views->payment_amount }}</td>
 
 
                                 <td><span class="p-2"

@@ -116,7 +116,7 @@
                                 <td>{{ $views->email }}</td>
 
 
-                                <td>{{ $views->payment_amount }}$</td>
+                                <td>${{ $views->payment_amount }}</td>
                                 <td>{{ $views->test_type }}</td>
                                 <td><span class="p-2" style="background-color: #adeaa8;color: white;border-radius: 5px">Released</span></td>
 
