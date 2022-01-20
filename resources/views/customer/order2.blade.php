@@ -94,7 +94,7 @@
 
                                     <div class="col-lg-6 col-md-6 col-md-6"
                                         style="text-align: end;vertical-align: middle;margin: auto;">
-                                        <a href="{{ asset("uploads/stock/$documents->path") }}" target="_blank"> <span
+                                        <a href="{{ asset("uploads/stock/$documents->path") }}"> <span
                                             class="p-1">Download</a> &nbsp;&nbsp;
                                             <a href="{{ asset("uploads/stock/$documents->path") }} " target="_blank" class=""> View</a>
                                     </div>
@@ -160,7 +160,7 @@
                                     style="text-align: end;vertical-align: middle;margin: auto;">
                                     <a href="{{url("$role/downloadd/$order->id")}}" > <span
                                         class="p-1">Download</a> &nbsp; &nbsp;
-                                        <a href="{{ asset("uploads/stock/$documents->path") }} " target="_blank" class=""> View</a>
+                                        <a href="{{ asset("$role/downloadd/$order->id.pdf") }} " target="_blank" class=""> View</a>
 
 
 
