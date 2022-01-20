@@ -94,7 +94,7 @@
 
                                     <div class="col-lg-6 col-md-6 col-md-6"
                                         style="text-align: end;vertical-align: middle;margin: auto;">
-                                        <a href="{{ asset("uploads/stock/$documents->path") }}"> <span
+                                        <a href="{{ asset("uploads/stock/$documents->path") }}" download> <span
                                             class="p-1">Download</a> &nbsp;&nbsp;
                                             <a href="{{ asset("uploads/stock/$documents->path") }} " target="_blank" class=""> View</a>
                                     </div>
