@@ -8,13 +8,15 @@
 
 
 
-    <table class="table" style="width: 100%">
+    <table class="table" style="width: 100%;padding:30px">
         <thead>
           <tr>
-            <th scope="col" style="width: 50%"><img src="{{asset('assets/qrcode.png') }}" alt="" style="width: 100%;height:250px;"></th>
-            <th scope="col" style="width: 50%"><p style="font-size: 64px;font-weight:inherit;text-align: center;">INVOICE</p>
-                <p style="font-size: 22px;font-weight:inherit;text-align: center;"> 01-17-2022 1:09 pm </p>
-                <h3 style="font-size: 30px">Invoice#:888888</h3>
+            <th scope="col" style="width: 50%"><img src="{{asset('assets/qrcode.png') }}" alt="" style="width: 92%;height: 157px;"></th>
+            <th scope="col" style="width: 50%;    text-align: end;  color: darkgray;  padding-top: 30px;">
+
+                <span style="font-size: 40px;font-weight:inherit;text-align: end;color: darkgray;">INVOICE</span> <br>
+                <h3 style="font-size: 17px;font-weight:inherit;text-align: end;    margin-bottom: 3px;"> 01-17-2022 1:09 pm </h3>
+                <span style="font-size: 17px">Invoice#:888888</span>
 
             </th>
 
@@ -28,15 +30,15 @@
 
 
 
-               <p style="font-size: 17px;padding-left: 25px;">INTIFERNANDZ ND AT MIA INC<br> REHAB FAMILY@YAHOO.COM
+               <p style="font-size: 17px;padding-left: 25px;color: gray;">INTIFERNANDZ ND AT MIA INC<br> REHAB FAMILY@YAHOO.COM
                 <br>2100 NW 42 AVE MIAMI,FLORIDA 33126,US 305-869-1161
                             </p>
 
                         </td>
 
 
-            <td scope="row"><h3 style="">TO: </h3>
-                <p style="font-size: 17px;padding-left: 25px;"> {{ $order_detail->name }} <br> {{ $order_detail->email }}
+            <td scope="row" style="padding-left: 50px;"><h3 style="">TO: </h3>
+                <p style="font-size: 17px;padding-left: 25px;color: gray;"> {{ $order_detail->name }} <br> {{ $order_detail->email }}
                     <br>
                            {{$order_detail->address}}
                 </p>

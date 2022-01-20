@@ -12,7 +12,7 @@
         <thead>
           <tr>
             <th style="text-align: right;padding-right: 100px;">
-                <img class="text-center"    style="width: 124px;"  src="https://chart.googleapis.com/chart?chs=186x189&cht=qr&chl={{$host}}&choe=UTF-8" title="ACD Deposit Address" />
+                <img class="text-center"    style="width: 100px;"  src="https://chart.googleapis.com/chart?chs=186x189&cht=qr&chl={{$host}}&choe=UTF-8" title="ACD Deposit Address" />
 
 
           </tr>
@@ -27,15 +27,15 @@
             <th scope="col" style="width: 50%">
                 {{-- <img src="{{asset('https://communitel-covid-tests.ue.r.appspot.com/images/communitel-header-without-address-gray.png')}}" alt="" style="width: 100%;height:250px;"> --}}
 
-                    <img src="{{'assets/qrcode.png' }}" alt="" style="width: 100%;height: 213px;">
+                    <img src="{{'assets/qrcode.png' }}" alt="" style="width: 92%;height: 157px;">
 
             </th>
-            <th scope="col" style="width: 50%"><p style="font-size: 22px;font-weight:inherit">MIAMI INTERNATIONAL AIRPORT
+            <th scope="col" style="width: 50%"><p style="font-size: 18px;font-weight:inherit">MIAMI INTERNATIONAL AIRPORT
                 2100 NW 42 AVE
                 MIAMI, FLORIDA 33126</p>
 
-                <h3 style="font-size: 23px">TEL: 305-869-1161</h3>
-                <h3 style="font-size: 23px">FAX: 305-869-1167</h3>
+                <h3 style="font-size: 18px">TEL: 305-869-1161</h3>
+                <h3 style="font-size: 18px">FAX: 305-869-1167</h3>
 
             </th>
 
@@ -161,7 +161,7 @@
 
 
 
-
+{{-- @dd(123); --}}
 
 
 
