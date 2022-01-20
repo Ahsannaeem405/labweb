@@ -40,7 +40,7 @@
                             <i class="fas fa-user-circle" style="font-size: 68px;"></i>
 
                         </div>
-                        <div class="col-xl-8 col-lg-7  col-6">
+                        <div class="col-xl-9 col-lg-7  col-6">
 
                             <h5 style="text-transform: uppercase;">{{ $cus->name }}</h5>
                             <span>#{{ $cus->id }}</span>
@@ -373,7 +373,7 @@
                                 <lable class="ml-2 mt-5 font-weight-bold">Upload Document</lable>
                                 <div class="col-12">
                                     <div class="row">
-                                        <div class="col-9 pt-2" style="padding: 0px">
+                                        <div class="col-8 pt-2" style="padding: 0px">
                                             <input type="file" name="file" required class="form-control">
 
                                         </div>
