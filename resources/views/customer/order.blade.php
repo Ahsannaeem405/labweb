@@ -61,7 +61,7 @@
                 <div class="col-lg-12 col-12 pt-3 text-dark">
                     <div class="row" style="padding-left: 15px;">
 
-                        <div class="col-lg-2 col-md-4 col-12">
+                        <div class="col-lg-3 col-md-4 col-12">
                             <p><i class="far fa-envelope"></i> {{ $cus->email }}</p>
                         </div>
                         <div class="col-lg-2 col-md-4 col-12">
