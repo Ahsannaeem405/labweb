@@ -809,6 +809,7 @@ return back()->with('success', 'Successfully canceled');
     {
         $cus = Customer::find($id);
 
+        // @dd($cus);
         $order = Customer::where('email', $cus->email)->where('status', 'Verified')->get();
 
         $document = Document::where('email', $cus->email)->get();

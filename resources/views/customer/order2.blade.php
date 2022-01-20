@@ -31,7 +31,7 @@
                     <a href="{{ url("$role/customers/") }}"><i class="fas fa-chevron-left"></i> Back to Customer List</a>
                 </div>
                 <div class="col-12 pt-2 text-dark">
-                    <h5>{{ 'Order' }}</h5>
+                    <h5>{{ 'Order #' }}{{$order->id}}</h5>
                     <p>{{ 'Miami International Airport' }} &nbsp;&nbsp;&nbsp; <i class="fa fa-clock-o"
                             aria-hidden="true"></i> Active
                     </p>
@@ -95,7 +95,8 @@
                                     <div class="col-lg-6 col-md-6 col-md-6"
                                         style="text-align: end;vertical-align: middle;margin: auto;">
                                         <a href="{{ asset("uploads/stock/$documents->path") }}" target="_blank"> <span
-                                            class="p-1">Download</a>
+                                            class="p-1">Download</a> &nbsp;&nbsp;
+                                            <a href="{{ asset("uploads/stock/$documents->path") }} " target="_blank" class=""> View</a>
                                     </div>
                                     @endforeach
 
@@ -147,16 +148,19 @@
                                     </div>
 
                                     @if($order->step >=4)
-
+                                    <div class="col-lg-6 col-md-6 col-md-6"
+                                    style="text-align: start;">
+                                    <br>
                                     <span class="mt-1"
                                     style="    padding: 12px;"><i class="fa fa-file" aria-hidden="true"></i> &nbsp;{{ 'Medical lab report.pdf' }}</span>
-
+                                    </div>
 
 
                                     <div class="col-lg-6 col-md-6 col-md-6"
                                     style="text-align: end;vertical-align: middle;margin: auto;">
                                     <a href="{{url("$role/downloadd/$order->id")}}" > <span
-                                        class="p-1">Download</a>
+                                        class="p-1">Download</a> &nbsp; &nbsp;
+                                        <a href="{{ asset("uploads/stock/$documents->path") }} " target="_blank" class=""> View</a>
 
 
 
@@ -206,7 +210,8 @@
                                     @endif
                                     </div>
                                     <div class="col-lg-4 col-md-4 col-12 " style="text-align: end">
-                                        <span>${{ $order->payment_amount }}</span>
+                                        <span style="    font-weight: bold;
+                                        font-size: 18px;">${{ $order->payment_amount }}</span>
                                     </div>
                                 </div>
 
@@ -236,29 +241,29 @@
 
 
 
-                            <div class="col-7 pt-2">
+                            <div class="col-5 pt-2">
                                 Test
                             </div>
-                            <div class="col-5 pt-2">
-                                <p>{{$order->test_type}}</p>
+                            <div class="col-7 pt-2">
+                                <span style="    font-size: 18px;color: black;">{{$order->test_type}}</span>
                             </div>
                             {{-- @foreach ($order as $orders) --}}
 
-                            <div class="col-7 pt-2">
+                            <div class="col-5 pt-2">
                                Price
                             </div>
 {{-- @dd($order) --}}
-                            <div class="col-5 pt-2">
-                                <p>${{$order->payment_amount}}</p>
+                            <div class="col-7 pt-2">
+                                <span style="    font-size: 18px;color: black;">${{$order->payment_amount}}</span>
                             </div>
 
 
                             {{-- @if ($orders->payment_date != null) --}}
-                            <div class="col-7 pt-2">
+                            <div class="col-5 pt-2">
                                date
                             </div>
-                            <div class="col-5 pt-2">
-                                <p>{{$order->result_date}}</p>
+                            <div class="col-7 pt-2">
+                                <span style="    font-size: 18px;color: black;">{{$order->result_date}}</span>
                             </div>
 
                             <hr class="col-10" />
@@ -269,7 +274,7 @@
                                <span style="font-weight: bold">Result</span>
                              </div>
                              <div class="col-5 pt-2">
-                                 <p>{{$order->display_status}}</p>
+                                 <p style="text-transform: uppercase;font-size: 17px;font-weight: bold;">{{$order->display_status}}</p>
                              </div>
 
                              @else
