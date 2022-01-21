@@ -52,7 +52,7 @@ return back()->with('success', 'Successfully canceled');
 
         $customer = Customer::find($id);
         $cus = new Customer();
-        $cus->name = $customer_det->name .''. $customer_det->surname;
+        $cus->name = $customer_det->name .' '. $customer_det->surname;
         $cus->email = $customer_det->email;
         $cus->dob = $customer->dob;
         $cus->phone = $customer_det->phone;
