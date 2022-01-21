@@ -49,9 +49,12 @@ return back()->with('success', 'Successfully canceled');
 
         $role = Auth::user()->role;
         $customer_det = Customer_detail::where('customer_id', $id)->first();
+
+        $customer = Customer::find($id);
         $cus = new Customer();
-        $cus->name = $customer_det->name;
+        $cus->name = $customer_det->name .''. $customer_det->surname;
         $cus->email = $customer_det->email;
+        $cus->dob = $customer->dob;
         $cus->phone = $customer_det->phone;
         $cus->address = $customer_det->address;
         $cus->passport = $customer_det->passport;
@@ -768,13 +771,12 @@ return back()->with('success', 'Successfully canceled');
     public function view_order($id)
     {
 
-
-
         $order = Customer::find($id);
        //  dd($order);
         $Country = Country::all();
         $state = State::all();
         $cus = Customer::find($id);
+
 
         $document = Document::where('email', $cus->email)->get();
         return view('customer.order2', compact('cus', 'Country', 'state', 'order', 'document'));
@@ -858,7 +860,7 @@ return back()->with('success', 'Successfully canceled');
     public function place_order_submit(Request $request, $id)
     {
         $customer = Customer::find($id);
-
+        $role=Auth::user()->role;
         if ($request->choice) {
 
             for ($i = 0; $i < count($request->choice); $i++) {
@@ -880,7 +882,7 @@ return back()->with('success', 'Successfully canceled');
                 $cus->main_status = 'order';
                 $cus->save();
             }
-            return redirect('/admin/customers')->with('success', 'Order created successfully');
+            return redirect(''.$role.'/create/order/customer/'.$customer->id.'')->with('success', 'Order created successfully');
         } else {
             return back()->with('error', 'Please select Test to create order.');
         }

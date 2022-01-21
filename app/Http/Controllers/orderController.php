@@ -117,6 +117,30 @@ class orderController extends Controller
         return view('orders.pendingRelease', compact('customer'));
     }
 
+    public function view($id){
+
+        $customer=Customer::find($id);
+
+        $email=$customer->email;
+
+        $idd =  base64_encode($id);
+
+        $host='https://'.\request()->getHost()."/public/report/$idd";
+        $pdf = \PDF::loadView('pdf.report',compact('host','customer'));
+        $rand= rand(0, 99999999999999);
+
+        $path = 'pdf/';
+        $fileName = $rand . '.' . 'pdf' ;
+        $pdf->save($path . '/' . $fileName);
+
+        return redirect('/pdf/'.$fileName);
+     // return  $pdf->stream($fileName,array('Attachment'=>0));
+
+
+
+// download PDF file with download method
+       // return $pdf->download('pdf_report.pdf');
+    }
 
     public function downloadd($id){
 

@@ -28,15 +28,13 @@
 
             <div class="row">
                 <div class="col-12 pt-2">
-                    <a href="{{ url("$role/customers/") }}"><i class="fas fa-chevron-left"></i> Back to Customer List</a>
+                    <a href="{{ url("$role/create/order/customer/$cus->id") }}"><i class="fas fa-chevron-left"></i> Back to Customer List</a>
                 </div>
                 <div class="col-12 pt-2 text-dark">
                     <h5>{{ 'Order #' }}{{$order->id}}</h5>
                     <p>{{ 'Miami International Airport' }} &nbsp;&nbsp;&nbsp; <i class="fa fa-clock-o"
                             aria-hidden="true"></i> Active
                     </p>
-
-
                 </div>
 
 
@@ -160,7 +158,7 @@
                                     style="text-align: end;vertical-align: middle;margin: auto;">
                                     <a href="{{url("$role/downloadd/$order->id")}}" > <span
                                         class="p-1">Download</a> &nbsp; &nbsp;
-                                        <a href="{{ asset("$role/downloadd/$order->id.pdf") }} " target="_blank" class=""> View</a>
+                                        <a href="{{ asset("$role/view/$order->id") }} " target="_blank" class=""> View</a>
 
 
 

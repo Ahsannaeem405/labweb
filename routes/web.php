@@ -111,6 +111,7 @@ Route:: prefix('/admin')->middleware(['auth', 'admin'])->group(function () {
 
 
     Route::get('/downloadd/{id}', [\App\Http\Controllers\orderController::class, 'downloadd']);
+    Route::get('/view/{id}', [\App\Http\Controllers\orderController::class, 'view']);
 
     //released
 
@@ -214,6 +215,7 @@ return view('customer.pdf2',compact('order_detail'));
     Route::get('pending/release', [\App\Http\Controllers\orderController::class, 'pending_release']);
     Route::get('/release/send/{id}', [\App\Http\Controllers\orderController::class, 'release_send']);
     Route::get('/downloadd/{id}', [\App\Http\Controllers\orderController::class, 'downloadd']);
+    Route::get('/view/{id}', [\App\Http\Controllers\orderController::class, 'view']);
 
     //released
 
