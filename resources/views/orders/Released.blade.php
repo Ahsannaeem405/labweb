@@ -129,7 +129,8 @@
 
                                     <a href="{{url("$role/release/send/$views->id")}}">   <button
                                             class="btn btn-primary">
-                                            Notify him
+                                            <i class="fa fa-bell"></i>   Notify
+
                                         </button></a>
 
                                 </td>

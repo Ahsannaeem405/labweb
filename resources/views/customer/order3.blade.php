@@ -31,8 +31,20 @@
                 </div>
                 <div class="col-12 pt-2 text-dark">
                     <h5>{{ 'Invoice #'.$order->id }}</h5>
-                    <p>{{ 'Miami International Airport' }} &nbsp;&nbsp;&nbsp; <i class="fa fa-check"
-                            aria-hidden="true"></i>
+                    <p>
+
+
+                    <span><span style="font-size: 18px;font-weight:inherit">
+                    <span>  PORTOFINO IV CENTER</span>
+
+                    <span> 901-A SW 87 AVE</span>
+
+
+
+
+                    </span> &nbsp;&nbsp;&nbsp; <i class="fa fa-clock-o"
+                                                  aria-hidden="true"></i> Active
+                    </span>
 
                             @if ($order->step > 2)
                          Paid
@@ -239,7 +251,7 @@
 
                 var id = $(this).attr('attrr');
 
-                alert(1);
+
                 var rolee = $(this).attr('rolee');
                 var url = '/' + rolee + '/customer/view/order/' + id;
                 $(location).attr('href', url);
