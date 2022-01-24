@@ -153,7 +153,7 @@ td.sorting_1
 
                 var id =  $(this).attr('attrr');
                 var rolee =  $(this).attr('rolee');
-                var url = '/public/'+rolee+'/verify/customer/'+id;
+                var url = '/'+rolee+'/verify/customer/'+id;
                 $(location).attr('href',url);
 
             });

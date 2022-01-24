@@ -640,11 +640,11 @@
 
             <div class="row p-5 mt-5">
                 <div class="col-12">
-                    <h1>{{ 'FLIGHT/CRUISE INFORMATION' }}</h1>
+                    <h1>{{__('profile.FLIGHT/CRUISE INFORMATION')}}</h1>
                 </div>
                 <div class="col-lg-6 col-12 pt-3">
 
-                    <label for="">Airlin/CruiseLine *</label>
+                    <label for="">{{__('profile.Airline/CruiseLine*')}}</label>
                     <select required name="CruiseLinea" id="" class="form-control">
 
                         <option value="Air Lingus (EI)">Air Lingus (EI)</option>
@@ -727,13 +727,13 @@
                 </div>
 
                 <div class="col-lg-6 col-12 pt-3">
-                    <label for="">Destination *</label>
+                    <label for="">{{__('profile.Destination')}}*</label>
                     <input type="text" required placeholder="Destination" name="Destinationa" class="form-control">
                 </div>
 
 
                 <div class="col-lg-6 col-12 pt-3">
-                    <label for="">Flight/Cruise # *</label>
+                    <label for="">{{__('profile.Flight/Cruise #')}} *</label>
                     <input type="text" required placeholder="Flight/Cruise" name="F_Cruisea" class="form-control">
                 </div>
             </div>
@@ -1042,11 +1042,11 @@
 
             <div class="row p-5 mt-5">
                 <div class="col-12">
-                    <h1>{{ 'FLIGHT/CRUISE INFORMATION' }}</h1>
+                    <h1>{{__('profile.FLIGHT/CRUISE INFORMATION')}}</h1>
                 </div>
                 <div class="col-lg-6 col-12 pt-3">
 
-                    <label for="">Airlin/CruiseLine *</label>
+                    <label for="">{{__('profile.Airline/CruiseLine*')}}</label>
                     <select required name="CruiseLine" id="" class="form-control">
 
 
@@ -1130,13 +1130,13 @@
                 </div>
 
                 <div class="col-lg-6 col-12 pt-3">
-                    <label for="">Destination *</label>
+                    <label for="">{{__('profile.Destination')}}*</label>
                     <input type="text" required placeholder="Destination" name="Destination" class="form-control">
                 </div>
 
 
                 <div class="col-lg-6 col-12 pt-3">
-                    <label for="">Flight/Cruise # *</label>
+                    <label for="">{{__('profile.Flight/Cruise #')}} *</label>
                     <input type="text" required placeholder="Flight/Cruise" name="F_Cruise" class="form-control">
                 </div>
             </div>

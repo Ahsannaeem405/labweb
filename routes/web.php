@@ -242,7 +242,7 @@ return view('customer.pdf2',compact('order_detail'));
 
 
 
-Route::post('/customer/details', [\App\Http\Controllers\CustomerController::class, 'detail_save']);
+Route::post('/customer/details', [\App\Http\Controllers\CustomerController::class, 'detail_save'])->middleware('lang');
 
 
 
@@ -252,9 +252,8 @@ Route::post('/customer/details', [\App\Http\Controllers\CustomerController::clas
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('report/{id}',[\App\Http\Controllers\orderController::class,'report']);
+Route::get('report/{id}',[\App\Http\Controllers\orderController::class,'report'])->middleware('lang');
 
 
 

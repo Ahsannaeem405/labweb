@@ -7,6 +7,13 @@ return [
     'AIRPORT' => 'AIRPORT',
 
     '2100 NW 42 AVE' => '2100 NW 42 AVE',
+    'Customer Signature'=>'Customer Signature',
+    'FLIGHT/CRUISE INFORMATION'=>'FLIGHT/CRUISE INFORMATION',
+    'Airline/CruiseLine*'=>'Airline/CruiseLine*',
+    'Destination'=>'Destination',
+    'Flight/Cruise #'=>'Flight/Cruise #',
+
+
     'MIAMI FLORIDA 33126' => 'MIAMI FLORIDA 33126',
     'TEL: 305-869-1161' => 'TEL: 305-869-1161',
     'FAX: 305-869-1161' => 'FAX: 305-869-1161',

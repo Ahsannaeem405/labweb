@@ -241,7 +241,7 @@
 
                 alert(1);
                 var rolee = $(this).attr('rolee');
-                var url = '/public/' + rolee + '/customer/view/order/' + id;
+                var url = '/' + rolee + '/customer/view/order/' + id;
                 $(location).attr('href', url);
 
             });

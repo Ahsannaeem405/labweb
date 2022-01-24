@@ -632,7 +632,7 @@
                 var id = $(this).attr('attrr');
 
                 var rolee = $(this).attr('rolee');
-                var url = '/public/' + rolee + '/customer/view/order/' + id;
+                var url = '/' + rolee + '/customer/view/order/' + id;
                 $(location).attr('href', url);
 
             });
@@ -646,7 +646,7 @@
                 var id = $(this).attr('attrr');
 
                 var rolee = $(this).attr('rolee');
-                var url = '/public/' + rolee + '/customer/view/invoice/' + id;
+                var url = '/' + rolee + '/customer/view/invoice/' + id;
                 $(location).attr('href', url);
 
             });

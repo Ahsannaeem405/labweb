@@ -184,7 +184,7 @@
             $('.cust').click(function(){
                 var id =  $(this).attr('attrr');
                 var rolee =  $(this).attr('rolee');
-                var url = '/public/'+rolee+'/create/order/customer/'+id;
+                var url = '/'+rolee+'/create/order/customer/'+id;
                 $(location).attr('href',url);
 
             });
