@@ -27,7 +27,7 @@
 
             <div class="row">
                 <div class="col-12 pt-2">
-                    <a href="{{ url("$role/create/order/customer/$cus->id") }}"><i class="fas fa-chevron-left"></i> Back to Customer List</a>
+                    <a href="{{ url("$role/create/order/customer/$cusid") }}"><i class="fas fa-chevron-left"></i> Back to Customer List</a>
                 </div>
                 <div class="col-12 pt-2 text-dark">
                     <h5>{{ 'Invoice #'.$order->id }}</h5>
@@ -135,7 +135,7 @@
                                         <span>${{$order->payment_amount}}</span>
                                     </div>
                                     <div class="col-lg-2 col-md-4 col-12 " style="text-align: end">
-                                        <a href="{{url("/$role/customer/view/order",$order->id)}}">
+                                        <a href="{{url("/$role/customer/view/order/$order->id/$cusid")}}">
                                             <i class="fa fa-arrow-right" aria-hidden="true">
                                         </i>
                                     </a>

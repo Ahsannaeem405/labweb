@@ -471,7 +471,7 @@
                                     <p>Select_the_test :</p>
                                     <input type="radio" @if ($cus->show->Select_the_test == 'ANTIGEN') checked @endif name="Select_the_test" value="ANTIGEN"
                                         checked>
-                                    <label for="Female">PCR</label><br>
+                                    <label for="Female">ANTÍGENO</label><br>
                                     <input type="radio" @if ($cus->show->Select_the_test == 'PCR') checked @endif name="Select_the_test" value="PCR">
                                     <label for="Female">PCR</label><br>
 
@@ -534,19 +534,10 @@
                                 <div class="form-group mg-b-10-force">
 
                                     <p>Province :</p>
-                                    <select name="Province" class="form-control">
-                                        @foreach ($state as $states )
+                                    <input name="Province" value="{{$cus->show->Province}}" class="form-control">
 
 
-                                        <option value="{{$states->name}}" @if($cus->show->Province == $states->name) selected @endif>{{$states->name}}</option>
-                                            @endforeach
-                                        {{-- <option value="UK" @if ($cus->show->Province == 'UK')
-                                            selected
-                @endif>UK</option> --}}
-
-                </select>
-
-            </div>
+                                </div>
         </div><!-- col-8 -->
 
         <div class="col-lg-6">
@@ -979,7 +970,7 @@
 
                     <p>Select_the_test :</p>
                     <input type="radio" @if ($cus->show->Select_the_test == 'ANTIGEN') checked @endif name="Select_the_test" value="ANTIGEN" checked>
-                    <label for="Female">PCR</label><br>
+                    <label for="Female">ANTÍGENO</label><br>
                     <input type="radio" @if ($cus->show->Select_the_test == 'PCR') checked @endif name="Select_the_test" value="PCR">
                     <label for="Female">PCR</label><br>
 
@@ -1038,13 +1029,7 @@
                 <div class="form-group mg-b-10-force">
 
                     <p>Province :</p>
-                    <select name="Province" required class="form-control">
-
-                                          @foreach ($state as $states )
-                                        <option value="{{$states->name}}" @if($cus->show->Province == $states->name) selected @endif>{{$states->name}}</option>
-                                            @endforeach
-
-                    </select>
+                    <input name="Province" value="{{$cus->show->Province}}" class="form-control">
 
                 </div>
             </div><!-- col-8 -->

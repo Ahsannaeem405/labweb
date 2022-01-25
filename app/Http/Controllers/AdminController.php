@@ -14,6 +14,7 @@ use PDF;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\Session;
+
 class AdminController extends Controller
 {
     /**
@@ -25,24 +26,25 @@ class AdminController extends Controller
     {
 
 
-    $user = user::Where('role', 'operator')->count();
+        $user = user::Where('role', 'operator')->count();
 
-    $tadmin = user::Where('role', '!=', 'operator')->count();
-    $date = Date('Y-m-d');
-    $submon = Date('Y-m-d', strtotime($date . ' -30 days'));
-    $monthly = user::whereDate('created_at', '>=', $submon)
-        ->whereDate('created_at', '<=', $date)
-        ->where('role', 'operator')
-        ->count();
+        $tadmin = user::Where('role', '!=', 'operator')->count();
+        $date = Date('Y-m-d');
+        $submon = Date('Y-m-d', strtotime($date . ' -30 days'));
+        $monthly = user::whereDate('created_at', '>=', $submon)
+            ->whereDate('created_at', '<=', $date)
+            ->where('role', 'operator')
+            ->count();
 
-    $latest = user::latest()->where('role', 'operator')
-        ->take(5)
-        ->get();
+        $latest = user::latest()->where('role', 'operator')
+            ->take(5)
+            ->get();
 
 
-        return view('admin.index', compact('user', 'submon', 'monthly', 'latest','tadmin'));
+        return view('admin.index', compact('user', 'submon', 'monthly', 'latest', 'tadmin'));
 
     }
+
     public function language($lang)
     {
         // Session::put('lang',  $lang);
@@ -50,20 +52,16 @@ class AdminController extends Controller
         return back();
 
 
-
     }
 
 
-    public function home(){
-
-$country = Country::all();
-$state = State::all();
-
-return view('welcome', compact('country', 'state'));
-
+    public function home()
+    {
+        $country = Country::all();
+        $state = State::where('country_id', 233)->get();
+        return view('welcome', compact('country', 'state'));
 
     }
-
 
 
     public function customer(Request $request)
@@ -87,7 +85,7 @@ return view('welcome', compact('country', 'state'));
     public function create(Request $request)
     {
         // dd($request);
-        $admin  = new User();
+        $admin = new User();
         $admin->name = $request->firstname;
 
         $admin->email = $request->email;
@@ -106,7 +104,7 @@ return view('welcome', compact('country', 'state'));
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -117,7 +115,7 @@ return view('welcome', compact('country', 'state'));
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Admin  $admin
+     * @param \App\Models\Admin $admin
      * @return \Illuminate\Http\Response
      */
     public function show(Admin $admin)
@@ -128,14 +126,14 @@ return view('welcome', compact('country', 'state'));
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Admin  $admin
+     * @param \App\Models\Admin $admin
      * @return \Illuminate\Http\Response
      */
-    public function edit( $id)
+    public function edit($id)
     {
         // dd($id);
         $adm = User::find($id);
-        return view('admin.edit' , compact('adm') );
+        return view('admin.edit', compact('adm'));
 
 
     }
@@ -143,8 +141,8 @@ return view('welcome', compact('country', 'state'));
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Admin  $admin
+     * @param \Illuminate\Http\Request $request
+     * @param \App\Models\Admin $admin
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request)
@@ -152,17 +150,16 @@ return view('welcome', compact('country', 'state'));
 
 
         $admin = User::find($request->id);
-       
+
         $admin->name = $request->firstname;
 
         $admin->email = $request->email;
 
         $admin->address = $request->address;
 
-        if($request->password!=null)
-        {
+        if ($request->password != null) {
 
-            $admin->password=Hash::make($request->password);
+            $admin->password = Hash::make($request->password);
         }
 
         $admin->update();
@@ -172,20 +169,18 @@ return view('welcome', compact('country', 'state'));
     }
 
 
-
-
     public function generatePDF($id)
     {
-        $user =User::find($id);
+        $user = User::find($id);
 
         $data = [
-            'fullname' =>  $user->fullname,
-            'dob' =>  $user->dob,
-            'Residential' =>  $user->Residential,
-            'detail' =>  $user->detail,
-            'further_detail' =>  $user->further_detail,
-            'signature' =>  $user->signature,
-            'signature_date' =>  $user->signature_date,
+            'fullname' => $user->fullname,
+            'dob' => $user->dob,
+            'Residential' => $user->Residential,
+            'detail' => $user->detail,
+            'further_detail' => $user->further_detail,
+            'signature' => $user->signature,
+            'signature_date' => $user->signature_date,
 
 
         ];
@@ -195,6 +190,7 @@ return view('welcome', compact('country', 'state'));
 
         return $pdf->download('myDocument.pdf');
     }
+
     public function form_save(Request $request)
     {
 
@@ -221,17 +217,16 @@ return view('welcome', compact('country', 'state'));
     {
 
 
-                $user = User::find(Auth::user()->id);
-                $user->statuss = 'Verified';
-                $user->save();
+        $user = User::find(Auth::user()->id);
+        $user->statuss = 'Verified';
+        $user->save();
 
-                return redirect(Auth::user()->apiUrl);
-
+        return redirect(Auth::user()->apiUrl);
 
 
     }
 
-    public function destroy( $id)
+    public function destroy($id)
     {
 
         User::find($id)->delete();

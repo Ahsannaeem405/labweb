@@ -31,15 +31,15 @@
 
             </th>
             <th scope="col" style="width: 50%"><p style="font-size: 18px;font-weight:inherit">
-                 <p>  PORTOFINO IV CENTER</p>
+                 <p  style="margin: 0px">  PORTOFINO IV CENTER</p>
 
-                <p> 901-A SW 87 AVE</p>
+                <p style="margin: 0px"> 901-A SW 87 AVE</p>
 
-                 <p>  MIAMI, FL 33174</p>
+                 <p style="margin: 0px">  MIAMI, FL 33174</p>
+                 <p style="margin: 0px"> TEL: 305-225-6266</p>
+                 <p style="margin: 0px">   FAX: 305-225-6296</p>
+                 <p style="margin: 0px">  INFO@FAMILYREHAB.US</p>
 
-                <h3 style="font-size: 18px">   TEL: 305-225-6266 </h3>
-                <h3 style="font-size: 18px">   FAX: 305-225-6296</h3>
-                <h3 style="font-size: 18px">   FINFO@FAMILYREHAB.US</h3>
 
                     </p>
 

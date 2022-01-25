@@ -139,7 +139,7 @@ return back()->with('success', 'Successfully canceled');
     {
 
 
-        // dd($request->passporta);
+         //dd($request->Provincea,$request->Provincea2);
 
 
         $host = 'https://' . \request()->getHost() . "/public/customer_pdf/";
@@ -202,7 +202,16 @@ return back()->with('success', 'Successfully canceled');
                 $cus_detail->address2 =  $request->address2a;
                 $cus_detail->town =  $request->towna;
                 $cus_detail->zip =  $request->zipa;
-                $cus_detail->Province =  $request->Provincea;
+                if ($request->Provincea2==null)
+                {
+                    $cus_detail->Province =  $request->Provincea;
+
+                }
+                else
+                {
+                    $cus_detail->Province =  $request->Provincea2;
+
+                }
                 $cus_detail->Country =  $request->Countrya;
                 $cus_detail->email =  $request->emaila;
                 $cus_detail->gender =  $request->gendera;
@@ -289,8 +298,16 @@ return back()->with('success', 'Successfully canceled');
                 $cus_detail->address2 =  $request->address2a;
                 $cus_detail->town =  $request->towna;
                 $cus_detail->zip =  $request->zipa;
-                $cus_detail->Province =  $request->Provincea;
-                $cus_detail->Country =  $request->Countrya;
+                if ($request->Provincea2==null)
+                {
+                    $cus_detail->Province =  $request->Provincea;
+
+                }
+                else
+                {
+                    $cus_detail->Province =  $request->Provincea2;
+
+                }                 $cus_detail->Country =  $request->Countrya;
                 $cus_detail->email =  $request->emaila;
                 $cus_detail->gender =  $request->gendera;
                 $cus_detail->signature =  $request->SingsLinka;
@@ -369,6 +386,14 @@ return back()->with('success', 'Successfully canceled');
                 $town = 'town_' . $i;
                 $zip = 'zip_' . $i;
                 $Province = 'Province_' . $i;
+                $Provinced = 'Provinced_' . $i;
+                if ($request->$Provinced==null)
+                {
+                    $Province = 'Province_' . $i;
+                }
+                else{
+                    $Province = 'Provinced_' . $i;
+                }
                 $Country = 'Country_' . $i;
 
                 $gender = 'gender_' . $i;
@@ -768,7 +793,7 @@ return back()->with('success', 'Successfully canceled');
         //
     }
 
-    public function view_order($id)
+    public function view_order($id,$cusid)
     {
 
         $order = Customer::find($id);
@@ -779,10 +804,10 @@ return back()->with('success', 'Successfully canceled');
 
 
         $document = Document::where('email', $cus->email)->get();
-        return view('customer.order2', compact('cus', 'Country', 'state', 'order', 'document'));
+        return view('customer.order2', compact('cusid','cus', 'Country', 'state', 'order', 'document'));
     }
 
-    public function view_invoice($id)
+    public function view_invoice($id,$cusid)
     {
 
 
@@ -792,7 +817,7 @@ return back()->with('success', 'Successfully canceled');
         $state = State::all();
         $cus = Customer::find($id);
         $document = Document::where('email', $order->email)->get();
-        return view('customer.order3', compact('cus', 'Country', 'state', 'order', 'document'));
+        return view('customer.order3', compact('cusid','cus', 'Country', 'state', 'order', 'document'));
     }
 
 
@@ -809,13 +834,15 @@ return back()->with('success', 'Successfully canceled');
 
     public function create_order($id)
     {
+
         $cus = Customer::find($id);
 
-        // @dd($cus);
+
+       $rand=rand(0000, 9999);
         $order = Customer::where('email', $cus->email)->where('status', 'Verified')->get();
 
         $document = Document::where('email', $cus->email)->get();
-        return view('customer.order', compact('cus', 'order', 'document'));
+        return view('customer.order', compact('cus', 'order', 'document','rand'));
     }
 
 
@@ -860,13 +887,18 @@ return back()->with('success', 'Successfully canceled');
     public function place_order_submit(Request $request, $id)
     {
         $customer = Customer::find($id);
+        if(isset($customer->show->surname))
+        {
+            $last=$customer->show->surname;
+        }
+
         $role=Auth::user()->role;
         if ($request->choice) {
 
             for ($i = 0; $i < count($request->choice); $i++) {
 
                 $cus = new Customer();
-                $cus->name = $customer->name;
+                $cus->name = $customer->name .' '.$last;
                 $cus->email = $request->email;
                 $cus->address = $customer->address;
                 $cus->phone = $request->phone;

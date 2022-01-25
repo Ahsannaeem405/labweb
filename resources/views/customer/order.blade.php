@@ -35,15 +35,14 @@
                     <div class="row">
 
 
-
                         <div class="col-xl-3  col-lg-5 col-3">
                             <i class="fas fa-user-circle" style="font-size: 68px;"></i>
 
                         </div>
                         <div class="col-xl-9 col-lg-7  col-6">
 
-                            <h5 style="text-transform: uppercase;">{{ $cus->name }}</h5>
-                            <span>#{{ $cus->id }}</span>
+                            <h6 style="text-transform: uppercase;">{{ $cus->name }} {{$cus->show->surname}}</h6>
+                            <span>#{{$rand}}{{ $cus->id }}</span>
                             <p><span class="text-bold">{{ $cus->gender }}</span> Born on <span
                                     class="text-bold">{{ $cus->dob }}</span></p>
 
@@ -53,10 +52,16 @@
                     </div>
                 </div>
                 <div class="col-lg-9 col-md-6 pt-2 text-dark" style="   text-align:end; margin-top: 38px;">
-                    <a href="{{ url("$role/edit/customer/$cus->id") }}"> <button class="btn btn-secondary">Edit
-                        Customer</button></a>
-                <a href="{{ url("$role/place/order/new/$cus->id") }}"> <button class="btn btn-primary">Place
-                        Order</button></a>
+                    <a href="{{ url("$role/edit/customer/$cus->id") }}">
+                        <button class="btn btn-secondary">Edit
+                            Customer
+                        </button>
+                    </a>
+                    <a href="{{ url("$role/place/order/new/$cus->id") }}">
+                        <button class="btn btn-primary">Place
+                            Order
+                        </button>
+                    </a>
                 </div>
                 <div class="col-lg-12 col-12 pt-3 text-dark">
                     <div class="row" style="padding-left: 15px;">
@@ -68,10 +73,11 @@
                             <p><i class="fas fa-mobile-alt "></i> {{ $cus->phone }}</p>
                         </div>
                         <div class="col-lg-2 col-md-4 col-12">
-                            <p><i class="fas fa-map-marker-alt "></i> {{ $cus->address }}</p>
+                            <p>
+                                <i class="fas fa-map-marker-alt "></i> {{ $cus->address }} {{$cus->show->Province}} {{$cus->show->Country}} {{$cus->show->zip}}
+                            </p>
                         </div>
                     </div>
-
 
 
                 </div>
@@ -88,11 +94,6 @@
                 <div class="col-lg-8 col-12">
 
 
-
-
-
-
-
                     <div class="card bd-0 shadow-base p-3">
                         <div class="row">
                             <div class="col-12">
@@ -100,127 +101,127 @@
                             </div>
                             <table class="table table-striped">
                                 <thead>
-                                    <tr>
+                                <tr>
 
-                                    </tr>
+                                </tr>
                                 </thead>
                                 <tbody>
 
-                                    @foreach ($order as $orders)
-                                        {{-- @dd($orders->test_type ) --}}
+                                @foreach ($order as $orders)
+                                    {{-- @dd($orders->test_type ) --}}
 
-                                        @if ($orders->main_status == 'user' and $orders->duplicate != 2)
-                                            @if (isset($orders->show->Select_the_test))
-
-
-                                                <tr>
-                                                    <td style="color: black">
-                                                        <a href="{{ url("/$role/customer/view/order", $orders->id) }}">
-                                                            <button><i class="fa fa-info-circle p-1"></i>Detail</button>
-                                                            </i>
-                                                        </a>
-                                                    </td>
+                                    @if ($orders->main_status == 'user' and $orders->duplicate != 2)
+                                        @if (isset($orders->show->Select_the_test))
 
 
-                                                    <td style="color: black" attrr="{{ $orders->id }}" rolee="{{ $role }}"># </td>
-
-
-
-                                                    <td style="color: black" attrr="{{ $orders->id }}" rolee="{{ $role }}">
-
-                                                        {{ $orders->show->Select_the_test }}
-
-
-                                                    </td>
-                                                    <td style="color: black" attrr="{{ $orders->id }}" rolee="{{ $role }}">
-                                                        @if (isset($orders->show->created_at))
-                                                            {{ $orders->show->created_at }}
-                                                        @endif
-
-
-                                                    </td>
-
-                                                    <td >
-                                                        <a onclick="return confirm('Are you sure you want to approve this item?');"
-                                                            href="{{ url("$role/order/approve/$orders->id") }}"
-                                                            class="btn btn-secondary Draft">{{ 'Draft' }}</a>
-                                                    </td>
-
-                                                    <td attrr="{{ $orders->id }}" rolee="{{ $role }}">
-                                                        @if ($orders->display_status == null)
-                                                            <a disabled
-                                                                onclick="return confirm('Are you sure you want to delete this item?');"
-                                                                href="{{ url("$role/order/cancel/$orders->id") }}"
-                                                                class="a_tag"
-                                                                style="color: blue;text-decoration: underline">Cancel</a>
-                                                        @endif
-                                                    </td>
-                                                    <td>
-                                                        <a href="{{ url("/$role/customer/view/order", $orders->id) }}">
-                                                            <i class="fa fa-arrow-right" aria-hidden="true">
-                                                            </i>
-                                                        </a>
-                                                    </td>
-                                                </tr>
-                                            @endif
-
-                                        @elseif($orders->duplicate != 2)
                                             <tr>
-
-                                                <td>
+                                                <td style="color: black">
                                                     <a href="{{ url("/$role/customer/view/order", $orders->id) }}">
                                                         <button><i class="fa fa-info-circle p-1"></i>Detail</button>
                                                         </i>
                                                     </a>
                                                 </td>
 
-                                                <td style="color: black" class="cust" attrr="{{ $orders->id }}"
-                                                    rolee="{{ $role }}">#{{ $orders->order_id }} </td>
 
-
-
-                                                <td style="color: black" class="cust" attrr="{{ $orders->id }}"
-                                                    rolee="{{ $role }}">
-                                                    {{ $orders->test_type }}
+                                                <td style="color: black" attrr="{{ $orders->id }}" rolee="{{ $role }}">
+                                                    #
                                                 </td>
-                                                <td style="color: black" class="cust" attrr="{{ $orders->id }}"
-                                                    rolee="{{ $role }}">
-                                                    {{ $orders->order_date }}</td>
 
-                                                <td style="color: black"  class="cust" attrr="{{ $orders->id }}"
-                                                    rolee="{{ $role }}">
-                                                    @if ($orders->display_status == null)
-                                                        <button class="btn btn-warning">{{ 'pending' }}</button>
 
-                                                    @else
+                                                <td style="color: black" attrr="{{ $orders->id }}" rolee="{{ $role }}">
 
-                                                        <button
-                                                            class="btn     @if ($orders->display_status == 'negative') btn-success @else btn-danger  @endif">{{ $orders->display_status }}</button>
+                                                    {{ $orders->show->Select_the_test }}
 
+
+                                                </td>
+                                                <td style="color: black" attrr="{{ $orders->id }}" rolee="{{ $role }}">
+                                                    @if (isset($orders->show->created_at))
+                                                        {{ $orders->show->created_at }}
                                                     @endif
+
+
                                                 </td>
 
+                                                <td>
+                                                    <a onclick="return confirm('Are you sure you want to approve this item?');"
+                                                       href="{{ url("$role/order/approve/$orders->id") }}"
+                                                       class="btn btn-secondary Draft">{{ 'Draft' }}</a>
+                                                </td>
 
-                                                <td class="cust" attrr="{{ $orders->id }}"
-                                                    rolee="{{ $role }}">
-                                                    @if ($orders->display_status == null) <a
-                                                            disabled
-                                                            onclick="return confirm('Are you sure you want to delete this item?');"
-                                                            href="{{ url("$role/order/cancel/$orders->id") }}"
-                                                            class="a_tag"
-                                                            style="color: blue;text-decoration: underline">Cancel</a>
+                                                <td attrr="{{ $orders->id }}" rolee="{{ $role }}">
+                                                    @if ($orders->display_status == null)
+                                                        <a disabled
+                                                           onclick="return confirm('Are you sure you want to delete this item?');"
+                                                           href="{{ url("$role/order/cancel/$orders->id") }}"
+                                                           class="a_tag"
+                                                           style="color: blue;text-decoration: underline">Cancel</a>
                                                     @endif
                                                 </td>
                                                 <td>
-                                                    <a href="{{ url("/$role/customer/view/order", $orders->id) }}">
+                                                    <a href="{{ url("/$role/customer/view/order/$orders->id/$cus->id" ) }}">
                                                         <i class="fa fa-arrow-right" aria-hidden="true">
                                                         </i>
                                                     </a>
                                                 </td>
                                             </tr>
-
                                         @endif
-                                    @endforeach
+
+                                    @elseif($orders->duplicate != 2)
+                                        <tr>
+
+                                            <td>
+                                                <a href="{{ url("/$role/customer/view/order", $orders->id) }}">
+                                                    <button><i class="fa fa-info-circle p-1"></i>Detail</button>
+                                                    </i>
+                                                </a>
+                                            </td>
+
+                                            <td style="color: black" class="cust" attrr="{{ $orders->id }}"
+                                                rolee="{{ $role }}">#{{ $orders->order_id }} </td>
+
+
+                                            <td style="color: black" class="cust" attrr="{{ $orders->id }}"
+                                                rolee="{{ $role }}">
+                                                {{ $orders->test_type }}
+                                            </td>
+                                            <td style="color: black" class="cust" attrr="{{ $orders->id }}"
+                                                rolee="{{ $role }}">
+                                                {{ $orders->order_date }}</td>
+
+                                            <td style="color: black" class="cust" attrr="{{ $orders->id }}"
+                                                rolee="{{ $role }}">
+                                                @if ($orders->display_status == null)
+                                                    <button class="btn btn-warning">{{ 'pending' }}</button>
+
+                                                @else
+
+                                                    <button
+                                                        class="btn     @if ($orders->display_status == 'negative') btn-success @else btn-danger  @endif">{{ $orders->display_status }}</button>
+
+                                                @endif
+                                            </td>
+
+
+                                            <td class="cust" attrr="{{ $orders->id }}"
+                                                rolee="{{ $role }}">
+                                                @if ($orders->display_status == null) <a
+                                                    disabled
+                                                    onclick="return confirm('Are you sure you want to delete this item?');"
+                                                    href="{{ url("$role/order/cancel/$orders->id") }}"
+                                                    class="a_tag"
+                                                    style="color: blue;text-decoration: underline">Cancel</a>
+                                                @endif
+                                            </td>
+                                            <td>
+                                                <a href="{{ url("/$role/customer/view/order/$orders->id/$cus->id", ) }}">
+                                                    <i class="fa fa-arrow-right" aria-hidden="true">
+                                                    </i>
+                                                </a>
+                                            </td>
+                                        </tr>
+
+                                    @endif
+                                @endforeach
 
                                 </tbody>
                             </table>
@@ -230,14 +231,7 @@
                     </div>
 
 
-
-
-
-
-
-
-
-<br>
+                    <br>
 
                     <div class="card bd-0 shadow-base p-3">
                         <div class="row">
@@ -246,48 +240,92 @@
                             </div>
                             <table class="table table-striped">
                                 <thead>
-                                    <tr>
+                                <tr>
 
-                                    </tr>
+                                </tr>
                                 </thead>
                                 <tbody>
 
-                                    @foreach ($order as $orders)
-                                        @if ($orders->step > 1 && $orders->display_status != 'Canceled')
-                                            <tr>
+                                @foreach ($order as $orders)
+                                    @if ($orders->step > 1 && $orders->display_status != 'Canceled')
+                                        <tr>
 
-                                                <td style="color:black" class="invoi" attrr="{{ $orders->id }}"
-                                                    rolee="{{ $role }}">#{{ $orders->order_id }}
-                                                    <span> - </span>
-                                                    <span><i class="fas fa-calendar-minus"></i>
-                                                </td>
-                                                <td style="color:black" class="invoi" attrr="{{ $orders->id }}"
-                                                    rolee="{{ $role }}">{{ $orders->payment_date }}</td>
+                                            <td style="color:black" class="invoi" attrr="{{ $orders->id }}"
+                                                rolee="{{ $role }}">#{{ $orders->order_id }}
+                                                <span> - </span>
+                                                <span><i class="fas fa-calendar-minus"></i>
+                                            </td>
+                                            <td style="color:black" class="invoi" attrr="{{ $orders->id }}"
+                                                rolee="{{ $role }}">{{ $orders->payment_date }}</td>
 
-                                                <td style="color:black" class="invoi" attrr="{{ $orders->id }}"
-                                                    rolee="{{ $role }}">
-                                                    @if ($orders->step > 2)
-                                                        <button class="btn btn-success">Paid</button>
+                                            <td style="color:black"
+                                                rolee="{{ $role }}">
+                                                @if ($orders->step > 2)
+                                                    <button class="btn btn-success">Paid</button>
 
-                                                    @else
-                                                        <button class="btn btn-warning">Pending</button>
+                                                @else
+                                                    <button data-toggle="modal" data-target="#exampleModal{{$orders->id}}"
+                                                            class="btn btn-primary">
+                                                        Pay Now
+                                                    </button>
 
-                                                    @endif
-                                                </td>
-                                                <td style="color:black" class="invoi" attrr="{{ $orders->id }}"
-                                                    rolee="{{ $role }}">
-                                                  <p style="    font-size: 18px;"> ${{ $orders->payment_amount }}</p>
-                                                </td>
-                                                <td>
-                                                    <a href="{{ url("/$role/customer/view/invoice", $orders->id) }}">
-                                                        <i class="fa fa-arrow-right" aria-hidden="true">
-                                                        </i>
-                                                    </a>
+                                                @endif
+                                            </td>
+                                            <td style="color:black" class="invoi" attrr="{{ $orders->id }}"
+                                                rolee="{{ $role }}">
+                                                <p style="    font-size: 18px;"> ${{ $orders->payment_amount }}</p>
+                                            </td>
+                                            <td>
+                                                <a href="{{ url("/$role/customer/view/invoice/$orders->id/$cus->id") }}">
+                                                    <i class="fa fa-arrow-right" aria-hidden="true">
+                                                    </i>
+                                                </a>
 
-                                                </td>
-                                            </tr>
-                                        @endif
-                                    @endforeach
+                                            </td>
+                                        </tr>
+
+
+                                        <div class="modal fade" id="exampleModal{{$orders->id}}" tabindex="-1" role="dialog"
+                                             aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog" role="document">
+                                                <div class="modal-content" style="width: 30rem">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="exampleModalLabel"> Pay now</h5>
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <form method="post" action="{{url("$role/pay/invoice/$orders->id")}}">
+                                                            @csrf
+                                                            <label>Please select Payment Method</label>
+                                                            <select class="form-control" name="payment_method" required>
+                                                                <option selected value="">Please select</option>
+                                                                <option value="card">card</option>
+                                                                <option value="cash">cash</option>
+                                                                <option value="others">others</option>
+                                                            </select>
+                                                            <lable>Please enter Amount</lable>
+                                                            <input type="number" name="payment_amount" value="0" required min="1" class="form-control" placeholder="Please enter amount">
+
+                                                            <lable>Payment detail</lable>
+
+                                                            <textarea class="form-control" name="payment_detail" id="" cols="10" rows="5" placeholder="payment detail"></textarea>
+
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close
+                                                        </button>
+                                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                    @endif
+                                @endforeach
 
                                 </tbody>
                             </table>
@@ -297,58 +335,22 @@
                     </div>
 
 
-
-                    {{-- <div class="card bd-0 shadow-base p-3 mt-3">
-                        <div class="row">
-                            <div class="col-12">
-                                <h5>Invoices</h5>
-                            </div>
-                            @foreach ($order as $orders)
-                                @if ($orders->step > 1 && $orders->display_status != 'Canceled')
-                                    <div class="col-lg-4 col-md-6 col-6 pt-2">
-                                        <span>#{{ $orders->id }}</span> <span> - </span>
-                                        <span><i class="fas fa-calendar-minus"></i> {{ $orders->payment_date }}</span>
-                                    </div>
-                                    <div class="col-lg-4 col-md-6 col-6 pt-2 text-center">
-                                        @if ($orders->step > 2)
-                                            <button class="btn btn-success">Completed</button>
-
-                                        @else
-                                            <button class="btn btn-warning">Pending</button>
-
-                                        @endif
-                                    </div>
-
-                                    <div class="col-lg-2 col-md-4 col-4 pt-2">
-                                        <b>${{ $orders->payment_amount }}</b>
-                                    </div>
-                                    <div class="col-lg-2 col-md-2 col-2 pt-2">
-
-                                    </div>
-
-
-                                @endif
-                            @endforeach
-
-                        </div>
-
-
-                    </div> --}}
                 </div>
                 <div class="col-lg-4 col-12">
 
 
                     <div class="card bd-0 shadow-base p-3">
-                        <div class="row">
+                        <div class="row" style="height: 300px;overflow: auto">
                             <div class="col-12">
                                 <p style="    font-size: 20px;color: black;">Documents</p>
 
                             </div>
                             @foreach ($document as $documents)
                                 <div class="w-100 p-1 m-1" style="background-color: white"> <span class="mt-1"
-                                        style="color: black;padding: 7px;"> @if (isset($documents->path))<i class="fa fa-file-text-o" style="    font-size: 15px;color: black;"></i>
+                                                                                                  style="color: black;padding: 7px;"> @if (isset($documents->path))
+                                            <i class="fa fa-file-text-o" style="    font-size: 15px;color: black;"></i>
 
-                                        {{ 'Smartwaiver Consent.pdf' }} @endif </span>
+                                            {{ 'Smartwaiver Consent.pdf' }} @endif </span>
 
 
                                     <a href="{{ asset("uploads/stock/$documents->path") }}" target="_blank"> <span
@@ -356,7 +358,7 @@
                                                 class="fa fa-search"></i></span>
                                     </a>
                                     <a href="{{ url("$role/delete/document/$documents->id") }}"
-                                        onclick="return confirm('Are you sure you want to delete this item?');"><span
+                                       onclick="return confirm('Are you sure you want to delete this item?');"><span
                                             class="p-1" style="color: black;float: right;color: red"><i
                                                 class="fa fa-trash"></i></span></a>
                                     <a href="{{ asset("uploads/stock/$documents->path") }}" download> <span
@@ -368,7 +370,7 @@
                             @endforeach
 
                             <form class="w-100" action="{{ url("$role/upload/document/$cus->id") }}"
-                                method="post" enctype="multipart/form-data">
+                                  method="post" enctype="multipart/form-data">
                                 @csrf
                                 <lable class="ml-2 mt-5 font-weight-bold">Upload Document</lable>
                                 <div class="col-12">
@@ -407,7 +409,8 @@
                             @foreach ($order as $orders)
                                 @if ($orders->order_id != null)
                                     <div class="col-7 pt-2">
-                                        <i class="far fa-user-circle" style="    font-size: 22px;"></i>&nbsp;  Order #{{ $orders->order_id }} - created
+                                        <i class="far fa-user-circle" style="    font-size: 22px;"></i>&nbsp; Order
+                                        #{{ $orders->order_id }} - created
                                     </div>
                                     <div class="col-5 pt-2">
                                         <p>{{ $orders->created_at }}</p>
@@ -416,7 +419,8 @@
 
                                     @if ($orders->payment_date != null)
                                         <div class="col-7 pt-2">
-                                            <i class="far fa-user-circle" style="    font-size: 22px;"></i> &nbsp; Order #{{ $orders->order_id }} - Invoice paid
+                                            <i class="far fa-user-circle" style="    font-size: 22px;"></i> &nbsp; Order
+                                            #{{ $orders->order_id }} - Invoice paid
                                         </div>
                                         <div class="col-5 pt-2">
                                             <p>{{ $orders->payment_date }}</p>
@@ -425,7 +429,8 @@
 
                                     @if ($orders->date != null)
                                         <div class="col-7 pt-2">
-                                            <i class="far fa-user-circle" style="    font-size: 22px;"></i>&nbsp;  Order #{{ $orders->order_id }} - Released
+                                            <i class="far fa-user-circle" style="    font-size: 22px;"></i>&nbsp; Order
+                                            #{{ $orders->order_id }} - Released
                                         </div>
                                         <div class="col-5 pt-2">
                                             <p>{{ $orders->date }}</p>
@@ -448,34 +453,7 @@
                 </div>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
             </div>
-
-
-
 
 
         </div><!-- br-pagebody -->
@@ -535,8 +513,7 @@
 
 
     <script>
-        $(document).ready(function() {
-
+        $(document).ready(function () {
 
 
             // $(function() {
@@ -626,13 +603,13 @@
 
 
     <script>
-        $(document).ready(function() {
-            $('.cust').click(function() {
+        $(document).ready(function () {
+            $('.cust').click(function () {
 
                 var id = $(this).attr('attrr');
-
+                var cus = {{$cus->id}};
                 var rolee = $(this).attr('rolee');
-                var url = '/' + rolee + '/customer/view/order/' + id;
+                var url = '/' + rolee + '/customer/view/order/' + id + '/' + cus;
                 $(location).attr('href', url);
 
             });
@@ -640,13 +617,14 @@
     </script>
 
     <script>
-        $(document).ready(function() {
-            $('.invoi').click(function() {
+        $(document).ready(function () {
+            $('.invoi').click(function () {
 
                 var id = $(this).attr('attrr');
+                var cus = {{$cus->id}};
 
                 var rolee = $(this).attr('rolee');
-                var url = '/' + rolee + '/customer/view/invoice/' + id;
+                var url = '/' + rolee + '/customer/view/invoice/' + id + '/' + cus;
                 $(location).attr('href', url);
 
             });

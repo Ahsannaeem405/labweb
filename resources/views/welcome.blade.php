@@ -593,16 +593,24 @@
                             <option value="{{ $states->name }}">{{ $states->name }}</option>
                         @endforeach
                     </select>
+                    <input type="text" style="display: none"  placeholder="{{ __('profile.State / Province') }}" name="Provincea2"
+                           class="form-control">
                 </div>
+
+
+
+
                 <div class="col-lg-6  col-12 pt-2">
                     <label>{{ __('profile.Country') }}</label>
-                    <select class="form-control" name="Countrya">
+                    <select class="form-control changecountry"  name="Countrya">
                         @foreach ($country as $countries)
-                            <option value="{{ $countries->name }}">{{ $countries->name }}</option>
+                            <option   @if($countries->name=='United States') selected @endif  value="{{ $countries->name }}">{{ $countries->name }}</option>
                         @endforeach
 
                     </select>
                 </div>
+
+
 
 
 
@@ -996,12 +1004,13 @@
                             <option value="{{ $states->name }}">{{ $states->name }}</option>
                         @endforeach
                     </select>
+                    <input type="text" name="Provinced" style="display: none" class="form-control" value="" placeholder="{{ __('profile.State / Province') }}">
                 </div>
                 <div class="col-lg-6  col-12 pt-2">
                     <label>{{ __('profile.Country') }}*</label>
-                    <select name="Country" class="form-control">
+                    <select name="Country" class="form-control changecountry2" >
                         @foreach ($country as $countries)
-                            <option value="{{ $countries->name }}">{{ $countries->name }}</option>
+                            <option @if($countries->name=='United States') selected @endif value="{{ $countries->name }}">{{ $countries->name }}</option>
                         @endforeach
 
 
@@ -1303,8 +1312,8 @@
             // $(this).css('display', 'none');
             $('.maindata').css('display', 'block');
 
-
             var html = $('.adultform').html();
+
             $('.finalResult').empty().append(html);
         });
 
@@ -1393,6 +1402,7 @@
 
                 $(id).find('select').each(function(index, value) {
                     var val = $(this).attr('name');
+                    var val2 = $(this).attr('pos',main);
                     val = $(this).attr('name', val + '_' + main);
 
                 });
@@ -1459,10 +1469,7 @@
     </script>
 
 
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    {{-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
-    </script> --}}
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
         integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
     </script>
@@ -1597,27 +1604,50 @@
 
 
 
-            // $(document).on('click', '.acceptt', function() {
+            $(document).on('change', '.changecountry', function() {
 
-            //     var minor = $('.typemin').val();
-            //     if (minor == 'minor') {
-            //         var totalCount = $('.totalCount').val();
+            if ($(this).val()!='United States')
+            {
+                $("input[name='Provincea2']").show();
+                $("input[name='Provincea2']").prop('required',true);
+                $("select[name='Provincea']").hide();
+                $("input[name='Provincea2']").val('');
 
-            //         for (var i = 1; i <= 2; i++) {
-            //             var imguni = $("img[name=sig-image_" + i + "]").attr('src');
-            //             if (imguni == '') {
-            //                 alert('Signature is required of Minor' + i + '');
-            //                 event.preventDefault();
-
-            //             } else {
-            //                 console.log(imguni);
-            //             }
-            //         }
+            }
+            else  {
+                $("input[name='Provincea2']").hide();
+                $("select[name='Provincea']").show();
+                $("input[name='Provincea2']").val('');
+                $("input[name='Provincea2']").prop('required',false);
 
 
-            //     }
+            }
 
-            // });
+
+            });
+
+            $(document).on('change', '.changecountry2', function() {
+var atrid=$(this).attr('pos');
+                if ($(this).val()!='United States')
+                {
+                    $("select[name='Province_"+atrid+"']").hide();
+                    $("input[name='Provinced_"+atrid+"']").prop('required',true);
+                    $("input[name='Provinced_"+atrid+"']").show();
+                    $("input[name='Provinced_"+atrid+"']").val('');
+
+                }
+                else  {
+                    $("select[name='Province_"+atrid+"']").show();
+                    $("input[name='Provinced_"+atrid+"']").prop('required',false);
+                    $("input[name='Provinced_"+atrid+"']").hide();
+                    $("input[name='Provinced_"+atrid+"']").val('');
+
+
+                }
+
+
+            });
+
 
         });
     </script>

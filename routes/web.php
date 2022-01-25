@@ -36,12 +36,6 @@ Route:: prefix('/admin')->middleware(['auth', 'admin'])->group(function () {
     Route::get  ('/', [AdminController::class, 'index']);
 
 
-    Route::get('/prnpriview/{order_id}', function ($order_id) {
-
-        $order_detail=Customer::where('id', $order_id)->first();
-        // dd($order_detail);
-        return view('customer.pdf2',compact('order_detail'));
-        });
 
     Route::get('/add/operator', function () {
         return view('admin.AddAdmin');
@@ -77,11 +71,16 @@ Route:: prefix('/admin')->middleware(['auth', 'admin'])->group(function () {
 
     Route::get('/verify/customer/{id}', [CustomerController::class, 'verify_customer']);
 
-    Route::get('/customer/view/order/{id}', [CustomerController::class, 'view_order']);
+    Route::get('/customer/view/order/{id}/{cus}', [CustomerController::class, 'view_order']);
 
-    Route::get('/customer/view/invoice/{id}', [CustomerController::class, 'view_invoice']);
+    Route::get('/customer/view/invoice/{id}/{cus}', [CustomerController::class, 'view_invoice']);
 
+    Route::get('/prnpriview/{order_id}', function ($order_id) {
 
+        $order_detail=Customer::where('id', $order_id)->first();
+// dd($order_detail);
+        return view('customer.pdf2',compact('order_detail'));
+    });
 
     Route::get('/create/order/customer/{id}', [CustomerController::class, 'create_order']);
 
@@ -107,9 +106,6 @@ Route:: prefix('/admin')->middleware(['auth', 'admin'])->group(function () {
 
     Route::get('pending/release', [\App\Http\Controllers\orderController::class, 'pending_release']);
     Route::get('/release/send/{id}', [\App\Http\Controllers\orderController::class, 'release_send']);
-
-
-
     Route::get('/downloadd/{id}', [\App\Http\Controllers\orderController::class, 'downloadd']);
     Route::get('/view/{id}', [\App\Http\Controllers\orderController::class, 'view']);
 
@@ -132,7 +128,6 @@ Route:: prefix('/admin')->middleware(['auth', 'admin'])->group(function () {
     Route::get('/order/cancel/{id}',[CustomerController::class,'cancel_order']);
 
     Route::get('/order/approve/{id}',[CustomerController::class,'order_approve']);
-
 
 });
 
@@ -179,9 +174,9 @@ Route:: prefix('/operator')->middleware(['auth', 'operator'])->group(function ()
 
     Route::get('/verify/customer/{id}', [CustomerController::class, 'verify_customer']);
 
-    Route::get('/customer/view/order/{id}', [CustomerController::class, 'view_order']);
+    Route::get('/customer/view/order/{id}/{cus}', [CustomerController::class, 'view_order']);
 
-    Route::get('/customer/view/invoice/{id}', [CustomerController::class, 'view_invoice']);
+    Route::get('/customer/view/invoice/{id}/{cus}', [CustomerController::class, 'view_invoice']);
 
 Route::get('/prnpriview/{order_id}', function ($order_id) {
 
