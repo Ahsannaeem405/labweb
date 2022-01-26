@@ -549,17 +549,17 @@
 
                 <div class="col-12 pt-3">
                     <p>{{ __('profile.Select the test') }}*</p>
-                    <input type="radio" checked name="Select_the_testa" value="ANTÍGENO">
+                    <input type="radio" checked name="Select_the_testa" value="Antigen - CareStart">
                     <label for="html">
-                        ANTÍGENO</label><br>
+                        ANTIGENO</label><br>
                     <input type="radio" checked name="Select_the_testa" value="PCR">
                     <label for="html">PCR</label><br>
-                    <input type="radio" name="Select_the_testa" value="RT-PCR">
+                    <input type="radio" name="Select_the_testa" value="RT-PCR - Abbott IDNOW">
                     <label for="RT">RT-PCR
                     </label><br>
-                    <input type="radio" name="Select_the_testa" value="PCR-24hrs">
+                    <input type="radio" name="Select_the_testa" value="PCR - 24hrs">
                     <label for="html">PCR-24hrs</label><br>
-                    <input type="radio" name="Select_the_testa" value="24hrs">
+                    <input type="radio" name="Select_the_testa" value="RT-PCR 24hrs - Abbott IDNOW">
                     <label for="html">RT-PCR 24hrs</label><br>
                 </div>
 
@@ -961,17 +961,17 @@
 
                 <div class="col-12 pt-3">
                     <p>{{ __('profile.Select the test') }}*</p>
-                    <input type="radio" checked name="Select_the_test" value="ANTIGEN">
+                    <input type="radio" checked name="Select_the_test" value="Antigen - CareStart">
                     <label for="html">
-                        ANTIGEN</label><br>
-                    <input type="radio" name="Select_the_test" value="PCR">
+                        ANTIGENO</label><br>
+                    <input type="radio" checked name="Select_the_test" value="PCR">
                     <label for="html">PCR</label><br>
-                    <input type="radio" name="Select_the_test" value="RT-PCR">
-                    <label for="html">RT-PCR
+                    <input type="radio" name="Select_the_test" value="RT-PCR - Abbott IDNOW">
+                    <label for="RT">RT-PCR
                     </label><br>
-                    <input type="radio" name="Select_the_test" value="PCR-24hrs">
+                    <input type="radio" name="Select_the_test" value="PCR - 24hrs">
                     <label for="html">PCR-24hrs</label><br>
-                    <input type="radio" name="Select_the_test" value="24hrs">
+                    <input type="radio" name="Select_the_test" value="RT-PCR 24hrs - Abbott IDNOW">
                     <label for="html">RT-PCR 24hrs</label><br>
                 </div>
 

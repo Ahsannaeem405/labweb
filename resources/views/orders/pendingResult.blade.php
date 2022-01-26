@@ -35,26 +35,13 @@
 
 
 
+        .resnegative {
+            box-shadow: inset 0 0 0 4px #1597ff, 0 15px 15px -10px rgba(0, 125, 225, 0.375);
+        }
 
-        body input + div + div label:first-child {
-            float: left;
-            box-shadow: inset 0 0 0 4px #1597ff, 0 15px 15px -10px rgba(0, 125, 225, 0.375);
-        }
-        body input + div + div label:last-child {
-            float: right;
-        }
-        body input#fat:checked ~ div + div label:first-child {
-            box-shadow: inset 0 0 0 4px #1597ff, 0 15px 15px -10px rgba(0, 125, 225, 0.375);
-        }
-        body input#fat:checked ~ div + div label:last-child {
-            box-shadow: inset 0 0 0 0px #1597ff, 0 10px 15px -20px rgba(21, 151, 255, 0);
-        }
-        body input#fit:checked ~ div + div label:first-child {
-            box-shadow: inset 0 0 0 0px #1597ff, 0 10px 15px -20px rgba(21, 151, 255, 0);
-        }
-        body input#fit:checked ~ div + div label:last-child {
-            box-shadow: inset 0 0 0 4px #1597ff, 0 15px 15px -10px rgba(0, 125, 225, 0.375);
-        }
+
+
+
     </style>
     <!-- ########## START: LEFT PANEL ########## -->
 
@@ -83,8 +70,8 @@
                             <th class="">Date</th>
                             <th class=""> Name</th>
                             <th class="">E-mail</th>
-                            <th class="">Test</th>
                             <th class="">Amount</th>
+                            <th class="">Test</th>
                             <th class="">Status</th>
                             <th class="">Action</th>
 
@@ -126,6 +113,10 @@
 
                             </tr>
 
+                            <style>
+
+                            </style>
+
                             <div class="modal fade" id="exampleModal{{$views->id}}" tabindex="-1" role="dialog"
                                  aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog" role="document">
@@ -139,16 +130,16 @@
                                         <div class="modal-body">
                                             <form method="post" action="{{url("$role/add/results/$views->id")}}">
                                                 @csrf
-                                                <input type="radio" checked value="negative" id="fat" name="result">
-                                                <input type="radio" value="positive" id="fit" name="result">
+                                                <input type="radio" checked value="negative" id="fat{{$views->id}}" name="result">
+                                                <input type="radio" value="positive" id="fit{{$views->id}}" name="result">
                                                 <div>
 
                                                 </div>
-                                                <div>
-                                                    <label style="width: 50%;
-    text-align: center;" for="fat"><p class="p-3" style="font-size: 20px;color: green">Negative</p></label>
-                                                    <label style="width: 50%;
-    text-align: center;" for="fit"><p class="p-3" style="font-size: 20px;color: red">Positive</p></label>
+                                                <div id="">
+                                                    <label id="{{$views->id}}" for="fat{{$views->id}}" res="negative" class="changeres resnegative data1{{$views->id}}" style="width: 50%;float: left;
+    text-align: center;" ><p class="p-3" style="font-size: 20px;color: green;">Negative</p></label>
+                                                    <label res="positive" for="fit{{$views->id}}" class="changeres data2{{$views->id}}" id="{{$views->id}}" style="width: 50%;float: right;
+    text-align: center;" ><p class="p-3" style="font-size: 20px;color: red;">Positive</p></label>
                                                 </div>
 
                                         </div>
@@ -194,6 +185,29 @@
     </script>
     <script>
         $(document).ready(function () {
+
+            $(document).ready(function(){
+                $(".changeres").click(function(){
+                var id=$(this).attr('id');
+                var result=$(this).attr('res');
+                 var res=   $("#fat"+id).is(":checked");
+                 var res2=   $("#fit"+id).is(":checked");
+
+                 if (result=='negative')
+                 {
+
+                     $(".data1"+id).removeClass('resnegative');
+                     $(".data2"+id).removeClass('resnegative');
+                     $(".data1"+id).addClass('resnegative');
+                 }
+                 else {
+                     $(".data1"+id).removeClass('resnegative');
+                     $(".data2"+id).removeClass('resnegative');
+                     $(".data2"+id).addClass('resnegative');
+                 }
+
+                });
+            });
             $('#datatable1').DataTable({
                 dom: 'Bfrtip',
                 buttons: [

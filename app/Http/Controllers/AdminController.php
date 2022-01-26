@@ -58,7 +58,7 @@ class AdminController extends Controller
     public function home()
     {
         $country = Country::all();
-        $state = State::where('country_id', 233)->get();
+        $state = State::orderby('name')->where('country_id', 233)->get();
         return view('welcome', compact('country', 'state'));
 
     }

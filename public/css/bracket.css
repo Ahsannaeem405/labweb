@@ -11345,6 +11345,7 @@ textarea.parsley-error:active {
 .widget-18 .form-control, .widget-18 .dataTables_filter input, .dataTables_filter .widget-18 input {
   padding-top: 12px;
   padding-bottom: 12px;
+
 }
 .widget-18 .btn, .widget-18 .sp-container button, .sp-container .widget-18 button {
   padding: 12px 35px;
@@ -11578,6 +11579,7 @@ table.dataTable.no-footer {
 .dataTables_filter {
   padding-bottom: 10px;
   padding-right: 5px;
+  margin-right:0.5rem;
 }
 
 .dataTables_wrapper .dataTables_paginate .paginate_button {
@@ -58738,4 +58740,9 @@ a.hover-white-8:hover, a.hover-white-8:focus {
 
 .mx-wd-1350 {
   max-width: 1350px;
+}
+
+.dataTables_wrapper {
+    margin-right: 0.5rem;
+}
 }

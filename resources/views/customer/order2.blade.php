@@ -28,7 +28,7 @@
 
             <div class="row">
                 <div class="col-12 pt-2">
-                    <a href="{{ url("$role/create/order/customer/$cusid") }}"><i class="fas fa-chevron-left"></i> Back to Customer List</a>
+                    <a href="{{ url("$role/create/order/customer/$cusid ") }}"><i class="fas fa-chevron-left"></i> Back to Customer List</a>
                 </div>
                 <div class="col-12 pt-2 text-dark">
                     <h5>{{ 'Order #' }}{{$order->id}}</h5>

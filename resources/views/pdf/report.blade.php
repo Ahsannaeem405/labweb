@@ -38,7 +38,7 @@
                  <p style="margin: 0px">  MIAMI, FL 33174</p>
                  <p style="margin: 0px"> TEL: 305-225-6266</p>
                  <p style="margin: 0px">   FAX: 305-225-6296</p>
-                 <p style="margin: 0px">  INFO@FAMILYREHAB.US</p>
+                 <p style="margin: 0px;font-size: 18px">  INFO@FAMILYREHAB.US</p>
 
 
                     </p>
@@ -52,7 +52,10 @@
         </thead>
         <tbody>
           <tr>
-            <th scope="row" colspan="2" ><h3 style="padding-top: 8px">CLIA: <span style="border-bottom: 1px solid black;">{{$customer->id}}</span></h3></th>
+            <th scope="row" colspan="2" ><h3 style="padding-top: 8px">CLIA: 
+            <span style="border-bottom: 1px solid black;">10D2067204</span>
+            <!--<span style="border-bottom: 1px solid black;">{{$customer->id}}</span>-->
+            </h3></th>
 
 
 
@@ -72,9 +75,9 @@
 
 
 
-      <table class="table" style="width: 100%">
+      <table class="table" style="width: 100%;border-collapse: collapse">
 
-        <tbody>
+        <tbody id="padding-table">
           <tr>
             <td>Account# <span class="undr_lin">1659461101</span></td>
             <td>REFER# <span class="undr_lin">88611</span></td>
@@ -113,27 +116,30 @@
           </tr>
 
           <tr>
-            <td colspan="2"> <span class="txt_bold"> Method: </span>{{$customer->test_type}}</td>
-            <td><span class="txt_bold">Testing Platform:</span> ABBOTT IDNOW</td>
+            <td colspan="2"> <span class="txt_bold"> Method: </span>{{$customer->priceList->methodology}}</td>
+            <td><span class="txt_bold">Testing Platform:</span> {{$customer->priceList->platform}}</td>
           </tr>
 
 
           <tr>
             <td colspan="3">
-               <span class="t_p"> <span class="txt_bold">Procedure:</span> NAAT - RNA </span>
+               <span class="t_p"> <span class="txt_bold">Procedure:</span> {{$customer->priceList->procedure}}</span>
             </td>
 
           </tr>
 
 
           <tr>
-            <td colspan="2"><span class="t_p"><span class="txt_bold">Specimen Type:</span> Nasopharyngeal Swab</span></td>
-            <td><span class="t_p"><span class="txt_bold" style=" text-transform: uppercase;">{{$customer->display_status}}</span> for {{$customer->test_type}}</span></td>
+            <td colspan="2"><span class="t_p"><span class="txt_bold">Specimen Type:</span> {{$customer->priceList->specimen}}</span></td>
+            <td><span class="t_p">
+                    <span class="txt_bold" style="@if($customer->display_status=='negative')  color:green; @else color:red;  @endif text-transform: uppercase;">{{$customer->display_status}}</span>
+
+                    for {{'SARS-CoV-2'}}</span></td>
           </tr>
 
           <tr>
             <td colspan="3" class="t_p" style="font-size: 17px">
-                This test has been performed following RT-PCR - Abbott ID Now methodology. This test has been
+                This test has been performed following {{$customer->priceList->methodology}} methodology. This test has been
                 authorized by FDA. This test has been validated in accordance with the FDA's Guidance Document
                 (Policy for diagnostics testing in laboratories certified to perform testing under CLIA waiver prior
                 to Emergency Use Authorization for coronavirus Disease-2019 during the public health
@@ -164,6 +170,10 @@
 .t_p{
     padding-top: 16px;
 }
+#padding-table tr td{
+    padding: 4px;
+}
+
 </style>
 
 
@@ -176,71 +186,32 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     <table class="table" style="width: 100%">
         <thead>
           <tr>
-            <th scope="col" style="width: 80%;text-align: right;"> <img src="https://signaturely.com/wp-content/uploads/2020/04/unreadable-letters-signaturely.svg" style="width: 50%;height:150px;"> </th>
-            <th scope="col"  style="width: 30%" >
-                <p style="padding-top: 29px;">
-                    inti Fernandez M.D. Miami International Airport Ground Level Miami,FL 33142
-                </p>
+            <th scope="col" style="width: 100%;text-align: center;"><div> <img src="https://apps.familyrehab.us/img/signature.png" style="width: 30%;height:150px; margin-top:1.5rem;"> <span style="position:absolute; top: 85%;">_____________________________</span><span style="position:absolute; top: 88%; left:35%;">CLINICAL DIRECTOR</span></div> </th>
+          
+
             </th>
 
 
           </tr>
+          <!--<tr>-->
+          <!--  <th scope="col" style="width: 50%;text-align: center;"> _____________________________</th>-->
+      
+
+          <!--  </th>-->
+
+
+          <!--</tr>-->
+          <!--<tr>-->
+          <!--  <th scope="col" style="width: 150%;text-align: center;"> CLINICAL DIRECTOR</th>-->
+          
+
+          <!--  </th>-->
+
+
+          <!--</tr>-->
         </thead>
 
       </table>

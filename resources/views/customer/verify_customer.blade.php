@@ -450,29 +450,25 @@
 
                                         <p>Select_the_test : <i style="color: red; padding-left: 8px;"
                                                 class="fas fa-check forverify"></i></p>
-                                        <input type="radio" @if ($cus->show->Select_the_test == 'ANTIGEN') checked
-                                        @endif name="Select_the_test"
-                                        value="ANTIGEN" checked>
-                                        <label for="Female">ANTÍGENO</label><br>
-                                        <input type="radio" @if ($cus->show->Select_the_test == 'PCR') checked
-                                        @endif name="Select_the_test"
-                                        value="PCR">
+
+
+                                        <input type="radio" @if ($cus->show->Select_the_test == 'Antigen - CareStart') checked @endif name="Select_the_test" value="Antigen - CareStart"
+                                               checked>
+                                        <label for="Female">ANTIGENO</label><br>
+                                        <input type="radio" @if ($cus->show->Select_the_test == 'PCR') checked @endif name="Select_the_test" value="PCR">
                                         <label for="Female">PCR</label><br>
 
 
-                                        <input type="radio" @if ($cus->show->Select_the_test == 'RT-PCR') checked
-                                        @endif name="Select_the_test"
-                                        value="RT-PCR">
+
+
+                                        <input type="radio" @if ($cus->show->Select_the_test == 'RT-PCR - Abbott IDNOW') checked @endif name="Select_the_test" value="RT-PCR - Abbott IDNOW">
                                         <label for="Female">RT-PCR</label><br>
 
-                                        <input type="radio" @if ($cus->show->Select_the_test == 'PCR-24hrs') checked
-                                        @endif name="Select_the_test"
-                                        value="PCR-24hrs">
-                                        <label for="Female">PCR-24hrs</label><br>
+                                        <input type="radio" @if ($cus->show->Select_the_test == 'PCR - 24hrs') checked @endif name="Select_the_test" value="PCR - 24hrs">
+                                        <label for="Female">PCR-24hm</label><br>
 
-                                        <input type="radio" @if ($cus->show->Select_the_test == 'RT-PCR 24hrs') checked
-                                        @endif name="Select_the_test"
-                                        value="RT-PCR 24hrs">
+                                        <input type="radio" @if ($cus->show->Select_the_test == 'RT-PCR 24hrs - Abbott IDNOW') checked @endif name="Select_the_test"
+                                               value="RT-PCR 24hrs">
                                         <label for="Female">RT-PCR 24hrs</label><br>
 
 
@@ -1164,28 +1160,23 @@
 
                                     <p>Select_the_test : <i style="color: red; padding-left: 8px;"
                                                             class="fas fa-check forverify"></i></p>
-                                    <input type="radio" @if ($cus->show->Select_the_test == 'ANTIGEN') checked
-                                           @endif name="Select_the_test"
-                                           value="ANTIGEN" checked>
-                                    <label for="Female">ANTÍGENO</label><br>
-                                    <input type="radio" @if ($cus->show->Select_the_test == 'PCR') checked
-                                           @endif name="Select_the_test"
-                                           value="PCR">
+
+                                    <input type="radio" @if ($cus->show->Select_the_test == 'Antigen - CareStart') checked @endif name="Select_the_test" value="Antigen - CareStart"
+                                           checked>
+                                    <label for="Female">ANTIGENO</label><br>
+                                    <input type="radio" @if ($cus->show->Select_the_test == 'PCR') checked @endif name="Select_the_test" value="PCR">
                                     <label for="Female">PCR</label><br>
 
 
-                                    <input type="radio" @if ($cus->show->Select_the_test == 'RT-PCR') checked
-                                           @endif name="Select_the_test"
-                                           value="RT-PCR">
+
+
+                                    <input type="radio" @if ($cus->show->Select_the_test == 'RT-PCR - Abbott IDNOW') checked @endif name="Select_the_test" value="RT-PCR - Abbott IDNOW">
                                     <label for="Female">RT-PCR</label><br>
 
-                                    <input type="radio" @if ($cus->show->Select_the_test == 'PCR-24hrs') checked
-                                           @endif name="Select_the_test"
-                                           value="PCR-24hrs">
-                                    <label for="Female">PCR-24hrs</label><br>
+                                    <input type="radio" @if ($cus->show->Select_the_test == 'PCR - 24hrs') checked @endif name="Select_the_test" value="PCR - 24hrs">
+                                    <label for="Female">PCR-24hm</label><br>
 
-                                    <input type="radio" @if ($cus->show->Select_the_test == 'RT-PCR 24hrs') checked
-                                           @endif name="Select_the_test"
+                                    <input type="radio" @if ($cus->show->Select_the_test == 'RT-PCR 24hrs - Abbott IDNOW') checked @endif name="Select_the_test"
                                            value="RT-PCR 24hrs">
                                     <label for="Female">RT-PCR 24hrs</label><br>
 

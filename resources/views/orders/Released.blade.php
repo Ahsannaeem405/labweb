@@ -89,8 +89,8 @@
                             <th class="">Date</th>
                             <th class=""> Name</th>
                             <th class="">E-mail</th>
-                            <th class="">Test</th>
                             <th class="">Amount</th>
+                            <th class="">Test</th>
                             <th class="">Status</th>
                             <th class="">Result</th>
                             <th class="">Action</th>
