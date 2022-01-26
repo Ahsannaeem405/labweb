@@ -16,7 +16,7 @@
 
                 <span style="font-size: 40px;font-weight:inherit;text-align: end;color: darkgray;">INVOICE</span> <br>
                 <h3 style="font-size: 17px;font-weight:inherit;text-align: end;    margin-bottom: 3px;"> {{$order_detail->payment_date}}</h3>
-                <span style="font-size: 17px">Invoice#:{{$order_detail->order_id}}</span>
+                <span style="font-size: 17px">Invoice#:{{$order_detail->id + 3000}}</span>
 
             </th>
 
@@ -52,7 +52,7 @@
             <td scope="row" style="padding-left: 50px;"><h3 style="">TO: </h3>
                 <p style="font-size: 17px;padding-left: 25px;color: gray;"> {{ $order_detail->name }} <br> {{ $order_detail->email }}
                     <br>
-                    {{$cus->show->address}} {{$cus->show->address2}} {{$cus->show->Province}} {{$cus->show->Country}} {{$cus->show->zip}}
+                    {{$cus->address}} {{ isset($cus->show->surname) ? $cus->show->address2 .$cus->show->Province .$cus->show->Country .$cus->show->zip : null}}
                 </p>
             </td>
 

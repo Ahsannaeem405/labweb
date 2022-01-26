@@ -103,7 +103,7 @@
       </tr>
       <tr>
         <td colspan="2">MIAMI, FLORIDA 33126</td>
-        <td>ORDER#: <span class="undr_lin">{{$customer->order_id}}</span></td>
+        <td>ORDER#: <span class="undr_lin">{{$customer->id+3000}}</span></td>
       </tr>
 
       <tr>

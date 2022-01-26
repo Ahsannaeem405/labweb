@@ -423,7 +423,7 @@ return back()->with('success', 'Successfully canceled');
      */
     public function view(Customer $customer)
     {
-      
+
         $customer = Customer::where('status', 'Verified')->wherein('duplicate', [0,2])->where('main_status', 'user')->get();
 $testList=testList::all();
         return view('customer.view_customer2', compact('customer','testList'));
@@ -697,6 +697,10 @@ $testList=testList::all();
         if(isset($customer->show->surname))
         {
             $last=$customer->show->surname;
+        }
+        else
+        {
+            $last=' ';
         }
 
         $role=Auth::user()->role;

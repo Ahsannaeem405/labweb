@@ -41,7 +41,7 @@
                         </div>
                         <div class="col-xl-9 col-lg-7  col-6">
 
-                            <h6 style="text-transform: uppercase;">{{ $cus->name }} {{$cus->show->surname}}</h6>
+                            <h6 style="text-transform: uppercase;">{{ $cus->name }}  {{isset($cus->show->surname) ?$cus->show->surname :null}}</h6>
                             <span>#{{$rand}}{{ $cus->id }}</span>
                             <p><span class="text-bold">{{ $cus->gender }}</span> Born on <span
                                     class="text-bold">{{ $cus->dob }}</span></p>
@@ -74,7 +74,7 @@
                         </div>
                         <div class="col-lg-2 col-md-4 col-12">
                             <p>
-                                <i class="fas fa-map-marker-alt "></i> {{ $cus->show->address}} {{$cus->show->address2}} {{$cus->show->Province}} {{$cus->show->Country}} {{$cus->show->zip}}
+                                <i class="fas fa-map-marker-alt "></i> {{ $cus->address}} {{ isset($cus->show->surname) ? $cus->show->address2 .$cus->show->Province .$cus->show->Country .$cus->show->zip : null}}
                             </p>
                         </div>
                     </div>
