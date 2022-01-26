@@ -177,7 +177,7 @@
                                             </td>
 
                                             <td style="color: black" class="cust" attrr="{{ $orders->id }}"
-                                                rolee="{{ $role }}">#{{ $orders->order_id }} </td>
+                                                rolee="{{ $role }}">#{{ $orders->id+3000 }} </td>
 
 
                                             <td style="color: black" class="cust" attrr="{{ $orders->id }}"
@@ -251,7 +251,7 @@
                                         <tr>
 
                                             <td style="color:black" class="invoi" attrr="{{ $orders->id }}"
-                                                rolee="{{ $role }}">#{{ $orders->order_id }}
+                                                rolee="{{ $role }}">#{{ $orders->id+3000 }}
                                                 <span> - </span>
                                                 <span><i class="fas fa-calendar-minus"></i>
                                             </td>
@@ -419,7 +419,7 @@
                                 @if ($orders->order_id != null)
                                     <div class="col-7 pt-2">
                                         <i class="far fa-user-circle" style="    font-size: 22px;"></i>&nbsp; Order
-                                        #{{ $orders->order_id }} - created
+                                        #{{ $orders->id+3000 }} - created
                                     </div>
                                     <div class="col-5 pt-2">
                                         <p>{{ $orders->created_at }}</p>
@@ -429,7 +429,7 @@
                                     @if ($orders->payment_date != null)
                                         <div class="col-7 pt-2">
                                             <i class="far fa-user-circle" style="    font-size: 22px;"></i> &nbsp; Order
-                                            #{{ $orders->order_id }} - Invoice paid
+                                            #{{ $orders->id+3000 }} - Invoice paid
                                         </div>
                                         <div class="col-5 pt-2">
                                             <p>{{ $orders->payment_date }}</p>
@@ -439,7 +439,7 @@
                                     @if ($orders->date != null)
                                         <div class="col-7 pt-2">
                                             <i class="far fa-user-circle" style="    font-size: 22px;"></i>&nbsp; Order
-                                            #{{ $orders->order_id }} - Released
+                                            #{{ $orders->id+3000 }} - Released
                                         </div>
                                         <div class="col-5 pt-2">
                                             <p>{{ $orders->date }}</p>

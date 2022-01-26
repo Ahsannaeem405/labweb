@@ -30,7 +30,8 @@
                     <a href="{{ url("$role/create/order/customer/$cusid") }}"><i class="fas fa-chevron-left"></i> Back to Customer List</a>
                 </div>
                 <div class="col-12 pt-2 text-dark">
-                    <h5>{{ 'Invoice #'.$order->id }}</h5>
+                    <!-- <h5>{{ 'Invoice #'.$order->id}}</h5> -->
+                    <h5>Invoice # {{$order->id+3000}}</h5>
                     <p>
 
 
@@ -120,7 +121,8 @@
                             <div class="col-lg-12 col-12 pt-3 text-dark">
                                 <div class="row">
                                     <div class="col-lg-4 col-md-4 col-12">
-                                        <p>{{'Order #'.$order->order_id}}</p>
+                                        <!-- <p>{{'Order #'.$order->id}}</p> -->
+                                        <p>Order #{{$order->id+3000}}</p>
                                     </div>
                                     <div class="col-lg-2 col-md-4 col-12" style="text-align: end">
                                         @if ($order->step > 2)

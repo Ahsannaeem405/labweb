@@ -73,7 +73,7 @@
                         @foreach ($customer as $views)
 
                             <tr>
-                                <td>{{ $views->order_id }}</td>
+                                <td>{{ $views->id+3000}}</td>
                                 <td>{{ $views->date }}</td>
                                 <td>{{ $views->name }}</td>
 
