@@ -74,7 +74,7 @@
                         </div>
                         <div class="col-lg-2 col-md-4 col-12">
                             <p>
-                                <i class="fas fa-map-marker-alt "></i> {{ $cus->address }} {{$cus->show->Province}} {{$cus->show->Country}} {{$cus->show->zip}}
+                                <i class="fas fa-map-marker-alt "></i> {{ $cus->show->address}} {{$cus->show->address2}} {{$cus->show->Province}} {{$cus->show->Country}} {{$cus->show->zip}}
                             </p>
                         </div>
                     </div>
@@ -116,7 +116,7 @@
 
                                             <tr>
                                                 <td style="color: black">
-                                                    <a href="{{ url("/$role/customer/view/order", $orders->id) }}">
+                                                    <a href="{{ url("/$role/customer/view/order/$orders->id/$cus->id" ) }}">
                                                         <button><i class="fa fa-info-circle p-1"></i>Detail</button>
                                                         </i>
                                                     </a>
@@ -144,7 +144,7 @@
 
                                                 <td>
                                                     <a onclick="return confirm('Are you sure you want to approve this item?');"
-                                                       href="{{ url("$role/order/approve/$orders->id") }}"
+                                                       href="{{ url("$role/order/approve/$orders->id/$cus->id") }}"
                                                        class="btn btn-secondary Draft">{{ 'Draft' }}</a>
                                                 </td>
 
@@ -170,7 +170,7 @@
                                         <tr>
 
                                             <td>
-                                                <a href="{{ url("/$role/customer/view/order", $orders->id) }}">
+                                                <a href="{{ url("/$role/customer/view/order/$orders->id/$cus->id" ) }}">
                                                     <button><i class="fa fa-info-circle p-1"></i>Detail</button>
                                                     </i>
                                                 </a>
@@ -264,7 +264,8 @@
                                                     <button class="btn btn-success">Paid</button>
 
                                                 @else
-                                                    <button data-toggle="modal" data-target="#exampleModal{{$orders->id}}"
+                                                    <button data-toggle="modal"
+                                                            data-target="#exampleModal{{$orders->id}}"
                                                             class="btn btn-primary">
                                                         Pay Now
                                                     </button>
@@ -285,18 +286,21 @@
                                         </tr>
 
 
-                                        <div class="modal fade" id="exampleModal{{$orders->id}}" tabindex="-1" role="dialog"
+                                        <div class="modal fade" id="exampleModal{{$orders->id}}" tabindex="-1"
+                                             role="dialog"
                                              aria-labelledby="exampleModalLabel" aria-hidden="true">
                                             <div class="modal-dialog" role="document">
                                                 <div class="modal-content" style="width: 30rem">
                                                     <div class="modal-header">
                                                         <h5 class="modal-title" id="exampleModalLabel"> Pay now</h5>
-                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <button type="button" class="close" data-dismiss="modal"
+                                                                aria-label="Close">
                                                             <span aria-hidden="true">&times;</span>
                                                         </button>
                                                     </div>
                                                     <div class="modal-body">
-                                                        <form method="post" action="{{url("$role/pay/invoice/$orders->id")}}">
+                                                        <form method="post"
+                                                              action="{{url("$role/pay/invoice/$orders->id")}}">
                                                             @csrf
                                                             <label>Please select Payment Method</label>
                                                             <select class="form-control" name="payment_method" required>
@@ -306,15 +310,20 @@
                                                                 <option value="others">others</option>
                                                             </select>
                                                             <lable>Please enter Amount</lable>
-                                                            <input type="number" name="payment_amount" value="0" required min="1" class="form-control" placeholder="Please enter amount">
+                                                            <input type="number" name="payment_amount" value="{{$orders->priceList->price}}"
+                                                                   required min="1" class="form-control"
+                                                                   placeholder="Please enter amount">
 
                                                             <lable>Payment detail</lable>
 
-                                                            <textarea class="form-control" name="payment_detail" id="" cols="10" rows="5" placeholder="payment detail"></textarea>
+                                                            <textarea class="form-control" name="payment_detail" id=""
+                                                                      cols="10" rows="5"
+                                                                      placeholder="payment detail"></textarea>
 
                                                     </div>
                                                     <div class="modal-footer">
-                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close
+                                                        <button type="button" class="btn btn-secondary"
+                                                                data-dismiss="modal">Close
                                                         </button>
                                                         <button type="submit" class="btn btn-primary">Submit</button>
                                                         </form>
@@ -391,7 +400,7 @@
                         </div>
 
                     </div>
-                    <div class="card bd-0 shadow-base p-3 mt-2" style="    height: 45%;overflow: auto">
+                    <div class="card bd-0 shadow-base p-3 mt-2" style="    height: 300px;overflow: auto">
                         <div class="row">
                             <div class="col-12">
                                 <p style="font-size: 18px;
@@ -463,142 +472,7 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-    <?php
-    $count1 = null;
-    $count2 = null;
-    $count3 = null;
-    $count4 = null;
-    $count5 = null;
-    $pre_month1 = null;
 
-    ?>
-
-    @for ($i = 4; $i >= 0; $i--)
-        <?php
-        $pre_month1 .= date('M-Y', strtotime('-' . $i . ' month')) . ',';
-        ?>
-    @endfor
-
-    <?php
-    $pre_month1 = explode(',', $pre_month1);
-    $users = App\Models\User::Where('role', 'operator')
-        ->pluck('created_at')
-        ->all();
-    ?>
-
-    @foreach ($users as $user)
-
-        @if (date('M-Y', strtotime($user)) == $pre_month1['0'])
-            <?php
-            $count1 += 1;
-            ?>
-        @elseif (date('M-Y', strtotime($user)) == $pre_month1['1'])
-            <?php
-            $count2 += 1;
-            ?>
-        @elseif (date('M-Y', strtotime($user)) == $pre_month1['2'])
-            <?php
-            $count3 += 1;
-            ?>
-        @elseif (date('M-Y', strtotime($user)) == $pre_month1['3'])
-            <?php
-            $count4 += 1;
-            ?>
-        @elseif (date('M-Y', strtotime($user)) == $pre_month1['4'])
-            <?php
-            $count5 += 1;
-            ?>
-        @endif
-    @endforeach
-
-
-    <script>
-        $(document).ready(function () {
-
-
-            // $(function() {
-            'use strict'
-
-            var ctx = document.getElementById('chartBar1').getContext('2d');
-            new Chart(ctx, {
-                type: 'line',
-                data: {
-                    // labels: ["Jan", 'Feb', 'Mar', 'Apr', 'May'],
-                    labels: [<?php echo "'$pre_month1[0]'" . ',' . "'$pre_month1[1]'" . ',' . "'$pre_month1[2]'" . ',' . "'$pre_month1[3]'" . ',' . "'$pre_month1[4]'"; ?>],
-
-                    datasets: [{
-                        label: 'Total',
-                        // data: [12, 39, 20, 10, 25],
-                        data: [<?php echo $count1 . ',', $count2 . ',', $count3 . ',', $count4 . ',', $count5; ?>],
-                    }]
-                },
-                options: {
-                    legend: {
-                        display: false,
-                        labels: {
-                            display: false
-                        }
-                    },
-                    scales: {
-                        yAxes: [{
-                            ticks: {
-                                beginAtZero: true,
-                                fontSize: 10,
-                                max: 80
-                            }
-                        }],
-                        xAxes: [{
-                            ticks: {
-                                beginAtZero: true,
-                                fontSize: 11
-                            }
-                        }]
-                    }
-                }
-            });
-
-
-            var ctx = document.getElementById('chartBar2').getContext('2d');
-            new Chart(ctx, {
-                type: 'bar',
-                data: {
-
-
-                    labels: [<?php echo "'$pre_month1[0]'" . ',' . "'$pre_month1[1]'" . ',' . "'$pre_month1[2]'" . ',' . "'$pre_month1[3]'" . ',' . "'$pre_month1[4]'"; ?>],
-
-                    datasets: [{
-                        label: 'Total',
-                        // data: [12, 39, 20, 10, 25],
-                        data: [<?php echo $count1 . ',', $count2 . ',', $count3 . ',', $count4 . ',', $count5; ?>],
-                        backgroundColor: '#27AAC8'
-                    }]
-                },
-                options: {
-                    legend: {
-                        display: false,
-                        labels: {
-                            display: false
-                        }
-                    },
-                    scales: {
-                        yAxes: [{
-                            ticks: {
-                                beginAtZero: true,
-                                fontSize: 10,
-                                max: 80
-                            }
-                        }],
-                        xAxes: [{
-                            ticks: {
-                                beginAtZero: true,
-                                fontSize: 11
-                            }
-                        }]
-                    }
-                }
-            });
-        });
-    </script>
 
 
 

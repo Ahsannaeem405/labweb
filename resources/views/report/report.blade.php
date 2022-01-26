@@ -66,7 +66,7 @@
         <div class="col-lg-6 col-md-6 col-12 mt-2 ">
             <h4>Results Verification Page</h4>
             <h4 class="mt-5">Order #{{$report->order_id}}</h4>
-            <p><i class="far fa-building"></i> Miami International Airport &nbsp;@if($report->step==5)  <i class="fas fa-check-circle"></i> Released @endif </p>
+            <p><i class="far fa-building"></i>  PORTOFINO IV CENTER 901-A SW 87 AVE  MIAMI, FL 33174 &nbsp;@if($report->step==5)  <i class="fas fa-check-circle"></i> Released @endif </p>
         </div>
         <div class="col-lg-6 col-md-6 col-12 text-center logo2 mt-2">
             <img src="{{asset('assets/qrcode.png')}}" class="img_logo" alt="">
@@ -90,7 +90,7 @@
         </div>
         <div class="col-lg-4 col-md-6 col-12 pt-2">
             <p class="text_gray">Testing Platform</p>
-            <h6>ABBOTT IDNOW</h6>
+            <h6>{{$report->priceList->platform}}</h6>
         </div>
 
 

@@ -125,7 +125,7 @@
                                                     <option value="others">others</option>
                                                 </select>
                                                 <lable>Please enter Amount</lable>
-                                                <input type="number" name="payment_amount" value="0" required min="1" class="form-control" placeholder="Please enter amount">
+                                                <input type="number" name="payment_amount" value="{{$views->priceList->price}}" required min="1" class="form-control" placeholder="Please enter amount">
 
                                                 <lable>Payment detail</lable>
 

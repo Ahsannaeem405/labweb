@@ -15,8 +15,8 @@
             <th scope="col" style="width: 50%;    text-align: end;  color: darkgray;  padding-top: 30px;">
 
                 <span style="font-size: 40px;font-weight:inherit;text-align: end;color: darkgray;">INVOICE</span> <br>
-                <h3 style="font-size: 17px;font-weight:inherit;text-align: end;    margin-bottom: 3px;"> 01-17-2022 1:09 pm </h3>
-                <span style="font-size: 17px">Invoice#:888888</span>
+                <h3 style="font-size: 17px;font-weight:inherit;text-align: end;    margin-bottom: 3px;"> {{$order_detail->payment_date}}</h3>
+                <span style="font-size: 17px">Invoice#:{{$order_detail->order_id}}</span>
 
             </th>
 
@@ -30,8 +30,20 @@
 
 
 
-               <p style="font-size: 17px;padding-left: 25px;color: gray;">INTIFERNANDZ ND AT MIA INC<br> REHAB FAMILY@YAHOO.COM
-                <br>2100 NW 42 AVE MIAMI,FLORIDA 33126,US 305-869-1161
+               <p style="font-size: 17px;padding-left: 25px;color: gray;">
+
+                <p  style="margin: 0px">  PORTOFINO IV CENTER</p>
+
+                <p style="margin: 0px"> 901-A SW 87 AVE</p>
+
+                <p style="margin: 0px;font-weight: bold">  MIAMI, FL 33174</p>
+                <p style="margin: 0px;font-weight: bold"> TEL: 305-225-6266</p>
+                <p style="margin: 0px;font-weight: bold">   FAX: 305-225-6296</p>
+                <p style="margin: 0px;font-weight: bold">  INFO@FAMILYREHAB.US</p>
+
+
+                </p>
+
                             </p>
 
                         </td>
@@ -40,7 +52,7 @@
             <td scope="row" style="padding-left: 50px;"><h3 style="">TO: </h3>
                 <p style="font-size: 17px;padding-left: 25px;color: gray;"> {{ $order_detail->name }} <br> {{ $order_detail->email }}
                     <br>
-                           {{$order_detail->address}}
+                    {{$cus->show->address}} {{$cus->show->address2}} {{$cus->show->Province}} {{$cus->show->Country}} {{$cus->show->zip}}
                 </p>
             </td>
 
@@ -58,38 +70,6 @@ Due
 
         </tbody>
       </table>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -164,8 +144,9 @@ Due
 
         <tbody>
           <tr>
-<td>PROCEDURE CODE PCR/RT-PCR: U001</td>
-<td>PROCEDURE CODE INTEGAN:6666 </td>
+
+<td >PROCEDURE CODE INTEGAN:{{$order_detail->priceList->procedure}} </td>
+<td>PROCEDURE CODE INTEGAN: INTEGAN:6666 </td>
           </tr>
           <tr>
             <td>ICD-ID:Z1122 </td>
@@ -230,7 +211,7 @@ border:1px solid black;text-align:center;
             <th scope="col" style="width: 80%;text-align: right;"></th>
             <th scope="col"  style="width: 30%" >
                 <p style="padding-top: 29px;">
-                    inti Fernandez M.D. Miami International Airport Ground Level Miami,FL 33142
+                    inti Fernandez M.D.       PORTOFINO IV CENTER 901-A SW 87 AVE MIAMI, FL 33174
                 </p>
             </th>
 
