@@ -7,6 +7,7 @@ use App\Models\Customer;
 use App\Models\Customer_detail;
 use App\Models\Document;
 use App\Models\State;
+use App\Models\testList;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -43,13 +44,11 @@ return back()->with('success', 'Successfully canceled');
     }
 
 
-    public function order_approve($id)
+    public function order_approve($id,$cusid)
     {
-
 
         $role = Auth::user()->role;
         $customer_det = Customer_detail::where('customer_id', $id)->first();
-
         $customer = Customer::find($id);
         $cus = new Customer();
         $cus->name = $customer_det->name .' '. $customer_det->surname;
@@ -67,6 +66,7 @@ return back()->with('success', 'Successfully canceled');
         $cus->main_status = 'order';
         $cus->save();
 
+
      $cuss =  Customer::find($id);
      if ($cuss->duplicate==1)
      {
@@ -82,7 +82,7 @@ return back()->with('success', 'Successfully canceled');
         }
 
 
-        return redirect("$role/create/order/customer/$cus->id");
+        return redirect("$role/create/order/customer/$cusid");
 
     }
 
@@ -142,7 +142,7 @@ return back()->with('success', 'Successfully canceled');
          //dd($request->Provincea,$request->Provincea2);
 
 
-        $host = 'https://' . \request()->getHost() . "/public/customer_pdf/";
+        $host = 'https://' . \request()->getHost() . "/customer_pdf/";
 
 
         if ($request->type == "adult") {
@@ -150,7 +150,7 @@ return back()->with('success', 'Successfully canceled');
             $find = Customer::where('email', $request->emaila)->where('name', $request->namea)->where('passport', $request->passporta)->where('dob', $request->datea)->first();
 
             //if record exists
-            if ($find) {
+
 
                 $customer = new Customer();
                 $customer->name = $request->namea;
@@ -161,9 +161,11 @@ return back()->with('success', 'Successfully canceled');
                 $customer->passport = $request->passporta;
                 $customer->status = 'Unverified';
                 $customer->step = 1;
+                $customer->uniqueid = rand(0000, 9999);
                 $customer->gender = $request->Fgender;
-
+            if ($find) {
                 $customer->duplicate = 1;
+            }
                 $customer->save();
 
 
@@ -203,15 +205,9 @@ return back()->with('success', 'Successfully canceled');
                 $cus_detail->town =  $request->towna;
                 $cus_detail->zip =  $request->zipa;
                 if ($request->Provincea2==null)
-                {
-                    $cus_detail->Province =  $request->Provincea;
-
-                }
+                {$cus_detail->Province =  $request->Provincea;}
                 else
-                {
-                    $cus_detail->Province =  $request->Provincea2;
-
-                }
+                {$cus_detail->Province =  $request->Provincea2;}
                 $cus_detail->Country =  $request->Countrya;
                 $cus_detail->email =  $request->emaila;
                 $cus_detail->gender =  $request->gendera;
@@ -236,110 +232,6 @@ return back()->with('success', 'Successfully canceled');
                 $document->path = $fileName;
                 $document->save();
             }
-
-
-
-
-
-
-            //if record exists
-
-
-
-            //if record does not exists
-
-            else {
-
-                $customer = new Customer();
-                $customer->name = $request->namea;
-                $customer->email = $request->emaila;
-                $customer->address = $request->addressa;
-                $customer->phone = $request->phonea;
-                $customer->dob = $request->datea;
-                $customer->passport = $request->passporta;
-                $customer->status = 'Unverified';
-                $customer->step = 1;
-                $customer->gender = $request->Fgender;
-                $customer->save();
-
-
-                $cus_detail = new Customer_detail();
-                $cus_detail->CruiseLine =  $request->CruiseLinea;
-                $cus_detail->F_Cruise =  $request->F_Cruisea;
-                $cus_detail->Destination =  $request->Destinationa;
-                $cus_detail->name =  $request->namea;
-                $cus_detail->secondname =  $request->secondnamea;
-                $cus_detail->type =  $request->type;
-                $cus_detail->surname =  $request->surnamea;
-                $cus_detail->phone =  $request->phonea;
-                $cus_detail->datee =  $request->datea;
-                $cus_detail->passport =  $request->passporta;
-                $cus_detail->Fever =  $request->Fevera;
-                $cus_detail->Cough =  $request->Cougha;
-                $cus_detail->Nausea =  $request->Nauseaa;
-                $cus_detail->othre_specify =  $request->othre_specifya;
-                $cus_detail->gender2 =  $request->Fgender;
-                $cus_detail->Throat =  $request->Throata;
-                $cus_detail->breathing =  $request->breathinga;
-                $cus_detail->Abdominal =  $request->Abdominala;
-                $cus_detail->Chills =  $request->Chillsa;
-                $cus_detail->Headache =  $request->Headachea;
-                $cus_detail->Muscle =  $request->Musclea;
-                $cus_detail->Fatigue =  $request->Fatiguea;
-                $cus_detail->Runny =  $request->Runnya;
-                $cus_detail->Vomiting =  $request->Vomitinga;
-                $cus_detail->Diarrhea =  $request->Diarrheaa;
-                $cus_detail->Loss_of_smell =  $request->Loss_of_smella;
-                $cus_detail->Loss_of_taste =  $request->Loss_of_tastea;
-                $cus_detail->specify =  $request->specifya;
-                $cus_detail->symptoms =  $request->symptomsa;
-                $cus_detail->Select_the_test =  $request->Select_the_testa;
-                $cus_detail->address =  $request->addressa;
-                $cus_detail->address2 =  $request->address2a;
-                $cus_detail->town =  $request->towna;
-                $cus_detail->zip =  $request->zipa;
-                if ($request->Provincea2==null)
-                {
-                    $cus_detail->Province =  $request->Provincea;
-
-                }
-                else
-                {
-                    $cus_detail->Province =  $request->Provincea2;
-
-                }                 $cus_detail->Country =  $request->Countrya;
-                $cus_detail->email =  $request->emaila;
-                $cus_detail->gender =  $request->gendera;
-                $cus_detail->signature =  $request->SingsLinka;
-                $cus_detail->customer_id =  $customer->id;
-                $cus_detail->save();
-
-
-                $request2  = $request;
-
-                $pdf = PDf::loadView('pdf.customer_pdf', compact('request2'));
-                $rand = rand(0, 99999999999999);
-                $path = 'uploads/stock/';
-
-                $fileName = $rand . '.' . 'pdf';
-
-
-                $pdf->save($path . '/' . $fileName);
-
-                $document = new Document();
-                $document->email = $request->emaila;
-                $document->path = $fileName;
-                $document->save();
-            }
-
-            // else {
-            //     return  redirect('/')->with('error', 'Email already exists');
-            // }
-
-            //if record does not exists
-        }
-
-
 
 
         $j = 0;
@@ -410,12 +302,6 @@ return back()->with('success', 'Successfully canceled');
 
                 $find = Customer::where('email', $request->$email)->where('name', $request->$name)->where('passport', $request->$passport)->where('dob', $request->$date)->first();
 
-                // dd($request->$name, $find);
-                if (!$find) {
-
-
-                    // dd( $request->$SingsLink);
-
 
                     $customer = new Customer();
                     $customer->name = $request->$name;
@@ -425,94 +311,13 @@ return back()->with('success', 'Successfully canceled');
                     $customer->dob = $request->$date;
                     $customer->passport = $request->$passport;
                     $customer->status = 'Unverified';
-                    $customer->gender = $request->$Fgender;
-                    $customer->step = 1;
-                    $customer->save();
-
-
-                    $cus_detail = new Customer_detail();
-
-                    $cus_detail->CruiseLine =  $request->$CruiseLine;
-                    $cus_detail->F_Cruise =  $request->$F_Cruise;
-                    $cus_detail->Destination =  $request->$Destination;
-
-
-                    $cus_detail->name = $request->$name;
-                    $cus_detail->secondname =  $request->$secondname;
-                    $cus_detail->type =  $request->$type;
-                    $cus_detail->surname =  $request->$surname;
-                    $cus_detail->phone =  $request->$phone;
-                    $cus_detail->datee =  $request->$date;
-                    $cus_detail->passport =  $request->$passport;
-                    $cus_detail->Fever =  $request->$Fever;
-                    $cus_detail->Cough =  $request->$Cough;
-                    $cus_detail->Throat =  $request->$Throat;
-                    $cus_detail->gender2 =  $request->$Fgender;
-                    $cus_detail->Nausea =  $request->$Nausea;
-                    $cus_detail->Select_the_test =  $request->$Select_the_test;
-                    $cus_detail->othre_specify =  $request->$othre_specify;
-                    $cus_detail->breathing =  $request->$breathing;
-                    $cus_detail->Abdominal =  $request->$Abdominal;
-                    $cus_detail->Chills =  $request->$Chills;
-                    $cus_detail->Headache =  $request->$Headache;
-                    $cus_detail->Muscle =  $request->$Muscle;
-                    $cus_detail->Fatigue =  $request->$Fatigue;
-                    $cus_detail->Runny =  $request->$Runny;
-                    $cus_detail->Vomiting =  $request->$Vomiting;
-                    $cus_detail->Diarrhea =  $request->$Diarrhea;
-                    $cus_detail->Loss_of_smell =  $request->$Loss_of_smell;
-                    $cus_detail->Loss_of_taste =  $request->$Loss_of_taste;
-                    $cus_detail->specify =  $request->$specify;
-                    $cus_detail->symptoms =  $request->$symptoms;
-                    $cus_detail->address =  $request->$address;
-                    $cus_detail->address2 =  $request->$address2;
-                    $cus_detail->town =  $request->$town;
-                    $cus_detail->zip =  $request->$zip;
-                    $cus_detail->Province =  $request->$Province;
-                    $cus_detail->Country =  $request->$Country;
-                    $cus_detail->email =  $request->$email;
-                    $cus_detail->gender =  $request->$gender;
-                    $cus_detail->Parent_name =  $request->$Parent_name;
-                    $cus_detail->Parent_secondname =  $request->$Parent_secondname;
-                    $cus_detail->Parent_surname =  $request->$Parent_surname;
-                    $cus_detail->Parent_phone =  $request->$Parent_phone;
-                    $cus_detail->Parent_dob =  $request->$Parent_dob;
-                    $cus_detail->signature =  $request->$SingsLink;
-                    $cus_detail->customer_id =  $customer->id;
-
-                    $cus_detail->save();
-
-
-
-                    $request2 = Customer_detail::find($cus_detail->id);
-                    $pdf = PDf::loadView('pdf.customer_pdf', compact('request2'));
-                    $rand = rand(0, 99999999999999);
-                    $path = 'uploads/stock/';
-
-                    $fileName = $rand . '.' . 'pdf';
-
-
-                    $pdf->save($path . '/' . $fileName);
-
-                    $document = new Document();
-                    $document->email = $request->$email;
-                    $document->path = $fileName;
-                    $document->save();
-                } else {
-
-                    $customer = new Customer();
-                    $customer->name = $request->$name;
-                    $customer->email =  $request->$email;
-                    $customer->address =  $request->$address;
-                    $customer->phone =  $request->$phone;
-                    $customer->dob = $request->$date;
-                    $customer->passport = $request->$passport;
-                    $customer->status = 'Unverified';
+                    $customer->uniqueid = rand(0000, 9999);
                     $customer->gender = $request->$Fgender;
                     $customer->step = 1;
 
-
+                if ($find) {
                     $customer->duplicate = 1;
+                           }
                     $customer->save();
 
 
@@ -585,7 +390,7 @@ return back()->with('success', 'Successfully canceled');
                     $document->path = $fileName;
                     $document->save();
                 }
-            }
+
         }
 
 
@@ -620,8 +425,8 @@ return back()->with('success', 'Successfully canceled');
     {
       
         $customer = Customer::where('status', 'Verified')->wherein('duplicate', [0,2])->where('main_status', 'user')->get();
-
-        return view('customer.view_customer2', compact('customer'));
+$testList=testList::all();
+        return view('customer.view_customer2', compact('customer','testList'));
     }
     public function update_adult(Request $request)
     {
@@ -839,9 +644,9 @@ return back()->with('success', 'Successfully canceled');
         $cus = Customer::find($id);
 
 
-       $rand=rand(0000, 9999);
-        $order = Customer::where('email', $cus->email)->where('status', 'Verified')->get();
 
+        $order = Customer::where('email', $cus->email)->where('status', 'Verified')->with('priceList')->get();
+        $rand=$cus->uniqueid;
         $document = Document::where('email', $cus->email)->get();
         return view('customer.order', compact('cus', 'order', 'document','rand'));
     }
@@ -882,7 +687,8 @@ return back()->with('success', 'Successfully canceled');
     public function place_order($id)
     {
         $cus = Customer::find($id);
-        return view('customer.placeOrder', compact('cus'));
+        $testList=testList::all();
+        return view('customer.placeOrder', compact('cus','testList'));
     }
 
     public function place_order_submit(Request $request, $id)

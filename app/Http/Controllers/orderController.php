@@ -76,7 +76,8 @@ class orderController extends Controller
 
     public function invoice_pending()
     {
-        $customer = Customer::where('step',2)->where('display_status','=',null)->get();
+        $customer = Customer::where('step',2)->where('display_status','=',null)->with('priceList')->get();
+
 
         return view('orders.pendingInvoice', compact('customer'));
     }
@@ -125,7 +126,7 @@ class orderController extends Controller
 
         $idd =  base64_encode($id);
 
-        $host='https://'.\request()->getHost()."/public/report/$idd";
+        $host='https://'.\request()->getHost()."/report/$idd";
         $pdf = \PDF::loadView('pdf.report',compact('host','customer'));
         $rand= rand(0, 99999999999999);
 
@@ -152,7 +153,7 @@ $email=$customer->email;
 
 $idd =  base64_encode($id);
 
-$host='https://'.\request()->getHost()."/public/report/$idd";
+$host='https://'.\request()->getHost()."/report/$idd";
 $pdf = \PDF::loadView('pdf.report',compact('host','customer'));
 
 
@@ -165,7 +166,8 @@ return back();
     }
     public function release_send($id)
     {
-        $customer=Customer::find($id);
+        $customer=Customer::with('priceList')->find($id);
+
         $customer->step=5;
         //$customer->date=Carbon::now();
         $customer->update();
@@ -175,13 +177,14 @@ return back();
        $rand2 =  rand(00000,99999);
        $idd =  base64_encode($id);
 
-        $host='https://'.\request()->getHost()."/public/report/$idd?id=$rand2";
+        $host='https://'.\request()->getHost()."/report/$idd?id=$rand2";
         $pdf = \PDF::loadView('pdf.report',compact('host','customer'));
+
+       // return view('pdf.report',compact('host','customer'));
         $rand= rand(0, 99999999999999);
         $path = 'pdf/';
         $fileName = $rand . '.' . 'pdf' ;
         $pdf->save($path . '/' . $fileName);
-
 
 
 

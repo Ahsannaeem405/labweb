@@ -12,4 +12,9 @@ class Customer extends Model
     {
         return $this->hasOne('App\Models\Customer_detail', 'customer_id');
     }
+
+    public function priceList()
+    {
+        return $this->hasOne('App\Models\testList', 'name','test_type');
+    }
 }

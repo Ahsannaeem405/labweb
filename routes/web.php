@@ -75,7 +75,7 @@ Route:: prefix('/admin')->middleware(['auth', 'admin'])->group(function () {
 
     Route::get('/customer/view/invoice/{id}/{cus}', [CustomerController::class, 'view_invoice']);
 
-    Route::get('/prnpriview/{order_id}', function ($order_id) {
+    Route::get('/prnpriview/{order_id}/{cus}', function ($order_id) {
 
         $order_detail=Customer::where('id', $order_id)->first();
 // dd($order_detail);
@@ -127,7 +127,7 @@ Route:: prefix('/admin')->middleware(['auth', 'admin'])->group(function () {
     Route::get('delete/document/{id}',[CustomerController::class,'delete_document']);
     Route::get('/order/cancel/{id}',[CustomerController::class,'cancel_order']);
 
-    Route::get('/order/approve/{id}',[CustomerController::class,'order_approve']);
+    Route::get('/order/approve/{id}/{cus}',[CustomerController::class,'order_approve']);
 
 });
 
@@ -178,11 +178,13 @@ Route:: prefix('/operator')->middleware(['auth', 'operator'])->group(function ()
 
     Route::get('/customer/view/invoice/{id}/{cus}', [CustomerController::class, 'view_invoice']);
 
-Route::get('/prnpriview/{order_id}', function ($order_id) {
+Route::get('/prnpriview/{order_id}/{cus}', function ($order_id,$cus) {
 
-$order_detail=Customer::where('id', $order_id)->first();
+$order_detail=Customer::with('priceList')->where('id', $order_id)->first();
+$cus=Customer::find($cus);
+
 // dd($order_detail);
-return view('customer.pdf2',compact('order_detail'));
+return view('customer.pdf2',compact('order_detail','cus'));
 });
 
     Route::get('/create/order/customer/{id}', [CustomerController::class, 'create_order']);
@@ -230,7 +232,7 @@ return view('customer.pdf2',compact('order_detail'));
     Route::get('delete/document/{id}',[CustomerController::class,'delete_document']);
     Route::get('/order/cancel/{id}',[CustomerController::class,'cancel_order']);
 
-    Route::get('/order/approve/{id}',[CustomerController::class,'order_approve']);
+    Route::get('/order/approve/{id}/{cus}',[CustomerController::class,'order_approve']);
 });
 
 
@@ -266,6 +268,4 @@ Route::get('append/signature2',[\App\Http\Controllers\orderController::class,'ap
 
 
 
-Route::get('/testpdf', function () {
-    return view('pdf.testpdf');
-});
+
