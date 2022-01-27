@@ -3,13 +3,17 @@
 
   <div class="content">
     <div class="container">
+	<div class="row justify-content-center">
+          <img src="https://apps.familyrehab.us/img/logo_white_320x146.png" alt="Image" class="img-fluid" style="width:20%; margin-bottom:1rem;">
+        </div>
       <div class="row justify-content-center">
-        <!-- <div class="col-md-6 order-md-2">
-          <img src="images/undraw_file_sync_ot38.svg" alt="Image" class="img-fluid">
-        </div> -->
+        
         <div class="col-md-6 contents">
           <div class="row justify-content-center">
             <div class="col-md-12">
+				<div>
+				
+				</div>
               <div class="form-block" style="    box-shadow: 0 3px 10px rgb(0 0 0 / 20%);  border-radius: 25px;">
                   <div class="mb-4">
                   <h3>Sign In</h3>
@@ -55,7 +59,7 @@
                     {{-- <span class="ml-auto"><a href="#" class="forgot-pass">Forgot Password</a></span> --}}
                   </div>
 
-                  <button type="submit" class="btn btn-pill text-white btn-block btn-primary">
+                  <button type="submit" class="btn btn-pill text-white btn-block btn-primary" style="background-color:#ea7c3a; border-color:#ea7c3a;">
                     {{ __('Login') }}
                 </button>
 
