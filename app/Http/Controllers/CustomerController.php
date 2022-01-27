@@ -115,8 +115,11 @@ return back()->with('success', 'Successfully canceled');
      */
     public function create(Request $request)
     {
-        $cus = new Customer();
-        $cus->name = $request->firstname;
+
+$full_name=$request->firstname." ".$request->Last_name;
+
+$cus = new Customer();
+        $cus->name = $full_name;
         $cus->email = $request->email;
         $cus->address = $request->address;
         $cus->phone = $request->phone;
@@ -590,9 +593,14 @@ $testList=testList::all();
         $cus = Customer::find($id);
         $Country = Country::all();
         $state = State::all();
-
-        // dd(2);
-        return view('customer.edit_customer', compact('cus', 'Country', 'state'));
+        $f_name=explode(" ",$cus->name);
+        $showing_no=count($f_name)/2 - 1;
+        if(count($f_name) % 2 != 0){
+            $showing_no=$showing_no+1;
+            
+        }
+        
+        return view('customer.edit_customer', compact('showing_no','f_name','cus', 'Country', 'state'));
 
 
         // dd($id);
@@ -662,10 +670,11 @@ $testList=testList::all();
      */
     public function update(Request $request, Customer $customer)
     {
+        $full_name=$request->firstname." ".$request->Last_name;
 
         $cus = Customer::find($request->id);
 
-        $cus->name = $request->firstname;
+        $cus->name = $full_name;
         $cus->email = $request->email;
         $cus->address = $request->address;
         $cus->phone = $request->phone;

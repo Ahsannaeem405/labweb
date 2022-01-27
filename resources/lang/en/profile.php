@@ -50,7 +50,7 @@ return [
     'Continue' => 'Continue',
     'Customer name' => 'Customer name',
     'Name' => 'Name',
-    'Second name' => 'Second name',
+    'Second name' => 'Middle name',
     'Last name' => 'Last name',
     'Telephone' => 'Telephone',
     'Male' => 'Male',
