@@ -75,11 +75,13 @@ Route:: prefix('/admin')->middleware(['auth', 'admin'])->group(function () {
 
     Route::get('/customer/view/invoice/{id}/{cus}', [CustomerController::class, 'view_invoice']);
 
-    Route::get('/prnpriview/{order_id}/{cus}', function ($order_id) {
+    Route::get('/prnpriview/{order_id}/{cus}', function ($order_id,$cus) {
 
-        $order_detail=Customer::where('id', $order_id)->first();
+        $order_detail=Customer::with('priceList')->where('id', $order_id)->first();
+        $cus=Customer::find($cus);
+
 // dd($order_detail);
-        return view('customer.pdf2',compact('order_detail'));
+        return view('customer.pdf2',compact('order_detail','cus'));
     });
 
     Route::get('/create/order/customer/{id}', [CustomerController::class, 'create_order']);

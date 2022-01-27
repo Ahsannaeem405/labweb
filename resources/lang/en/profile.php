@@ -104,7 +104,7 @@ return [
     'Accept Document' => 'Accept Document',
 // Minor
     'Name Of First Minor' => 'Name Of First Minor',
-    'Surnames' => 'Surnames',
+    'Surnames' => 'Last name',
     'First Birth Date of Minor' => 'First Birth Date of Minor',
     'Additional Information of first of the Minor' => 'Additional Information of first of the Minor',
     'Have you had any of the following symptoms in the last 14 days?' => 'Have you had any of the following symptoms in the last 14 days?',

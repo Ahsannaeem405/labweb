@@ -6,6 +6,7 @@ use App\Models\Admin;
 use App\Models\Country;
 use App\Models\State;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -57,6 +58,7 @@ class AdminController extends Controller
 
     public function home()
     {
+        //dd(Carbon::now());
         $country = Country::all();
         $state = State::orderby('name')->where('country_id', 233)->get();
         return view('welcome', compact('country', 'state'));

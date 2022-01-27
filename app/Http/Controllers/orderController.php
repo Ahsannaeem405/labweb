@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Jobs\MatchSendEmail;
 use App\Mail\result;
 use App\Models\Customer;
 use Carbon\Carbon;
@@ -166,10 +167,11 @@ return back();
     }
     public function release_send($id)
     {
+
         $customer=Customer::with('priceList')->find($id);
 
         $customer->step=5;
-        //$customer->date=Carbon::now();
+
         $customer->update();
 
 
@@ -185,10 +187,13 @@ return back();
         $path = 'pdf/';
         $fileName = $rand . '.' . 'pdf' ;
         $pdf->save($path . '/' . $fileName);
+         Mail::to($email)->send(new result($rand));
+
+    //   dispatch(new MatchSendEmail($id));
 
 
 
-        Mail::to($email)->send(new result($rand));
+
 
 
         return back()->with('success','Release send successfully');
