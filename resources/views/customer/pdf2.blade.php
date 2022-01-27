@@ -230,7 +230,6 @@ border:1px solid black;text-align:center;
     window.onload = function () {
         window.print();
 
-
     }
 </script>
 

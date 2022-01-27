@@ -63,24 +63,24 @@
 
                                 <div class="col-lg-6">
                                     <div class="form-group">
-                                        <label class="form-control-label">Second Name:
+                                        <label class="form-control-label">Middle Name:
                                             <span class="tx-danger"></span> <i style="color: red; padding-left: 8px;"
                                                 class="fas fa-check forverify "></i>
                                         </label>
                                         <input class="form-control" type="text" value="{{ $cus->show->secondname }}"
-                                            name="secondname" placeholder="Secondname ">
+                                            name="secondname" placeholder="Middle Name ">
                                     </div>
                                 </div><!-- col-4 -->
 
 
                                 <div class="col-lg-6">
                                     <div class="form-group mg-b-10-force">
-                                        <label class="form-control-label"> Surname : <span class="tx-danger">*</span><i
+                                        <label class="form-control-label"> Last Name : <span class="tx-danger">*</span><i
                                                 style="color: red; padding-left: 8px;"
                                                 class="fas fa-check forverify forverify1"></i>
                                         </label>
                                         <input class="form-control" type="text" value="{{ $cus->show->surname }}"
-                                            name="surname" required placeholder="Enter surname ">
+                                            name="surname" required placeholder="Last Name">
                                     </div>
                                 </div><!-- col-8 -->
 
@@ -794,23 +794,23 @@
 
                         <div class="col-lg-6">
                             <div class="form-group">
-                                <label class="form-control-label">Second Name: <span class="tx-danger"></span><i
+                                <label class="form-control-label">Middle Name: <span class="tx-danger"></span><i
                                         style="color: red; padding-left: 8px;" class="fas fa-check forverify "></i>
                                 </label>
                                 <input class="form-control" type="text" value="{{ $cus->show->secondname }}"
-                                    name="secondname" placeholder="Secondname ">
+                                    name="secondname" placeholder="Middle Name ">
                             </div>
                         </div><!-- col-4 -->
 
 
                         <div class="col-lg-6">
                             <div class="form-group mg-b-10-force">
-                                <label class="form-control-label"> Surname : <span class="tx-danger">*</span><i
+                                <label class="form-control-label"> Last Name : <span class="tx-danger">*</span><i
                                         style="color: red; padding-left: 8px;"
                                         class="fas fa-check forverify forverify1"></i>
                                 </label>
                                 <input class="form-control" type="text" value="{{ $cus->show->surname }}"
-                                    name="surname" required placeholder="Enter surname ">
+                                    name="surname" required placeholder="Last Name">
                             </div>
                         </div><!-- col-8 -->
 
@@ -1279,7 +1279,7 @@
                     <div class="col-lg-6">
                         <div class="form-group mg-b-10-force">
 
-                            <p>Parent Name: <i style="color: red; padding-left: 8px;" class="fas fa-check forverify"></i>
+                            <p>Parent First Name: <i style="color: red; padding-left: 8px;" class="fas fa-check forverify"></i>
                             </p>
                             <input type="text" value="{{ $cus->show->Parent_name }}" name="Parent_name"
                                 class="form-control">
@@ -1290,7 +1290,7 @@
                     <div class="col-lg-6">
                         <div class="form-group mg-b-10-force">
 
-                            <p>Parent_second Name: <i style="color: red; padding-left: 8px;"
+                            <p>Parent Middle Name: <i style="color: red; padding-left: 8px;"
                                     class="fas fa-check forverify"></i></p>
                             <input type="text" value="{{ $cus->show->Parent_secondname }}" name="Parent_secondname"
                                 class="form-control">
@@ -1301,7 +1301,7 @@
                     <div class="col-lg-6">
                         <div class="form-group mg-b-10-force">
 
-                            <p>Parent_Surname : <i style="color: red; padding-left: 8px;"
+                            <p>Parent Last Name : <i style="color: red; padding-left: 8px;"
                                     class="fas fa-check forverify"></i></p>
                             <input type="text" value="{{ $cus->show->Parent_surname }}" name="Parent_surname"
                                 class="form-control">
@@ -1312,7 +1312,7 @@
                     <div class="col-lg-6">
                         <div class="form-group mg-b-10-force">
 
-                            <p>Parent_phone : <i style="color: red; padding-left: 8px;" class="fas fa-check forverify"></i>
+                            <p>Parent Phone : <i style="color: red; padding-left: 8px;" class="fas fa-check forverify"></i>
                             </p>
                             <input type="text" value="{{ $cus->show->Parent_phone }}" name="Parent_phone"
                                 class="form-control">
@@ -1323,7 +1323,7 @@
                     <div class="col-lg-6">
                         <div class="form-group mg-b-10-force">
 
-                            <p>Parent_phone : <i style="color: red; padding-left: 8px;" class="fas fa-check forverify"></i>
+                            <p>Parent DOB : <i style="color: red; padding-left: 8px;" class="fas fa-check forverify"></i>
                             </p>
                             <input type="date" value="{{ $cus->show->Parent_dob }}" name="Parent_dob"
                                 class="form-control">
