@@ -229,6 +229,8 @@ border:1px solid black;text-align:center;
 <script>
     window.onload = function () {
         window.print();
+
+
     }
 </script>
 
