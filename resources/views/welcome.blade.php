@@ -1017,24 +1017,7 @@
                     </select>
                 </div>
 
-                <div class="col-lg-4 mt-3 col-12 pt-2 ">
-                    <button type="button" required class="btn btn-dark appSignM" nameatt="nameatt" name="appSignM"
-                        data-toggle="modal" data-target="#exampleModalAPP">
-                        Click to Sign
-                    </button>
-                    <input type="hidden" class="SingsLink" name="SingsLink" value="">
-
-
-
-
-                </div>
-
-
-                <div class="col-lg-6 mt-3 col-12 pt-2">
-                    <div name="">
-                        <img class="imgAPP" src="" name="sig-image">
-                    </div>
-                </div>
+                
 
 
             </div>
@@ -1165,7 +1148,7 @@
                     <input type="radio" name="gender" value="Other"> Other<br>
                 </div>
                 <div class="col-lg-6 col-12 pt-2">
-                    <input required type="text" class="form-control" name="othre_specify"
+                    <input type="text" class="form-control" name="othre_specify"
                         placeholder="{{ __('profile.Other specify') }}">
                     <label for="">{{ __('profile.Other specify') }}</label>
                 </div>
@@ -1183,7 +1166,7 @@
                 <div class="col-lg-4  col-12 pt-2">
                     <input type="text" placeholder="{{ __('profile.Second name') }}" name="Parent_secondname"
                         class="form-control">
-                    <label for="">{{ __('profile.Second name') }}*</label>
+                    <label for="">{{ __('profile.Second name') }}</label>
 
                 </div>
 
@@ -1203,6 +1186,27 @@
                     <label for="">{{ __('profile.Date Birth Of Gaurdian') }}</label>
 
                 </div>
+
+
+                <div class="col-lg-4 mt-3 col-12 pt-2 ">
+                    <button type="button" required class="btn btn-dark appSignM" nameatt="nameatt" name="appSignM"
+                        data-toggle="modal" data-target="#exampleModalAPP">
+                        Click to Sign
+                    </button>
+                    <input type="hidden" class="SingsLink" name="SingsLink" value="">
+
+
+
+
+                </div>
+
+
+                <div class="col-lg-6 mt-3 col-12 pt-2">
+                    <div name="">
+                        <img class="imgAPP" src="" name="sig-image">
+                    </div>
+                </div>
+
 
 
             </div>

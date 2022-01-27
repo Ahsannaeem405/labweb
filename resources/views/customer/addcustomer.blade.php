@@ -49,12 +49,21 @@
 
                             <div class="col-lg-6">
                                 <div class="form-group">
-                                    <label class="form-control-label">Name: <span
+                                    <label class="form-control-label">First Name: <span
                                             class="tx-danger">*</span></label>
                                     <input class="form-control" type="text" required name="firstname" required
-                                        placeholder="Enter Name">
+                                        placeholder="Enter First Name">
                                 </div>
                             </div><!-- col-4 -->
+
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label class="form-control-label">Last Name: <span
+                                            class="tx-danger">*</span></label>
+                                    <input class="form-control" type="text" required name="Last_name" required
+                                        placeholder="Enter Last Name">
+                                </div>
+                            </div>
 
                             <div class="col-lg-6">
                                 <div class="form-group">

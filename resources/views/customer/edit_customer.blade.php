@@ -50,11 +50,20 @@
 
                                 <div class="col-lg-6">
                                     <div class="form-group">
-                                        <label class="form-control-label">Name: <span class="tx-danger"></span></label>
-                                        <input class="form-control" value="{{ $cus->name }}" type="text" required
+                                        <label class="form-control-label">First Name: <span class="tx-danger"></span></label>
+                                        <input class="form-control" value="@foreach ($f_name as $key => $first_name)@if ($key<=$showing_no){{ $first_name }}@endif @endforeach" type="text" required
                                             name="firstname" required placeholder="Enter Name">
                                     </div>
                                 </div><!-- col-4 -->
+
+
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label class="form-control-label">Last Name: <span class="tx-danger"></span></label>
+                                        <input class="form-control" value="@foreach ($f_name as $key => $Last_name)@if ($key > $showing_no){{ $Last_name }}@endif @endforeach" type="text" required
+                                            name="Last_name" required placeholder="Enter Last Name">
+                                    </div>
+                                </div>
 
                                 <div class="col-lg-6">
                                     <div class="form-group">
