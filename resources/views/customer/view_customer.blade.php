@@ -95,7 +95,7 @@ td.sorting_1
 
                                     <td class="cust" attrr="{{$views->id}}" rolee="{{$role}}" style="cursor: pointer">{{ $views->email }}</td>
                                     <td class="cust" attrr="{{$views->id}}" rolee="{{$role}}" style="cursor: pointer">{{ $views->address }}</td>
-                                    <td class="cust" attrr="{{$views->id}}" rolee="{{$role}}" style="cursor: pointer">{{ $views->dob }}</td>
+                                    <td class="cust" attrr="{{$views->id}}" rolee="{{$role}}" style="cursor: pointer">{{ \Carbon\Carbon::parse($views->dob)->format('m-d-Y')}}</td>
 
                                     <td class="cust" attrr="{{$views->id}}" rolee="{{$role}}" style="cursor: pointer">{{ $views->gender }}</td>
 

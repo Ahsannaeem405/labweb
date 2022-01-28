@@ -269,7 +269,12 @@
                                date
                             </div>
                             <div class="col-7 pt-2">
-                                <span style="    font-size: 18px;color: black;">{{$order->result_date}}</span>
+                                <span style="    font-size: 18px;color: black;">
+
+ {{ \Carbon\Carbon::parse($order->result_date)->format('m-d-Y h:i A')}}
+
+
+                                </span>
                             </div>
 
                             <hr class="col-10" />

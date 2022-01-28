@@ -78,7 +78,8 @@
 
                             <tr>
                                 <td>{{ $views->id+3000 }}</td>
-                                <td>{{ $views->order_date }}</td>
+                                <td>
+                                    {{ \Carbon\Carbon::parse($views->order_date)->format('m-d-Y h:i A')}}</td>
                                 <td>{{ $views->name }}</td>
 
                                 <td>{{ $views->email }}</td>

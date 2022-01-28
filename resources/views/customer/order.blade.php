@@ -136,7 +136,7 @@
                                                 </td>
                                                 <td style="color: black" attrr="{{ $orders->id }}" rolee="{{ $role }}">
                                                     @if (isset($orders->show->created_at))
-                                                        {{ $orders->show->created_at }}
+                                                        {{ \Carbon\Carbon::parse($orders->show->created_at)->format('m-d-Y')}}
                                                     @endif
 
 
@@ -186,7 +186,7 @@
                                             </td>
                                             <td style="color: black" class="cust" attrr="{{ $orders->id }}"
                                                 rolee="{{ $role }}">
-                                                {{ $orders->order_date }}</td>
+                                                {{ \Carbon\Carbon::parse($orders->order_date)->format('m-d-Y h:i A')}}   </td>
 
                                             <td style="color: black" class="cust" attrr="{{ $orders->id }}"
                                                 rolee="{{ $role }}">
@@ -256,7 +256,13 @@
                                                 <span><i class="fas fa-calendar-minus"></i>
                                             </td>
                                             <td style="color:black" class="invoi" attrr="{{ $orders->id }}"
-                                                rolee="{{ $role }}">{{ $orders->payment_date }}</td>
+                                                rolee="{{ $role }}">
+
+                                                {{ \Carbon\Carbon::parse( $orders->payment_date)->format('m-d-Y h:i A')}}
+
+
+
+                                            </td>
 
                                             <td style="color:black"
                                                 rolee="{{ $role }}">
@@ -422,7 +428,11 @@
                                         #{{ $orders->id+3000 }} - created
                                     </div>
                                     <div class="col-5 pt-2">
-                                        <p>{{ $orders->created_at }}</p>
+                                        <p>
+
+                                            {{ \Carbon\Carbon::parse($orders->created_at)->format('m-d-Y h:i A')}}
+
+                                            </p>
                                     </div>
 
 
@@ -432,7 +442,12 @@
                                             #{{ $orders->id+3000 }} - Invoice paid
                                         </div>
                                         <div class="col-5 pt-2">
-                                            <p>{{ $orders->payment_date }}</p>
+                                            <p>
+
+
+                                                {{ \Carbon\Carbon::parse($orders->payment_date)->format('m-d-Y h:i A')}}
+
+                                            </p>
                                         </div>
                                     @endif
 
@@ -442,20 +457,17 @@
                                             #{{ $orders->id+3000 }} - Released
                                         </div>
                                         <div class="col-5 pt-2">
-                                            <p>{{ $orders->date }}</p>
+                                            <p>
+                                                {{ \Carbon\Carbon::parse($orders->date)->format('m-d-Y h:i A')}}
+
+                                            </p>
                                         </div>
                                     @endif
                                 @endif
 
                             @endforeach
 
-                            {{-- item 2 --}}
-                            {{-- <div class="col-7 pt-2"> --}}
-                            {{-- <i class="fas fa-folder"></i> New Patient Created --}}
-                            {{-- </div> --}}
-                            {{-- <div class="col-5 pt-2"> --}}
-                            {{-- <p>Jan 05 12:00 PM</p> --}}
-                            {{-- </div> --}}
+
                         </div>
 
                     </div>
@@ -471,9 +483,6 @@
     <!-- ########## END: MAIN PANEL ########## -->
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
-
-
 
 
     <script>

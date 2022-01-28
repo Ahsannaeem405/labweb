@@ -15,7 +15,7 @@
             <th scope="col" style="width: 50%;    text-align: end;  color: darkgray;  padding-top: 30px;">
 
                 <span style="font-size: 40px;font-weight:inherit;text-align: end;color: darkgray;">INVOICE</span> <br>
-                <h3 style="font-size: 17px;font-weight:inherit;text-align: end;    margin-bottom: 3px;"> {{$order_detail->payment_date}}</h3>
+                <h3 style="font-size: 17px;font-weight:inherit;text-align: end;    margin-bottom: 3px;"> {{ \Carbon\Carbon::parse($order_detail->payment_date)->format('m-d-Y h:i A')}} </h3>
                 <span style="font-size: 17px">Invoice#:{{$order_detail->id + 3000}}</span>
 
             </th>

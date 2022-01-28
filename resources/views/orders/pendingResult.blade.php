@@ -90,7 +90,9 @@
 
                             <tr>
                                 <td>{{ $views->id+3000 }}</td>
-                                <td>{{ $views->payment_date }}</td>
+                                <td>
+                                    {{ \Carbon\Carbon::parse($views->payment_date)->format('m-d-Y h:i A')}}
+                                    </td>
                                 <td>{{ $views->name }}</td>
 
                                 <td>{{ $views->email }}</td>

@@ -96,11 +96,11 @@
 
         <div class="col-lg-4 col-md-6 col-12 pt-2">
             <p class="text_gray">Collection Date</p>
-            <h6>{{\Carbon\Carbon::parse($report->created_at)->format('Y-m-d g:i A')}}</h6>
+            <h6>{{\Carbon\Carbon::parse($report->created_at)->format('m-d-Y g:i A')}}</h6>
         </div>
         <div class="col-lg-4 col-md-6 col-12 pt-2">
             <p class="text_gray">Results Date</p>
-            <h6>{{\Carbon\Carbon::parse($report->result_date)->format('Y-m-d g:i A')}}</h6>
+            <h6>{{\Carbon\Carbon::parse($report->result_date)->format('m-d-Y g:i A')}}</h6>
         </div>
         <div class="col-lg-4 col-md-6 col-12 pt-2">
             <p class="text_gray">Release Date</p>

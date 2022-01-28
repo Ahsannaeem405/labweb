@@ -107,13 +107,13 @@
       </tr>
 
       <tr>
-        <td colspan="2">TEL: 305-869-1161 FAX: 305-869-1167</td>
-        <td>COLLECTED: <span class="undr_lin">{{$customer->created_at}} </span></td>
+          <td colspan="2">TEL: 305-869-1161 FAX: 305-869-1167</td>
+          <td>COLLECTED:     <span class="undr_lin">{{ \Carbon\Carbon::parse($customer->created_at)->format('m-d-Y h:i A')}} </span></td>
       </tr>
 
       <tr>
-        <td colspan="2">DOCTOR: INTI FERNANDEZ MD</td>
-        <td>REPORTED: <span class="undr_lin">{{$customer->date}} </span></td>
+          <td colspan="2">DOCTOR: INTI FERNANDEZ MD</td>
+          <td>REPORTED: <span class="undr_lin">{{ \Carbon\Carbon::parse($customer->date)->format('m-d-Y h:i A')}}</span></td>
       </tr>
 
 
