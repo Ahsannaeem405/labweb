@@ -243,11 +243,11 @@ $cus = new Customer();
             $type = 'type_' . $i;
             if ($request->$type == "minor") {
 
-                $email = 'email_' . $i;
+
                 $name = 'name_' . $i;
                 $passport    = 'passport_' . $i;
                 $date = 'date_' . $i;
-                $SingsLink = 'SingsLink_' . $i;
+
 
                 $secondname = 'secondname_' . $i;
                 $surname = 'surname_' . $i;
@@ -267,7 +267,7 @@ $cus = new Customer();
                 $Fatigue = 'Fatigue_' . $i;
                 $Runny = 'Runny_' . $i;
                 $Select_the_test = 'Select_the_test_' . $i;
-                $othre_specify = 'othre_specify_' . $i;
+
 
 
                 $Diarrhea = 'Diarrhea_' . $i;
@@ -276,30 +276,33 @@ $cus = new Customer();
                 $Loss_of_taste = 'Loss_of_taste_' . $i;
                 $specify = 'specify_' . $i;
                 $symptoms = 'symptoms_' . $i;
-                $address = 'address_' . $i;
-                $address2 = 'address2_' . $i;
-                $town = 'town_' . $i;
-                $zip = 'zip_' . $i;
-                $Province = 'Province_' . $i;
-                $Provinced = 'Provinced_' . $i;
+
+                $address = 'address';
+                $address2 = 'address2';
+                $town = 'town';
+                $zip = 'zip';
+                $Province = 'Province';
+                $Provinced = 'Provinced';
                 if ($request->$Provinced==null)
                 {
-                    $Province = 'Province_' . $i;
+                    $Province = 'Province';
                 }
                 else{
-                    $Province = 'Provinced_' . $i;
+                    $Province = 'Provinced';
                 }
-                $Country = 'Country_' . $i;
-
-                $gender = 'gender_' . $i;
-                $Parent_name = 'Parent_name_' . $i;
-                $Parent_secondname = 'Parent_secondname_' . $i;
-                $Parent_surname = 'Parent_surname_' . $i;
-                $Parent_phone = 'Parent_phone_' . $i;
-                $Parent_dob = 'Parent_dob_' . $i;
-                $CruiseLine = 'CruiseLine_' . $i;
-                $F_Cruise = 'F_Cruise_' . $i;
-                $Destination = 'Destination_' . $i;
+                $email = 'email';
+                $Country = 'Country';
+                $SingsLink = 'SingsLink';
+                $gender = 'gender';
+                $othre_specify = 'othre_specify';
+                $Parent_name = 'Parent_name';
+                $Parent_secondname = 'Parent_secondname';
+                $Parent_surname = 'Parent_surname';
+                $Parent_phone = 'Parent_phone';
+                $Parent_dob = 'Parent_dob';
+                $CruiseLine = 'CruiseLine';
+                $F_Cruise = 'F_Cruise';
+                $Destination = 'Destination';
 
 
 
@@ -396,10 +399,6 @@ $cus = new Customer();
 
         }
 
-
-        // dd(22);
-
-        // dd(22);
 
         return back()->with('success', 'Request Submitted Successfully');
     }
@@ -597,9 +596,9 @@ $testList=testList::all();
         $showing_no=count($f_name)/2 - 1;
         if(count($f_name) % 2 != 0){
             $showing_no=$showing_no+1;
-            
+
         }
-        
+
         return view('customer.edit_customer', compact('showing_no','f_name','cus', 'Country', 'state'));
 
 

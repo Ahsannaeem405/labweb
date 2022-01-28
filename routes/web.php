@@ -32,7 +32,6 @@ Route::get('/language/{lang}', function ($lang) {
 
 
 Route:: prefix('/admin')->middleware(['auth', 'admin'])->group(function () {
-
     Route::get  ('/', [AdminController::class, 'index']);
 
 
@@ -115,6 +114,8 @@ Route:: prefix('/admin')->middleware(['auth', 'admin'])->group(function () {
 
 
     Route::get('released', [\App\Http\Controllers\orderController::class, 'released']);
+    Route::get('print/report/{id}', [\App\Http\Controllers\orderController::class, 'print']);
+    Route::get('sync/report/{id}', [\App\Http\Controllers\orderController::class, 'sync']);
     Route::post('/update/date/{id}', [\App\Http\Controllers\orderController::class, 'date_released']);
 
     Route::post('/customer/update_adult',[CustomerController::class,'update_adult']);
@@ -217,6 +218,8 @@ return view('customer.pdf2',compact('order_detail','cus'));
 
 
     Route::get('released', [\App\Http\Controllers\orderController::class, 'released']);
+    Route::get('print/report/{id}', [\App\Http\Controllers\orderController::class, 'print']);
+    Route::get('sync/report/{id}', [\App\Http\Controllers\orderController::class, 'sync']);
     Route::post('/update/date/{id}', [\App\Http\Controllers\orderController::class, 'date_released']);
 
     Route::post('/customer/update_adult',[CustomerController::class,'update_adult']);

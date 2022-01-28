@@ -770,21 +770,16 @@
                 <div class="col-12 ">
                     <h1>{{ __('profile.Name Of First Minor') }}</h1>
                 </div>
-
-
                 <div class="col-lg-4  col-12 pt-2">
                     <input type="text" required placeholder="{{ __('profile.Name') }}" name="name"
                         class="form-control">
                     <label for="">{{ __('profile.Name') }}*</label>
-
                 </div>
                 <div class="col-lg-4  col-12 pt-2">
                     <input type="text" placeholder="{{ __('profile.Second name') }}" name="secondname"
                         class="form-control">
                     <label for="">{{ __('profile.Second name') }}</label>
                 </div>
-
-
                 <input type="hidden" class="typemin" name="type" value="minor">
                 <div class="col-lg-4  col-12 pt-2">
                     <input type="text" required placeholder="{{ __('profile.Surnames') }}" name="surname"
@@ -976,6 +971,13 @@
                 </div>
 
             </div>
+
+
+        </div>
+
+
+        <div class="minorform2" style="display: none">
+
             <div class="row p-5 mt-5">
                 <div class="col-12 pt-2">
                     <h1>{{ __('profile.Address of the Minor') }}</h1>
@@ -983,19 +985,19 @@
                 </div>
                 <div class="col-lg-6  col-12 pt-2">
                     <input type="text" required placeholder="{{ __('profile.Address') }}" name="address"
-                        class="form-control">
+                           class="form-control">
                 </div>
                 <div class="col-lg-6  col-12 pt-2">
                     <input type="text" placeholder="{{ __('profile.Address2') }}" name="address2"
-                        class="form-control">
+                           class="form-control">
                 </div>
                 <div class="col-lg-6  col-12 pt-2">
                     <input type="text" required placeholder="{{ __('profile.Town') }}" name="town"
-                        class="form-control">
+                           class="form-control">
                 </div>
                 <div class="col-lg-6  col-12 pt-2">
                     <input type="text" required placeholder="{{ __('profile.Zip Code') }}" name="zip"
-                        class="form-control">
+                           class="form-control">
                 </div>
                 <div class="col-lg-6  col-12 pt-2">
                     <label>{{ __('profile.State / Province') }}*</label>
@@ -1017,7 +1019,7 @@
                     </select>
                 </div>
 
-                
+
 
 
             </div>
@@ -1028,7 +1030,7 @@
                 </div>
                 <div class="col-lg-6 col-12 pt-3">
                     <input required type="text" placeholder="{{ __('profile.E-mail') }}" name="email"
-                        class="form-control">
+                           class="form-control">
                 </div>
             </div>
 
@@ -1149,7 +1151,7 @@
                 </div>
                 <div class="col-lg-6 col-12 pt-2">
                     <input type="text" class="form-control" name="othre_specify"
-                        placeholder="{{ __('profile.Other specify') }}">
+                           placeholder="{{ __('profile.Other specify') }}">
                     <label for="">{{ __('profile.Other specify') }}</label>
                 </div>
             </div>
@@ -1159,25 +1161,25 @@
                 </div>
                 <div class="col-lg-4  col-12 pt-2">
                     <input required type="text" placeholder="{{ __('profile.Name') }}" name="Parent_name"
-                        class="form-control">
+                           class="form-control">
                     <label for="">{{ __('profile.Name') }}*</label>
 
                 </div>
                 <div class="col-lg-4  col-12 pt-2">
                     <input type="text" placeholder="{{ __('profile.Second name') }}" name="Parent_secondname"
-                        class="form-control">
+                           class="form-control">
                     <label for="">{{ __('profile.Second name') }}</label>
 
                 </div>
 
                 <div class="col-lg-4  col-12 pt-2">
                     <input required type="text" placeholder="{{ __('profile.Surnames') }}" name="Parent_surname"
-                        class="form-control">
+                           class="form-control">
                     <label for="">{{ __('profile.Surnames') }}*</label>
                 </div>
                 <div class="col-lg-6  col-12 pt-3">
                     <input required type="text" placeholder="{{ __('profile.Telephone') }}" name="Parent_phone"
-                        class="form-control">
+                           class="form-control">
                     <label for="">{{ __('profile.Telephone') }}*</label>
                 </div>
                 <div class="col-lg-6  col-12 pt-3">
@@ -1190,7 +1192,7 @@
 
                 <div class="col-lg-4 mt-3 col-12 pt-2 ">
                     <button type="button" required class="btn btn-dark appSignM" nameatt="nameatt" name="appSignM"
-                        data-toggle="modal" data-target="#exampleModalAPP">
+                            data-toggle="modal" data-target="#exampleModalAPP">
                         Click to Sign
                     </button>
                     <input type="hidden" class="SingsLink" name="SingsLink" value="">
@@ -1422,6 +1424,14 @@
 
                 });
             }
+
+            $("input[name=SingsLink]").empty();
+            $("img[name=sig-image]").empty();
+          var html2=  $('.minorform2').html();
+            $('.finalResult').append(html2);
+
+
+
         });
 
 
@@ -1469,6 +1479,10 @@
 
 
             }
+            $("input[name=SingsLink]").empty();
+            $("img[name=sig-image]").empty();
+            var html2=  $('.minorform2').html();
+            $('.finalResult').append(html2);
         });
     </script>
 
@@ -1548,11 +1562,11 @@
 
                 // alert(nameatt);
 
-                $("input[name=SingsLink_" + nameatt + "]").empty();
-                $("input[name=SingsLink_" + nameatt + "]").val(signurl);
+                $("input[name=SingsLink]").empty();
+                $("input[name=SingsLink]").val(signurl);
 
-                $("img[name=sig-image_" + nameatt + "]").empty();
-                $("img[name=sig-image_" + nameatt + "]").attr('src', signurl);
+                $("img[name=sig-image]").empty();
+                $("img[name=sig-image]").attr('src', signurl);
 
 
             });
@@ -1589,19 +1603,7 @@
 
                 });
 
-                // if (adult == 'adult') {
-                //     alert(adult);
-                //     var btnsub = $("img[name=sig-imagea]").attr('src');
 
-                //     if (btnsub == '') {
-                //         alert('Signature is required')
-                //         event.preventDefault();
-
-                //     } else {
-                //         console.log(btnsub);
-
-                //     }
-                // }
 
             });
 
@@ -1623,28 +1625,26 @@
                 $("select[name='Provincea']").show();
                 $("input[name='Provincea2']").val('');
                 $("input[name='Provincea2']").prop('required',false);
-
-
             }
 
 
             });
 
             $(document).on('change', '.changecountry2', function() {
-var atrid=$(this).attr('pos');
+
                 if ($(this).val()!='United States')
                 {
-                    $("select[name='Province_"+atrid+"']").hide();
-                    $("input[name='Provinced_"+atrid+"']").prop('required',true);
-                    $("input[name='Provinced_"+atrid+"']").show();
-                    $("input[name='Provinced_"+atrid+"']").val('');
+                    $("select[name='Province']").hide();
+                    $("input[name='Provinced']").prop('required',true);
+                    $("input[name='Provinced']").show();
+                    $("input[name='Provinced']").val('');
 
                 }
                 else  {
-                    $("select[name='Province_"+atrid+"']").show();
-                    $("input[name='Provinced_"+atrid+"']").prop('required',false);
-                    $("input[name='Provinced_"+atrid+"']").hide();
-                    $("input[name='Provinced_"+atrid+"']").val('');
+                    $("select[name='Province']").show();
+                    $("input[name='Provinced']").prop('required',false);
+                    $("input[name='Provinced']").hide();
+                    $("input[name='Provinced']").val('');
 
 
                 }

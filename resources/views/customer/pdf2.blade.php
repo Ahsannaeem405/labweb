@@ -229,7 +229,7 @@ border:1px solid black;text-align:center;
 <script>
     window.onload = function () {
         window.print();
-
+        setTimeout(window.close, 0);
     }
 </script>
 

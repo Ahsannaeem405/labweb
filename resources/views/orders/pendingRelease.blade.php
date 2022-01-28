@@ -116,15 +116,28 @@
                                             <div class="modal-body">
                                                 <form method="post" action="{{url("$role/update/date/$views->id")}}">
                                                     @csrf
+
+
+                                                    <lable>Collection date</lable>
+
+                                                    <input type="datetime-local" name="created_at" class="form-control" value="{{str_replace(' ','T',$views->created_at)}}" required >
+
+                                                    <lable>Issue date</lable>
+                                                    <input type="datetime-local" name="payment_date" class="form-control" value="{{str_replace(' ','T',$views->payment_date)}}" required >
+
+
+
                                                     <lable>Release date</lable>
+                                                    <input type="datetime-local" name="release_date" class="form-control" value="{{str_replace(' ','T',$views->date)}}" required >
 
-                                                    <input type="datetime-local" name="release_date" class="form-control" value="{{ str_replace('UTC','T',\Carbon\Carbon::parse($views->date)->format('Y-m-dTH:i')) }}" required >
 
-                                            <lable>Result</lable>
+
+                                                    <lable>Result</lable>
                                                     <select class="form-control" name="result" required>
                                                         <option @if($views->display_status=='negative') selected @endif value="negative">Negative</option>
                                                         <option @if($views->display_status=='positive') selected @endif value="positive">Positive</option>
                                                     </select>
+
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close
@@ -135,7 +148,6 @@
                                         </div>
                                     </div>
                                 </div>
-
 
                             </tr>
 
@@ -177,15 +189,7 @@
                     'copy',
                     'csv',
                     'excel',
-                    {
-                        extend: 'pdfHtml5',
-                        orientation: 'landscape',
-                        pageSize: 'LEGAL',
-                        exportOptions: {
-                            columns: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
-                        }
-
-                    }
+                    'pdf',
                 ]
             });
         });

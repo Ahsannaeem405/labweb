@@ -29,6 +29,6 @@ class result extends Mailable
      */
     public function build()
     {
-        return $this->view('pdf.index')->subject('Report')->attach(public_path("pdf/$this->rand.pdf"));
+        return $this->view('pdf.index')->subject('Report')->attach(("pdf/$this->rand.pdf"));
     }
 }

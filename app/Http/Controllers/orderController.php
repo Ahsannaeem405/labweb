@@ -12,6 +12,23 @@ use Illuminate\Support\Facades\Mail;
 class orderController extends Controller
 {
 
+    public function print($id)
+    {
+
+        $customer=Customer::with('priceList')->find($id);
+
+        $email=$customer->email;
+        $rand2 =  rand(00000,99999);
+        $idd =  base64_encode($id);
+        $host='https://'.\request()->getHost()."/report/$idd?id=$rand2";
+
+         return view('pdf.reportprint',compact('host','customer'));
+    }
+
+    public function sync($id){
+        return back()->with('success','Report Regenerated successfully');
+    }
+
 
     public function cancelOrders()
     {
@@ -211,8 +228,11 @@ return back();
     public function date_released(Request $request,$id)
     {
 
+
         $customer=Customer::find($id);
         $customer->date=$request->release_date;
+        $customer->payment_date=$request->payment_date;
+        $customer->created_at=$request->created_at;
         $customer->display_status=$request->result;
         $customer->update();
         return back()->with('success','Release date updated successfully');

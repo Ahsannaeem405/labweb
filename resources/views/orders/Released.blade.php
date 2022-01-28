@@ -125,7 +125,10 @@
                                           style="@if($views->display_status=='negative') background-color: #adeaa8;   @else   background-color: #da5920; @endif color: white;border-radius: 5px">{{ $views->display_status }}</span>
                                 </td>
                                 <td>
-                                    <i class="fa fa-edit" data-toggle="modal" data-target="#exampleModal{{$views->id}}" style="color: #9696d0;cursor: pointer" > </i>
+                                    <a class="p-1" target="_blank" href="{{url("$role/print/report/$views->id")}}">    <i class="fa fa-print"  style="color: #9696d0;cursor: pointer" > </i></a>
+                                    <a class="p-1" href="{{url("$role/sync/report/$views->id")}}">    <i class="fa fa-sync"  style="color: #9696d0;cursor: pointer" > </i></a>
+
+                                    <i  class="fa fa-edit p-1" data-toggle="modal" data-target="#exampleModal{{$views->id}}" style="color: #9696d0;cursor: pointer" > </i>
 
                                     <a href="{{url("$role/release/send/$views->id")}}">   <button
                                             class="btn btn-primary">
@@ -149,8 +152,20 @@
                                             <div class="modal-body">
                                                 <form method="post" action="{{url("$role/update/date/$views->id")}}">
                                                     @csrf
-                                                <lable>Release date</lable>
-                                                    <input type="datetime-local" name="release_date" class="form-control" value="{{ str_replace('UTC','T',\Carbon\Carbon::parse($views->date)->format('Y-m-dTH:i')) }}" required >
+
+
+                                                    <lable>Collection date</lable>
+
+                                                    <input type="datetime-local" name="created_at" class="form-control" value="{{str_replace(' ','T',$views->created_at)}}" required >
+
+                                                    <lable>Issue date</lable>
+                                                    <input type="datetime-local" name="payment_date" class="form-control" value="{{str_replace(' ','T',$views->payment_date)}}" required >
+
+
+
+                                                    <lable>Release date</lable>
+                                                    <input type="datetime-local" name="release_date" class="form-control" value="{{str_replace(' ','T',$views->date)}}" required >
+
 
 
                                                     <lable>Result</lable>
@@ -212,15 +227,7 @@
                     'copy',
                     'csv',
                     'excel',
-                    {
-                        extend: 'pdfHtml5',
-                        orientation: 'landscape',
-                        pageSize: 'LEGAL',
-                        exportOptions: {
-                            columns: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
-                        }
-
-                    }
+                    'pdf',
                 ]
             });
         });
