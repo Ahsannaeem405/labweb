@@ -64,9 +64,7 @@
 
                             {{ __('profile.c. I understand that a positive result is an indication that I should quarantine, wear a mask or cover my face so as not to infect others') }}
                <br><br>
-                                                        {{ __('profile.d. I understand that this laboratory is not acting as my physician, and does not replace the need for a physicians care when required. I also accept responsibility for my results and what they mean. I agree to obtain a medical consultation with my physician to clarify any concerns I have, to obtain care / treatment if my condition worsens.
-
-    and. I understand that like other diagnostic procedures, there is a possibility of a false positive or false negative test for Covid-19') }}
+                                                        {{ __('profile.d. I understand that this laboratory is not acting as my physician, and does not replace the need for a physicians care when required. I also accept responsibility for my results and what they mean. I agree to obtain a medical consultation with my physician to clarify any concerns I have, to obtain care / treatment if my condition worsens and I understand that like other diagnostic procedures, there is a possibility of a false positive or false negative test for Covid-19') }}
 
                        <br>
                        <br>
@@ -79,8 +77,10 @@
 
 
                            {{ __('profile.f. I understand that "Family Rehab and Communitel," are in no way responsible if the client / patient does not arrive on time for their flight / misses it or is quarantined upon arrival at their destination. I understand that the responsibility to choose the type of test necessary for my destiny is mine and mine alone.') }}
-
+                        
+                        
                         </span>
+                        
 
 
                     </td>
@@ -104,6 +104,10 @@
                         <span></span>
 
                            {{ __('profile.g. I understand and agree that "Family Rehab and Communitel" do not provide cancellations or refunds once the test has been administered.I, the patient / client, have been informed of the purpose of the test, the procedures, the possible benefits and risks. I have also received a copy of this consent. I have been given the opportunity to ask questions before signing. I accept this Covid-19 test voluntarily, for my personal, business or travel needs') }} <br><br>
+                       <br>
+                        
+                        {{ __('profile.I, the undersigned, have been informed about the test purpose, procedures, possible benefits and risks, and I have received a copy of this Informed Consent. I have been given the opportunity to ask questions before I sign, and I have been told that I can ask additional questions at any time. I voluntarily agree to this testing for COVID-19.') }}
+
                         </span>
 
                     </td>
@@ -119,7 +123,7 @@
         </div>
 
 
-        <div style="border: 2px solid #80808061;    margin-top: 21px;    border-radius: 12px; padding:0px;width: 100%">
+        <div style="border: 2px solid #80808061;    margin-top: 5px;    border-radius: 12px; padding:0px;width: 100%">
 
 
             <p style="margin-top: 0px;font-size: 24px;padding-top: 37px;padding-right: 37px;padding-left: 37px;"> &nbsp;
@@ -609,7 +613,7 @@
                         <label for="">{{__("profile.Select the test")}}</label> <br><br>
 
                         <input style="   font-size:13px;   width: 1%;" @if ($request->Select_the_testa == 'ANTÍGENO') checked  @endif type="radio"> &nbsp;
-                        {{__("profile.ANTÍGENO")}} ANTÍGENO
+                        ANTIGEN
                         <br>
                         <input style="   font-size:13px;   width: 1%;" @if ($request->Select_the_testa == 'RT-PCR') checked  @endif type="radio">&nbsp;
                         RT-PCR

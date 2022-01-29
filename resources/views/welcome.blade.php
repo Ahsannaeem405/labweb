@@ -121,8 +121,31 @@
     .dropdown-menu {
         left: -50px !important;
     }
-	
-	.wscrollbar{
+
+    @media only screen and (max-width: 425px) {
+        h4 {
+            font-size: 1.2rem !important;
+        }
+
+        h1 {
+            font-size: 1.4rem !important;
+
+        }
+
+        .img-logo {
+            width: 100% !important;
+            margin-bottom: 15% !important;
+        }
+
+    }
+
+    #sig-canvas {
+        border: 2px dotted #CCCCCC;
+        border-radius: 15px;
+        cursor: crosshair;
+    }
+    
+    .wscrollbar{
 	
 	width: 100%;
     background-image: url(https://www.smartwaiver.com/images/waiver/sw_scroll_bar_v2.png);
@@ -163,34 +186,12 @@
         visibility:hidden;
     }
 }
-	
-    @media only screen and (max-width: 425px) {
-        h4 {
-            font-size: 1.2rem !important;
-        }
-
-        h1 {
-            font-size: 1.4rem !important;
-
-        }
-
-        .img-logo {
-            width: 100% !important;
-            margin-bottom: 15% !important;
-        }
-
-    }
-
-    #sig-canvas {
-        border: 2px dotted #CCCCCC;
-        border-radius: 15px;
-        cursor: crosshair;
-    }
 
 </style>
 
 <body>
 <div class="wscrollbar" id="hscrollbar" style="display: block;"><center><img src="https://waiver.smartwaiver.com/templates/assets/images/sw_scroll_down_v2.en_US.png"></center></div>
+ 
     <div class="container pt-4">
         <div class="dropdown">
             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
@@ -234,9 +235,7 @@
                     </p>
                     <p>{{ __('profile.c. I understand that a positive result is an indication that I should quarantine, wear a mask or cover my face so as not to infect others') }}
                     </p>
-                    <p>{{ __('profile.d. I understand that this laboratory is not acting as my physician, and does not replace the need for a physicians care when required. I also accept responsibility for my results and what they mean. I agree to obtain a medical consultation with my physician to clarify any concerns I have, to obtain care / treatment if my condition worsens.
-
-                                                                                                                                                                                                                                                    and. I understand that like other diagnostic procedures, there is a possibility of a false positive or false negative test for Covid-19') }}
+                    <p>{{ __('profile.d. I understand that this laboratory is not acting as my physician, and does not replace the need for a physicians care when required. I also accept responsibility for my results and what they mean. I agree to obtain a medical consultation with my physician to clarify any concerns I have, to obtain care / treatment if my condition worsens and I understand that like other diagnostic procedures, there is a possibility of a false positive or false negative test for Covid-19') }}
                     </p>
                     <p>{{ __('profile.e. I understand that "Family Rehab and Communitel," are in no way responsible if the client / patient does not arrive on time for their flight / misses it or is quarantined upon arrival at their destination. I understand that the responsibility for choosing the type of proof necessary for my destiny is mine and mine alone.') }}
                     </p>
@@ -246,6 +245,7 @@
                     </p>
 
                 </div>
+                <p>{{ __('profile.I, the undersigned, have been informed about the test purpose, procedures, possible benefits and risks, and I have received a copy of this Informed Consent. I have been given the opportunity to ask questions before I sign, and I have been told that I can ask additional questions at any time. I voluntarily agree to this testing for COVID-19.') }}</p>
             </div>
         </div>
     </div>
@@ -497,9 +497,9 @@
                 <div class="col-12 pt-3">
                     <p>{{ __('profile.Abdominal pain *') }}</p>
                     <input type="radio" name="Abdominala" value="Yes">
-                    <label for="html">Sí</label><br>
+                    <label for="html">{{ __('profile.Yes') }}</label><br>
                     <input type="radio" checked name="Abdominala" value="No">
-                    <label for="html">No</label><br>
+                    <label for="html">{{ __('profile.No') }}</label><br>
                 </div>
                 <div class="col-12 pt-3">
                     <p>{{ __('profile.Chills *') }}</p>
@@ -594,7 +594,7 @@
                     <p>{{ __('profile.Select the test') }}*</p>
                     <input type="radio" checked name="Select_the_testa" value="Antigen - CareStart">
                     <label for="html">
-                        ANTIGENO</label><br>
+                        ANTIGEN</label><br>
                     <input type="radio" checked name="Select_the_testa" value="PCR">
                     <label for="html">PCR</label><br>
                     <input type="radio" name="Select_the_testa" value="RT-PCR - Abbott IDNOW">
@@ -1001,7 +1001,7 @@
                     <p>{{ __('profile.Select the test') }}*</p>
                     <input type="radio" checked name="Select_the_test" value="Antigen - CareStart">
                     <label for="html">
-                        ANTIGENO</label><br>
+                        ANTIGEN</label><br>
                     <input type="radio" checked name="Select_the_test" value="PCR">
                     <label for="html">PCR</label><br>
                     <input type="radio" name="Select_the_test" value="RT-PCR - Abbott IDNOW">

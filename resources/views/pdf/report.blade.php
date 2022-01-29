@@ -97,8 +97,8 @@
 
       </tr>
       <tr>
-        <td>2100 NW 42 AVE</td>
-        <td>DOB: <span class="undr_lin">{{$customer->dob}}</span></td>
+        <td>901-A SW 87 AVE</td>
+        <td>DOB: <span class="undr_lin">{{ \Carbon\Carbon::parse($customer->dob)->format('m-d-Y')}}</span></td>
         <td style="padding-left: 5px">SEX: <span class="undr_lin">{{$customer->gender}}</span></td>
       </tr>
       <tr>
@@ -107,7 +107,7 @@
       </tr>
 
       <tr>
-        <td colspan="2">TEL: 305-869-1161 FAX: 305-869-1167</td>
+        <td colspan="2">TEL: 305-225-6296 FAX: 305-225-6266</td>
         <td>COLLECTED: <span class="undr_lin">{{ \Carbon\Carbon::parse($customer->created_at)->format('m-d-Y h:i A')}} </span></td>
       </tr>
 

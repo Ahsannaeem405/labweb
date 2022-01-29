@@ -98,7 +98,7 @@
       </tr>
       <tr>
         <td>2100 NW 42 AVE</td>
-        <td>DOB: <span class="undr_lin">{{$customer->dob}}</span></td>
+        <td>DOB: <span class="undr_lin">{{ \Carbon\Carbon::parse($customer->dob)->format('m-d-Y')}}</span></td>
         <td style="padding-left: 5px">SEX: <span class="undr_lin">{{$customer->gender}}</span></td>
       </tr>
       <tr>
