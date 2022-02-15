@@ -20,7 +20,67 @@
 
 
 </head>
+<style>
+    .switch {
+        position: relative;
+        display: inline-block;
+        width: 60px;
+        height: 34px;
+    }
 
+    .switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+
+    .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ccc;
+        -webkit-transition: .4s;
+        transition: .4s;
+    }
+
+    .slider:before {
+        position: absolute;
+        content: "";
+        height: 26px;
+        width: 26px;
+        left: 4px;
+        bottom: 4px;
+        background-color: white;
+        -webkit-transition: .4s;
+        transition: .4s;
+    }
+
+    input:checked + .slider {
+        background-color: #2196F3;
+    }
+
+    input:focus + .slider {
+        box-shadow: 0 0 1px #2196F3;
+    }
+
+    input:checked + .slider:before {
+        -webkit-transform: translateX(26px);
+        -ms-transform: translateX(26px);
+        transform: translateX(26px);
+    }
+
+    /* Rounded sliders */
+    .slider.round {
+        border-radius: 34px;
+    }
+
+    .slider.round:before {
+        border-radius: 50%;
+    }
+</style>
 
 <style>
     body {
@@ -60,7 +120,7 @@
         margin-top: 2px;
     }
 
-    .adultform {
+    .adultform,.adultform2 {
         display: none;
     }
 
@@ -145,9 +205,53 @@
         cursor: crosshair;
     }
 
+    .wscrollbar{
+
+	width: 100%;
+    background-image: url(https://www.smartwaiver.com/images/waiver/sw_scroll_bar_v2.png);
+    background-repeat: repeat-x;
+    color: #dbdbdb;
+    font: 15pt verdana, helvetica;
+    z-index: 3100;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: none;
+    margin: 0;
+    padding: 0;
+	}
+
+	#hscrollbar {
+    -moz-animation: cssAnimation 0s ease-in 3s forwards;
+    /* Firefox */
+    -webkit-animation: cssAnimation 0s ease-in 3s forwards;
+    /* Safari and Chrome */
+    -o-animation: cssAnimation 0s ease-in 3s forwards;
+    /* Opera */
+    animation: cssAnimation 0s ease-in 3s forwards;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+}
+@keyframes cssAnimation {
+    to {
+        width:0;
+        height:0;
+        overflow:hidden;
+    }
+}
+@-webkit-keyframes cssAnimation {
+    to {
+        width:0;
+        height:0;
+        visibility:hidden;
+    }
+}
+
 </style>
 
 <body>
+<div class="wscrollbar" id="hscrollbar" style="display: block;"><center><img src="https://waiver.smartwaiver.com/templates/assets/images/sw_scroll_down_v2.en_US.png"></center></div>
+
     <div class="container pt-4">
         <div class="dropdown">
             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
@@ -191,9 +295,7 @@
                     </p>
                     <p>{{ __('profile.c. I understand that a positive result is an indication that I should quarantine, wear a mask or cover my face so as not to infect others') }}
                     </p>
-                    <p>{{ __('profile.d. I understand that this laboratory is not acting as my physician, and does not replace the need for a physicians care when required. I also accept responsibility for my results and what they mean. I agree to obtain a medical consultation with my physician to clarify any concerns I have, to obtain care / treatment if my condition worsens.
-
-                                                                                                                                                                                                                                                    and. I understand that like other diagnostic procedures, there is a possibility of a false positive or false negative test for Covid-19') }}
+                    <p>{{ __('profile.d. I understand that this laboratory is not acting as my physician, and does not replace the need for a physicians care when required. I also accept responsibility for my results and what they mean. I agree to obtain a medical consultation with my physician to clarify any concerns I have, to obtain care / treatment if my condition worsens and I understand that like other diagnostic procedures, there is a possibility of a false positive or false negative test for Covid-19') }}
                     </p>
                     <p>{{ __('profile.e. I understand that "Family Rehab and Communitel," are in no way responsible if the client / patient does not arrive on time for their flight / misses it or is quarantined upon arrival at their destination. I understand that the responsibility for choosing the type of proof necessary for my destiny is mine and mine alone.') }}
                     </p>
@@ -203,6 +305,7 @@
                     </p>
 
                 </div>
+                <p>{{ __('profile.I, the undersigned, have been informed about the test purpose, procedures, possible benefits and risks, and I have received a copy of this Informed Consent. I have been given the opportunity to ask questions before I sign, and I have been told that I can ask additional questions at any time. I voluntarily agree to this testing for COVID-19.') }}</p>
             </div>
         </div>
     </div>
@@ -224,10 +327,7 @@
                 <button class="btn btn-dark  minor_button">{{ __('profile.Adult and minors') }}</button>
             </div>
 
-            {{-- adults buttons --}}
-            {{-- <div class="col-12 p-0  text-center">
 
-            </div> --}}
             <div class="col-lg-2 offset-lg-1 col-12 minors  pt-2 text-center">
                 <button class="btn btn-dark  minors2  minor_btn" att="1">{{ __('profile.1 Minor') }}</button>
             </div>
@@ -265,7 +365,7 @@
             </div>
 
             <div class="col-lg-12  col-12  minors  text-center">
-                <div class="row" style="box-shadow: none;">
+                <div class="row mt-2" style="box-shadow: none;">
                     <div class="col-lg-2 offset-lg-5">
                         <button
                             class="btn btn-dark minor_btn minors2 minors222">{{ __('profile.More Minors') }}</button>
@@ -275,6 +375,9 @@
 
 
             </div>
+
+            <div class="w-100 my-1"><h1 id="adult-text" style="display: none" class="text-center m-auto">This aggrement is for YOU and a MINORS</h1></div>
+
 
             {{-- minoor buttons --}}
 
@@ -311,7 +414,7 @@
 
 
             <div class="col-lg-12  col-12  minors1 text-center">
-                <div class="row" style="box-shadow: none;">
+                <div class="row mt-2" style="box-shadow: none;">
                     <div class="col-lg-2 offset-lg-5">
                         <button class="btn btn-dark  minors5 minorsb">{{ __('profile.More Minors') }}</button>
 
@@ -321,23 +424,21 @@
 
             </div>
 
+            <div class="w-100 my-1"><h1 id="minor-text" style="display: none" class="text-center m-auto">This aggrement is for a MINORS</h1></div>
+
             <div class="col-12 pt-5 text-center ma_div">
                 <h2>{{ __('profile.This contract is for YOU only') }}</h2>
-                <button class="btn btn-dark mt-2 MinoraAdult_continue">{{ __('profile.Continue') }}</button>
+                <button class="btn btn-dark mt-2 continue">{{ __('profile.Continue') }}</button>
 
 
             </div>
 
             <div class="col-12 pt-5 text-center Minor_div">
-                <h2>{{ __('profile.This contract is for YOU only') }}</h2>
-                <button class="btn btn-dark mt-2 Minor_continue">{{ __('profile.Continue') }}</button>
-
+                <button class="btn btn-dark mt-2 continue2">{{ __('profile.Continue') }}</button>
 
             </div>
             <div class="col-12 pt-5 text-center adult">
-                <h2>{{ __('profile.This contract is for YOU only') }}</h2>
-                <button class="btn btn-dark mt-2 continue">{{ __('profile.Continue') }}</button>
-
+                <button class="btn btn-dark mt-2 continue3">{{ __('profile.Continue') }}</button>
 
             </div>
 
@@ -454,9 +555,9 @@
                 <div class="col-12 pt-3">
                     <p>{{ __('profile.Abdominal pain *') }}</p>
                     <input type="radio" name="Abdominala" value="Yes">
-                    <label for="html">Sí</label><br>
+                    <label for="html">{{ __('profile.Yes') }}</label><br>
                     <input type="radio" checked name="Abdominala" value="No">
-                    <label for="html">No</label><br>
+                    <label for="html">{{ __('profile.No') }}</label><br>
                 </div>
                 <div class="col-12 pt-3">
                     <p>{{ __('profile.Chills *') }}</p>
@@ -551,7 +652,7 @@
                     <p>{{ __('profile.Select the test') }}*</p>
                     <input type="radio" checked name="Select_the_testa" value="Antigen - CareStart">
                     <label for="html">
-                        ANTIGENO</label><br>
+                        ANTIGEN</label><br>
                     <input type="radio" checked name="Select_the_testa" value="PCR">
                     <label for="html">PCR</label><br>
                     <input type="radio" name="Select_the_testa" value="RT-PCR - Abbott IDNOW">
@@ -648,105 +749,194 @@
 
 
             <div class="row p-5 mt-5">
-                <div class="col-12">
-                    <h1>{{__('profile.FLIGHT/CRUISE INFORMATION')}}</h1>
+
+
+                <h3>   <label class="switch">
+                        <input type="checkbox" name="traveling" value="1" id="adult-flight-check">
+                        <span class="slider round"></span>
+                    </label>{{__('profile.Are you traveling?')}}</h3>
+
+               <div class="w-100 row m-0" id="adult-flight" style="box-shadow: none;display: none">
+                   <div class="col-12">
+                       <h1>{{__('profile.FLIGHT/CRUISE INFORMATION')}}</h1>
+                   </div>
+                   <div class="col-lg-6 col-12 pt-3">
+
+                       <label for="">{{__('profile.Airline/CruiseLine*')}}</label>
+                       <select  name="CruiseLinea" id="" class="form-control">
+
+                           <option value="Air Lingus (EI)">Air Lingus (EI)</option>
+                           <option value="Aeroflot (SU)">Aeroflot (SU) </option>
+                           <option value="Aerolineas Argentinas (AR)">Aerolineas Argentinas (AR)</option>
+                           <option value="Aeromexico (AM)">Aeromexico (AM)</option>
+                           <option value="Air Canada (AC)">Air Canada (AC)</option>
+
+                           <option value="Air Century (Y2)">Air Century (Y2)</option>
+                           <option value="Air Europa (UX)">Air Europa (UX)</option>
+                           <option value="Air France (AF)">Air France (AF)</option>
+                           <option value="Alitalia (AZ)">Alitalia (AZ)</option>
+                           <option value="American Airlines (AA)">American Airlines (AA)</option>
+                           <option value="Avianca (AV, TA)">Avianca (AV, TA)</option>
+                           <option value="Bahamasair (UP)">Bahamasair (UP)</option>
+                           <option value="BOA-Boliviana de Aviacion (OB)">BOA-Boliviana de Aviacion (OB)</option>
+                           <option value="British Airways (BA)">British Airways (BA)</option>
+                           <option value="Caribbean Airlines (BW)">Caribbean Airlines (BW)</option>
+                           <option value="Cayman Airways (KX)">Cayman Airways (KX)</option>
+
+                           <option value="COPA Airlines (CM)">COPA Airlines (CM)</option>
+                           <option value="Delta Air Lines (DL)">Delta Air Lines (DL)</option>
+                           <option value="Eastern Airlines (2D)">Eastern Airlines (2D)</option>
+                           <option value="El Al (LY)">El Al (LY)</option>
+                           <option value="Emirates (EK)">Emirates (EK)</option>
+                           <option value="Finnair (AY)">Finnair (AY)</option>
+                           <option value="Frontier Airlines (F9)">Frontier Airlines (F9)</option>
+                           <option value="Iberia (IB)">Iberia (IB)</option>
+                           <option value="JetBlue (B6)">JetBlue (B6)</option>
+                           <option value="KLM (KL)">KLM (KL)</option>
+                           <option value="LATAM Airlines (4M, JJ, LA,LP, XP)">LATAM Airlines (4M, JJ, LA,LP, XP)</option>
+                           <option value="LOT Polish Airlines (LO)">LOT Polish Airlines (LO)</option>
+                           <option value="Lufthansa (LH)">Lufthansa (LH)</option>
+                           <option value="Qatar (QR)">Qatar (QR)</option>
+                           <option value="SAS (SK)">SAS (SK)</option>
+                           <option value="Southwest (WN)">Southwest (WN)</option>
+                           <option value="Sun Country (SY)">Sun Country (SY)</option>
+                           <option value="Sunwing (WG)">Sunwing (WG)</option>
+                           <option value="Surinam Airways (PY)">Surinam Airways (PY)</option>
+                           <option value="Swift Air (SWQ)">Swift Air (SWQ)</option>
+                           <option value="Swiss International (LX)">Swiss International (LX)</option>
+                           <option value="TAP Air Portugal (TP)">TAP Air Portugal (TP)</option>
+                           <option value="TUIfly (TB, OR)">TUIfly (TB, OR)</option>
+                           <option value="Turkish (TK)">Turkish (TK)</option>
+                           <option value="United Airlines (UA)">United Airlines (UA)</option>
+                           <option value="Virgin Atlantic (VS)">Virgin Atlantic (VS)</option>
+                           <option value="Viva (VH)">Viva (VH)</option>
+                           <option value="Volaris (Y4)">Volaris (Y4)</option>
+                           <option value="WestJet (WS)">WestJet (WS)</option>
+                           <option value="World Atlantic (WAL)">World Atlantic (WAL)</option>
+                           <option value="N/A">N/A</option>
+                           <option value="Azamara Club Cruises">Azamara Club Cruises</option>
+                           <option value="Carnival">Carnival</option>
+                           <option value="Celebrity X Cruises">Celebrity X Cruises</option>
+                           <option value="Crystal Cruises">Crystal Cruises</option>
+                           <option value="Disney Cruise Line">Disney Cruise Line</option>
+                           <option value="MSC Cruises">MSC Cruises</option>
+                           <option value="Norwegian Cruise Line">Norwegian Cruise Line</option>
+                           <option value="Oceania Cruises">Oceania Cruises</option>
+                           <option value="Regent Seven Seas Cruises">Regent Seven Seas Cruises</option>
+                           <option value="Royal Caribbean International">Royal Caribbean International</option>
+                           <option value="Viking Ocean Cruises">Viking Ocean Cruises</option>
+                           <option value="Virgin Voyages">Virgin Voyages</option>
+                           <option value="AIDA">AIDA</option>
+                           <option value="Hapag-Lloyd">Hapag-Lloyd</option>
+                           <option value="Hurtigruten">Hurtigruten</option>
+                           <option value="PampO Cruises">P&amp;amp;O Cruises</option>
+                           <option value="Phoenix">Phoenix</option>
+                           <option value="Pricess Cruises">Pricess Cruises</option>
+                           <option value="SAGA">SAGA</option>
+                           <option value="SCENIC Luxury Cruises">SCENIC Luxury Cruises</option>
+                           <option value="SEABOURN">SEABOURN</option>
+                           <option value="TUI Cruises">TUI Cruises</option>
+                           <option value="Windstar Cruises">Windstar Cruises</option>
+
+
+
+                       </select>
+
+                   </div>
+
+                   <div class="col-lg-6 col-12 pt-3">
+                       <label for="">{{__('profile.Destination')}}*</label>
+                       <input type="text"  placeholder="Destination" name="Destinationa" class="form-control">
+                   </div>
+
+
+                   <div class="col-lg-6 col-12 pt-3">
+                       <label for="">{{__('profile.Flight/Cruise #')}} *</label>
+                       <input type="text"  placeholder="Flight/Cruise" name="F_Cruisea" class="form-control">
+                   </div>
+               </div>
+               </div>
+
+
+            <div class="row p-5 mt-5">
+                <h3>   <label class="switch">
+                        <input type="checkbox" name="insurance" value="1"  id="adult-insurance-check">
+                        <span class="slider round"></span>
+                    </label>{{__('profile.Insurance Information')}}</h3>
+
+                <div class="w-100 row m-0" id="adult-insurance" style="box-shadow: none;display: none">
+
+                    <div class="col-lg-6 mb-3">
+
+                        <input type="text" class="form-control" placeholder="{{__('profile.Primary Insurance')}}" name="primary_ins">
+
+                    </div>
+
+                    <div class="col-lg-6 mb-3">
+
+                        <input type="text" class="form-control" placeholder="{{__('profile.Secondary Insurance')}}" name="secondary_ins">
+                    </div>
+
+                    <div class="col-lg-6 mb-3">
+
+                        <input type="text" class="form-control" placeholder="{{__('profile.Policy Holder Name')}}" name="policy_holder_name1">
+                    </div>
+
+                    <div class="col-lg-6 mb-3">
+
+                        <input type="text" class="form-control" placeholder="{{__('profile.Policy Holder Name')}}" name="policy_holder_name2">
+                    </div>
+
+
+                    <div class="col-lg-6 mb-3">
+
+                        <input type="text" class="form-control" placeholder="{{__('profile.Relationship Patient')}}" name="relationship_patient1">
+                    </div>
+
+                    <div class="col-lg-6 mb-3">
+
+                        <input type="text" class="form-control" placeholder="{{__('profile.Relationship Patient')}}" name="relationship_patient2">
+                    </div>
+
+
+                    <div class="col-lg-6 mb-3">
+
+                        <input type="text" class="form-control" placeholder="{{__('profile.Policy Holder DOB')}}" name="policy_holder_dob1">
+                    </div>
+
+                    <div class="col-lg-6 mb-3">
+
+                        <input type="text" class="form-control" placeholder="{{__('profile.Policy Holder DOB')}}" name="policy_holder_dob2">
+                    </div>
+
+
+                    <div class="col-lg-6 mb-3">
+
+                        <input type="text" class="form-control" placeholder="{{__('profile.Policy # / Member ID')}}" name="policy_member_id1">
+                    </div>
+
+                    <div class="col-lg-6 mb-3">
+
+                        <input type="text" class="form-control" placeholder="{{__('profile.Policy # / Member ID')}}" name="policy_member_id2">
+                    </div>
+
+                    <div class="col-lg-6 mb-3">
+
+                        <input type="text" class="form-control" placeholder="{{__('profile.Group #')}}" name="group1">
+                    </div>
+
+                    <div class="col-lg-6 mb-3">
+
+                        <input type="text" class="form-control" placeholder="{{__('profile.Group #')}}" name="group2">
+                    </div>
+
+
                 </div>
-                <div class="col-lg-6 col-12 pt-3">
-
-                    <label for="">{{__('profile.Airline/CruiseLine*')}}</label>
-                    <select required name="CruiseLinea" id="" class="form-control">
-
-                        <option value="Air Lingus (EI)">Air Lingus (EI)</option>
-                        <option value="Aeroflot (SU)">Aeroflot (SU) </option>
-                        <option value="Aerolineas Argentinas (AR)">Aerolineas Argentinas (AR)</option>
-                        <option value="Aeromexico (AM)">Aeromexico (AM)</option>
-                        <option value="Air Canada (AC)">Air Canada (AC)</option>
-
-                        <option value="Air Century (Y2)">Air Century (Y2)</option>
-                        <option value="Air Europa (UX)">Air Europa (UX)</option>
-                        <option value="Air France (AF)">Air France (AF)</option>
-                        <option value="Alitalia (AZ)">Alitalia (AZ)</option>
-                        <option value="American Airlines (AA)">American Airlines (AA)</option>
-                        <option value="Avianca (AV, TA)">Avianca (AV, TA)</option>
-                        <option value="Bahamasair (UP)">Bahamasair (UP)</option>
-                        <option value="BOA-Boliviana de Aviacion (OB)">BOA-Boliviana de Aviacion (OB)</option>
-                        <option value="British Airways (BA)">British Airways (BA)</option>
-                        <option value="Caribbean Airlines (BW)">Caribbean Airlines (BW)</option>
-                        <option value="Cayman Airways (KX)">Cayman Airways (KX)</option>
-
-                        <option value="COPA Airlines (CM)">COPA Airlines (CM)</option>
-                        <option value="Delta Air Lines (DL)">Delta Air Lines (DL)</option>
-                        <option value="Eastern Airlines (2D)">Eastern Airlines (2D)</option>
-                        <option value="El Al (LY)">El Al (LY)</option>
-                        <option value="Emirates (EK)">Emirates (EK)</option>
-                        <option value="Finnair (AY)">Finnair (AY)</option>
-                        <option value="Frontier Airlines (F9)">Frontier Airlines (F9)</option>
-                        <option value="Iberia (IB)">Iberia (IB)</option>
-                        <option value="JetBlue (B6)">JetBlue (B6)</option>
-                        <option value="KLM (KL)">KLM (KL)</option>
-                        <option value="LATAM Airlines (4M, JJ, LA,LP, XP)">LATAM Airlines (4M, JJ, LA,LP, XP)</option>
-                        <option value="LOT Polish Airlines (LO)">LOT Polish Airlines (LO)</option>
-                        <option value="Lufthansa (LH)">Lufthansa (LH)</option>
-                        <option value="Qatar (QR)">Qatar (QR)</option>
-                        <option value="SAS (SK)">SAS (SK)</option>
-                        <option value="Southwest (WN)">Southwest (WN)</option>
-                        <option value="Sun Country (SY)">Sun Country (SY)</option>
-                        <option value="Sunwing (WG)">Sunwing (WG)</option>
-                        <option value="Surinam Airways (PY)">Surinam Airways (PY)</option>
-                        <option value="Swift Air (SWQ)">Swift Air (SWQ)</option>
-                        <option value="Swiss International (LX)">Swiss International (LX)</option>
-                        <option value="TAP Air Portugal (TP)">TAP Air Portugal (TP)</option>
-                        <option value="TUIfly (TB, OR)">TUIfly (TB, OR)</option>
-                        <option value="Turkish (TK)">Turkish (TK)</option>
-                        <option value="United Airlines (UA)">United Airlines (UA)</option>
-                        <option value="Virgin Atlantic (VS)">Virgin Atlantic (VS)</option>
-                        <option value="Viva (VH)">Viva (VH)</option>
-                        <option value="Volaris (Y4)">Volaris (Y4)</option>
-                        <option value="WestJet (WS)">WestJet (WS)</option>
-                        <option value="World Atlantic (WAL)">World Atlantic (WAL)</option>
-                        <option value="N/A">N/A</option>
-                        <option value="Azamara Club Cruises">Azamara Club Cruises</option>
-                        <option value="Carnival">Carnival</option>
-                        <option value="Celebrity X Cruises">Celebrity X Cruises</option>
-                        <option value="Crystal Cruises">Crystal Cruises</option>
-                        <option value="Disney Cruise Line">Disney Cruise Line</option>
-                        <option value="MSC Cruises">MSC Cruises</option>
-                        <option value="Norwegian Cruise Line">Norwegian Cruise Line</option>
-                        <option value="Oceania Cruises">Oceania Cruises</option>
-                        <option value="Regent Seven Seas Cruises">Regent Seven Seas Cruises</option>
-                        <option value="Royal Caribbean International">Royal Caribbean International</option>
-                        <option value="Viking Ocean Cruises">Viking Ocean Cruises</option>
-                        <option value="Virgin Voyages">Virgin Voyages</option>
-                        <option value="AIDA">AIDA</option>
-                        <option value="Hapag-Lloyd">Hapag-Lloyd</option>
-                        <option value="Hurtigruten">Hurtigruten</option>
-                        <option value="PampO Cruises">P&amp;amp;O Cruises</option>
-                        <option value="Phoenix">Phoenix</option>
-                        <option value="Pricess Cruises">Pricess Cruises</option>
-                        <option value="SAGA">SAGA</option>
-                        <option value="SCENIC Luxury Cruises">SCENIC Luxury Cruises</option>
-                        <option value="SEABOURN">SEABOURN</option>
-                        <option value="TUI Cruises">TUI Cruises</option>
-                        <option value="Windstar Cruises">Windstar Cruises</option>
 
 
 
-                    </select>
 
-                </div>
-
-                <div class="col-lg-6 col-12 pt-3">
-                    <label for="">{{__('profile.Destination')}}*</label>
-                    <input type="text" required placeholder="Destination" name="Destinationa" class="form-control">
-                </div>
-
-
-                <div class="col-lg-6 col-12 pt-3">
-                    <label for="">{{__('profile.Flight/Cruise #')}} *</label>
-                    <input type="text" required placeholder="Flight/Cruise" name="F_Cruisea" class="form-control">
-                </div>
             </div>
-
 
 
             <div class="row p-5 mt-5">
@@ -762,6 +952,234 @@
                     <input type="radio" name="gendera" value="Other">{{ __('profile.Other') }}<br>
                 </div>
             </div>
+
+        </div>
+
+
+        <div class="adultform2">
+            <div class="row p-5">
+                <div class="col-12 ">
+                    <h1>{{ __('profile.Customer name') }}</h1>
+                </div>
+                <div class="col-lg-4 col-12 pt-2">
+                    <input required type="text" placeholder="{{ __('profile.Name') }}" name="namea"
+                           class="form-control">
+                    <label for="">{{ __('profile.Name') }}*</label>
+
+                </div>
+                <div class="col-lg-4  col-12 pt-2">
+                    <input type="text" placeholder="{{ __('profile.Second name') }}" name="secondnamea"
+                           class="form-control">
+                    <label for="">{{ __('profile.Second name') }}</label>
+                    <input type="hidden" class="typeadu" name="type" value="adultminor" id="">
+
+
+                </div>
+                <div class="col-lg-4  col-12 pt-2">
+                    <input required type="text" placeholder="{{ __('profile.Last name') }}" name="surnamea"
+                           class="form-control">
+                    <label for="">{{ __('profile.Last name') }}*</label>
+                </div>
+                <div class="col-lg-6  col-12 pt-3">
+                    <input required type="text" placeholder="{{ __('profile.Telephone') }}" name="phonea"
+                           class="form-control">
+                    <label for="">{{ __('profile.Telephone') }}*</label>
+                </div>
+
+                <div class="col-lg-6  col-12 pt-3">
+
+
+                    <select name="Fgender" class="form-control">
+                        <option value="male">{{ __('profile.Male') }}</option>
+                        <option value="female">{{ __('profile.Female') }}</option>
+
+                    </select>
+                    <label>{{ __('profile.Gender:') }}</label>
+                </div>
+                <div class="col-12 pt-3">
+                    <h1>{{ __("profile.Client's date of birth") }}*</h1>
+                </div>
+                <div class="col-lg-6 col-12 pt-3">
+                    <input required type="date" name="datea" value="date" class="form-control">
+                </div>
+
+
+
+
+                <div class="col-12 pt-5">
+
+
+                </div>
+
+                <div class="col-12 pt-5">
+
+                    <h1>{{ __('profile.Additional customer information') }}</h1>
+                </div>
+                <div class="col-lg-6 col-12 pt-3">
+                    <input required type="text" name="passporta" placeholder="{{ __('profile.Passport #') }}"
+                           class="form-control">
+                    <label for="">{{ __('profile.Passport #') }}*</label>
+                </div>
+                <div class="col-12 pt-3">
+                    <b>{{ __('profile.Have you had any of the following symptoms in the past 14 days?') }}</b>
+                </div>
+                <div class="col-12 pt-3">
+                    <p>{{ __('profile.Fever') }}*</p>
+                    <input type="radio" name="Fevera" value="Yes">
+                    <label for="html">{{ __('profile.Yes') }}</label><br>
+                    <input type="radio" checked name="Fevera" value="No">
+                    <label for="html">{{ __('profile.No') }}</label><br>
+                </div>
+                <div class="col-12 pt-3">
+                    <p>
+                        {{ __('profile.Cough (new onset or worsening of chronic cough) *') }}</p>
+                    <input type="radio" name="Cougha" value="Yes">
+                    <label for="html">{{ __('profile.Yes') }}</label><br>
+                    <input type="radio" checked name="Cougha" value="No">
+                    <label for="html">{{ __('profile.No') }}</label><br>
+                </div>
+
+                <div class="col-12 pt-3">
+                    <p>{{ __('profile.Throat pain') }}*</p>
+                    <input type="radio" name="Throata" value="Yes">
+                    <label for="html">{{ __('profile.Yes') }}</label><br>
+                    <input type="radio" checked name="Throata" value="No">
+                    <label for="html">{{ __('profile.No') }}</label><br>
+                </div>
+                <div class="col-12 pt-3">
+                    <p>{{ __('profile.Difficulty breathing (dyspnea)') }}*</p>
+                    <input type="radio" name="breathinga" value="Yes">
+                    <label for="html">{{ __('profile.Yes') }}</label><br>
+                    <input type="radio" checked name="breathinga" value="No">
+                    <label for="html">{{ __('profile.No') }}</label><br>
+                </div>
+
+
+                <div class="col-12 pt-3">
+                    <p>{{ __('profile.Nausea *') }}*</p>
+                    <input type="radio" name="Nauseaa" value="Yes">
+                    <label for="html">{{ __('profile.Yes') }}</label><br>
+                    <input type="radio" checked name="Nauseaa" value="No">
+                    <label for="html">{{ __('profile.No') }}</label><br>
+                </div>
+                <div class="col-12 pt-3">
+                    <p>{{ __('profile.Abdominal pain *') }}</p>
+                    <input type="radio" name="Abdominala" value="Yes">
+                    <label for="html">{{ __('profile.Yes') }}</label><br>
+                    <input type="radio" checked name="Abdominala" value="No">
+                    <label for="html">{{ __('profile.No') }}</label><br>
+                </div>
+                <div class="col-12 pt-3">
+                    <p>{{ __('profile.Chills *') }}</p>
+                    <input type="radio" name="Chillsa" value="Yes">
+                    <label for="html">{{ __('profile.Yes') }}</label><br>
+                    <input type="radio" checked name="Chillsa" value="No">
+                    <label for="html">{{ __('profile.No') }}</label><br>
+                </div>
+                <div class="col-12 pt-3">
+                    <p>{{ __('profile.Headache') }}*</p>
+                    <input type="radio" name="Headachea" value="Yes">
+                    <label for="html">{{ __('profile.Yes') }}</label><br>
+                    <input type="radio" checked name="Headachea" value="No">
+                    <label for="html">{{ __('profile.No') }}</label><br>
+                </div>
+                <div class="col-12 pt-3">
+                    <p>{{ __('profile.Muscle aches (myalgia)') }}*</p>
+                    <input type="radio" name="Musclea" value="Yes">
+                    <label for="html">{{ __('profile.Yes') }}</label><br>
+                    <input type="radio" checked name="Musclea" value="No">
+                    <label for="html">{{ __('profile.No') }}</label><br>
+                </div>
+
+
+                <div class="col-12 pt-3">
+                    <p>{{ __('profile.Fatigue *') }}</p>
+                    <input type="radio" name="Fatiguea" value="Yes">
+                    <label for="html">{{ __('profile.Yes') }}</label><br>
+                    <input type="radio" checked name="Fatiguea" value="No">
+                    <label for="html">{{ __('profile.No') }}</label><br>
+                </div>
+                <div class="col-12 pt-3">
+                    <p>{{ __('profile.Runny nose (rhinorrhea) *') }}</p>
+                    <input type="radio" name="Runnya" value="Yes">
+                    <label for="html">{{ __('profile.Yes') }}</label><br>
+                    <input type="radio" checked name="Runnya" value="No">
+                    <label for="html">{{ __('profile.No') }}</label><br>
+                </div>
+                <div class="col-12 pt-3">
+                    <p>{{ __('profile.Vomiting') }}*</p>
+                    <input type="radio" name="Vomitinga" value="Yes">
+                    <label for="html">{{ __('profile.Yes') }}</label><br>
+                    <input type="radio" checked name="Vomitinga" value="No">
+                    <label for="html">{{ __('profile.No') }}</label><br>
+                </div>
+
+                <div class="col-12 pt-3">
+                    <p>{{ __('profile.Diarrhea (3 loose stools / day) *') }}</p>
+                    <input type="radio" name="Diarrheaa" value="Yes">
+                    <label for="html">{{ __('profile.Yes') }}</label><br>
+                    <input type="radio" checked name="Diarrheaa" value="No">
+                    <label for="html">{{ __('profile.No') }}</label><br>
+                </div>
+
+
+                <div class="col-12 pt-3">
+                    <p>{{ __('profile.Loss of smell *') }}</p>
+                    <input type="radio" name="Loss_of_smella" value="Yes">
+                    <label for="html">{{ __('profile.Yes') }}</label><br>
+                    <input type="radio" checked name="Loss_of_smella" value="No">
+                    <label for="html">{{ __('profile.No') }}</label><br>
+                </div>
+
+                <div class="col-12 pt-3">
+                    <p>{{ __('profile.Loss of taste') }}*</p>
+                    <input type="radio" name="Loss_of_tastea" value="Yes">
+                    <label for="html">{{ __('profile.Yes') }}</label><br>
+                    <input type="radio" checked name="Loss_of_tastea" value="No">
+                    <label for="html">{{ __('profile.No') }}</label><br>
+                </div>
+                <div class="col-12 pt-3">
+                    <input type="text" placeholder="{{ __('profile.Other specify') }}" name="specifya"
+                           class="form-control">
+                    <label for="">{{ __('profile.Other specify') }}</label>
+                </div>
+                <div class="col-12 pt-3">
+                    <input type="text" placeholder="{{ __('profile.Date of onset of the first symptoms') }}"
+                           name="symptomsa" class="form-control">
+                    <label for="">{{ __('profile.Date of onset of the first symptoms') }}</label>
+                </div>
+                <div class="col-12 pt-5">
+                    <h5>
+                        {{ __('profile.Lab test') }}</h5>
+                </div>
+                <div class="col-12 pt-5">
+                    <b>
+
+                        {{ __('profile.Test type: nasal swab (PCR) / antigen / SARS-COV-2') }}</b>
+                </div>
+
+                <div class="col-12 pt-3">
+                    <p>{{ __('profile.Select the test') }}*</p>
+                    <input type="radio" checked name="Select_the_testa" value="Antigen - CareStart">
+                    <label for="html">
+                        ANTIGEN</label><br>
+                    <input type="radio" checked name="Select_the_testa" value="PCR">
+                    <label for="html">PCR</label><br>
+                    <input type="radio" name="Select_the_testa" value="RT-PCR - Abbott IDNOW">
+                    <label for="RT">RT-PCR
+                    </label><br>
+                    <input type="radio" name="Select_the_testa" value="PCR - 24hrs">
+                    <label for="html">PCR-24hrs</label><br>
+                    <input type="radio" name="Select_the_testa" value="RT-PCR 24hrs - Abbott IDNOW">
+                    <label for="html">RT-PCR 24hrs</label><br>
+                </div>
+
+
+
+
+
+            </div>
+
 
         </div>
 
@@ -958,7 +1376,7 @@
                     <p>{{ __('profile.Select the test') }}*</p>
                     <input type="radio" checked name="Select_the_test" value="Antigen - CareStart">
                     <label for="html">
-                        ANTIGENO</label><br>
+                        ANTIGEN</label><br>
                     <input type="radio" checked name="Select_the_test" value="PCR">
                     <label for="html">PCR</label><br>
                     <input type="radio" name="Select_the_test" value="RT-PCR - Abbott IDNOW">
@@ -974,7 +1392,6 @@
 
 
         </div>
-
 
         <div class="minorform2" style="display: none">
 
@@ -1019,9 +1436,6 @@
                     </select>
                 </div>
 
-
-
-
             </div>
             <div class="row p-5 mt-5">
                 <div class="col-12">
@@ -1036,13 +1450,21 @@
 
 
             <div class="row p-5 mt-5">
+
+                <h3>   <label class="switch">
+                        <input type="checkbox" name="traveling" value="1"  id="minor-flight-check">
+                        <span class="slider round"></span>
+                    </label>{{__('profile.Are you traveling?')}}</h3>
+
+                <div class="w-100 row m-0" id="minor-flight" style="box-shadow: none;display: none">
+
                 <div class="col-12">
                     <h1>{{__('profile.FLIGHT/CRUISE INFORMATION')}}</h1>
                 </div>
                 <div class="col-lg-6 col-12 pt-3">
 
                     <label for="">{{__('profile.Airline/CruiseLine*')}}</label>
-                    <select required name="CruiseLine" id="" class="form-control">
+                    <select  name="CruiseLine" id="" class="form-control">
 
 
                         <option value="Air Lingus (EI)">Air Lingus (EI)</option>
@@ -1126,16 +1548,98 @@
 
                 <div class="col-lg-6 col-12 pt-3">
                     <label for="">{{__('profile.Destination')}}*</label>
-                    <input type="text" required placeholder="Destination" name="Destination" class="form-control">
+                    <input type="text"  placeholder="Destination" name="Destination" class="form-control">
                 </div>
 
 
                 <div class="col-lg-6 col-12 pt-3">
                     <label for="">{{__('profile.Flight/Cruise #')}} *</label>
-                    <input type="text" required placeholder="Flight/Cruise" name="F_Cruise" class="form-control">
+                    <input type="text"  placeholder="Flight/Cruise" name="F_Cruise" class="form-control">
                 </div>
             </div>
+            </div>
 
+
+
+            <div class="row p-5 mt-5">
+                <h3>   <label class="switch">
+                        <input type="checkbox" name="insurance" value="1"  id="minor-insurance-check">
+                        <span class="slider round"></span>
+                    </label>{{__('profile.Insurance Information')}}</h3>
+
+                <div class="w-100 row m-0" id="minor-insurance" style="box-shadow: none;display: none">
+
+                    <div class="col-lg-6 mb-3">
+
+                        <input type="text" class="form-control" placeholder="{{__('profile.Primary Insurance')}}" name="primary_ins">
+
+                    </div>
+
+                    <div class="col-lg-6 mb-3">
+
+                        <input type="text" class="form-control" placeholder="{{__('profile.Secondary Insurance')}}" name="secondary_ins">
+                    </div>
+
+                    <div class="col-lg-6 mb-3">
+
+                        <input type="text" class="form-control" placeholder="{{__('profile.Policy Holder Name')}}" name="policy_holder_name1">
+                    </div>
+
+                    <div class="col-lg-6 mb-3">
+
+                        <input type="text" class="form-control" placeholder="{{__('profile.Policy Holder Name')}}" name="policy_holder_name2">
+                    </div>
+
+
+                    <div class="col-lg-6 mb-3">
+
+                        <input type="text" class="form-control" placeholder="{{__('profile.Relationship Patient')}}" name="relationship_patient1">
+                    </div>
+
+                    <div class="col-lg-6 mb-3">
+
+                        <input type="text" class="form-control" placeholder="{{__('profile.Relationship Patient')}}" name="relationship_patient2">
+                    </div>
+
+
+                    <div class="col-lg-6 mb-3">
+
+                        <input type="text" class="form-control" placeholder="{{__('profile.Policy Holder DOB')}}" name="policy_holder_dob1">
+                    </div>
+
+                    <div class="col-lg-6 mb-3">
+
+                        <input type="text" class="form-control" placeholder="{{__('profile.Policy Holder DOB')}}" name="policy_holder_dob2">
+                    </div>
+
+
+                    <div class="col-lg-6 mb-3">
+
+                        <input type="text" class="form-control" placeholder="{{__('profile.Policy # / Member ID')}}" name="policy_member_id1">
+                    </div>
+
+                    <div class="col-lg-6 mb-3">
+
+                        <input type="text" class="form-control" placeholder="{{__('profile.Policy # / Member ID')}}" name="policy_member_id2">
+                    </div>
+
+                    <div class="col-lg-6 mb-3">
+
+                        <input type="text" class="form-control" placeholder="{{__('profile.Group #')}}" name="group1">
+                    </div>
+
+                    <div class="col-lg-6 mb-3">
+
+                        <input type="text" class="form-control" placeholder="{{__('profile.Group #')}}" name="group2">
+                    </div>
+
+
+                </div>
+
+
+
+
+            </div>
 
             <div class="row p-5 mt-5">
                 <div class="col-12">
@@ -1214,6 +1718,8 @@
             </div>
 
         </div>
+
+
 
 
 
@@ -1305,23 +1811,54 @@
 
     <script>
         $(".adult_btn").click(function() {
+            $("html, body").animate({ scrollTop: $(document).height() }, 1000);
 
-            $('.adult').css('display', 'block');
+            $('.ma_div').css('display', 'block');
+            $('.Minor_div').css('display', 'none');
+            $('.adult').css('display', 'none');
+
+
             $('.maindata').css('display', 'none');
             $('.minors1').css('display', 'none');
             $('.minors51').css('display', 'none');
             $('.minors').css('display', 'none');
             $('.minors22').css('display', 'none');
+            $('#minor-text').css('display', 'none');
+            $('#adult-text').css('display', 'none');
         });
 
         $(".continue").click(function() {
+
+
             // $(this).css('display', 'none');
             $('.maindata').css('display', 'block');
 
             var html = $('.adultform').html();
 
             $('.finalResult').empty().append(html);
+            $('html, body').animate({
+
+                scrollTop: $(".maindata").offset().top
+            }, 1000);
+          //  $('html,body').animate({ scrollTop: 1700 }, 'slow');
         });
+
+        $(".continue2").click(function() {
+            $('.maindata').css('display', 'block');
+            $('html, body').animate({
+                scrollTop: $(".maindata").offset().top
+            }, 1000);
+        });
+
+        $(".continue3").click(function() {
+            $('.maindata').css('display', 'block');
+            $('html, body').animate({
+
+                scrollTop: $(".maindata").offset().top
+            }, 1000);
+        });
+
+
 
 
         //minor
@@ -1330,39 +1867,68 @@
             $('.minorsb').css('display', 'block');
 
 
-
-
-
+            $('.ma_div').css('display', 'none');
             $('.adult').css('display', 'none');
+            $('.Minor_div').css('display', 'block');
+
+            $('.ma_div').css('display', 'none');
 
             $('.minors51').css('display', 'none');
             $('.minors').css('display', 'none');
             $('.minors22').css('display', 'none');
 
             $('.minors1').css('display', 'block');
+            $("html, body").animate({ scrollTop: $(document).height() }, 1000);
+
+            $('#minor-text').css('display', 'block');
+            $('#adult-text').css('display', 'none');
+@if(Session::get('lang')=='en')
+$('#minor-text').text('This aggrement is for a MINORS');
+    @else
+    $('#minor-text').text('Este contrato es para un MENOR');
+
+@endif
+
+
             //$('.minors').css('display', 'none');
         });
         $(".minorsb").click(function() {
+
             $(this).css('display', 'none');
 
             $('.minors51').css('display', 'block');
+
         });
 
         //adult
 
         $(".minor_button").click(function() {
 
+            $('.ma_div').css('display', 'none');
+            $('.adult').css('display', 'block');
+            $('.Minor_div').css('display', 'none');
+
+            $("html, body").animate({ scrollTop: $(document).height() }, 1000);
 
             $('.minors222').css('display', 'block');
 
             $('.maindata').css('display', 'none');
-            $('.adult').css('display', 'none');
-
             $('.minors1').css('display', 'none');
             $('.minors51').css('display', 'none');
             $('.minors22').css('display', 'none');
 
             $('.minors').css('display', 'block');
+
+            $('#minor-text').css('display', 'none');
+            $('#adult-text').css('display', 'block');
+
+            @if(Session::get('lang')=='en')
+            $('#adult-text').text('This aggrement is for YOU and a MINORS');
+            @else
+            $('#adult-text').text('Este contrato es para USTED y un MENOR');
+
+            @endif
+
             //$('.minors').css('display', 'none');
         });
 
@@ -1375,18 +1941,22 @@
         });
 
 
-        $(".minororad_btn").click(function() {
 
-            $('.maindata').css('display', 'block');
-            $('.finalResult').empty();
-        });
 
         $(".minororad_btn").click(function() {
 
-            $('.maindata').css('display', 'block');
+            $('.maindata').css('display', 'none');
             $('.finalResult').empty();
 
             var some_var = $(this).attr('att');
+
+
+            @if(Session::get('lang')=='en')
+            $('#minor-text').text('This aggrement is for '+some_var+' MINORS');
+            @else
+            $('#minor-text').text('Este contrato es para '+some_var+' MENORES');
+
+            @endif
             for (let index = 1; index <= some_var; index++) {
 
                 var main = index;
@@ -1430,6 +2000,7 @@
           var html2=  $('.minorform2').html();
             $('.finalResult').append(html2);
 
+            $('html,body').animate({ scrollTop: 1700 }, 'slow');
 
 
         });
@@ -1437,11 +2008,19 @@
 
         $(".minor_btn").click(function() {
 
-            $('.maindata').css('display', 'block');
+            $('.maindata').css('display', 'none');
             $('.finalResult').empty();
-            var html2 = $('.adultform').html();
-            $('.finalResult').append(html2);
+
             var some_var = $(this).attr('att');
+
+            @if(Session::get('lang')=='en')
+            $('#adult-text').text('This aggrement is for YOU and '+some_var+' MINORS');
+            @else
+            $('#adult-text').text('Este contrato es para USTED y '+some_var+' MENORES');
+
+            @endif
+
+
             for (let index = 1; index <= some_var; index++) {
 
                 var main = index;
@@ -1483,6 +2062,12 @@
             $("img[name=sig-image]").empty();
             var html2=  $('.minorform2').html();
             $('.finalResult').append(html2);
+
+            var html2 = $('.adultform2').html();
+            $('.finalResult').append(html2);
+
+            $('html,body').animate({ scrollTop: 1700 }, 'slow');
+
         });
     </script>
 
@@ -1651,6 +2236,76 @@
 
 
             });
+
+
+            $(document).on('change', '#adult-flight-check', function() {
+
+                if ($(this).is(':checked'))
+                {
+
+$(this).parent().parent().next().show();
+                }
+                else  {
+
+                    $(this).parent().parent().next().hide();
+
+                }
+
+
+            });
+
+
+            $(document).on('change', '#minor-flight-check', function() {
+
+                if ($(this).is(':checked'))
+                {
+
+                    $(this).parent().parent().next().show();
+                }
+                else  {
+
+                    $(this).parent().parent().next().hide();
+
+                }
+
+
+            });
+
+
+            $(document).on('change', '#adult-insurance-check', function() {
+
+                if ($(this).is(':checked'))
+                {
+
+                    $(this).parent().parent().next().show();
+                }
+                else  {
+
+                    $(this).parent().parent().next().hide();
+
+                }
+
+
+            });
+
+
+
+            $(document).on('change', '#minor-insurance-check', function() {
+
+                if ($(this).is(':checked'))
+                {
+
+                    $(this).parent().parent().next().show();
+                }
+                else  {
+
+                    $(this).parent().parent().next().hide();
+
+                }
+
+
+            });
+
 
 
         });

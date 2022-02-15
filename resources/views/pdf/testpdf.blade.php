@@ -582,7 +582,7 @@
                 <td style="width: 30%;">
                     <label for="">Select the test</label> <br><br>
 
-                    <input style="   font-size:13px;   width: 1%;" @if ($request->Select_the_testa == 'ANTÍGENO') checked  @endif type="radio"> ANTÍGENO
+                    <input style="   font-size:13px;   width: 1%;" @if ($request->Select_the_testa == 'ANTIGEN') checked  @endif type="radio"> ANTIGEN
                     <br>
                     <input style="   font-size:13px;   width: 1%;" @if ($request->Select_the_testa == 'RT-PCR') checked  @endif type="radio"> RT-PCR
                     <br>
@@ -1401,7 +1401,7 @@
                 <td style="width: 30%;">
                     <label for="">Select the test</label> <br><br>
 
-                    <input style="   font-size:13px;   width: 1%;" @if ($request->Select_the_test == 'ANTÍGENO') checked  @endif type="radio"> ANTÍGENO
+                    <input style="   font-size:13px;   width: 1%;" @if ($request->Select_the_test == 'ANTIGEN') checked  @endif type="radio"> ANTIGEN
                     <br>
                     <input style="   font-size:13px;   width: 1%;" @if ($request->Select_the_test == 'RT-PCR') checked  @endif type="radio"> RT-PCR
                     <br>Select_the_test

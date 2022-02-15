@@ -100,6 +100,11 @@
                                      <i class="fa fa-bell"></i>   Notify
                                     </button></a>
 
+                                    <a href="{{url("$role/release/send/notemail/$views->id")}}">   <button
+                                            class="btn btn-secondary">
+                                            <i class="fa fa-random"></i>   Release
+                                        </button></a>
+
 
                                 </td>
 
@@ -185,6 +190,7 @@
     <script>
         $(document).ready(function () {
             $('#datatable1').DataTable({
+                aaSorting: [],
                 dom: 'Bfrtip',
                 buttons: [
                     'copy',

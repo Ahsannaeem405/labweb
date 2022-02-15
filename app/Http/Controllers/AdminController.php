@@ -26,7 +26,6 @@ class AdminController extends Controller
     public function index()
     {
 
-
         $user = user::Where('role', 'operator')->count();
 
         $tadmin = user::Where('role', '!=', 'operator')->count();
@@ -162,6 +161,11 @@ class AdminController extends Controller
         if ($request->password != null) {
 
             $admin->password = Hash::make($request->password);
+        }
+
+        if (Auth::user()->role=='admin')
+        {
+            $admin->authentication=$request->authentication;
         }
 
         $admin->update();

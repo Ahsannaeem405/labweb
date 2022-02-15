@@ -51,7 +51,7 @@
                                 <div class="col-lg-6">
                                     <div class="form-group">
                                         <label class="form-control-label">First Name: <span class="tx-danger"></span></label>
-                                        <input class="form-control" value="@foreach ($f_name as $key => $first_name)@if ($key<=$showing_no){{ $first_name }}@endif @endforeach" type="text" required
+                                        <input class="form-control" value="{{$f_name[0]}}" type="text" required
                                             name="firstname" required placeholder="Enter Name">
                                     </div>
                                 </div><!-- col-4 -->
@@ -59,8 +59,16 @@
 
                                 <div class="col-lg-6">
                                     <div class="form-group">
+                                        <label class="form-control-label">Middle Name: <span class="tx-danger"></span></label>
+                                        <input class="form-control" value="{{isset($f_name[1]) ? $f_name[1] : null}}" type="text"
+                                               name="middle_name"  placeholder="Enter Last Name">
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-6">
+                                    <div class="form-group">
                                         <label class="form-control-label">Last Name: <span class="tx-danger"></span></label>
-                                        <input class="form-control" value="@foreach ($f_name as $key => $Last_name)@if ($key > $showing_no){{ $Last_name }}@endif @endforeach" type="text" required
+                                        <input class="form-control" value="{{isset($f_name[2]) ? $f_name[2] : null}}" type="text" required
                                             name="Last_name" required placeholder="Enter Last Name">
                                     </div>
                                 </div>
@@ -81,7 +89,48 @@
                                             name="address" required id="address" value="" required
                                             placeholder="Enter Address">
                                     </div>
-                                </div><!-- col-8 -->
+                                </div>
+
+
+
+                                <div class="col-lg-6  ">
+                                    <label class="form-control-label"> Address 2: <span
+                                            class="tx-danger"></span></label>
+                                    <input type="text" value="{{$cus->address2}}"  placeholder="{{ __('profile.Address2') }}" name="address2"
+                                           class="form-control">
+                                </div>
+                                <div class="col-lg-6 mt-2">
+                                    <label class="form-control-label"> City: <span
+                                            class="tx-danger">*</span></label>
+                                    <input type="text" value="{{$cus->town}}"  required placeholder="{{ __('profile.Town') }}" name="town"
+                                           class="form-control">
+                                </div>
+                                <div class="col-lg-6  col-12 mt-2">
+                                    <label class="form-control-label"> Zip code: <span
+                                            class="tx-danger">*</span></label>
+                                    <input type="text" value="{{$cus->zip}}"  required placeholder="{{ __('profile.Zip Code') }}" name="zip"
+                                           class="form-control">
+                                </div>
+                                <div class="col-lg-6  mt-2">
+                                    <label>{{ __('profile.State / Province') }} <span
+                                            class="tx-danger">*</span></label>
+
+                                    <input type="text" value="{{$cus->state}}" required  placeholder="{{ __('profile.State / Province') }}" name="Province"
+                                           class="form-control">
+                                </div>
+
+
+                                <div class="col-lg-6  pt-2">
+                                    <label>{{ __('profile.Country') }} <span
+                                            class="tx-danger">*</span></label>
+                                    <select class="form-control changecountry"  required name="country">
+                                        @foreach ($Country as $countries)
+                                            <option   @if($countries->name==$cus->country) selected @endif  value="{{ $countries->name }}">{{ $countries->name }}</option>
+                                        @endforeach
+
+                                    </select>
+                                </div>
+
 
                                 <div class="col-lg-6">
                                     <div class="form-group mg-b-10-force">
@@ -103,6 +152,16 @@
                                 </div><!-- col-8 -->
 
 
+
+                                <div class="col-lg-6">
+                                    <div class="form-group mg-b-10-force">
+                                        <label class="form-control-label"> Passport: <span
+                                                class="tx-danger">*</span></label>
+                                        <input class="form-control" type="text" value="{{ $cus->passport }}"
+                                               name="passport" id="passport" value="" required placeholder="Enter Passport">
+                                    </div>
+                                </div>
+
                                 <div class="col-lg-6">
                                     <div class="form-group mg-b-10-force">
 
@@ -117,19 +176,96 @@
                                 </div><!-- col-8 -->
 
 
-                                <div class="col-lg-6">
-                                    <div class="form-group mg-b-10-force">
-                                        <label class="form-control-label"> Passport: <span
-                                                class="tx-danger">*</span></label>
-                                        <input class="form-control" type="text" value="{{ $cus->passport }}"
-                                            name="passport" id="passport" value="" required placeholder="Enter Passport">
-                                    </div>
-                                </div><!-- col-8 -->
+                           <!-- col-8 -->
 
 
                                 <input type="hidden" name="id" value="{{ $cus->id }}" id="">
 
-                            </div><!-- row -->
+                            </div>
+
+
+                            <div class="row ">
+
+
+                                <div class="col-lg-6 mb-3">
+                                    <lable>Primary Insurance : </lable>
+                                    <input type="text" class="form-control" value="{{$cus->primary_ins}}" placeholder="Primary Insurance"
+                                           name="primary_ins">
+
+                                </div>
+
+                                <div class="col-lg-6 mb-3">
+                                    <lable>Secondary Insurance :  </lable>
+                                    <input type="text" class="form-control" value="{{$cus->secondary_ins}}" placeholder="Secondary Insurance"
+                                           name="secondary_ins">
+                                </div>
+
+                                <div class="col-lg-6 mb-3">
+                                    <lable>Policy Holder Name : </lable>
+                                    <input type="text" class="form-control" value="{{$cus->policy_holder_name1}}" placeholder="Policy Holder Name"
+                                           name="policy_holder_name1">
+                                </div>
+
+                                <div class="col-lg-6 mb-3">
+                                    <lable>Policy Holder Name :  </lable>
+                                    <input type="text" class="form-control" value="{{$cus->policy_holder_name2}}" placeholder="Policy Holder Name"
+                                           name="policy_holder_name2">
+                                </div>
+
+
+                                <div class="col-lg-6 mb-3">
+                                    <lable>Relationship Patient :  </lable>
+                                    <input type="text" class="form-control" value="{{$cus->relationship_patient1}}" placeholder="Relationship Patient"
+                                           name="relationship_patient1">
+                                </div>
+
+                                <div class="col-lg-6 mb-3">
+                                    <lable>Relationship Patient :  </lable>
+                                    <input type="text" class="form-control" value="{{$cus->relationship_patient2}}" placeholder="Relationship Patient"
+                                           name="relationship_patient2">
+                                </div>
+
+
+                                <div class="col-lg-6 mb-3">
+                                    <lable>Policy Holder DOB : </lable>
+                                    <input type="text" class="form-control" value="{{$cus->policy_holder_dob1}}" placeholder="Policy Holder DOB"
+                                           name="policy_holder_dob1">
+                                </div>
+
+                                <div class="col-lg-6 mb-3">
+                                    <lable>Policy Holder DOB</lable>
+
+                                    <input type="text" class="form-control" value="{{$cus->policy_holder_dob2}}" placeholder="Policy Holder DOB"
+                                           name="policy_holder_dob2">
+                                </div>
+
+
+                                <div class="col-lg-6 mb-3">
+                                    <lable>Policy # / Member ID : </lable>
+                                    <input type="text" class="form-control" value="{{$cus->policy_member_id1}}" placeholder="Policy # / Member ID"
+                                           name="policy_member_id1">
+                                </div>
+
+                                <div class="col-lg-6 mb-3">
+                                    <lable>Policy # / Member ID : </lable>
+                                    <input type="text" class="form-control" value="{{$cus->policy_member_id2}}" placeholder="Policy # / Member ID"
+                                           name="policy_member_id2">
+                                </div>
+
+                                <div class="col-lg-6 mb-3">
+                                    <lable>Group # : </lable>
+                                    <input type="text" class="form-control" value="{{$cus->group1}}" placeholder="Group #" name="group1">
+                                </div>
+
+                                <div class="col-lg-6 mb-3">
+                                    <lable>Group # : </lable>
+                                    <input type="text" class="form-control" value="{{$cus->group2}}" placeholder="Group #" name="group2">
+                                </div>
+
+
+                            </div>
+
+                            <!-- row -->
 
                             <div class="form-layout-footer">
                                 <input type="submit" class="btn btn-info" value="Submit">
@@ -483,15 +619,11 @@
                                     <label for="Female">ANTIGENO</label><br>
                                     <input type="radio" @if ($cus->show->Select_the_test == 'PCR') checked @endif name="Select_the_test" value="PCR">
                                     <label for="Female">PCR</label><br>
-
-
-
-
                                     <input type="radio" @if ($cus->show->Select_the_test == 'RT-PCR - Abbott IDNOW') checked @endif name="Select_the_test" value="RT-PCR - Abbott IDNOW">
                                     <label for="Female">RT-PCR</label><br>
 
                                     <input type="radio" @if ($cus->show->Select_the_test == 'PCR - 24hrs') checked @endif name="Select_the_test" value="PCR - 24hrs">
-                                    <label for="Female">PCR-24hm</label><br>
+                                    <label for="Female">PCR-24hrs</label><br>
 
                                     <input type="radio" @if ($cus->show->Select_the_test == 'RT-PCR 24hrs - Abbott IDNOW') checked @endif name="Select_the_test"
                                         value="RT-PCR 24hrs">
@@ -523,7 +655,7 @@
                             <div class="col-lg-6">
                                 <div class="form-group mg-b-10-force">
 
-                                    <p>Town:</p>
+                                    <p>city:</p>
                                     <input type="text" value="{{ $cus->show->town }}" name="town"
                                         class="form-control">
 
@@ -542,7 +674,7 @@
                             <div class="col-lg-6">
                                 <div class="form-group mg-b-10-force">
 
-                                    <p>Province :</p>
+                                    <p>State / Province :</p>
                                     <input name="Province" value="{{$cus->show->Province}}" class="form-control">
 
 
@@ -633,6 +765,89 @@
 
 
         <input type="hidden" name="id" value="{{ $cus->show->id }}" id="">
+
+
+
+                            <div class="row ">
+
+
+                                <div class="col-lg-6 mb-3">
+                                    <lable>Primary Insurance : </lable>
+                                    <input type="text" class="form-control" value="{{$cus->show->primary_ins}}" placeholder="Primary Insurance"
+                                           name="primary_ins">
+
+                                </div>
+
+                                <div class="col-lg-6 mb-3">
+                                    <lable>Secondary Insurance :  </lable>
+                                    <input type="text" class="form-control" value="{{$cus->show->secondary_ins}}" placeholder="Secondary Insurance"
+                                           name="secondary_ins">
+                                </div>
+
+                                <div class="col-lg-6 mb-3">
+                                    <lable>Policy Holder Name : </lable>
+                                    <input type="text" class="form-control" value="{{$cus->show->policy_holder_name1}}" placeholder="Policy Holder Name"
+                                           name="policy_holder_name1">
+                                </div>
+
+                                <div class="col-lg-6 mb-3">
+                                    <lable>Policy Holder Name :  </lable>
+                                    <input type="text" class="form-control" value="{{$cus->show->policy_holder_name2}}" placeholder="Policy Holder Name"
+                                           name="policy_holder_name2">
+                                </div>
+
+
+                                <div class="col-lg-6 mb-3">
+                                    <lable>Relationship Patient :  </lable>
+                                    <input type="text" class="form-control" value="{{$cus->show->relationship_patient1}}" placeholder="Relationship Patient"
+                                           name="relationship_patient1">
+                                </div>
+
+                                <div class="col-lg-6 mb-3">
+                                    <lable>Relationship Patient :  </lable>
+                                    <input type="text" class="form-control" value="{{$cus->show->relationship_patient2}}" placeholder="Relationship Patient"
+                                           name="relationship_patient2">
+                                </div>
+
+
+                                <div class="col-lg-6 mb-3">
+                                    <lable>Policy Holder DOB : </lable>
+                                    <input type="text" class="form-control" value="{{$cus->show->policy_holder_dob1}}" placeholder="Policy Holder DOB"
+                                           name="policy_holder_dob1">
+                                </div>
+
+                                <div class="col-lg-6 mb-3">
+                                    <lable>Policy Holder DOB</lable>
+
+                                    <input type="text" class="form-control" value="{{$cus->show->policy_holder_dob2}}" placeholder="Policy Holder DOB"
+                                           name="policy_holder_dob2">
+                                </div>
+
+
+                                <div class="col-lg-6 mb-3">
+                                    <lable>Policy # / Member ID : </lable>
+                                    <input type="text" class="form-control" value="{{$cus->show->policy_member_id1}}" placeholder="Policy # / Member ID"
+                                           name="policy_member_id1">
+                                </div>
+
+                                <div class="col-lg-6 mb-3">
+                                    <lable>Policy # / Member ID : </lable>
+                                    <input type="text" class="form-control" value="{{$cus->show->policy_member_id2}}" placeholder="Policy # / Member ID"
+                                           name="policy_member_id2">
+                                </div>
+
+                                <div class="col-lg-6 mb-3">
+                                    <lable>Group # : </lable>
+                                    <input type="text" class="form-control" value="{{$cus->show->group1}}" placeholder="Group #" name="group1">
+                                </div>
+
+                                <div class="col-lg-6 mb-3">
+                                    <lable>Group # : </lable>
+                                    <input type="text" class="form-control" value="{{$cus->show->group2}}" placeholder="Group #" name="group2">
+                                </div>
+
+
+                            </div>
 
     </div><!-- row -->
 
@@ -991,7 +1206,7 @@
                     <label for="Female">RT-PCR</label><br>
 
                     <input type="radio" @if ($cus->show->Select_the_test == 'PCR - 24hrs') checked @endif name="Select_the_test" value="PCR - 24hrs">
-                    <label for="Female">PCR-24hm</label><br>
+                    <label for="Female">PCR-24hrs</label><br>
 
                     <input type="radio" @if ($cus->show->Select_the_test == 'RT-PCR 24hrs - Abbott IDNOW') checked @endif name="Select_the_test"
                            value="RT-PCR 24hrs">
@@ -1022,7 +1237,7 @@
             <div class="col-lg-6">
                 <div class="form-group mg-b-10-force">
 
-                    <p>Town:</p>
+                    <p>city:</p>
                     <input type="text" value="{{ $cus->show->town }}" name="town" class="form-control">
 
                 </div>
@@ -1040,7 +1255,7 @@
             <div class="col-lg-6">
                 <div class="form-group mg-b-10-force">
 
-                    <p>Province :</p>
+                    <p>State / Province :</p>
                     <input name="Province" value="{{$cus->show->Province}}" class="form-control">
 
                 </div>
@@ -1168,6 +1383,89 @@
 
 
             <input  type="hidden" name="id" value="{{ $cus->show->id }}" id="">
+
+
+
+            <div class="row ">
+
+
+                <div class="col-lg-6 mb-3">
+                    <lable>Primary Insurance : </lable>
+                    <input type="text" class="form-control" value="{{$cus->show->primary_ins}}" placeholder="Primary Insurance"
+                           name="primary_ins">
+
+                </div>
+
+                <div class="col-lg-6 mb-3">
+                    <lable>Secondary Insurance :  </lable>
+                    <input type="text" class="form-control" value="{{$cus->show->secondary_ins}}" placeholder="Secondary Insurance"
+                           name="secondary_ins">
+                </div>
+
+                <div class="col-lg-6 mb-3">
+                    <lable>Policy Holder Name : </lable>
+                    <input type="text" class="form-control" value="{{$cus->show->policy_holder_name1}}" placeholder="Policy Holder Name"
+                           name="policy_holder_name1">
+                </div>
+
+                <div class="col-lg-6 mb-3">
+                    <lable>Policy Holder Name :  </lable>
+                    <input type="text" class="form-control" value="{{$cus->show->policy_holder_name2}}" placeholder="Policy Holder Name"
+                           name="policy_holder_name2">
+                </div>
+
+
+                <div class="col-lg-6 mb-3">
+                    <lable>Relationship Patient :  </lable>
+                    <input type="text" class="form-control" value="{{$cus->show->relationship_patient1}}" placeholder="Relationship Patient"
+                           name="relationship_patient1">
+                </div>
+
+                <div class="col-lg-6 mb-3">
+                    <lable>Relationship Patient :  </lable>
+                    <input type="text" class="form-control" value="{{$cus->show->relationship_patient2}}" placeholder="Relationship Patient"
+                           name="relationship_patient2">
+                </div>
+
+
+                <div class="col-lg-6 mb-3">
+                    <lable>Policy Holder DOB : </lable>
+                    <input type="text" class="form-control" value="{{$cus->show->policy_holder_dob1}}" placeholder="Policy Holder DOB"
+                           name="policy_holder_dob1">
+                </div>
+
+                <div class="col-lg-6 mb-3">
+                    <lable>Policy Holder DOB</lable>
+
+                    <input type="text" class="form-control" value="{{$cus->show->policy_holder_dob2}}" placeholder="Policy Holder DOB"
+                           name="policy_holder_dob2">
+                </div>
+
+
+                <div class="col-lg-6 mb-3">
+                    <lable>Policy # / Member ID : </lable>
+                    <input type="text" class="form-control" value="{{$cus->show->policy_member_id1}}" placeholder="Policy # / Member ID"
+                           name="policy_member_id1">
+                </div>
+
+                <div class="col-lg-6 mb-3">
+                    <lable>Policy # / Member ID : </lable>
+                    <input type="text" class="form-control" value="{{$cus->show->policy_member_id2}}" placeholder="Policy # / Member ID"
+                           name="policy_member_id2">
+                </div>
+
+                <div class="col-lg-6 mb-3">
+                    <lable>Group # : </lable>
+                    <input type="text" class="form-control" value="{{$cus->show->group1}}" placeholder="Group #" name="group1">
+                </div>
+
+                <div class="col-lg-6 mb-3">
+                    <lable>Group # : </lable>
+                    <input type="text" class="form-control" value="{{$cus->show->group2}}" placeholder="Group #" name="group2">
+                </div>
+
+
+            </div>
 
         </div><!-- row -->
 

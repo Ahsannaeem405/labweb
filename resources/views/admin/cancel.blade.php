@@ -125,7 +125,9 @@
     <script>
         $(document).ready(function () {
             $('#datatable1').DataTable({
+                "order": [[ 1, "desc" ]],
                 dom: 'Bfrtip',
+
                 buttons: [
                     'copy',
                     'csv',
@@ -135,12 +137,6 @@
             });
         });
     </script>
-
-
-
-
-
-
 
 
 @endsection

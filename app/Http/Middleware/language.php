@@ -23,10 +23,10 @@ class language
         if($langg)
         {
             \App::setlocale($langg);
-
         }
         else
         {
+            \Session::put('lang','en');
             \App::setlocale('en');
         }
         return $next($request);

@@ -72,11 +72,23 @@ class orderController extends Controller
     {
         $customer=Customer::find($id);
 
+        if(isset($customer->show->surname))
+        {
+            $last=$customer->show->surname;
+            $mid=$customer->show->secondname;
+            $address=$customer->show->address.' '. $customer->show->address2 .' '.$customer->show->town .' '.$customer->show->Province .' '.$customer->show->zip.' '.$customer->show->Country ;
+        }
+        else
+        {
+            $last=' ';
+            $mid=' ';
+            $address=$customer->address.' '. $customer->address2 .' '.$customer->town.' '.$customer->state.' '.$customer->zip .' '.$customer->country ;
 
+        }
         $cus=new Customer();
-        $cus->name=$customer->name;
+        $cus->name = $customer->name .' '.$mid.' '.$last;
         $cus->email=$customer->email;
-        $cus->address=$customer->address;
+        $cus->address=$address;
         $cus->phone=$customer->phone;
         $cus->dob=$customer->dob;
         $cus->passport=$customer->passport;
@@ -94,7 +106,7 @@ class orderController extends Controller
 
     public function invoice_pending()
     {
-        $customer = Customer::where('step',2)->where('display_status','=',null)->with('priceList')->get();
+        $customer = Customer::where('step',2)->where('display_status','=',null)->with('priceList')->orderBy('order_date','desc')->get();
 
 
         return view('orders.pendingInvoice', compact('customer'));
@@ -115,7 +127,7 @@ class orderController extends Controller
 
     public function result_pending()
     {
-        $customer = Customer::where('step',3)->where('display_status','=',null)->get();
+        $customer = Customer::where('step',3)->where('display_status','=',null)->orderBy('payment_date','desc')->get();
         return view('orders.pendingResult', compact('customer'));
     }
     public function result_add(Request $request,$id)
@@ -132,7 +144,7 @@ class orderController extends Controller
 
     public function pending_release()
     {
-        $customer = Customer::where('step',4)->where('display_status','!=','Canceled')->get();
+        $customer = Customer::where('step',4)->where('display_status','!=','Canceled')->orderBy('date','desc')->get();
         return view('orders.pendingRelease', compact('customer'));
     }
 
@@ -193,8 +205,8 @@ return back();
 
 
         $email=$customer->email;
-       $rand2 =  rand(00000,99999);
-       $idd =  base64_encode($id);
+        $rand2 =  rand(00000,99999);
+        $idd =  base64_encode($id);
 
         $host='https://'.\request()->getHost()."/report/$idd?id=$rand2";
         $pdf = \PDF::loadView('pdf.report',compact('host','customer'));
@@ -209,17 +221,27 @@ return back();
     //   dispatch(new MatchSendEmail($id));
 
 
-
-
-
-
         return back()->with('success','Release send successfully');
 
     }
 
+    public function release_send_notemail($id)
+    {
+
+        $customer=Customer::with('priceList')->find($id);
+
+        $customer->step=5;
+
+        $customer->update();
+
+
+        return back()->with('success','Status updated successfully');
+    }
+
     public function released()
     {
-        $customer = Customer::where('step',5)->where('display_status','!=','Canceled')->get();
+        $customer = Customer::where('step',5)->where('display_status','!=','Canceled')->orderBy('date','desc')->get();
+
         return view('orders.Released', compact('customer'));
 
     }

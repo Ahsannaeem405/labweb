@@ -36,10 +36,10 @@
 
                 <p style="margin: 0px"> 901-A SW 87 AVE</p>
 
-                <p style="margin: 0px;font-weight: bold">  MIAMI, FL 33174</p>
-                <p style="margin: 0px;font-weight: bold"> TEL: 305-225-6266</p>
-                <p style="margin: 0px;font-weight: bold">   FAX: 305-225-6296</p>
-                <p style="margin: 0px;font-weight: bold">  INFO@FAMILYREHAB.US</p>
+                <p style="margin: 0px;">  MIAMI, FL 33174</p>
+                <p style="margin: 0px;"> TEL: 305-225-6266</p>
+                <p style="margin: 0px;">   FAX: 305-225-6296</p>
+                <p style="margin: 0px;">  INFO@FAMILYREHAB.US</p>
 
 
                 </p>
@@ -52,7 +52,7 @@
             <td scope="row" style="padding-left: 50px;"><h3 style="">TO: </h3>
                 <p style="font-size: 17px;padding-left: 25px;color: gray;"> {{ $order_detail->name }} <br> {{ $order_detail->email }}
                     <br>
-                    {{$cus->address}} {{ isset($cus->show->surname) ? $cus->show->address2 .$cus->show->Province .$cus->show->Country .$cus->show->zip : null}}
+                    {{$order_detail->address}}
                 </p>
             </td>
 
@@ -127,7 +127,7 @@ Due
 
 
 
-            <h3 class="txt_bold" style="font-size: 41px;margin:2px;padding-top: 8px;">Notes</h3>
+{{--            <h3 class="txt_bold" style="font-size: 41px;margin:2px;padding-top: 8px;">Notes</h3>--}}
 
 
 
@@ -140,28 +140,28 @@ Due
 
 
 
-      <table class="table" style="width: 100%;border:3px solid black">
+{{--      <table class="table" style="width: 100%;border:3px solid black">--}}
 
-        <tbody>
-          <tr>
+{{--        <tbody>--}}
+{{--          <tr>--}}
 
-<td >PROCEDURE CODE INTEGAN:{{$order_detail->priceList->procedure}} </td>
-<td>PROCEDURE CODE INTEGAN: INTEGAN:6666 </td>
-          </tr>
-          <tr>
-            <td>ICD-ID:Z1122 </td>
-            <td>ICD-ID:8888 </td>
-                      </tr>
-                      <tr>
-                        <td>TAX-ID: </td>
-                        <td>TAX-ID: </td>
-                                  </tr>
-                                  <tr>
-                                    <td>NPI: </td>
-                                    <td>NPI: </td>
-                                              </tr>
-        </tbody>
-      </table>
+{{--<td >PROCEDURE CODE INTEGAN:{{$order_detail->priceList->procedure}} </td>--}}
+{{--<td>PROCEDURE CODE INTEGAN: INTEGAN:6666 </td>--}}
+{{--          </tr>--}}
+{{--          <tr>--}}
+{{--            <td>ICD-ID:Z1122 </td>--}}
+{{--            <td>ICD-ID:8888 </td>--}}
+{{--                      </tr>--}}
+{{--                      <tr>--}}
+{{--                        <td>TAX-ID: </td>--}}
+{{--                        <td>TAX-ID: </td>--}}
+{{--                                  </tr>--}}
+{{--                                  <tr>--}}
+{{--                                    <td>NPI: </td>--}}
+{{--                                    <td>NPI: </td>--}}
+{{--                                              </tr>--}}
+{{--        </tbody>--}}
+{{--      </table>--}}
 
 
 
@@ -211,7 +211,7 @@ border:1px solid black;text-align:center;
             <th scope="col" style="width: 80%;text-align: right;"></th>
             <th scope="col"  style="width: 30%" >
                 <p style="padding-top: 29px;">
-                    inti Fernandez M.D.       PORTOFINO IV CENTER 901-A SW 87 AVE MIAMI, FL 33174
+                    Inti Fernandez M.D.       PORTOFINO IV CENTER 901-A SW 87 AVE MIAMI, FL 33174
                 </p>
             </th>
 

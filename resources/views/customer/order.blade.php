@@ -41,10 +41,10 @@
                         </div>
                         <div class="col-xl-9 col-lg-7  col-6">
 
-                            <h6 style="text-transform: uppercase;">{{ $cus->name }}  {{isset($cus->show->surname) ?$cus->show->surname :null}}</h6>
-                            <span>#{{$rand}}{{ $cus->id }}</span>
+                            <h6 style="text-transform: uppercase;">{{ $cus->name }}  {{isset($cus->show->surname) ?$cus->show->secondname." ".$cus->show->surname :null}}</h6>
+                            <span>#{{ $cus->id+18910 }}</span>
                             <p><span class="text-bold">{{ $cus->gender }}</span> Born on <span
-                                    class="text-bold">{{ $cus->dob }}</span></p>
+                                    class="text-bold">{{\Carbon\Carbon::parse($cus->dob)->format('m-d-Y')  }}</span></p>
 
                         </div>
 
@@ -74,7 +74,7 @@
                         </div>
                         <div class="col-lg-2 col-md-4 col-12">
                             <p>
-                                <i class="fas fa-map-marker-alt "></i> {{ $cus->address}} {{ isset($cus->show->surname) ? $cus->show->address2 .$cus->show->Province .$cus->show->Country .$cus->show->zip : null}}
+                                <i class="fas fa-map-marker-alt "></i>  {{ isset($cus->show->surname) ? $cus->show->address.' '. $cus->show->address2.' '.$cus->show->town .' '.$cus->show->Province .' '.$cus->show->zip.' '.$cus->show->Country  : $cus->address.' '. $cus->address2.' '. $cus->town.' '. $cus->state.' '.  $cus->zip.' '.$cus->country}}
                             </p>
                         </div>
                     </div>
@@ -365,7 +365,7 @@
                                                                                                   style="color: black;padding: 7px;"> @if (isset($documents->path))
                                             <i class="fa fa-file-text-o" style="    font-size: 15px;color: black;"></i>
 
-                                            {{ 'Smartwaiver Consent.pdf' }} @endif </span>
+                                        @if($documents->type!=1)    {{ 'Smartwaiver Consent.pdf' }} @else   {{ $documents->path }}  @endif @endif </span>
 
 
                                     <a href="{{ asset("uploads/stock/$documents->path") }}" target="_blank"> <span
@@ -471,6 +471,96 @@
                         </div>
 
                     </div>
+
+
+
+                    <div class="card bd-0 shadow-base p-3 mt-2" style="    height: 300px;overflow: auto">
+                        <div class="row">
+                            <div class="col-12">
+                                <p style="font-size: 18px;
+                                color: black;">Insurance Information</p>
+                            </div>
+
+
+                            <div class="col-12">
+                               <h5 class="text-center">Primary Insurance</h5>  &nbsp;
+                            </div>
+                            <div class="col-12">
+                                <lable>Primary Insurance:</lable>
+                                <span class="ml-2">{{ isset($cus->show->primary_ins)  ? $cus->show->primary_ins :  $cus->primary_ins }}</span>
+                            </div>
+
+                            <div class="col-12">
+                                <lable>Policy Holder Name:</lable>
+                                <span class="ml-2">{{ isset($cus->show->policy_holder_name1)  ? $cus->show->policy_holder_name1 :  $cus->policy_holder_name1 }}</span>
+                            </div>
+
+                            <div class="col-12">
+                                <lable>Relationship Patient:</lable>
+                                <span class="ml-2">{{ isset($cus->show->relationship_patient1)  ? $cus->show->relationship_patient1 :  $cus->relationship_patient1 }}</span>
+                            </div>
+
+                            <div class="col-12">
+                                <lable>Policy Holder DOB:</lable>
+                                <span class="ml-2">{{ isset($cus->show->policy_holder_dob1)  ? $cus->show->policy_holder_dob1 :  $cus->policy_holder_dob1 }}</span>
+                            </div>
+
+
+                            <div class="col-12">
+                                <lable>Policy # / Member ID:</lable>
+                                <span class="ml-2"> {{ isset($cus->show->policy_member_id1)  ? $cus->show->policy_member_id1 :  $cus->policy_member_id1 }}</span>
+                            </div>
+
+                            <div class="col-12">
+                                <lable>Group #:</lable>
+                                <span class="ml-2">{{ isset($cus->show->group1)  ? $cus->show->group1 :  $cus->group1 }}</span>
+                            </div>
+
+
+                            <div class="col-12">
+                                <h5 class="text-center">Secondary Insurance</h5>  &nbsp;
+                            </div>
+                            <div class="col-12">
+                                <lable>Primary Insurance:</lable>
+                                <span class="ml-2">{{ isset($cus->show->secondary_ins)  ? $cus->show->secondary_ins :  $cus->secondary_ins }}</span>
+                            </div>
+
+                            <div class="col-12">
+                                <lable>Policy Holder Name:</lable>
+                                <span class="ml-2">{{ isset($cus->show->policy_holder_name2)  ? $cus->show->policy_holder_name2 :  $cus->policy_holder_name2 }}</span>
+                            </div>
+
+                            <div class="col-12">
+                                <lable>Relationship Patient:</lable>
+                                <span class="ml-2">{{ isset($cus->show->relationship_patient2)  ? $cus->show->relationship_patient2 :  $cus->relationship_patient2 }}</span>
+                            </div>
+
+                            <div class="col-12">
+                                <lable>Policy Holder DOB:</lable>
+                                <span class="ml-2">{{ isset($cus->show->policy_holder_dob2)  ? $cus->show->policy_holder_dob2 :  $cus->policy_holder_dob2 }}</span>
+                            </div>
+
+
+                            <div class="col-12">
+                                <lable>Policy # / Member ID:</lable>
+                                <span class="ml-2"> {{ isset($cus->show->policy_member_id2)  ? $cus->show->policy_member_id2 :  $cus->policy_member_id2 }}</span>
+                            </div>
+
+                            <div class="col-12">
+                                <lable>Group #:</lable>
+                                <span class="ml-2">{{ isset($cus->show->group2)  ? $cus->show->group2 :  $cus->group2 }}</span>
+                            </div>
+
+
+
+
+
+
+                        </div>
+
+                    </div>
+
+
                 </div>
 
 

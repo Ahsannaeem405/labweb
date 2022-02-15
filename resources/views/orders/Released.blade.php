@@ -223,6 +223,7 @@
     <script>
         $(document).ready(function () {
             $('#datatable1').DataTable({
+                aaSorting: [],
                 dom: 'Bfrtip',
                 buttons: [
                     'copy',

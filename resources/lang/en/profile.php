@@ -21,12 +21,11 @@ return [
     'a. I authorize this Covid-19 Test Center "Family Rehab / Communitel," to acquire a nasopharyngeal sample and to examine the sample for the detection of Covid-19 as required by public health agencies.' => 'a. I authorize this Covid-19 Test Center "Family Rehab" to acquire a nasopharyngeal sample and to examine the sample for the detection of Covid-19 as required by public health agencies.',
     'b. I authorize my results to be communicated to any government agency or as required by law. I also authorize the communication of my positive results to airlines and cruise ships as required by Miami-Dade County Government. This authorization is valid for a period of one (1) year from the day it was signed.' => 'b. I authorize my results to be communicated to any government agency or as required by law. I also authorize the communication of my positive results to airlines and cruise ships as required by Miami-Dade County Government. This authorization is valid for a period of one (1) year from the day it was signed.',
     'c. I understand that a positive result is an indication that I should quarantine, wear a mask or cover my face so as not to infect others' => 'c. I understand that a positive result is an indication that I should quarantine, wear a mask or cover my face so as not to infect others',
-    'd. I understand that this laboratory is not acting as my physician, and does not replace the need for a physicians care when required. I also accept responsibility for my results and what they mean. I agree to obtain a medical consultation with my physician to clarify any concerns I have, to obtain care / treatment if my condition worsens.
-
-    and. I understand that like other diagnostic procedures, there is a possibility of a false positive or false negative test for Covid-19' => ' I understand that this laboratory is not acting as my physician, and does not replace the need for a physicians care when required. I also accept responsibility for my results and what they mean. I agree to obtain a medical consultation with my physician to clarify any concerns I have, to obtain care / treatment if my condition worsens. and. I understand that like other diagnostic procedures, there is a possibility of a false positive or false negative test for Covid-19',
+    'd. I understand that this laboratory is not acting as my physician, and does not replace the need for a physicians care when required. I also accept responsibility for my results and what they mean. I agree to obtain a medical consultation with my physician to clarify any concerns I have, to obtain care / treatment if my condition worsens and I understand that like other diagnostic procedures, there is a possibility of a false positive or false negative test for Covid-19' => 'd. I understand that this laboratory is not acting as my physician, and does not replace the need for a physicians care when required. I also accept responsibility for my results and what they mean. I agree to obtain a medical consultation with my physician to clarify any concerns I have, to obtain care / treatment if my condition worsens and I understand that like other diagnostic procedures, there is a possibility of a false positive or false negative test for Covid-19.',
     'e. I understand that "Family Rehab and Communitel," are in no way responsible if the client / patient does not arrive on time for their flight / misses it or is quarantined upon arrival at their destination. I understand that the responsibility for choosing the type of proof necessary for my destiny is mine and mine alone.' => 'e. I understand that "Family Rehab" are in no way responsible if the client / patient does not arrive on time for their flight / misses it or is quarantined upon arrival at their destination. I understand that the responsibility for choosing the type of proof necessary for my destiny is mine and mine alone.',
     'f. I understand that "Family Rehab and Communitel," are in no way responsible if the client / patient does not arrive on time for their flight / misses it or is quarantined upon arrival at their destination. I understand that the responsibility to choose the type of test necessary for my destiny is mine and mine alone.'=>'f. I understand that "Family Rehab" are in no way responsible if the client / patient does not arrive on time for their flight / misses it or is quarantined upon arrival at their destination. I understand that the responsibility to choose the type of test necessary for my destiny is mine and mine alone.',
     'g. I understand and agree that "Family Rehab and Communitel" do not provide cancellations or refunds once the test has been administered.I, the patient / client, have been informed of the purpose of the test, the procedures, the possible benefits and risks. I have also received a copy of this consent. I have been given the opportunity to ask questions before signing. I accept this Covid-19 test voluntarily, for my personal, business or travel needs' => 'g. I understand and agree that "Family Rehab" do not provide cancellations or refunds once the test has been administered.I, the patient / client, have been informed of the purpose of the test, the procedures, the possible benefits and risks. I have also received a copy of this consent. I have been given the opportunity to ask questions before signing. I accept this Covid-19 test voluntarily, for my personal, business or travel needs',
+    'I, the undersigned, have been informed about the test purpose, procedures, possible benefits and risks, and I have received a copy of this Informed Consent. I have been given the opportunity to ask questions before I sign, and I have been told that I can ask additional questions at any time. I voluntarily agree to this testing for COVID-19.' => 'I, the undersigned, have been informed about the test purpose, procedures, possible benefits and risks, and I have received a copy of this Informed Consent. I have been given the opportunity to ask questions before I sign, and I have been told that I can ask additional questions at any time. I voluntarily agree to this testing for COVID-19.',
     'Please select who will participate ...' => 'Please select who will participate ...',
 
     'Adult' => 'Adult',
@@ -86,7 +85,7 @@ return [
     'Customer Address' => 'Customer Address',
     'Address' => 'Address',
     'Address2' => 'Address2',
-    'Town' => 'Town',
+    'Town' => 'city',
     'Zip Code' => 'Zip Code',
     'State / Province' => 'State / Province',
     'Country' => 'Country',
@@ -114,6 +113,17 @@ return [
     'Address of the Minor' =>'Address of the Minor',
     'Parent Or Guardian Name' =>'Parent Or Guardian Name',
     'Date Birth Of Gaurdian'=>'Date Birth Of Gaurdian',
+    'Are you traveling?'=>'Are you traveling?',
+
+
+    'Insurance Information'=>'Insurance Information',
+    'Primary Insurance'=>'Primary Insurance',
+    'Secondary Insurance'=>'Secondary Insurance',
+    'Policy Holder Name'=>'Policy Holder Name',
+    'Relationship Patient'=>'Relationship Patient',
+    'Policy Holder DOB'=>'Policy Holder DOB',
+    'Policy # / Member ID'=>'Policy # / Member ID',
+    'Group #'=>'Group #',
 
 
 

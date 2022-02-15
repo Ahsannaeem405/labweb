@@ -91,7 +91,7 @@ td.sorting_1
 
                                     <td class="cust" attrr="{{$views->id}}" rolee="{{$role}}" style="cursor: pointer">
                                         {{ $i++ }}</td>
-                                    <td class="cust" attrr="{{$views->id}}" rolee="{{$role}}" style="cursor: pointer">{{ $views->name }}</td>
+                                    <td class="cust" attrr="{{$views->id}}" rolee="{{$role}}" style="cursor: pointer">{{ $views->name }} {{ isset($views->show->surname) ?  $views->show->secondname.' '. $views->show->surname : null  }}</td>
 
                                     <td class="cust" attrr="{{$views->id}}" rolee="{{$role}}" style="cursor: pointer">{{ $views->email }}</td>
                                     <td class="cust" attrr="{{$views->id}}" rolee="{{$role}}" style="cursor: pointer">{{ $views->address }}</td>

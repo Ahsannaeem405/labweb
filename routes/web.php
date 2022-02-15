@@ -2,7 +2,9 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CustomerController;
+use App\Models\Country;
 use App\Models\Customer;
+use App\Models\State;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\App;
@@ -21,6 +23,36 @@ use Illuminate\Support\Facades\App;
 //     return view('welcome');
 // });
 
+
+
+
+
+
+
+Route::group(['prefix'=>'2fa'], function(){
+    Route::get('/',[\App\Http\Controllers\LoginSecurityController::class,'show2faForm']);
+    Route::post('/generateSecret',[\App\Http\Controllers\LoginSecurityController::class,'generate2faSecret'])->name('generate2faSecret');
+    Route::post('/enable2fa',[\App\Http\Controllers\LoginSecurityController::class,'enable2fa'])->name('enable2fa');
+  //  Route::post('/disable2fa',[\App\Http\Controllers\LoginSecurityController::class,'disable2fa'])->name('disable2fa');
+
+    // 2fa middleware
+    Route::post('/2faVerify', function () {
+        return redirect(URL()->previous());
+    })->name('2faVerify')->middleware('fa');
+});
+
+// test middleware
+//Route::get('/test_middleware', function () {
+//    return "2FA middleware work!";
+//})->middleware(['auth', 'fa']);
+
+
+
+
+
+
+
+
 Route::get  ('/', [AdminController::class, 'home'])->middleware('lang');
 // Route::get('/language/{lang}', [AdminController::class, 'language'])->name('language');
 Route::get('/language/{lang}', function ($lang) {
@@ -31,7 +63,7 @@ Route::get('/language/{lang}', function ($lang) {
 });
 
 
-Route:: prefix('/admin')->middleware(['auth', 'admin'])->group(function () {
+Route:: prefix('/admin')->middleware(['auth', 'admin','preventBackHistory','logout','enablefa','fa'])->group(function () {
     Route::get  ('/', [AdminController::class, 'index']);
 
 
@@ -40,7 +72,9 @@ Route:: prefix('/admin')->middleware(['auth', 'admin'])->group(function () {
         return view('admin.AddAdmin');
     });
     Route::get('/add/customer', function () {
-        return view('customer.addcustomer');
+        $country = Country::all();
+        $state = State::orderby('name')->where('country_id', 233)->get();
+        return view('customer.addcustomer',compact('country','state'));
     });
 
     Route::get('/view/operator', function () {
@@ -51,7 +85,6 @@ Route:: prefix('/admin')->middleware(['auth', 'admin'])->group(function () {
     Route::get('/edit_profile', function () {
         return view('admin.edit_profile');
     });
-
 
 
     Route::Post('/saveAdmin', [AdminController::class, 'create'])->name('saveAdmin');
@@ -99,7 +132,6 @@ Route:: prefix('/admin')->middleware(['auth', 'admin'])->group(function () {
 
     //cancel orders
 
-
     Route::get('cancel/orders', [\App\Http\Controllers\orderController::class, 'cancelOrders']);
 
     //pending release
@@ -107,11 +139,11 @@ Route:: prefix('/admin')->middleware(['auth', 'admin'])->group(function () {
 
     Route::get('pending/release', [\App\Http\Controllers\orderController::class, 'pending_release']);
     Route::get('/release/send/{id}', [\App\Http\Controllers\orderController::class, 'release_send']);
+    Route::get('/release/send/notemail/{id}', [\App\Http\Controllers\orderController::class, 'release_send_notemail']);
     Route::get('/downloadd/{id}', [\App\Http\Controllers\orderController::class, 'downloadd']);
     Route::get('/view/{id}', [\App\Http\Controllers\orderController::class, 'view']);
 
     //released
-
 
     Route::get('released', [\App\Http\Controllers\orderController::class, 'released']);
     Route::get('print/report/{id}', [\App\Http\Controllers\orderController::class, 'print']);
@@ -134,7 +166,7 @@ Route:: prefix('/admin')->middleware(['auth', 'admin'])->group(function () {
 
 });
 
-Route:: prefix('/operator')->middleware(['auth', 'operator'])->group(function () {
+Route:: prefix('/operator')->middleware(['auth', 'operator','preventBackHistory','logout','enablefa','fa'])->group(function () {
 
     Route::get  ('/', [AdminController::class, 'index']);
 
@@ -144,7 +176,9 @@ Route:: prefix('/operator')->middleware(['auth', 'operator'])->group(function ()
         return view('admin.AddAdmin');
     });
     Route::get('/add/customer', function () {
-        return view('customer.addcustomer');
+        $country = Country::all();
+        $state = State::orderby('name')->where('country_id', 233)->get();
+        return view('customer.addcustomer',compact('country','state'));
     });
 
     Route::get('/view/operator', function () {
@@ -211,6 +245,7 @@ return view('customer.pdf2',compact('order_detail','cus'));
 
     Route::get('pending/release', [\App\Http\Controllers\orderController::class, 'pending_release']);
     Route::get('/release/send/{id}', [\App\Http\Controllers\orderController::class, 'release_send']);
+    Route::get('/release/send/notemail/{id}', [\App\Http\Controllers\orderController::class, 'release_send_notemail']);
     Route::get('/downloadd/{id}', [\App\Http\Controllers\orderController::class, 'downloadd']);
     Route::get('/view/{id}', [\App\Http\Controllers\orderController::class, 'view']);
 
@@ -265,6 +300,7 @@ Route::get('/pdff', function () {
 
 
 Route::get('append/signature',[\App\Http\Controllers\orderController::class,'append_signature']);
+Route::get('logoutUser',[\App\Http\Controllers\CustomerController::class,'logoutUser']);
 Route::get('append/signature2',[\App\Http\Controllers\orderController::class,'append_signature2']);
 
 

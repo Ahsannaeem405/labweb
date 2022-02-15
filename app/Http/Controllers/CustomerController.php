@@ -21,7 +21,19 @@ class CustomerController extends Controller
      * @return \Illuminate\Http\Response
      */
 
+    public function __construct()
+    {
+        session(['lastActivityTime' => now()]);
 
+    }
+
+
+    public function logoutUser()
+{
+    \Session::flush();
+    Auth::logout();
+    return redirect('/login');
+}
      public function cancel_order($id)
      {
 $cus = Customer::find($id);
@@ -51,7 +63,7 @@ return back()->with('success', 'Successfully canceled');
         $customer_det = Customer_detail::where('customer_id', $id)->first();
         $customer = Customer::find($id);
         $cus = new Customer();
-        $cus->name = $customer_det->name .' '. $customer_det->surname;
+        $cus->name = $customer_det->name .' '.$customer_det->secondname.' '. $customer_det->surname;
         $cus->email = $customer_det->email;
         $cus->dob = $customer->dob;
         $cus->phone = $customer_det->phone;
@@ -116,8 +128,7 @@ return back()->with('success', 'Successfully canceled');
     public function create(Request $request)
     {
 
-$full_name=$request->firstname." ".$request->Last_name;
-
+$full_name=$request->firstname." ".$request->middle_name." ".$request->Last_name;
 $cus = new Customer();
         $cus->name = $full_name;
         $cus->email = $request->email;
@@ -133,7 +144,37 @@ $cus = new Customer();
 
         $cus->status = 'Verified';
         $cus->added_by = Auth::user()->id;
+
+        $cus->address2 = $request->address2;
+        $cus->town = $request->town;
+        $cus->zip = $request->zip;
+        if($request->Province==null)
+        {
+            $cus->state = $request->Provinced;
+        }
+        else{
+            $cus->state = $request->Province;
+        }
+        $cus->country = $request->country;
+
         $cus->main_status = 'user';
+
+
+
+        $cus->primary_ins =  $request->primary_ins;
+        $cus->secondary_ins =  $request->secondary_ins;
+        $cus->policy_holder_name1 =  $request->policy_holder_name1;
+        $cus->policy_holder_name2 =  $request->policy_holder_name2;
+        $cus->relationship_patient1 =  $request->relationship_patient1;
+        $cus->relationship_patient2 =  $request->relationship_patient2;
+        $cus->policy_holder_dob1 =  $request->policy_holder_dob1;
+        $cus->policy_holder_dob2 =  $request->policy_holder_dob2;
+        $cus->policy_member_id1 =  $request->policy_member_id1;
+        $cus->policy_member_id2 =  $request->policy_member_id2;
+        $cus->group1 =  $request->group1;
+        $cus->group2 =  $request->group2;
+
+
         $cus->save();
         return back()->with('success', 'Added Successfully');
     }
@@ -142,7 +183,6 @@ $cus = new Customer();
     {
 
 
-         //dd($request->Provincea,$request->Provincea2);
 
 
         $host = 'https://' . \request()->getHost() . "/customer_pdf/";
@@ -151,9 +191,6 @@ $cus = new Customer();
         if ($request->type == "adult") {
 
             $find = Customer::where('email', $request->emaila)->where('name', $request->namea)->where('passport', $request->passporta)->where('dob', $request->datea)->first();
-
-            //if record exists
-
 
                 $customer = new Customer();
                 $customer->name = $request->namea;
@@ -216,12 +253,29 @@ $cus = new Customer();
                 $cus_detail->gender =  $request->gendera;
                 $cus_detail->signature =  $request->SingsLinka;
                 $cus_detail->customer_id =  $customer->id;
+
+                $cus_detail->primary_ins =  $request->primary_ins;
+                $cus_detail->secondary_ins =  $request->secondary_ins;
+                $cus_detail->policy_holder_name1 =  $request->policy_holder_name1;
+                $cus_detail->policy_holder_name2 =  $request->policy_holder_name2;
+                $cus_detail->relationship_patient1 =  $request->relationship_patient1;
+                $cus_detail->relationship_patient2 =  $request->relationship_patient2;
+                $cus_detail->policy_holder_dob1 =  $request->policy_holder_dob1;
+                $cus_detail->policy_holder_dob2 =  $request->policy_holder_dob2;
+                $cus_detail->policy_member_id1 =  $request->policy_member_id1;
+                $cus_detail->policy_member_id2 =  $request->policy_member_id2;
+                $cus_detail->group1 =  $request->group1;
+                $cus_detail->group2 =  $request->group2;
+
+
                 $cus_detail->save();
 
 
                 $request2  = $request;
+            $traveling=$request->traveling;
+            $insurance=$request->insurance;
 
-                $pdf = PDf::loadView('pdf.customer_pdf', compact('request2'));
+                $pdf = PDf::loadView('pdf.customer_pdf', compact('request2','insurance','traveling'));
                 $rand = rand(0, 99999999999999);
                 $path = 'uploads/stock/';
 
@@ -235,6 +289,112 @@ $cus = new Customer();
                 $document->path = $fileName;
                 $document->save();
             }
+
+        if ($request->type == "adultminor") {
+
+            $find = Customer::where('email', $request->email)->where('name', $request->namea)->where('passport', $request->passporta)->where('dob', $request->datea)->first();
+
+            //if record exists
+
+            $customer = new Customer();
+            $customer->name = $request->namea;
+            $customer->email = $request->email;
+            $customer->address = $request->address;
+            $customer->phone = $request->phonea;
+            $customer->dob = $request->datea;
+            $customer->passport = $request->passporta;
+            $customer->status = 'Unverified';
+            $customer->step = 1;
+            $customer->uniqueid = rand(0000, 9999);
+            $customer->gender = $request->Fgender;
+            if ($find) {
+                $customer->duplicate = 1;
+            }
+            $customer->save();
+
+
+            $cus_detail = new Customer_detail();
+            $cus_detail->CruiseLine =  $request->CruiseLine;
+            $cus_detail->F_Cruise =  $request->F_Cruise;
+            $cus_detail->Destination =  $request->Destination;
+
+            $cus_detail->name =  $request->namea;
+            $cus_detail->secondname =  $request->secondnamea;
+            $cus_detail->type =  'adult';
+            $cus_detail->surname =  $request->surnamea;
+            $cus_detail->phone =  $request->phonea;
+            $cus_detail->datee =  $request->datea;
+            $cus_detail->passport =  $request->passporta;
+            $cus_detail->Fever =  $request->Fevera;
+            $cus_detail->Cough =  $request->Cougha;
+            $cus_detail->Nausea =  $request->Nauseaa;
+            $cus_detail->othre_specify =  $request->othre_specifya;
+            $cus_detail->gender2 =  $request->Fgender;
+            $cus_detail->Throat =  $request->Throata;
+            $cus_detail->breathing =  $request->breathinga;
+            $cus_detail->Abdominal =  $request->Abdominala;
+            $cus_detail->Chills =  $request->Chillsa;
+            $cus_detail->Headache =  $request->Headachea;
+            $cus_detail->Muscle =  $request->Musclea;
+            $cus_detail->Fatigue =  $request->Fatiguea;
+            $cus_detail->Runny =  $request->Runnya;
+            $cus_detail->Vomiting =  $request->Vomitinga;
+            $cus_detail->Diarrhea =  $request->Diarrheaa;
+            $cus_detail->Loss_of_smell =  $request->Loss_of_smella;
+            $cus_detail->Loss_of_taste =  $request->Loss_of_tastea;
+            $cus_detail->specify =  $request->specifya;
+            $cus_detail->symptoms =  $request->symptomsa;
+            $cus_detail->Select_the_test =  $request->Select_the_testa;
+            $cus_detail->address =  $request->address;
+            $cus_detail->address2 =  $request->address2;
+            $cus_detail->town =  $request->town;
+            $cus_detail->zip =  $request->zip;
+            if ($request->Provinced==null)
+            {$cus_detail->Province =  $request->Province;}
+            else
+            {$cus_detail->Province =  $request->Provinced;}
+            $cus_detail->Country =  $request->Country;
+            $cus_detail->email =  $request->email;
+            $cus_detail->gender =  $request->gender;
+            $cus_detail->signature =  $request->SingsLink;
+            $cus_detail->customer_id =  $customer->id;
+
+
+            $cus_detail->primary_ins =  $request->primary_ins;
+            $cus_detail->secondary_ins =  $request->secondary_ins;
+            $cus_detail->policy_holder_name1 =  $request->policy_holder_name1;
+            $cus_detail->policy_holder_name2 =  $request->policy_holder_name2;
+            $cus_detail->relationship_patient1 =  $request->relationship_patient1;
+            $cus_detail->relationship_patient2 =  $request->relationship_patient2;
+            $cus_detail->policy_holder_dob1 =  $request->policy_holder_dob1;
+            $cus_detail->policy_holder_dob2 =  $request->policy_holder_dob2;
+            $cus_detail->policy_member_id1 =  $request->policy_member_id1;
+            $cus_detail->policy_member_id2 =  $request->policy_member_id2;
+            $cus_detail->group1 =  $request->group1;
+            $cus_detail->group2 =  $request->group2;
+
+            $cus_detail->save();
+
+
+            $request2  = $request;
+
+            $traveling=$request->traveling;
+            $insurance=$request->insurance;
+
+            $pdf = PDf::loadView('pdf.customer_pdf', compact('request2','insurance','traveling'));
+            $rand = rand(0, 99999999999999);
+            $path = 'uploads/stock/';
+
+            $fileName = $rand . '.' . 'pdf';
+
+
+            $pdf->save($path . '/' . $fileName);
+
+            $document = new Document();
+            $document->email = $request->email;
+            $document->path = $fileName;
+            $document->save();
+        }
 
 
         $j = 0;
@@ -377,12 +537,29 @@ $cus = new Customer();
                     $cus_detail->signature =  $request->$SingsLink;
                     $cus_detail->customer_id =  $customer->id;
 
+
+                $cus_detail->primary_ins =  $request->primary_ins;
+                $cus_detail->secondary_ins =  $request->secondary_ins;
+                $cus_detail->policy_holder_name1 =  $request->policy_holder_name1;
+                $cus_detail->policy_holder_name2 =  $request->policy_holder_name2;
+                $cus_detail->relationship_patient1 =  $request->relationship_patient1;
+                $cus_detail->relationship_patient2 =  $request->relationship_patient2;
+                $cus_detail->policy_holder_dob1 =  $request->policy_holder_dob1;
+                $cus_detail->policy_holder_dob2 =  $request->policy_holder_dob2;
+                $cus_detail->policy_member_id1 =  $request->policy_member_id1;
+                $cus_detail->policy_member_id2 =  $request->policy_member_id2;
+                $cus_detail->group1 =  $request->group1;
+                $cus_detail->group2 =  $request->group2;
+
+
                     $cus_detail->save();
 
 
 
                     $request2 = Customer_detail::find($cus_detail->id);
-                    $pdf = PDf::loadView('pdf.customer_pdf', compact('request2'));
+                    $traveling=$request->traveling;
+                    $insurance=$request->insurance;
+                    $pdf = PDf::loadView('pdf.customer_pdf', compact('request2','traveling','insurance'));
                     $rand = rand(0, 99999999999999);
                     $path = 'uploads/stock/';
 
@@ -493,9 +670,18 @@ $testList=testList::all();
 
         $cus_detail->CruiseLine =  $request->CruiseLine;
 
-        // dd($request->CruiseLine);
-
-
+        $cus_detail->primary_ins =  $request->primary_ins;
+        $cus_detail->secondary_ins =  $request->secondary_ins;
+        $cus_detail->policy_holder_name1 =  $request->policy_holder_name1;
+        $cus_detail->policy_holder_name2 =  $request->policy_holder_name2;
+        $cus_detail->relationship_patient1 =  $request->relationship_patient1;
+        $cus_detail->relationship_patient2 =  $request->relationship_patient2;
+        $cus_detail->policy_holder_dob1 =  $request->policy_holder_dob1;
+        $cus_detail->policy_holder_dob2 =  $request->policy_holder_dob2;
+        $cus_detail->policy_member_id1 =  $request->policy_member_id1;
+        $cus_detail->policy_member_id2 =  $request->policy_member_id2;
+        $cus_detail->group1 =  $request->group1;
+        $cus_detail->group2 =  $request->group2;
 
         $cus_detail->save();
 
@@ -572,6 +758,21 @@ $testList=testList::all();
         $cus_detail->F_Cruise =  $request->F_Cruise;
         $cus_detail->CruiseLine =  $request->CruiseLine;
 
+
+
+        $cus_detail->primary_ins =  $request->primary_ins;
+        $cus_detail->secondary_ins =  $request->secondary_ins;
+        $cus_detail->policy_holder_name1 =  $request->policy_holder_name1;
+        $cus_detail->policy_holder_name2 =  $request->policy_holder_name2;
+        $cus_detail->relationship_patient1 =  $request->relationship_patient1;
+        $cus_detail->relationship_patient2 =  $request->relationship_patient2;
+        $cus_detail->policy_holder_dob1 =  $request->policy_holder_dob1;
+        $cus_detail->policy_holder_dob2 =  $request->policy_holder_dob2;
+        $cus_detail->policy_member_id1 =  $request->policy_member_id1;
+        $cus_detail->policy_member_id2 =  $request->policy_member_id2;
+        $cus_detail->group1 =  $request->group1;
+        $cus_detail->group2 =  $request->group2;
+
         $cus_detail->save();
 
 
@@ -591,15 +792,12 @@ $testList=testList::all();
 
         $cus = Customer::find($id);
         $Country = Country::all();
-        $state = State::all();
         $f_name=explode(" ",$cus->name);
-        $showing_no=count($f_name)/2 - 1;
-        if(count($f_name) % 2 != 0){
-            $showing_no=$showing_no+1;
 
-        }
+        $state = State::orderby('name')->where('country_id', 233)->get();
 
-        return view('customer.edit_customer', compact('showing_no','f_name','cus', 'Country', 'state'));
+
+        return view('customer.edit_customer', compact('f_name','cus', 'Country', 'state'));
 
 
         // dd($id);
@@ -647,11 +845,7 @@ $testList=testList::all();
 
     public function create_order($id)
     {
-
         $cus = Customer::find($id);
-
-
-
         $order = Customer::where('email', $cus->email)->where('status', 'Verified')->with('priceList')->get();
         $rand=$cus->uniqueid;
         $document = Document::where('email', $cus->email)->get();
@@ -669,7 +863,7 @@ $testList=testList::all();
      */
     public function update(Request $request, Customer $customer)
     {
-        $full_name=$request->firstname." ".$request->Last_name;
+        $full_name=$request->firstname." ".$request->middle_name." ".$request->Last_name;
 
         $cus = Customer::find($request->id);
 
@@ -681,6 +875,33 @@ $testList=testList::all();
         $cus->gender = $request->gender;
 
         $cus->passport = $request->passport;
+
+        $cus->address2 = $request->address2;
+        $cus->town = $request->town;
+        $cus->zip = $request->zip;
+        if($request->Province==null)
+        {
+            $cus->state = $request->Provinced;
+        }
+        else{
+            $cus->state = $request->Province;
+        }
+        $cus->country = $request->country;
+
+
+        $cus->primary_ins =  $request->primary_ins;
+        $cus->secondary_ins =  $request->secondary_ins;
+        $cus->policy_holder_name1 =  $request->policy_holder_name1;
+        $cus->policy_holder_name2 =  $request->policy_holder_name2;
+        $cus->relationship_patient1 =  $request->relationship_patient1;
+        $cus->relationship_patient2 =  $request->relationship_patient2;
+        $cus->policy_holder_dob1 =  $request->policy_holder_dob1;
+        $cus->policy_holder_dob2 =  $request->policy_holder_dob2;
+        $cus->policy_member_id1 =  $request->policy_member_id1;
+        $cus->policy_member_id2 =  $request->policy_member_id2;
+        $cus->group1 =  $request->group1;
+        $cus->group2 =  $request->group2;
+
 
         $cus->save();
         return back()->with('success', 'updated Successfully');
@@ -705,11 +926,17 @@ $testList=testList::all();
         if(isset($customer->show->surname))
         {
             $last=$customer->show->surname;
+            $mid=$customer->show->secondname;
+            $address=$customer->show->address.' '. $customer->show->address2 .' '.$customer->show->town .' '.$customer->show->Province .' '.$customer->show->zip.' '.$customer->show->Country ;
         }
         else
         {
             $last=' ';
+            $mid=' ';
+            $address=$customer->address.' '. $customer->address2 .' '.$customer->town.' '.$customer->state.' '.$customer->zip .' '.$customer->country ;
+
         }
+
 
         $role=Auth::user()->role;
         if ($request->choice) {
@@ -717,9 +944,9 @@ $testList=testList::all();
             for ($i = 0; $i < count($request->choice); $i++) {
 
                 $cus = new Customer();
-                $cus->name = $customer->name .' '.$last;
+                $cus->name = $customer->name .' '.$mid.' '.$last;
                 $cus->email = $request->email;
-                $cus->address = $customer->address;
+                $cus->address = $address;
                 $cus->phone = $request->phone;
                 $cus->dob = $customer->dob;
                 $cus->passport = $customer->passport;
@@ -747,13 +974,14 @@ $testList=testList::all();
         if ($request->hasFile('file')) {
 
             $image = $request->file('file');
-            $name = time() . '.' . $image->getClientOriginalExtension();
+            $name =$image->getClientOriginalName();
             $destinationPath = ('uploads/stock/');
             $image->move($destinationPath, $name);
 
             $document = new Document();
             $document->email = $cus->email;
             $document->path = $name;
+            $document->type = 1;
             $document->save();
         }
 

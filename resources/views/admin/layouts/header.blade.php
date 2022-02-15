@@ -20,15 +20,11 @@
               <li><a href="{{url('/'.$role.'/edit_profile')}}"><i class="icon ion-ios-person"></i> Edit Profile</a></li>
 
               <li>
-                <a class="dropdown-item" href="{{ route('logout') }}"
-                onclick="event.preventDefault();
-                              document.getElementById('logout-form').submit();">
+                <a class="dropdown-item" href="{{ url('logoutUser') }}">
               <i class="icon ion-power"></i>   {{ __('Sign Out') }}
              </a>
 
-             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                 @csrf
-             </form>
+
               </li>
             </ul>
           </div><!-- dropdown-menu -->

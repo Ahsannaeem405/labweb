@@ -2,7 +2,10 @@
 
 namespace App\Http;
 
+use App\Http\Controllers\LoginSecurityController;
+use App\Http\Middleware\enablefa;
 use App\Http\Middleware\language;
+use App\Http\Middleware\LoginSecurityMiddleware;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
@@ -54,6 +57,20 @@ class Kernel extends HttpKernel
         'lang' => [
             \App\Http\Middleware\language::class,
         ],
+        'preventBackHistory' => [
+            \App\Http\Middleware\PreventBackHistory::class,
+        ],
+        'logout' => [
+            \App\Http\Middleware\AutoLogout::class,
+        ],
+        'enablefa'=>[
+            enablefa::class,
+        ],
+        'fa'=>[
+            LoginSecurityMiddleware::class,
+        ],
+
+
     ];
 
     /**
@@ -74,5 +91,7 @@ class Kernel extends HttpKernel
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'lang' => language::class,
+        'fa'=>LoginSecurityMiddleware::class,
+        'enablefa'=>enablefa::class,
     ];
 }
