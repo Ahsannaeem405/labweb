@@ -63,6 +63,9 @@ Route::get('/language/{lang}', function ($lang) {
 });
 
 
+Route::post('emailVerify',[AdminController::class,'emailVerify']);
+
+
 Route:: prefix('/admin')->middleware(['auth', 'admin','preventBackHistory','logout','enablefa','fa'])->group(function () {
     Route::get  ('/', [AdminController::class, 'index']);
 

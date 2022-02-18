@@ -210,8 +210,6 @@ return back();
 
         $host='https://'.\request()->getHost()."/report/$idd?id=$rand2";
         $pdf = \PDF::loadView('pdf.report',compact('host','customer'));
-
-       // return view('pdf.report',compact('host','customer'));
         $rand= rand(0, 99999999999999);
         $path = 'pdf/';
         $fileName = $rand . '.' . 'pdf' ;

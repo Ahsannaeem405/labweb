@@ -7,6 +7,7 @@ use App\Models\Country;
 use App\Models\State;
 use App\Models\User;
 use Carbon\Carbon;
+use http\Env\Response;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -57,10 +58,34 @@ class AdminController extends Controller
 
     public function home()
     {
-        //dd(Carbon::now());
         $country = Country::all();
         $state = State::orderby('name')->where('country_id', 233)->get();
         return view('welcome', compact('country', 'state'));
+
+    }
+
+    public function emailVerify(Request $request)
+    {
+        $email=$request->email;
+
+        $api=Http::withHeaders([
+            'x-rapidapi-host'=>'email-checker.p.rapidapi.com',
+            'x-rapidapi-key'=>'f6ad6d7b2fmshf72f89b63545993p1bb592jsndf0bbe9f19a3',
+        ])->get('https://email-checker.p.rapidapi.com/verify/v1?email='.$email.'');
+     $response=json_decode($api->body());
+  if (isset($response->status))
+  {
+      if ($response->status=='valid')
+      {
+          return response()->json(true);
+      }
+      else{
+          return response()->json(false);
+      }
+  }
+  else{
+      return response()->json(false);
+  }
 
     }
 
@@ -163,9 +188,8 @@ class AdminController extends Controller
             $admin->password = Hash::make($request->password);
         }
 
-        if (Auth::user()->role=='admin')
-        {
-            $admin->authentication=$request->authentication;
+        if (Auth::user()->role == 'admin') {
+            $admin->authentication = $request->authentication;
         }
 
         $admin->update();

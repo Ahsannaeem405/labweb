@@ -191,12 +191,31 @@
 
   <table class="table" style="width: 100%">
     <thead>
-      <tr>
+      <tr style="margin-top: 50px">
         <th scope="col" style="width: 100%;text-align: center;">
-          <div> <img src="https://apps.familyrehab.us/img/signature.png" style="width: 30%;height:150px; margin-top:1.5rem;"> <span style="position:absolute; top: 85%;">_____________________________</span><span style="position:absolute; top: 88%; left:35%;">CLINICAL DIRECTOR</span></div>
+   <img src="https://apps.familyrehab.us/img/signature.png" style="width: 200px;height:150px; ">
+
         </th>
+
+      </tr>      <tr>
+        <th scope="col" style="width: 100%;text-align: center;">
+            <p style="margin: 0;margin-top: -50px">_____________________________</p>
+
         </th>
+
+      </tr>  <tr>
+        <th scope="col" style="width: 100%;text-align: center;">
+            <p style="margin: 0;margin-top: -30px">CLINICAL DIRECTOR</p>
+   <img src="https://apps.familyrehab.us/img/stamp.png" style="width: 130px;float: right;height: 53px;margin-right:70px;margin-top:-70px ">
+        </th>
+
       </tr>
+	  
+	  <tr style="margin-top: 50px">
+        <th scope="col" style="width: 100%;text-align: center;">
+  
+
+        </th>
 
     </thead>
 

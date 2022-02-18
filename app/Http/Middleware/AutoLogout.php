@@ -17,17 +17,17 @@ class AutoLogout
     public function handle(Request $request, Closure $next)
     {
 
+
         if (! session()->has('lastActivityTime')) {
             session(['lastActivityTime' => now()]);
         }
 
         if (now()->diffInMinutes(session('lastActivityTime')) >= (15) ) {  // also you can this value in your config file and use here
-            if (auth()->check() && auth()->id() > 1) {
-                $user = auth()->user();
-                auth()->logout();
+            if (\Auth::check()) {
 
 
-              \Session::flush();
+                \Session::flush();
+               \Auth::logout();
 
                 return redirect('/login');
             }

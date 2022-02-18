@@ -21,6 +21,10 @@
 
 </head>
 <style>
+
+    .error{
+        border: 1px solid red;
+    }
     .switch {
         position: relative;
         display: inline-block;
@@ -204,48 +208,6 @@
         border-radius: 15px;
         cursor: crosshair;
     }
-    
-    .wscrollbar{
-	
-	width: 100%;
-    background-image: url(https://www.smartwaiver.com/images/waiver/sw_scroll_bar_v2.png);
-    background-repeat: repeat-x;
-    color: #dbdbdb;
-    font: 15pt verdana, helvetica;
-    z-index: 3100;
-    position: fixed;
-    top: 0;
-    left: 0;
-    display: none;
-    margin: 0;
-    padding: 0;
-	}
-	
-	#hscrollbar {
-    -moz-animation: cssAnimation 0s ease-in 3s forwards;
-    /* Firefox */
-    -webkit-animation: cssAnimation 0s ease-in 3s forwards;
-    /* Safari and Chrome */
-    -o-animation: cssAnimation 0s ease-in 3s forwards;
-    /* Opera */
-    animation: cssAnimation 0s ease-in 3s forwards;
-    -webkit-animation-fill-mode: forwards;
-    animation-fill-mode: forwards;
-}
-@keyframes cssAnimation {
-    to {
-        width:0;
-        height:0;
-        overflow:hidden;
-    }
-}
-@-webkit-keyframes cssAnimation {
-    to {
-        width:0;
-        height:0;
-        visibility:hidden;
-    }
-}
 
     .wscrollbar{
 
@@ -293,6 +255,7 @@
 
 <body>
 <div class="wscrollbar" id="hscrollbar" style="display: block;"><center><img src="https://waiver.smartwaiver.com/templates/assets/images/sw_scroll_down_v2.en_US.png"></center></div>
+
     <div class="container pt-4">
         <div class="dropdown">
             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
@@ -782,7 +745,7 @@
 
                 </div>
                 <div class="col-lg-6 col-12 pt-3">
-                    <input type="text" required placeholder="{{ __('profile.E-mail') }}" name="emaila"
+                    <input type="email" required placeholder="{{ __('profile.E-mail') }}" name="emaila"
                         class="form-control">
                 </div>
             </div>
@@ -1484,7 +1447,7 @@
 
                 </div>
                 <div class="col-lg-6 col-12 pt-3">
-                    <input required type="text" placeholder="{{ __('profile.E-mail') }}" name="email"
+                    <input required type="email" placeholder="{{ __('profile.E-mail') }}" name="email"
                            class="form-control">
                 </div>
             </div>
@@ -1831,7 +1794,7 @@
                             </div>
                         </div>
                         <center class="mt-5">
-                            <input type="submit" class="btn btn-dark acceptt"
+                            <input id="subdatabtn" type="submit" class="btn btn-dark acceptt"
                                 value="{{ __('profile.Accept Document') }}">
                         </center>
                     </div>
@@ -2343,6 +2306,37 @@ $(this).parent().parent().next().show();
                     $(this).parent().parent().next().hide();
 
                 }
+
+
+            });
+
+
+
+
+            $(document).on( 'change','input[type="email"]',function() {
+               var  email=$(this).val();
+               var data=$(this);
+
+                $.ajax({
+                    type: 'post',
+                    url: "{{url('emailVerify')}}",
+                    data: { 'email': email},
+
+
+                    success: function (response) {
+              if(response==true)
+              {
+
+                  data.removeClass('error');
+                  $('#subdatabtn').prop('disabled',false);
+              }
+              else  {
+
+                 data.addClass('error');
+                  $('#subdatabtn').prop('disabled',true);
+              }
+                    }
+                });
 
 
             });
