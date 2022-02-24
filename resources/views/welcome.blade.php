@@ -2313,33 +2313,34 @@ $(this).parent().parent().next().show();
 
 
 
-            $(document).on( 'change','input[type="email"]',function() {
-               var  email=$(this).val();
-               var data=$(this);
+            {{--$(document).on( 'change','input[type="email"]',function() {--}}
+            {{--   var  email=$(this).val();--}}
+            {{--   var data=$(this);--}}
 
-                $.ajax({
-                    type: 'post',
-                    url: "{{url('emailVerify')}}",
-                    data: { 'email': email},
-
-
-                    success: function (response) {
-              if(response==true)
-              {
-
-                  data.removeClass('error');
-                  $('#subdatabtn').prop('disabled',false);
-              }
-              else  {
-
-                 data.addClass('error');
-                  $('#subdatabtn').prop('disabled',true);
-              }
-                    }
-                });
+            {{--    $.ajax({--}}
+            {{--        type: 'post',--}}
+            {{--        url: "{{url('emailVerify')}}",--}}
+            {{--        data: { 'email': email},--}}
 
 
-            });
+            {{--        success: function (response) {--}}
+            {{--  if(response==true)--}}
+            {{--  {--}}
+
+            {{--      data.removeClass('error');--}}
+            {{--      $('#subdatabtn').prop('disabled',false);--}}
+            {{--  }--}}
+            {{--  else  {--}}
+
+
+            {{--     data.addClass('error');--}}
+            {{--      $('#subdatabtn').prop('disabled',true);--}}
+            {{--  }--}}
+            {{--        }--}}
+            {{--    });--}}
+
+
+            {{--});--}}
 
 
 

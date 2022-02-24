@@ -45,12 +45,22 @@
 
         <div class="br-pagebody">
             @include('partials.component')
+
+
+            <form action="">
+
+                <div class="form-group d-flex">
+                    <input type="text" value="{{isset($_GET['q']) ? $_GET['q'] : null }}" name="q" placeholder="Search cancel record" class="form-control w-25"/>
+                    <input type="submit" class="btn btn-primary ml-1" value="Search"/>
+                    <a href="{{url(Request::url())}}"><input type="button" class="btn btn-danger ml-1" value="Clear"/></a>
+                </div>
+            </form>
             <div class="br-section-wrapper table-responsive">
                 <h6 class="tx-gray-800 tx-uppercase tx-bold tx-14 mg-b-10">View Canceled Orders</h6>
 
                 <div class="" style="width: 100%;
                         overflow: auto;    overflow-y: hidden!important;">
-                    <table id="datatable1">
+                    <table id="datatable1" class="mt-3">
                         <thead>
                         <tr>
                             <th class="">Order Id</th>
@@ -58,7 +68,6 @@
                             <th class=""> Name</th>
                             <th class="">E-mail</th>
 
-                            <th class="">Test</th>
 
 
 
@@ -76,17 +85,13 @@
                         @foreach ($customer as $views)
 
                             <tr>
-                                <td>{{ $views->order_id }}</td>
+                                <td>{{ $views->id+3000 }}</td>
                                 <td>
                                     {{ \Carbon\Carbon::parse($views->order_date)->format('m-d-Y h:i A')}}
                                     </td>
                                 <td>{{ $views->name }}</td>
 
                                 <td>{{ $views->email }}</td>
-
-
-                                <td>{{ $views->test_type }}</td>
-
 
 
                             </tr>
@@ -99,7 +104,19 @@
                     </table>
                 </div>
 
+                <div class="row">
+                    <div class="col-lg-12">
 
+                        <p class="mt-2">  Showing      {{($customer->currentPage()-1)* $customer->perPage() + 1}} to
+                            {{ ($customer->currentPage()-1)* $customer->perPage() + $customer->perPage() }} from
+                            {{ $customer->total() }} entries</p>
+
+
+
+                        <div class="float-right">{{$customer->links()}}</div>
+
+                    </div>
+                </div>
                 <!-- table-wrapper -->
 
 
@@ -125,15 +142,18 @@
     <script>
         $(document).ready(function () {
             $('#datatable1').DataTable({
-                "order": [[ 1, "desc" ]],
+                aaSorting: [],
                 dom: 'Bfrtip',
-
+                info:false,
+                searching:false,
                 buttons: [
                     'copy',
                     'csv',
                     'excel',
                     'pdf',
-                ]
+                ],
+                paging:false,
+
             });
         });
     </script>
