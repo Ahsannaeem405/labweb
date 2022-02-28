@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Admin;
 use App\Models\Country;
+use App\Models\Customer;
 use App\Models\State;
 use App\Models\User;
 use Carbon\Carbon;
@@ -263,5 +264,30 @@ class AdminController extends Controller
         return back()->with('success', 'Delete Successfully');
 
         //
+    }
+
+    public function reporting(Request $request)
+    {
+
+        $from =  $request->input('from');
+        $to =  $request->input('to');
+
+
+        if($from!="" && $to!=""){
+
+            $customer = Customer::where(function ($query) use ($from,$to) {
+                $query->whereDate('date', '>=',$from)
+                    ->whereDate('date', '<=',$to);
+            })
+                    ->where('step', 5)->where('display_status', '!=', 'Canceled')->orderBy('date', 'desc')
+                    ->get();
+                //$customer->appends(['q' => $search]);
+            }
+        else{
+            $customer =Customer::where('step', 5)->where('display_status', '!=', 'Canceled')->orderBy('date', 'desc')
+                ->get();
+        }
+
+      return view('reporting.index',compact('customer'));
     }
 }

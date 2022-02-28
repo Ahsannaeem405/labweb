@@ -47,7 +47,6 @@
 
 
 
-
             <a href="{{ url("/$role/customers") }}" class="br-menu-link">
                 <div class="br-menu-item">
                     <i class="fa fa-users" aria-hidden="true"></i>
@@ -87,6 +86,15 @@
                 <div class="br-menu-item">
                     <i class="fas fa-remove"></i>
                     <span class="menu-item-label"> Canceled Orders</span>
+                </div><!-- menu-item -->
+            </a>
+
+            <p>Reports</p>
+
+            <a href="{{ url("/$role/reporting/") }}" class="br-menu-link">
+                <div class="br-menu-item">
+                    <i class="fas fa-file-invoice"></i>
+                    <span class="menu-item-label"> Reporting</span>
                 </div><!-- menu-item -->
             </a>
 

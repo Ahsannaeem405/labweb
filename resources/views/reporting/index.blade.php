@@ -82,14 +82,15 @@
             <form action="">
 
                 <div class="form-group d-flex">
-                    <input type="text" value="{{isset($_GET['q']) ? $_GET['q'] : null }}" name="q" placeholder="Search released" class="form-control w-25"/>
+                    <input type="date" value="{{isset($_GET['from']) ? $_GET['from'] : null }}" name="from"  class="form-control w-25"/>
+                    <input type="date" value="{{isset($_GET['to']) ? $_GET['to'] : null }}" name="to"  class="form-control w-25 ml-2"/>
                     <input type="submit" class="btn btn-primary ml-1" value="Search"/>
                     <a href="{{url(Request::url())}}"><input type="button" class="btn btn-danger ml-1" value="Clear"/></a>
                 </div>
             </form>
 
             <div class="br-section-wrapper table-responsive">
-                <h6 class="tx-gray-800 tx-uppercase tx-bold tx-14 mg-b-10">EXPORT Released </h6>
+                <h6 class="tx-gray-800 tx-uppercase tx-bold tx-14 mg-b-10">EXPORT Report </h6>
 
                 <div class="" style="width: 100%;
                         overflow: auto;    overflow-y: hidden!important;">
@@ -97,14 +98,21 @@
                         <thead>
                         <tr>
                             <th class="">Order Id</th>
-                            <th class="">Date</th>
-                            <th class=""> Name</th>
+                            <th class=""> First Name</th>
+                            <th class=""> Middle Name</th>
+                            <th class=""> Last Name</th>
                             <th class="">E-mail</th>
+                            <th class="">Address</th>
+                            <th class="">Passport</th>
+                            <th class="">Gender</th>
+                            <th class="">DOB</th>
+                            <th class="">Date</th>
+                            <th class="">Time</th>
                             <th class="">Amount</th>
                             <th class="">Test</th>
                             <th class="">Status</th>
                             <th class="">Result</th>
-                            <th class="">Action</th>
+
 
 
                         </tr>
@@ -119,13 +127,26 @@
 
                         @foreach ($customer as $views)
 
+                           @php
+                               $name=explode(' ',$views->name);
+                           @endphp
+
                             <tr>
                                 <td>{{ $views->id+3000 }}</td>
-                                <td>
-                                    {{\Carbon\Carbon::parse( $views->date)->format('m-d-Y h:i A')}}</td>
-                                <td>{{ $views->name }}</td>
+
+                                <td>{{ isset($name[0]) ? $name[0] : 'N/A' }}</td>
+                                <td>{{ isset($name[1]) ? $name[1] : 'N/A' }}</td>
+                                <td>{{ isset($name[2]) ? $name[2] : 'N/A' }}</td>
 
                                 <td>{{ $views->email }}</td>
+                                <td>{{ $views->address }}</td>
+                                <td>{{ $views->passport }}</td>
+                                <td>{{ $views->gender }}</td>
+                                <td>{{ $views->dob }}</td>
+                                <td>
+                                    {{\Carbon\Carbon::parse( $views->date)->format('m-d-Y')}}</td>
+                                <td>
+                                    {{\Carbon\Carbon::parse( $views->date)->format('h:i A')}}</td>
 
 
                                 <td>${{ $views->payment_amount }}</td>
@@ -136,66 +157,9 @@
                                 <td><span class="p-2"
                                           style="@if($views->display_status=='negative') background-color: #adeaa8;   @else   background-color: #da5920; @endif color: white;border-radius: 5px">{{ $views->display_status }}</span>
                                 </td>
-                                <td>
-                                    <a class="p-1" target="_blank" href="{{url("$role/print/report/$views->id")}}">    <i class="fa fa-print"  style="color: #9696d0;cursor: pointer" > </i></a>
-                                    <a class="p-1" href="{{url("$role/sync/report/$views->id")}}">    <i class="fa fa-sync"  style="color: #9696d0;cursor: pointer" > </i></a>
-
-                                    <i  class="fa fa-edit p-1" data-toggle="modal" data-target="#exampleModal{{$views->id}}" style="color: #9696d0;cursor: pointer" > </i>
-
-                                    <a href="{{url("$role/release/send/$views->id")}}">   <button
-                                            class="btn btn-primary">
-                                            <i class="fa fa-bell"></i>   Notify
-
-                                        </button></a>
-
-                                </td>
-
-
-                                <div class="modal fade" id="exampleModal{{$views->id}}" tabindex="-1" role="dialog"
-                                     aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog" role="document">
-                                        <div class="modal-content" style="width: 30rem">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalLabel">  Update Release date</h5>
-                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                    <span aria-hidden="true">&times;</span>
-                                                </button>
-                                            </div>
-                                            <div class="modal-body">
-                                                <form method="post" action="{{url("$role/update/date/$views->id")}}">
-                                                    @csrf
-
-
-                                                    <lable>Collection date</lable>
-
-                                                    <input type="datetime-local" name="created_at" class="form-control" value="{{str_replace(' ','T',$views->created_at)}}" required >
-
-                                                    <lable>Issue date</lable>
-                                                    <input type="datetime-local" name="payment_date" class="form-control" value="{{str_replace(' ','T',$views->payment_date)}}" required >
 
 
 
-                                                    <lable>Release date</lable>
-                                                    <input type="datetime-local" name="release_date" class="form-control" value="{{str_replace(' ','T',$views->date)}}" required >
-
-
-
-                                                    <lable>Result</lable>
-                                                    <select class="form-control" name="result" required>
-                                                        <option @if($views->display_status=='negative') selected @endif value="negative">Negative</option>
-                                                        <option @if($views->display_status=='positive') selected @endif value="positive">Positive</option>
-                                                    </select>
-
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close
-                                                </button>
-                                                <button type="submit" class="btn btn-primary">Submit</button>
-                                                </form>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
 
 
                             </tr>
@@ -207,19 +171,7 @@
                         </tbody>
                     </table>
                 </div>
-                <div class="row">
-                    <div class="col-lg-12">
 
-                        <p class="mt-2">  Showing      {{($customer->currentPage()-1)* $customer->perPage() + 1}} to
-                            {{ ($customer->currentPage()-1)* $customer->perPage() + $customer->perPage() }} from
-                            {{ $customer->total() }} entries</p>
-
-
-
-                        <div class="float-right">{{$customer->links()}}</div>
-
-                    </div>
-                </div>
 
                 <!-- table-wrapper -->
 
@@ -248,7 +200,7 @@
             $('#datatable1').DataTable({
                 aaSorting: [],
                 dom: 'Bfrtip',
-                info:false,
+
                 searching:false,
                 buttons: [
                     'copy',
@@ -256,7 +208,7 @@
                     'excel',
                     'pdf',
                 ],
-                paging:false,
+
 
             });
         });
@@ -270,3 +222,4 @@
 
 
 @endsection
+

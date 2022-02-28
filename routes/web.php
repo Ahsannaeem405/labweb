@@ -167,6 +167,9 @@ Route:: prefix('/admin')->middleware(['auth', 'admin','preventBackHistory','logo
 
     Route::get('/order/approve/{id}/{cus}',[CustomerController::class,'order_approve']);
 
+    //reporting
+    Route::get('reporting',[AdminController::class,'reporting']);
+
 });
 
 Route:: prefix('/operator')->middleware(['auth', 'operator','preventBackHistory','logout','enablefa','fa'])->group(function () {

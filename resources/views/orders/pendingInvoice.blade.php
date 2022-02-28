@@ -57,7 +57,7 @@
             </form>
 
             <div class="br-section-wrapper table-responsive">
-                <h6 class="tx-gray-800 tx-uppercase tx-bold tx-14 mg-b-10">View Pending Invoices</h6>
+                <h6 class="tx-gray-800 tx-uppercase tx-bold tx-14 mg-b-10">EXPORT PENDING TO INVOICE</h6>
 
                 <div class="" style="width: 100%;
                         overflow: auto;    overflow-y: hidden!important;">
