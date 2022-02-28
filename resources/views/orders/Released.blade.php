@@ -121,32 +121,17 @@
 
                             <tr>
                                 <td>{{ $views->id+3000 }}</td>
-                                <td>
-                                    {{\Carbon\Carbon::parse( $views->date)->format('m-d-Y h:i A')}}</td>
-                                <td>{{ $views->name }}</td>
-
+                                <td>{{\Carbon\Carbon::parse( $views->date)->format('m-d-Y h:i A')}}</td><td>{{ $views->name }}</td>
                                 <td>{{ $views->email }}</td>
-
-
                                 <td>${{ $views->payment_amount }}</td>
                                 <td>{{ $views->test_type }}</td>
                                 <td><span class="p-2" style="background-color: #adeaa8;color: white;border-radius: 5px">Released</span></td>
-
-
-                                <td><span class="p-2"
-                                          style="@if($views->display_status=='negative') background-color: #adeaa8;   @else   background-color: #da5920; @endif color: white;border-radius: 5px">{{ $views->display_status }}</span>
-                                </td>
+                                <td><span class="p-2" style="@if($views->display_status=='negative') background-color: #adeaa8;   @else   background-color: #da5920; @endif color: white;border-radius: 5px">{{ $views->display_status }}</span></td>
                                 <td>
                                     <a class="p-1" target="_blank" href="{{url("$role/print/report/$views->id")}}">    <i class="fa fa-print"  style="color: #9696d0;cursor: pointer" > </i></a>
                                     <a class="p-1" href="{{url("$role/sync/report/$views->id")}}">    <i class="fa fa-sync"  style="color: #9696d0;cursor: pointer" > </i></a>
-
                                     <i  class="fa fa-edit p-1" data-toggle="modal" data-target="#exampleModal{{$views->id}}" style="color: #9696d0;cursor: pointer" > </i>
-
-                                    <a href="{{url("$role/release/send/$views->id")}}">   <button
-                                            class="btn btn-primary">
-                                            <i class="fa fa-bell"></i>   Notify
-
-                                        </button></a>
+                                    <a href="{{url("$role/release/send/$views->id")}}">   <button class="btn btn-primary"><i class="fa fa-bell"></i>   Notify</button></a>
 
                                 </td>
 

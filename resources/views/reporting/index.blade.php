@@ -90,7 +90,7 @@
             </form>
 
             <div class="br-section-wrapper table-responsive">
-                <h6 class="tx-gray-800 tx-uppercase tx-bold tx-14 mg-b-10">EXPORT Report </h6>
+                <h6 class="tx-gray-800 tx-uppercase tx-bold tx-14 mg-b-10">EXPORT Reports </h6>
 
                 <div class="" style="width: 100%;
                         overflow: auto;    overflow-y: hidden!important;">
@@ -102,6 +102,7 @@
                             <th class=""> Middle Name</th>
                             <th class=""> Last Name</th>
                             <th class="">E-mail</th>
+                            <th class="">Insurance</th>
                             <th class="">Address</th>
                             <th class="">Passport</th>
                             <th class="">Gender</th>
@@ -127,41 +128,26 @@
 
                         @foreach ($customer as $views)
 
-                           @php
-                               $name=explode(' ',$views->name);
-                           @endphp
+                           @php $name=explode(' ',$views->name); @endphp
 
                             <tr>
-                                <td>{{ $views->id+3000 }}</td>
 
+                                <td>{{ $views->id+3000 }}</td>
                                 <td>{{ isset($name[0]) ? $name[0] : 'N/A' }}</td>
                                 <td>{{ isset($name[1]) ? $name[1] : 'N/A' }}</td>
                                 <td>{{ isset($name[2]) ? $name[2] : 'N/A' }}</td>
-
                                 <td>{{ $views->email }}</td>
+                                <td>{{ isset($views->show->primary_ins) ? ($views->show->primary_ins!=null || $views->show->secondary_ins!=null) ? 'YES' : 'NO' : 'NO'  }}</td>
                                 <td>{{ $views->address }}</td>
                                 <td>{{ $views->passport }}</td>
                                 <td>{{ $views->gender }}</td>
                                 <td>{{ $views->dob }}</td>
-                                <td>
-                                    {{\Carbon\Carbon::parse( $views->date)->format('m-d-Y')}}</td>
-                                <td>
-                                    {{\Carbon\Carbon::parse( $views->date)->format('h:i A')}}</td>
-
-
+                                <td>{{\Carbon\Carbon::parse( $views->date)->format('m-d-Y')}}</td>
+                                <td>{{\Carbon\Carbon::parse( $views->date)->format('h:i A')}}</td>
                                 <td>${{ $views->payment_amount }}</td>
                                 <td>{{ $views->test_type }}</td>
                                 <td><span class="p-2" style="background-color: #adeaa8;color: white;border-radius: 5px">Released</span></td>
-
-
-                                <td><span class="p-2"
-                                          style="@if($views->display_status=='negative') background-color: #adeaa8;   @else   background-color: #da5920; @endif color: white;border-radius: 5px">{{ $views->display_status }}</span>
-                                </td>
-
-
-
-
-
+                                <td><span class="p-2" style="@if($views->display_status=='negative') background-color: #adeaa8;   @else   background-color: #da5920; @endif color: white;border-radius: 5px">{{ $views->display_status }}</span></td>
                             </tr>
 
 
