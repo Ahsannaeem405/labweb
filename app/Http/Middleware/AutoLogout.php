@@ -25,7 +25,6 @@ class AutoLogout
         if (now()->diffInMinutes(session('lastActivityTime')) >= (15) ) {  // also you can this value in your config file and use here
             if (\Auth::check()) {
 
-
                 \Session::flush();
                \Auth::logout();
 

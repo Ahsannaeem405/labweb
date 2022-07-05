@@ -1,4 +1,7 @@
 @extends('admin.layouts.default')
+@section('customer')
+    active
+@endsection
 @section('content')
 
     @include('admin.layouts.sidebar')
@@ -77,7 +80,7 @@
                                 <div class="row">
                                     <div class="col-lg-4 col-md-4 col-12">
                                         <label style="    font-weight: bold;" for="">Name</label>
-                                        <p>{{$order->name}}</p>
+                                        <p>{{$order->name}} {{$order->middle_name}} {{$order->last_name}}</p>
                                     </div>
                                     <div class="col-lg-4 col-md-4 col-12">
                                         <label style="    font-weight: bold;" for="">Email</label>
@@ -92,7 +95,7 @@
                                 <div class="row">
                                     <div class="col-lg-4 col-md-4 col-12">
                                         <label style="    font-weight: bold;" for="">Address</label>
-                                        <p>{{$order->address}}</p>
+                                        <p>{{  $cus->address.' '. $cus->address2.' '. $cus->town.' '. $cus->state.' '.  $cus->zip.' '.$cus->country}}</p>
                                     </div>
 
                                 </div>

@@ -50,7 +50,7 @@
 
 
             <td scope="row" style="padding-left: 50px;"><h3 style="">TO: </h3>
-                <p style="font-size: 17px;padding-left: 25px;color: gray;"> {{ $order_detail->name }} <br> {{ $order_detail->email }}
+                <p style="font-size: 17px;padding-left: 25px;color: gray;"> {{ $order_detail->name }} {{ $order_detail->middle_name }} {{ $order_detail->last_name }} <br> {{ $order_detail->email }}
                     <br>
                     {{$order_detail->address}}
                 </p>

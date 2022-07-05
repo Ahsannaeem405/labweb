@@ -904,13 +904,15 @@
 
 
                     <div class="col-lg-6 mb-3">
+                        <lable><lable>{{__('profile.Policy Holder DOB')}}</lable></lable>
 
-                        <input type="text" class="form-control" placeholder="{{__('profile.Policy Holder DOB')}}" name="policy_holder_dob1">
+                        <input type="date" class="form-control" placeholder="{{__('profile.Policy Holder DOB')}}" name="policy_holder_dob1">
                     </div>
 
-                    <div class="col-lg-6 mb-3">
 
-                        <input type="text" class="form-control" placeholder="{{__('profile.Policy Holder DOB')}}" name="policy_holder_dob2">
+                    <div class="col-lg-6 mb-3">
+                        <lable>{{__('profile.Policy Holder DOB')}}</lable>
+                        <input type="date" class="form-control" placeholder="{{__('profile.Policy Holder DOB')}}" name="policy_holder_dob2">
                     </div>
 
 
@@ -920,7 +922,6 @@
                     </div>
 
                     <div class="col-lg-6 mb-3">
-
                         <input type="text" class="form-control" placeholder="{{__('profile.Policy # / Member ID')}}" name="policy_member_id2">
                     </div>
 
@@ -1607,13 +1608,13 @@
 
 
                     <div class="col-lg-6 mb-3">
-
-                        <input type="text" class="form-control" placeholder="{{__('profile.Policy Holder DOB')}}" name="policy_holder_dob1">
+                        <lable>{{__('profile.Policy Holder DOB')}}</lable>
+                        <input type="date" class="form-control" placeholder="{{__('profile.Policy Holder DOB')}}" name="policy_holder_dob1">
                     </div>
 
                     <div class="col-lg-6 mb-3">
-
-                        <input type="text" class="form-control" placeholder="{{__('profile.Policy Holder DOB')}}" name="policy_holder_dob2">
+                        <lable>{{__('profile.Policy Holder DOB')}}</lable>
+                        <input type="date" class="form-control" placeholder="{{__('profile.Policy Holder DOB')}}" name="policy_holder_dob2">
                     </div>
 
 

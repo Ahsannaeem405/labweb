@@ -1,4 +1,9 @@
 @extends('admin.layouts.default')
+
+@section('viewoperator')
+    active
+@endsection
+
 @section('content')
     <link href="{{asset('/lib/datatables/jquery.dataTables.css')}}" rel="stylesheet">
 

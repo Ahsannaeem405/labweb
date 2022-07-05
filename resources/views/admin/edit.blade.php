@@ -1,4 +1,8 @@
 @extends('admin.layouts.default')
+
+@section('viewoperator')
+    active
+@endsection
 @section('content')
     <!-- ########## START: LEFT PANEL ########## -->
 

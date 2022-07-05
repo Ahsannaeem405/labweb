@@ -93,7 +93,7 @@
       </tr>
       <tr>
         <td scope="row">INTI FERNANDEZ MD</td>
-        <td colspan="2">PATIENT: <span class="undr_lin">{{$customer->name}}</span></td>
+        <td colspan="2">PATIENT: <span class="undr_lin">{{$customer->name}} {{$customer->middle_name}} {{$customer->last_name}}</span></td>
 
       </tr>
       <tr>
@@ -212,10 +212,10 @@
         </th>
 
       </tr>
-	  
+
 	  <tr style="margin-top: 50px">
         <th scope="col" style="width: 100%;text-align: center;">
-  
+
 
         </th>
 

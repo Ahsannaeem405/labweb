@@ -735,11 +735,11 @@ $request = $request2;
                     <span style="  font-size: 18px;  ">{{__("profile.State / Province")}}:</span> &nbsp;&nbsp;&nbsp;
                     <span style="margin-top: 8px;" class="alignleft"
                           style="display: inline-block;width: 100%;"><label
-                            style=" font-size: 20px;font-weight: bold;" for="">   @if ($request->Provinced==null)
-                                {{ $request->Province }}
+                            style=" font-size: 20px;font-weight: bold;" for="">   @if ($request->Provincea2==null)
+                                {{ $request->Provincea }}
 
                             @else
-                                {{ $request->Provinced }}
+                                {{ $request->Provincea2 }}
                             @endif</label>
 
 
@@ -824,7 +824,7 @@ $request = $request2;
                 <tr>
                     <td style="width: 100%;">
                         <span
-                            style="    font-size: 20px; background: #80808061; padding:3px;">{{ $request->CruiseLine }}</span><br>
+                            style="    font-size: 20px; background: #80808061; padding:3px;">{{ $request->CruiseLinea }}</span><br>
                         <p style="margin-top: 8px;" class="alignleft" style="display: inline-block;width: 100%;">
                             <label for="">{{__("profile.Airline/CruiseLine*")}}  </label>
                         </p>
@@ -832,7 +832,7 @@ $request = $request2;
                 </tr>
                 <tr>
                     <td style="width: 100%;">
-                        <span style="    font-size: 20px;font-weight: bold;">{{ $request->Destination }}</span><br>
+                        <span style="    font-size: 20px;font-weight: bold;">{{ $request->Destinationa }}</span><br>
                         <p style="margin-top: 8px;" class="alignleft" style="display: inline-block;width: 100%;">
                             <label for=""> {{__("profile.Destination")}} </label>
                         </p>
@@ -840,7 +840,7 @@ $request = $request2;
                 </tr>
                 <tr>
                     <td style="width: 100%;">
-                        <span style="    font-size: 20px;font-weight: bold;">{{ $request->F_Cruise }}</span><br>
+                        <span style="    font-size: 20px;font-weight: bold;">{{ $request->F_Cruisea }}</span><br>
                         <p style="margin-top: 8px;" class="alignleft" style="display: inline-block;width: 100%;">
                             <label for="">{{__("profile.Flight/Cruise #")}}  </label>
                         </p>

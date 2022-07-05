@@ -1,4 +1,9 @@
 @extends('admin.layouts.default')
+
+@section('pendingresult')
+    active
+@endsection
+
 @section('content')
 
 <link href="{{asset('/lib/datatables/jquery.dataTables.css')}}" rel="stylesheet">
@@ -103,7 +108,7 @@
                                 <td>
                                     {{ \Carbon\Carbon::parse($views->payment_date)->format('m-d-Y h:i A')}}
                                     </td>
-                                <td>{{ $views->name }}</td>
+                                <td>{{ $views->name }} {{ $views->middle_name }} {{ $views->last_name }}</td>
 
                                 <td>{{ $views->email }}</td>
 

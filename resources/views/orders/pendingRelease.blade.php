@@ -1,15 +1,20 @@
 @extends('admin.layouts.default')
+@section('pendingrelease')
+    active
+@endsection
+
 @section('content')
-<link href="{{asset('/lib/datatables/jquery.dataTables.css')}}" rel="stylesheet">
+    <link href="{{asset('/lib/datatables/jquery.dataTables.css')}}" rel="stylesheet">
 
     <style>
         .br-pagebody {
             margin-top: 83px;
         }
-/*
-        div#datatable1_paginate {
-            display: none;
-        } */
+
+        /*
+                div#datatable1_paginate {
+                    display: none;
+                } */
 
         table#datatable1 {
             width: 100%;
@@ -45,9 +50,11 @@
             <form action="">
 
                 <div class="form-group d-flex">
-                    <input type="text" value="{{isset($_GET['q']) ? $_GET['q'] : null }}" name="q" placeholder="Search pending release" class="form-control w-25"/>
+                    <input type="text" value="{{isset($_GET['q']) ? $_GET['q'] : null }}" name="q"
+                           placeholder="Search pending release" class="form-control w-25"/>
                     <input type="submit" class="btn btn-primary ml-1" value="Search"/>
-                    <a href="{{url(Request::url())}}"><input type="button" class="btn btn-danger ml-1" value="Clear"/></a>
+                    <a href="{{url(Request::url())}}"><input type="button" class="btn btn-danger ml-1"
+                                                             value="Clear"/></a>
                 </div>
             </form>
 
@@ -86,7 +93,7 @@
                                 <td>{{ $views->id+3000}}</td>
                                 <td>
                                     {{ \Carbon\Carbon::parse($views->date)->format('m-d-Y h:i A')}}</td>
-                                <td>{{ $views->name }}</td>
+                                <td>{{ $views->name }} {{ $views->middle_name }} {{ $views->last_name }}</td>
 
                                 <td>{{ $views->email }}</td>
 
@@ -102,18 +109,23 @@
 
                                 <td>
 
-                                    <i class="fa fa-edit" data-toggle="modal" data-target="#exampleModal{{$views->id}}" style="color: #9696d0;cursor: pointer" > </i>
+                                    <i class="fa fa-edit" data-toggle="modal" data-target="#exampleModal{{$views->id}}"
+                                       style="color: #9696d0;cursor: pointer"> </i>
 
 
-                                    <a href="{{url("$role/release/send/$views->id")}}">   <button
-                                        class="btn btn-primary">
-                                     <i class="fa fa-bell"></i>   Notify
-                                    </button></a>
+                                    <a href="{{url("$role/release/send/$views->id")}}">
+                                        <button
+                                            class="btn btn-primary">
+                                            <i class="fa fa-bell"></i> Notify
+                                        </button>
+                                    </a>
 
-                                    <a href="{{url("$role/release/send/notemail/$views->id")}}">   <button
+                                    <a href="{{url("$role/release/send/notemail/$views->id")}}">
+                                        <button
                                             class="btn btn-secondary">
-                                            <i class="fa fa-random"></i>   Release
-                                        </button></a>
+                                            <i class="fa fa-random"></i> Release
+                                        </button>
+                                    </a>
 
 
                                 </td>
@@ -124,8 +136,9 @@
                                     <div class="modal-dialog" role="document">
                                         <div class="modal-content" style="width: 30rem">
                                             <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalLabel">  Update Release date</h5>
-                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <h5 class="modal-title" id="exampleModalLabel"> Update Release date</h5>
+                                                <button type="button" class="close" data-dismiss="modal"
+                                                        aria-label="Close">
                                                     <span aria-hidden="true">&times;</span>
                                                 </button>
                                             </div>
@@ -136,27 +149,36 @@
 
                                                     <lable>Collection date</lable>
 
-                                                    <input type="datetime-local" name="created_at" class="form-control" value="{{str_replace(' ','T',$views->created_at)}}" required >
+                                                    <input type="datetime-local" name="created_at" class="form-control"
+                                                           value="{{str_replace(' ','T',$views->created_at)}}" required>
 
                                                     <lable>Issue date</lable>
-                                                    <input type="datetime-local" name="payment_date" class="form-control" value="{{str_replace(' ','T',$views->payment_date)}}" required >
-
+                                                    <input type="datetime-local" name="payment_date"
+                                                           class="form-control"
+                                                           value="{{str_replace(' ','T',$views->payment_date)}}"
+                                                           required>
 
 
                                                     <lable>Release date</lable>
-                                                    <input type="datetime-local" name="release_date" class="form-control" value="{{str_replace(' ','T',$views->date)}}" required >
-
+                                                    <input type="datetime-local" name="release_date"
+                                                           class="form-control"
+                                                           value="{{str_replace(' ','T',$views->date)}}" required>
 
 
                                                     <lable>Result</lable>
                                                     <select class="form-control" name="result" required>
-                                                        <option @if($views->display_status=='negative') selected @endif value="negative">Negative</option>
-                                                        <option @if($views->display_status=='positive') selected @endif value="positive">Positive</option>
+                                                        <option @if($views->display_status=='negative') selected
+                                                                @endif value="negative">Negative
+                                                        </option>
+                                                        <option @if($views->display_status=='positive') selected
+                                                                @endif value="positive">Positive
+                                                        </option>
                                                     </select>
 
                                             </div>
                                             <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                                                    Close
                                                 </button>
                                                 <button type="submit" class="btn btn-primary">Submit</button>
                                                 </form>
@@ -178,10 +200,9 @@
                 <div class="row">
                     <div class="col-lg-12">
 
-                        <p class="mt-2">  Showing      {{($customer->currentPage()-1)* $customer->perPage() + 1}} to
+                        <p class="mt-2"> Showing {{($customer->currentPage()-1)* $customer->perPage() + 1}} to
                             {{ ($customer->currentPage()-1)* $customer->perPage() + $customer->perPage() }} from
                             {{ $customer->total() }} entries</p>
-
 
 
                         <div class="float-right">{{$customer->links()}}</div>
@@ -217,15 +238,15 @@
             $('#datatable1').DataTable({
                 aaSorting: [],
                 dom: 'Bfrtip',
-                info:false,
-                searching:false,
+                info: false,
+                searching: false,
                 buttons: [
                     'copy',
                     'csv',
                     'excel',
                     'pdf',
                 ],
-                paging:false,
+                paging: false,
 
             });
         });

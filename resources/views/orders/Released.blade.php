@@ -1,4 +1,9 @@
 @extends('admin.layouts.default')
+@section('release')
+    active
+@endsection
+
+
 @section('content')
 
     {{-- <link rel="https://cdn.datatables.net/1.11.0/css/jquery.dataTables.min.css"> --}}
@@ -121,7 +126,9 @@
 
                             <tr>
                                 <td>{{ $views->id+3000 }}</td>
-                                <td>{{\Carbon\Carbon::parse( $views->date)->format('m-d-Y h:i A')}}</td><td>{{ $views->name }}</td>
+                                <td>{{\Carbon\Carbon::parse( $views->date)->format('m-d-Y h:i A')}}</td>
+
+                                <td>{{ $views->name }} {{ $views->middle_name }} {{ $views->last_name }}</td>
                                 <td>{{ $views->email }}</td>
                                 <td>${{ $views->payment_amount }}</td>
                                 <td>{{ $views->test_type }}</td>

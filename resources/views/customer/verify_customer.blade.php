@@ -1,4 +1,8 @@
 @extends('admin.layouts.default')
+@section('newcustomer1')
+    active
+@endsection
+
 @section('content')
     <!-- ########## START: LEFT PANEL ########## -->
 

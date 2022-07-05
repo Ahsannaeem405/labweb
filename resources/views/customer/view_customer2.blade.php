@@ -1,4 +1,7 @@
 @extends('admin.layouts.default')
+@section('customer')
+    active
+@endsection
 @section('content')
 
     {{-- <link rel="https://cdn.datatables.net/1.11.0/css/jquery.dataTables.min.css"> --}}
@@ -88,7 +91,7 @@
 
                             <tr class="hoverclor">
                                 <td class="cust" attrr="{{$views->id}}" rolee="{{$role}}" style="cursor: pointer">{{$views->id+18910 }}</td>
-                                <td class="cust" attrr="{{$views->id}}" rolee="{{$role}}" style="cursor: pointer">{{ $views->name }} {{ isset($views->show->surname) ?  $views->show->secondname.' '. $views->show->surname : null  }}</td>
+                                <td class="cust" attrr="{{$views->id}}" rolee="{{$role}}" style="cursor: pointer">{{ $views->name }} {{$views->middle_name}} {{$views->last_name}}</td>
 
                                 <td class="cust" attrr="{{$views->id}}" rolee="{{$role}}" style="cursor: pointer">{{ $views->email }}</td>
                                 <td class="cust" attrr="{{$views->id}}" rolee="{{$role}}" style="cursor: pointer">{{ $views->address }}</td>

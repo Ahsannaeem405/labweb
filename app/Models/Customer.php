@@ -12,6 +12,11 @@ class Customer extends Model
     {
         return $this->hasOne('App\Models\Customer_detail', 'customer_id');
     }
+    public function insurance()
+    {
+        return $this->hasOne('App\Models\Customer_detail', 'email','email')->where('primary_ins','!=',null)->orwhere('secondary_ins','!=',null);
+    }
+
 
     public function priceList()
     {

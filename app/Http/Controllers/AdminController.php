@@ -59,6 +59,14 @@ class AdminController extends Controller
 
     public function home()
     {
+//
+//        $data[0]=['rfid'=>122, 'test'=>566];
+//        $data[1]=['rfid'=>434, 'test'=>4343];
+//        $data=collect($data);
+//        $data2= $data->where('rfid','=',5122);
+//
+//
+//        dd($data2);
         $country = Country::all();
         $state = State::orderby('name')->where('country_id', 233)->get();
         return view('welcome', compact('country', 'state'));
@@ -67,26 +75,22 @@ class AdminController extends Controller
 
     public function emailVerify(Request $request)
     {
-        $email=$request->email;
+        $email = $request->email;
 
-        $api=Http::withHeaders([
-            'x-rapidapi-host'=>'email-checker.p.rapidapi.com',
-            'x-rapidapi-key'=>'f6ad6d7b2fmshf72f89b63545993p1bb592jsndf0bbe9f19a3',
-        ])->get('https://email-checker.p.rapidapi.com/verify/v1?email='.$email.'');
-     $response=json_decode($api->body());
-  if (isset($response->status))
-  {
-      if ($response->status=='valid')
-      {
-          return response()->json(true);
-      }
-      else{
-          return response()->json(false);
-      }
-  }
-  else{
-      return response()->json(false);
-  }
+        $api = Http::withHeaders([
+            'x-rapidapi-host' => 'email-checker.p.rapidapi.com',
+            'x-rapidapi-key' => 'f6ad6d7b2fmshf72f89b63545993p1bb592jsndf0bbe9f19a3',
+        ])->get('https://email-checker.p.rapidapi.com/verify/v1?email=' . $email . '');
+        $response = json_decode($api->body());
+        if (isset($response->status)) {
+            if ($response->status == 'valid') {
+                return response()->json(true);
+            } else {
+                return response()->json(false);
+            }
+        } else {
+            return response()->json(false);
+        }
 
     }
 
@@ -269,25 +273,51 @@ class AdminController extends Controller
     public function reporting(Request $request)
     {
 
-        $from =  $request->input('from');
-        $to =  $request->input('to');
+        $from = $request->input('from');
+        $to = $request->input('to');
 
 
-        if($from!="" && $to!=""){
+        if ($from != "" && $to != "") {
 
-            $customer = Customer::where(function ($query) use ($from,$to) {
-                $query->whereDate('date', '>=',$from)
-                    ->whereDate('date', '<=',$to);
+            $customer = Customer::with('insurance')->where(function ($query) use ($from, $to) {
+                $query->whereDate('date', '>=', $from)
+                    ->whereDate('date', '<=', $to);
             })
-                    ->where('step', 5)->where('display_status', '!=', 'Canceled')->orderBy('date', 'desc')
-                    ->get();
-                //$customer->appends(['q' => $search]);
-            }
-        else{
-            $customer =Customer::where('step', 5)->where('display_status', '!=', 'Canceled')->orderBy('date', 'desc')
+                ->where('step', 5)->where('display_status', '!=', 'Canceled')->orderBy('date', 'desc')
                 ->get();
+            //$customer->appends(['q' => $search]);
+        } else {
+            $customer = Customer::with('insurance')
+                ->where('step', 5)->where('display_status', '!=', 'Canceled')->orderBy('date', 'desc')->get();
         }
 
-      return view('reporting.index',compact('customer'));
+
+        return view('reporting.index', compact('customer'));
+    }
+
+
+    public function StateReporting(Request $request)
+    {
+
+        $from = $request->input('from');
+        $to = $request->input('to');
+
+
+        if ($from != "" && $to != "") {
+
+            $customer = Customer::with('insurance')->where(function ($query) use ($from, $to) {
+                $query->whereDate('created_at', '>=', $from)
+                    ->whereDate('created_at', '<=', $to);
+            })
+                ->where('step', 5)->where('display_status', '!=', 'Canceled')->orderBy('date', 'desc')
+                ->get();
+            //$customer->appends(['q' => $search]);
+        } else {
+            $customer = Customer::with('insurance')
+                ->where('step', 5)->where('display_status', '!=', 'Canceled')->orderBy('date', 'desc')->get();
+        }
+
+
+        return view('reporting.state', compact('customer'));
     }
 }

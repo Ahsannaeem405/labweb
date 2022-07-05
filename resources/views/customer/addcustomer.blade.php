@@ -1,4 +1,8 @@
 @extends('admin.layouts.default')
+@section('newcustomer2')
+    active
+@endsection
+
 @section('content')
     <!-- ########## START: LEFT PANEL ########## -->
 
@@ -51,7 +55,7 @@
                                 <div class="form-group">
                                     <label class="form-control-label">First Name: <span
                                             class="tx-danger">*</span></label>
-                                    <input class="form-control" type="text" required name="firstname" required
+                                    <input class="form-control" type="text" required name="firstname"
                                         placeholder="Enter First Name">
                                 </div>
                             </div><!-- col-4 -->

@@ -1,4 +1,8 @@
 @extends('admin.layouts.default')
+@section('customer')
+    active
+@endsection
+
 @section('content')
 
     @include('admin.layouts.sidebar')
@@ -41,7 +45,7 @@
                         </div>
                         <div class="col-xl-9 col-lg-7  col-6">
 
-                            <h6 style="text-transform: uppercase;">{{ $cus->name }}  {{isset($cus->show->surname) ?$cus->show->secondname." ".$cus->show->surname :null}}</h6>
+                            <h6 style="text-transform: uppercase;">{{ $cus->name }}  {{ $cus->middle_name }} {{ $cus->last_name }}</h6>
                             <span>#{{ $cus->id+18910 }}</span>
                             <p><span class="text-bold">{{ $cus->gender }}</span> Born on <span
                                     class="text-bold">{{\Carbon\Carbon::parse($cus->dob)->format('m-d-Y')  }}</span></p>
@@ -74,7 +78,7 @@
                         </div>
                         <div class="col-lg-2 col-md-4 col-12">
                             <p>
-                                <i class="fas fa-map-marker-alt "></i>  {{ isset($cus->show->surname) ? $cus->show->address.' '. $cus->show->address2.' '.$cus->show->town .' '.$cus->show->Province .' '.$cus->show->zip.' '.$cus->show->Country  : $cus->address.' '. $cus->address2.' '. $cus->town.' '. $cus->state.' '.  $cus->zip.' '.$cus->country}}
+                                <i class="fas fa-map-marker-alt "></i>  {{  $cus->address.' '. $cus->address2.' '. $cus->town.' '. $cus->state.' '.  $cus->zip.' '.$cus->country}}
                             </p>
                         </div>
                     </div>

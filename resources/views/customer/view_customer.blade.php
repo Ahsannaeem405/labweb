@@ -1,4 +1,8 @@
 @extends('admin.layouts.default')
+
+@section('newcustomer1')
+    active
+@endsection
 @section('content')
 
     {{-- <link rel="https://cdn.datatables.net/1.11.0/css/jquery.dataTables.min.css"> --}}

@@ -8,4 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 class Customer_detail extends Model
 {
     use HasFactory;
+
+    public function getPolicyHolderDob1Attribute($value)
+    {
+        return date("m-d-Y", strtotime($value));
+    }
+
+    public function getPolicyHolderDob2Attribute($value)
+    {
+        return date("m-d-Y", strtotime($value));
+    }
+
 }

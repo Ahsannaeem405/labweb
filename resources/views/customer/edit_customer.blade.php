@@ -38,6 +38,7 @@
                 <div class="form-layout form-layout-1">
                     @php $role=\Illuminate\Support\Facades\Auth::user()->role; @endphp
                     @if ($cus->added_by != null)
+
                         <form method="POST" action="{{ url('' . $role . '/customer/update') }}">
                             @csrf @if (session()->has('success'))
                                 <div class="alert alert-success">
@@ -51,7 +52,7 @@
                                 <div class="col-lg-6">
                                     <div class="form-group">
                                         <label class="form-control-label">First Name: <span class="tx-danger"></span></label>
-                                        <input class="form-control" value="{{$f_name[0]}}" type="text" required
+                                        <input class="form-control" value="{{$cus->name}}" type="text" required
                                             name="firstname" required placeholder="Enter Name">
                                     </div>
                                 </div><!-- col-4 -->
@@ -60,7 +61,7 @@
                                 <div class="col-lg-6">
                                     <div class="form-group">
                                         <label class="form-control-label">Middle Name: <span class="tx-danger"></span></label>
-                                        <input class="form-control" value="{{isset($f_name[1]) ? $f_name[1] : null}}" type="text"
+                                        <input class="form-control" value="{{$cus->middle_name}}" type="text"
                                                name="middle_name"  placeholder="Enter Last Name">
                                     </div>
                                 </div>
@@ -68,7 +69,7 @@
                                 <div class="col-lg-6">
                                     <div class="form-group">
                                         <label class="form-control-label">Last Name: <span class="tx-danger"></span></label>
-                                        <input class="form-control" value="{{isset($f_name[2]) ? $f_name[2] : null}}" type="text" required
+                                        <input class="form-control" value="{{$cus->last_name}}" type="text" required
                                             name="Last_name" required placeholder="Enter Last Name">
                                     </div>
                                 </div>
@@ -276,6 +277,7 @@
                 </form>
             @else
                 @if ($cus->show->type == 'adult')
+
                     <form method="POST" action="{{ url('' . $role . '/customer/update_adult') }}">
                         @csrf
                         @if (session()->has('success'))

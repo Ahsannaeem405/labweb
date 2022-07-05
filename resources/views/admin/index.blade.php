@@ -1,4 +1,7 @@
 @extends('admin.layouts.default')
+@section('dashboard')
+    active
+@endsection
 @section('content')
 
     @include('admin.layouts.sidebar')

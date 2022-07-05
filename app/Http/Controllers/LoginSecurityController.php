@@ -55,6 +55,7 @@ class LoginSecurityController extends Controller
             'google2fa_url' => $google2fa_url
         );
 
+
         return view('auth.2fa_settings')->with('data', $data);
     }
 

@@ -169,6 +169,7 @@ Route:: prefix('/admin')->middleware(['auth', 'admin','preventBackHistory','logo
 
     //reporting
     Route::get('reporting',[AdminController::class,'reporting']);
+    Route::get('state/reporting',[AdminController::class,'StateReporting']);
 
 });
 
@@ -276,6 +277,10 @@ return view('customer.pdf2',compact('order_detail','cus'));
     Route::get('/order/cancel/{id}',[CustomerController::class,'cancel_order']);
 
     Route::get('/order/approve/{id}/{cus}',[CustomerController::class,'order_approve']);
+
+    //reporting
+    Route::get('reporting',[AdminController::class,'reporting']);
+    Route::get('state/reporting',[AdminController::class,'StateReporting']);
 });
 
 

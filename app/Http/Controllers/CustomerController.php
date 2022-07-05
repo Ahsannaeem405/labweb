@@ -64,7 +64,9 @@ class CustomerController extends Controller
         $customer_det = Customer_detail::where('customer_id', $id)->first();
         $customer = Customer::find($id);
         $cus = new Customer();
-        $cus->name = $customer_det->name . ' ' . $customer_det->secondname . ' ' . $customer_det->surname;
+        $cus->name = $customer->name;
+        $cus->middle_name = $customer->middle_name;
+        $cus->last_name = $customer->last_name;
         $cus->email = $customer_det->email;
         $cus->dob = $customer->dob;
         $cus->phone = $customer_det->phone;
@@ -77,6 +79,14 @@ class CustomerController extends Controller
         $cus->order_date = Carbon::now();
         $cus->order_id = rand(0000, 9999);
         $cus->main_status = 'order';
+
+        $cus->address2 = $customer->address2;
+        $cus->town = $customer->town;
+        $cus->zip = $customer->zip;
+        $cus->state = $customer->state;
+        $cus->country = $customer->country;
+
+
         $cus->save();
 
 
@@ -101,28 +111,27 @@ class CustomerController extends Controller
     public function index(Request $request)
     {
 
-        $search =  $request->input('q');
-        $ind = intval( $request->input('q'));
+        $search = $request->input('q');
+        $ind = intval($request->input('q'));
 
-        if($search!=""){
-            $customer = Customer::where(function ($query) use ($search,$ind){
-                $query->where('name', 'like', '%'.$search.'%')
-                    ->orWhere('email', 'like', '%'.$search.'%')
-                    ->orWhere('address', 'like', '%'.$search.'%')
-                    ->orWhere('dob', 'like', '%'.$search.'%')
-                    ->orWhere('gender', 'like', '%'.$search.'%')
-                    ->orWhere('status', 'like', '%'.$search.'%')
-                    ->orWhere('id', 'like', '%'.$ind.'%');
+        if ($search != "") {
+            $customer = Customer::where(function ($query) use ($search, $ind) {
+                $query->where(\DB::raw("concat(name, ' ', middle_name, ' ', last_name)"), 'like', '%' . $search . '%')
+                    ->orWhere(\DB::raw("concat(name, ' ', last_name)"), 'like', '%' . $search . '%')
+                    ->orWhere('email', 'like', '%' . $search . '%')
+                    ->orWhere('address', 'like', '%' . $search . '%')
+                    ->orWhere('dob', 'like', '%' . $search . '%')
+                    ->orWhere('gender', 'like', '%' . $search . '%')
+                    ->orWhere('status', 'like', '%' . $search . '%')
+                    ->orWhere('id', 'like', '%' . $ind . '%');
             })
-              -> where('step', 1)->where('status', 'Unverified')
-                ->orderBy('id','desc')->paginate(50);
+                ->where('step', 1)->where('status', 'Unverified')
+                ->orderBy('id', 'desc')->paginate(50);
             //$customer->appends(['q' => $search]);
-        }
-        else{
-            $customer = Customer::where('step', 1)->where('status', 'Unverified')   ->orderBy('id','desc')
+        } else {
+            $customer = Customer::where('step', 1)->where('status', 'Unverified')->orderBy('id', 'desc')
                 ->paginate(50);
         }
-
 
 
 //        $customer = Customer::where('step', 1)->where('status', 'Unverified')->get();
@@ -151,9 +160,11 @@ class CustomerController extends Controller
     public function create(Request $request)
     {
 
-        $full_name = $request->firstname . " " . $request->middle_name . " " . $request->Last_name;
+        // $full_name = $request->firstname . " " . $request->middle_name . " " . $request->Last_name;
         $cus = new Customer();
-        $cus->name = $full_name;
+        $cus->name = $request->firstname;
+        $cus->middle_name = $request->middle_name;
+        $cus->last_name = $request->Last_name;
         $cus->email = $request->email;
         $cus->address = $request->address;
         $cus->phone = $request->phone;
@@ -212,8 +223,24 @@ class CustomerController extends Controller
 
             $customer = new Customer();
             $customer->name = $request->namea;
+            $customer->middle_name = $request->secondnamea;
+            $customer->last_name = $request->surnamea;
+
             $customer->email = $request->emaila;
+
+
             $customer->address = $request->addressa;
+            $customer->address2 = $request->address2a;
+            $customer->town = $request->towna;
+            $customer->zip = $request->zipa;
+            if ($request->Provincea2 == null) {
+                $customer->state = $request->Provincea;
+            } else {
+                $customer->state = $request->Provincea2;
+            }
+            $customer->country = $request->Countrya;
+
+
             $customer->phone = $request->phonea;
             $customer->dob = $request->datea;
             $customer->passport = $request->passporta;
@@ -300,7 +327,6 @@ class CustomerController extends Controller
 
             $fileName = $rand . '.' . 'pdf';
 
-
             $pdf->save($path . '/' . $fileName);
 
             $document = new Document();
@@ -317,8 +343,24 @@ class CustomerController extends Controller
 
             $customer = new Customer();
             $customer->name = $request->namea;
+            $customer->middle_name = $request->secondnamea;
+            $customer->last_name = $request->surnamea;
+
+
             $customer->email = $request->email;
+
+
             $customer->address = $request->address;
+            $customer->address2 = $request->address2;
+            $customer->town = $request->town;
+            $customer->zip = $request->zip;
+            if ($request->Provinced == null) {
+                $customer->state = $request->Province;
+            } else {
+                $customer->state = $request->Provinced;
+            }
+            $customer->country = $request->Country;
+
             $customer->phone = $request->phonea;
             $customer->dob = $request->datea;
             $customer->passport = $request->passporta;
@@ -487,8 +529,22 @@ class CustomerController extends Controller
 
                 $customer = new Customer();
                 $customer->name = $request->$name;
+
+                $customer->middle_name = $request->$secondname;
+
+                $customer->last_name = $request->$surname;
+
                 $customer->email = $request->$email;
+
+
                 $customer->address = $request->$address;
+                $customer->address2 = $request->$address2;
+                $customer->town = $request->$town;
+                $customer->zip = $request->$zip;
+                $customer->state = $request->$Province;
+                $customer->country = $request->$Country;
+
+
                 $customer->phone = $request->$phone;
                 $customer->dob = $request->$date;
                 $customer->passport = $request->$passport;
@@ -613,29 +669,29 @@ class CustomerController extends Controller
      * @param \App\Models\Customer $customer
      * @return \Illuminate\Http\Response
      */
-    public function view(Customer $customer,Request $request)
+    public function view(Customer $customer, Request $request)
     {
-        $search =  $request->input('q');
-        $ind = intval( $request->input('q'))-18910;
+        $search = $request->input('q');
+        $ind = intval($request->input('q')) - 18910;
 
-        if($search!=""){
-         ;
-            $customer = Customer::where(function ($query) use ($search,$ind){
-                $query->where('name', 'like', '%'.$search.'%')
-                    ->orWhere('email', 'like', '%'.$search.'%')
-                    ->orWhere('address', 'like', '%'.$search.'%')
-                    ->orWhere('dob', 'like', '%'.$search.'%')
-                    ->orWhere('passport', 'like', '%'.$search.'%')
-                    ->orWhere('gender', 'like', '%'.$search.'%')
-                    ->orWhere('status', 'like', '%'.$search.'%')
-                    ->orWhere('id', 'like', '%'.$ind.'%');
+        if ($search != "") {
+
+            $customer = Customer::where(function ($query) use ($search, $ind) {
+                $query->where(\DB::raw("concat(name, ' ', middle_name, ' ', last_name)"), 'like', '%' . $search . '%')
+                    ->orWhere(\DB::raw("concat(name, ' ', last_name)"), 'like', '%' . $search . '%')
+                    ->orWhere('email', 'like', '%' . $search . '%')
+                    ->orWhere('address', 'like', '%' . $search . '%')
+                    ->orWhere('dob', 'like', '%' . $search . '%')
+                    ->orWhere('passport', 'like', '%' . $search . '%')
+                    ->orWhere('gender', 'like', '%' . $search . '%')
+                    ->orWhere('status', 'like', '%' . $search . '%')
+                    ->orWhere('id', 'like', '%' . $ind . '%');
             })
                 ->where('status', 'Verified')->wherein('duplicate', [0, 2])->where('main_status', 'user')
-                ->orderBy('id','desc')->paginate(50);
+                ->orderBy('id', 'desc')->paginate(50);
             //$customer->appends(['q' => $search]);
-        }
-        else{
-            $customer = Customer::where('status', 'Verified')->wherein('duplicate', [0, 2])->where('main_status', 'user')      ->orderBy('id','desc')
+        } else {
+            $customer = Customer::where('status', 'Verified')->wherein('duplicate', [0, 2])->where('main_status', 'user')->orderBy('id', 'desc')
                 ->paginate(50);
         }
 
@@ -648,11 +704,14 @@ class CustomerController extends Controller
 
 
         $cus_detail = Customer_detail::find($request->id);
+        $this->updateAllData($cus_detail->customer_id, $request);
 
 
         $customer = Customer::find($cus_detail->customer_id);
 
         $customer->name = $request->name;
+        $customer->middle_name = $request->secondname;
+        $customer->last_name = $request->surname;
         $customer->email = $request->email;
         $customer->address = $request->address;
         $customer->phone = $request->phone;
@@ -727,11 +786,13 @@ class CustomerController extends Controller
     {
 
         $cus_detail = Customer_detail::find($request->id);
-
+        $this->updateAllData($cus_detail->customer_id, $request);$this->updateAllData($cus_detail->customer_id, $request);
 
         $customer = Customer::find($cus_detail->customer_id);
 
         $customer->name = $request->name;
+        $customer->middle_name = $request->secondname;
+        $customer->last_name = $request->surname;
         $customer->email = $request->email;
         $customer->address = $request->address;
         $customer->phone = $request->phone;
@@ -808,6 +869,17 @@ class CustomerController extends Controller
     }
 
 
+    public function updateAllData($id, $request)
+    {
+        $customer = Customer::find($id);
+
+        $allcus = Customer::where('email', $customer->email)->update([
+            'name' => $request->name,
+            'middle_name' => $request->secondname,
+            'last_name' => $request->surname,
+        ]);
+    }
+
     /**
      * Show the form for editing the specified resource.
      *
@@ -818,13 +890,14 @@ class CustomerController extends Controller
     {
 
         $cus = Customer::find($id);
+
         $Country = Country::all();
-        $f_name = explode(" ", $cus->name);
+        //$f_name = explode(" ", $cus->name);
 
         $state = State::orderby('name')->where('country_id', 233)->get();
 
 
-        return view('customer.edit_customer', compact('f_name', 'cus', 'Country', 'state'));
+        return view('customer.edit_customer', compact('cus', 'Country', 'state'));
 
 
         // dd($id);
@@ -871,6 +944,7 @@ class CustomerController extends Controller
     public function create_order($id)
     {
         $cus = Customer::find($id);
+
         $order = Customer::where('email', $cus->email)->where('status', 'Verified')->with('priceList')->get();
         $rand = $cus->uniqueid;
         $document = Document::where('email', $cus->email)->get();
@@ -890,8 +964,10 @@ class CustomerController extends Controller
         $full_name = $request->firstname . " " . $request->middle_name . " " . $request->Last_name;
 
         $cus = Customer::find($request->id);
-
-        $cus->name = $full_name;
+        $this->updateAllData($cus->id, $request);
+        $cus->name = $request->firstname;
+        $cus->middle_name = $customer->middle_name;
+        $cus->last_name = $customer->last_name;
         $cus->email = $request->email;
         $cus->address = $request->address;
         $cus->phone = $request->phone;
@@ -963,9 +1039,13 @@ class CustomerController extends Controller
             for ($i = 0; $i < count($request->choice); $i++) {
 
                 $cus = new Customer();
-                $cus->name = $customer->name . ' ' . $mid . ' ' . $last;
+
+                $cus->name = $customer->name;
+                $cus->middle_name = $customer->middle_name;
+                $cus->last_name = $customer->last_name;
+
                 $cus->email = $request->email;
-                $cus->address = $address;
+                $cus->address = $customer->address;
                 $cus->phone = $request->phone;
                 $cus->dob = $customer->dob;
                 $cus->passport = $customer->passport;
@@ -977,6 +1057,14 @@ class CustomerController extends Controller
                 $cus->order_date = Carbon::now();
                 $cus->order_id = rand(0000, 9999);
                 $cus->main_status = 'order';
+
+                $cus->address2 = $customer->address2;
+                $cus->town = $customer->town;
+                $cus->zip = $customer->zip;
+                $cus->state = $customer->state;
+                $cus->country = $customer->country;
+
+
                 $cus->save();
             }
             return redirect('' . $role . '/create/order/customer/' . $customer->id . '')->with('success', 'Order created successfully');

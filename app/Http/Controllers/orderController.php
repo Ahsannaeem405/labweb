@@ -40,7 +40,8 @@ class orderController extends Controller
         if($search!=""){
 
             $customer = Customer::where(function ($query) use ($search,$ind){
-                $query->where('name', 'like', '%'.$search.'%')
+                $query->where(\DB::raw("concat(name, ' ', middle_name, ' ', last_name)"), 'like', '%' . $search . '%')
+                    ->orWhere(\DB::raw("concat(name, ' ', last_name)"), 'like', '%' . $search . '%')
                     ->orWhere('email', 'like', '%'.$search.'%')
                     ->orWhere('id', 'like', '%'.$ind.'%')
                     ->orWhere('order_date', 'like', '%'.$search.'%');
@@ -95,22 +96,29 @@ class orderController extends Controller
 
     public function order(Request $request, $id)
     {
+
         $customer = Customer::find($id);
 
         if (isset($customer->show->surname)) {
+
             $last = $customer->show->surname;
             $mid = $customer->show->secondname;
             $address = $customer->show->address . ' ' . $customer->show->address2 . ' ' . $customer->show->town . ' ' . $customer->show->Province . ' ' . $customer->show->zip . ' ' . $customer->show->Country;
         } else {
+
             $last = ' ';
             $mid = ' ';
             $address = $customer->address . ' ' . $customer->address2 . ' ' . $customer->town . ' ' . $customer->state . ' ' . $customer->zip . ' ' . $customer->country;
 
         }
         $cus = new Customer();
-        $cus->name = $customer->name . ' ' . $mid . ' ' . $last;
+        $cus->name = $customer->name;
+        $cus->middle_name = $customer->middle_name;
+        $cus->last_name = $customer->last_name;
         $cus->email = $customer->email;
-        $cus->address = $address;
+
+        $cus->address = $customer->address;
+
         $cus->phone = $customer->phone;
         $cus->dob = $customer->dob;
         $cus->passport = $customer->passport;
@@ -121,8 +129,18 @@ class orderController extends Controller
         $cus->added_by = $customer->added_by;
         $cus->order_date = Carbon::now();
         $cus->order_id = rand(0000, 9999);
+
+        //$cus->address1 = isset($customer->show->address) ? $customer->show->address : $customer->address;
+        $cus->address2 =  $customer->address2;
+        $cus->town =  $customer->town;
+        $cus->zip =  $customer->zip;
+        $cus->state =  $customer->state;
+        $cus->country =  $customer->country;
+
         $cus->main_status = 'order';
         $cus->save();
+
+
         return back()->with('success', 'Order created successfully');
     }
 
@@ -136,7 +154,8 @@ class orderController extends Controller
         if($search!=""){
             ;
             $customer = Customer::where(function ($query) use ($search,$ind){
-                $query->where('name', 'like', '%'.$search.'%')
+                $query->where(\DB::raw("concat(name, ' ', middle_name, ' ', last_name)"), 'like', '%' . $search . '%')
+                    ->orWhere(\DB::raw("concat(name, ' ', last_name)"), 'like', '%' . $search . '%')
                     ->orWhere('email', 'like', '%'.$search.'%')
                     ->orWhere('test_type', 'like', '%'.$search.'%')
                     ->orWhere('id', 'like', '%'.$ind.'%')
@@ -179,7 +198,8 @@ class orderController extends Controller
         if($search!=""){
             ;
             $customer = Customer::where(function ($query) use ($search,$ind){
-                $query->where('name', 'like', '%'.$search.'%')
+                $query->where(\DB::raw("concat(name, ' ', middle_name, ' ', last_name)"), 'like', '%' . $search . '%')
+                    ->orWhere(\DB::raw("concat(name, ' ', last_name)"), 'like', '%' . $search . '%')
                     ->orWhere('email', 'like', '%'.$search.'%')
                     ->orWhere('test_type', 'like', '%'.$search.'%')
                     ->orWhere('id', 'like', '%'.$ind.'%')
@@ -220,7 +240,8 @@ class orderController extends Controller
         if($search!=""){
             ;
             $customer = Customer::where(function ($query) use ($search,$ind){
-                $query->where('name', 'like', '%'.$search.'%')
+                $query->where(\DB::raw("concat(name, ' ', middle_name, ' ', last_name)"), 'like', '%' . $search . '%')
+                    ->orWhere(\DB::raw("concat(name, ' ', last_name)"), 'like', '%' . $search . '%')
                     ->orWhere('email', 'like', '%'.$search.'%')
                     ->orWhere('test_type', 'like', '%'.$search.'%')
                     ->orWhere('id', 'like', '%'.$ind.'%')
@@ -338,9 +359,10 @@ class orderController extends Controller
         $ind = intval( $request->input('q'))-3000;
 
         if($search!=""){
-            ;
+
             $customer = Customer::where(function ($query) use ($search,$ind){
-                $query->where('name', 'like', '%'.$search.'%')
+                $query->where(\DB::raw("concat(name, ' ', middle_name, ' ', last_name)"), 'like', '%' . $search . '%')
+                    ->orWhere(\DB::raw("concat(name, ' ', last_name)"), 'like', '%' . $search . '%')
                     ->orWhere('email', 'like', '%'.$search.'%')
                     ->orWhere('test_type', 'like', '%'.$search.'%')
                     ->orWhere('id', 'like', '%'.$ind.'%')

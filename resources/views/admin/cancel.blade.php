@@ -1,4 +1,8 @@
 @extends('admin.layouts.default')
+@section('cancelorder')
+    active
+@endsection
+
 @section('content')
 
     <link rel="https://cdn.datatables.net/1.11.0/css/jquery.dataTables.min.css">
@@ -89,7 +93,7 @@
                                 <td>
                                     {{ \Carbon\Carbon::parse($views->order_date)->format('m-d-Y h:i A')}}
                                     </td>
-                                <td>{{ $views->name }}</td>
+                                <td>{{ $views->name }} {{ $views->middle_name }} {{ $views->last_name }}</td>
 
                                 <td>{{ $views->email }}</td>
 

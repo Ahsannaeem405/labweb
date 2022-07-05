@@ -65,7 +65,7 @@
         </div>
         <div class="col-lg-6 col-md-6 col-12 mt-2 ">
             <h4>Results Verification Page</h4>
-            <h4 class="mt-5">Order #{{$report->order_id}}</h4>
+            <h4 class="mt-5">Order #{{$report->id +3000}}</h4>
             <p><i class="far fa-building"></i>  PORTOFINO IV CENTER 901-A SW 87 AVE  MIAMI, FL 33174 &nbsp;@if($report->step==5)  <i class="fas fa-check-circle"></i> Released @endif </p>
         </div>
         <div class="col-lg-6 col-md-6 col-12 text-center logo2 mt-2">

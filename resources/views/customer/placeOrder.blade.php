@@ -1,4 +1,8 @@
 @extends('admin.layouts.default')
+@section('customer')
+    active
+@endsection
+
 @section('content')
 
     @include('admin.layouts.sidebar')
